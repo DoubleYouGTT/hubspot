@@ -1,6 +1,5 @@
 #' Extract a table of associations from a deals list
 #'
-#' @inheritParams get_deal_properties
 #' @param deals A deals list object, typically produced by running `get_deals`
 #'
 #' @return A tibble with associated entities
@@ -8,8 +7,7 @@
 #'
 #' @examples
 #' assoc <- deal_associations()
-deal_associations <- function(apikey = "demo",
-                              deals = get_deals(apikey,
+deal_associations <- function(deals = get_deals(
                                 max_iter = 10,
                                 max_properties = 1,
                                 associations = "true"

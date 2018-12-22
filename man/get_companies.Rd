@@ -26,7 +26,7 @@ List with company data
 Get a list of all companies, including a set of properties
 }
 \examples{
-get_companies(property_history = "false", max_iter = 1, max_properties = 10)
+companies <- get_companies(property_history = "false", max_iter = 1, max_properties = 10)
 }
 \seealso{
 Other getters: \code{\link{get_company_properties}},

@@ -16,7 +16,7 @@ Character vector of properties
 Retrieve available properties for companies
 }
 \examples{
-get_company_properties()
+properties <- get_company_properties()
 }
 \seealso{
 Other getters: \code{\link{get_companies}},

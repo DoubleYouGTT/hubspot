@@ -16,7 +16,7 @@ Character vector of properties
 Retrieve available properties for deals
 }
 \examples{
-get_deal_properties()
+properties <- get_deal_properties()
 }
 \seealso{
 Other getters: \code{\link{get_companies}},

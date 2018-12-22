@@ -28,7 +28,7 @@ List with deals data
 Get a list of all deals, including a set of properties
 }
 \examples{
-get_deals(property_history = "false", max_iter = 1, max_properties = 10)
+deals <- get_deals(property_history = "false", max_iter = 1, max_properties = 10)
 }
 \seealso{
 Other getters: \code{\link{get_companies}},
