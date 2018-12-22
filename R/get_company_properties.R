@@ -6,7 +6,7 @@
 #' @export
 #' @family getters
 #' @examples
-#' get_company_properties()
+#' properties = get_company_properties()
 get_company_properties <- function(apikey = "demo") {
   base_url <- "https://api.hubapi.com"
   properties_url <- httr::modify_url(base_url,

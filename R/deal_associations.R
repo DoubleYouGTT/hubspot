@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-#' deal_associations()
+#' assoc = deal_associations()
 deal_associations <- function(apikey = "demo",
                               deals = get_deals(apikey,
                                 max_iter = 10,
