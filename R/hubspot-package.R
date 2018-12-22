@@ -1,6 +1,7 @@
 #' @importFrom utils head
 #' @import purrr
 #' @import dplyr
+#' @import tidyr
 #' @keywords internal
 "_PACKAGE"
 
