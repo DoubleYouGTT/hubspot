@@ -10,7 +10,7 @@
 #' @export
 #' @family getters
 #' @examples
-#' companies = get_companies(property_history = "false", max_iter = 1, max_properties = 10)
+#' companies <- get_companies(property_history = "false", max_iter = 1, max_properties = 10)
 get_companies <- function(apikey = "demo",
                           properties = get_company_properties(apikey),
                           property_history = "true",
