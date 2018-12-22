@@ -1,3 +1,3 @@
-# hubspot 0.0.0.9000
+# hubspot 0.0.1
 
-* Added a `NEWS.md` file to track changes to the package.
+* Added getter functions for retrieving deals and companies
