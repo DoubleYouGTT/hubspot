@@ -16,5 +16,6 @@ deal_stages_history <- function(deals = get_deals(
     map(c("properties", "dealstage", "versions")) %>%
     flatten() %>%
     map(head, 4) %>%
-    map_df(as_data_frame, .id = "dealId")
+    map_df(as_data_frame, .id = "dealId") %>%
+    epoch_converter()
 }

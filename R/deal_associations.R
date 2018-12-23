@@ -25,5 +25,6 @@ deal_associations <- function(deals = get_deals(
       n() / 3
     )) %>%
     unnest(Ids) %>%
-    unnest(Ids)
+    unnest(Ids) %>%
+    epoch_converter()
 }
