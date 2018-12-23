@@ -17,5 +17,5 @@ A tbl containing all stages a deal has gone through
 Retrieve the version history of deal stages
 }
 \examples{
-hist = deal_stages_history()
+hist <- deal_stages_history()
 }
