@@ -16,5 +16,5 @@ A tibble with associated entities
 Extract a table of deal IDs and simple property values
 }
 \examples{
-deals = deal_properties()
+deals <- deal_properties()
 }
