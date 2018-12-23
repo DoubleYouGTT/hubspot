@@ -6,13 +6,15 @@
 #' @export
 #'
 #' @examples
-#' hist = deal_stages_history()
-deal_stages_history = function(deals = get_deals(properties = "dealstage",
-                                                 property_history = "true",
-                                                 associations = "false")){
+#' hist <- deal_stages_history()
+deal_stages_history <- function(deals = get_deals(
+                                  properties = "dealstage",
+                                  property_history = "true",
+                                  associations = "false"
+                                )) {
   deals %>%
-    map(c("properties","dealstage","versions")) %>%
+    map(c("properties", "dealstage", "versions")) %>%
     flatten() %>%
     map(head, 4) %>%
-    map_df(as_data_frame, .id="dealId")
+    map_df(as_data_frame, .id = "dealId")
 }

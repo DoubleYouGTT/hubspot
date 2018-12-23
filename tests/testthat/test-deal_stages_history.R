@@ -5,4 +5,3 @@ test_that("deal_stages_history works", {
   expect_is(res, "tbl_df")
   expect_equal(ncol(res), 5)
 })
-
