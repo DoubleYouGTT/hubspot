@@ -7,17 +7,17 @@
 #'
 #' @examples
 #' hist <- deal_properties_history()
-deal_properties_history = function(deals = get_deals(
+deal_properties_history <- function(deals = get_deals(
                                       property_history = "true",
                                       associations = "false",
                                       max_iter = 1
-)){
+                                    )) {
   deals %>%
     map("properties") %>%
     map(flatten) %>%
     map("versions") %>%
     flatten() %>%
-    modify_depth(2, ~ifelse(length(.)==0,list(NA_integer_),.)) %>%
+    modify_depth(2, ~ ifelse(length(.) == 0, list(NA_integer_), .)) %>%
     map_df(as_data_frame, .id = "dealId") %>%
     epoch_converter()
 }
