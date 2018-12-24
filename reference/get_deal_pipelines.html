@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve available properties for deals — get_deal_properties • hubspot</title>
+<title>Retrieve available pipelines for deals — get_deal_pipelines • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -49,7 +49,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Retrieve available properties for deals</a>
+      <a class="navbar-brand" href="../index.html">Retrieve available pipelines for deals</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -83,18 +83,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve available properties for deals</h1>
+    <h1>Retrieve available pipelines for deals</h1>
     
-    <div class="hidden name"><code>get_deal_properties.Rd</code></div>
+    <div class="hidden name"><code>get_deal_pipelines.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve available properties for deals</p>
+    <p>Retrieve available pipelines for deals</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_deal_properties</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='st'>"demo"</span>)</pre>
+    <pre class="usage"><span class='fu'>get_deal_pipelines</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='st'>"demo"</span>,
+  <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='st'>"EXCLUDE_DELETED"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -103,21 +104,26 @@
       <th>apikey</th>
       <td><p>API key to work with Hubspot</p></td>
     </tr>
+    <tr>
+      <th>include_inactive</th>
+      <td><p>Should deleted pipelines be returned</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Character vector of properties</p>
+    <p>List with deal pipeline data</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other getters: <code><a href='get_companies.html'>get_companies</a></code>,
   <code><a href='get_company_properties.html'>get_company_properties</a></code>,
-  <code><a href='get_deal_pipelines.html'>get_deal_pipelines</a></code>, <code><a href='get_deals.html'>get_deals</a></code></p></div>
+  <code><a href='get_deal_properties.html'>get_deal_properties</a></code>,
+  <code><a href='get_deals.html'>get_deals</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>properties</span> <span class='kw'>&lt;-</span> <span class='fu'>get_deal_properties</span>()</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>pipelines</span> <span class='kw'>&lt;-</span> <span class='fu'>get_deal_pipelines</span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
