@@ -21,6 +21,6 @@ properties <- get_deal_properties()
 \seealso{
 Other getters: \code{\link{get_companies}},
   \code{\link{get_company_properties}},
-  \code{\link{get_deals}}
+  \code{\link{get_deal_pipelines}}, \code{\link{get_deals}}
 }
 \concept{getters}

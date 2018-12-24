@@ -33,6 +33,7 @@ deals <- get_deals(property_history = "false", max_iter = 1, max_properties = 10
 \seealso{
 Other getters: \code{\link{get_companies}},
   \code{\link{get_company_properties}},
+  \code{\link{get_deal_pipelines}},
   \code{\link{get_deal_properties}}
 }
 \concept{getters}
