@@ -13,5 +13,6 @@ deal_pipelines <- function(pipelines = get_deal_pipelines()) {
     flatten() %>%
     map(compact) %>%
     map_df(as_data_frame) %>%
-    select(-stages)
+    select(-stages) %>%
+    distinct()
 }
