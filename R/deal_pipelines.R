@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' deal_pipes <- deal_pipelines()
-deal_pipelines <- function(pipelines = get_deal_pipelines()){
+deal_pipelines <- function(pipelines = get_deal_pipelines()) {
   stages <- NULL
   pipelines %>%
     flatten() %>%
