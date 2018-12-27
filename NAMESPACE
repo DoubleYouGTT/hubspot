@@ -3,6 +3,8 @@
 export("%>%")
 export(company_properties)
 export(deal_associations)
+export(deal_pipeline_stages)
+export(deal_pipelines)
 export(deal_properties)
 export(deal_properties_history)
 export(deal_stages_history)
