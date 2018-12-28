@@ -22,7 +22,8 @@ deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
       as.logical(metadata),
       as.numeric(metadata)
     )) %>%
-    select(-metadata) ->
+    select(-metadata) %>%
+    epoch_converter() ->
   pipeline_stages
 
   pipelines %>%

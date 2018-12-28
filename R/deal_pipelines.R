@@ -14,5 +14,6 @@ deal_pipelines <- function(pipelines = get_deal_pipelines()) {
     map(compact) %>%
     map_df(as_data_frame) %>%
     select(-stages) %>%
-    distinct()
+    distinct() %>%
+    epoch_converter()
 }
