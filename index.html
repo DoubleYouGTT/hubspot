@@ -78,6 +78,52 @@
 <a class="sourceLine" id="cb2-2" data-line-number="2">deal_props =<span class="st"> </span><span class="kw"><a href="reference/get_deal_properties.html">get_deal_properties</a></span>(<span class="st">"demo"</span>)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">deals =<span class="st"> </span><span class="kw"><a href="reference/get_deals.html">get_deals</a></span>(<span class="st">"demo"</span>, <span class="dt">properties =</span> deal_props, <span class="dt">max_iter =</span> <span class="dv">1</span>)</a></code></pre></div>
 </div>
+<div id="developer-notes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#developer-notes" class="anchor"></a>Developer notes</h2>
+<div id="welcome-contributions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#welcome-contributions" class="anchor"></a>Welcome contributions</h3>
+<p>We welcome changes and contributions from new to R folks to experts. We’ll happilly mentor you through the process and you can join our <a href="https://join.slack.com/t/lockedata/shared_invite/enQtMjkwNjY3ODkwMzg2LTI1OGU1NTM3ZGIyZGFiNTdlODI3MzU2N2ZlNDczMjM4M2U2OWVmNDMzZTQ1ZGNlZDQ3MGM2MGVjMjI2MWIyMjI">Slack channel</a> to interact with us.</p>
+<p>In terms of the sorts of contributions that you can make, we love to see things like:</p>
+<ul>
+<li>Raising Issues for suggestions and bugs</li>
+<li>Helping Issue raisers produce <a href="https://www.jessemaegan.com/post/so-you-ve-been-asked-to-make-a-reprex/">minimum working examples</a> or improve their descriptions of problems / new features</li>
+<li>Writing or enhancing documentation like this README, the function documentation, or the vignettes</li>
+<li>Improving tests by extending existing tests or writing new ones</li>
+<li>Improving existing code to be more maintainable or faster</li>
+<li>Fixing bugs</li>
+<li>Adding new functionality or extending existing functions</li>
+</ul>
+</div>
+<div id="naming-conventions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#naming-conventions" class="anchor"></a>Naming conventions</h3>
+<ul>
+<li>
+<code>get_*()</code> returns a raw response from an API endpoint</li>
+<li>
+<code>entity_aspects()</code> returns a cleaned up table of the entity and some specific set of information from the raw response</li>
+<li>
+<code>utils-*.R</code> files are used for any toolkit functions</li>
+<li>
+<a href="//style.tidyverse.org/functions.html#naming">Tidyverse naming conventions</a> are generally adhered to</li>
+</ul>
+</div>
+<div id="submission-checklist" class="section level3">
+<h3 class="hasAnchor">
+<a href="#submission-checklist" class="anchor"></a>Submission checklist</h3>
+<ul>
+<li>When writing a view function, use a default <code>get_</code> that is as minimal as possible to enable a reasonable return</li>
+<li>Run <code><a href="https://www.rdocumentation.org/packages/devtools/topics/document">devtools::document()</a></code> to ensure all documentation is updated</li>
+<li>Write tests to verify your work</li>
+<li>If you add functionality, do substantial refactoring, extend documentation, or improve the test base, add your info to the <code>DESCRIPTION</code> file</li>
+<li>Add a succinct description of the change to the <code>NEWS.md</code> file</li>
+<li>There is a lintr commit hooks that tidy up R function code, make sure any amendments are committed too</li>
+<li>When making a Pull Request, reference any issue you’re code fixes with #IssueNo in the body of the PR</li>
+</ul>
+</div>
+</div>
 </div>
   </div>
 
