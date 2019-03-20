@@ -21,9 +21,8 @@ deal_associations <- function(deals = get_deals(
     unnest(.id = "dealId") %>%
     mutate(dealId = as.integer(dealId)) %>%
     mutate(type = rep(
-      c("contacts", "companies", "deals"),
-      n() / 3
-    )) %>%
+      c("contacts", "companies", "deals", "tickets"), n()/4)
+    ) %>%
     unnest(Ids) %>%
     unnest(Ids) %>%
     epoch_converter()
