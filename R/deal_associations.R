@@ -17,7 +17,7 @@ deal_associations <- function(deals = get_deals(
 
   deals %>%
     map("associations") %>%
-    data_frame(Ids = .) %>%
+    tibble(Ids = .) %>%
     unnest(.id = "dealId") %>%
     mutate(dealId = as.integer(dealId)) %>%
     mutate(type = rep(

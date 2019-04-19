@@ -12,10 +12,10 @@ deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
   pipelines %>%
     flatten() %>%
     map(compact) %>%
-    map_df(as_data_frame) %>%
+    map_df(as_tibble) %>%
     select(pipelineId, stages) %>%
     mutate(stages = map(stages, compact)) %>%
-    mutate(stages = map(stages, as_data_frame)) %>%
+    mutate(stages = map(stages, as_tibble)) %>%
     tidyr::unnest() %>%
     filter(row_number() %% 2 == 0) %>%
     mutate(probability = ifelse(is.na(as.numeric(metadata)),

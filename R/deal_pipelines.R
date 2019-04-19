@@ -12,7 +12,7 @@ deal_pipelines <- function(pipelines = get_deal_pipelines()) {
   pipelines %>%
     flatten() %>%
     map(compact) %>%
-    map_df(as_data_frame) %>%
+    map_df(as_tibble) %>%
     select(-stages) %>%
     distinct() %>%
     epoch_converter()

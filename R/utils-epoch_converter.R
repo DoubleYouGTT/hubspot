@@ -4,7 +4,7 @@
 #' @return A tbl
 #'
 epoch_converter <- function(dt) {
-  as_data_frame(
+  as_tibble(
     lapply(dt, function(x) {
       if (is.factor(x) | is.character(x) | is.list(x)) {
         x

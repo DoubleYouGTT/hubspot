@@ -18,6 +18,6 @@ deal_properties_history <- function(deals = get_deals(
     map("versions") %>%
     flatten() %>%
     modify_depth(2, ~ ifelse(length(.) == 0, list(NA_integer_), .)) %>%
-    map_df(as_data_frame, .id = "dealId") %>%
+    map_df(as_tibble, .id = "dealId") %>%
     epoch_converter()
 }
