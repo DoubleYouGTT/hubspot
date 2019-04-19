@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-#' crm_owners<-owners()
-owners<-function(owners=get_owners()){
+#' crm_owners <- owners()
+owners <- function(owners = get_owners()) {
   owners %>%
     map(compact) %>%
     map_df(as_tibble) %>%

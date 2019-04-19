@@ -7,7 +7,7 @@
 #' @family getters
 #' @examples
 #' owners <- get_owners()
-get_owners <- function(apikey="demo"){
+get_owners <- function(apikey = "demo") {
   base_url <- "https://api.hubapi.com"
   users_url <- httr::modify_url(base_url, path = "/owners/v2/owners")
   res <- httr::GET(users_url, query = list(hapikey = apikey))
