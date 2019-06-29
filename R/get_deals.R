@@ -48,5 +48,5 @@ get_deals <- function(apikey = "demo",
   }
 
   deals <- flatten(deals)
-  deals <- set_names(deals, map_int(deals, "dealId"))
+  deals <- set_names(deals, map_dbl(deals, "dealId"))
 }

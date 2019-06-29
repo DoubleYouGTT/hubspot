@@ -49,5 +49,5 @@ get_companies <- function(apikey = "demo",
   }
 
   companies <- flatten(companies)
-  companies <- set_names(companies, map_int(companies, "companyId"))
+  companies <- set_names(companies, map_dbl(companies, "companyId"))
 }
