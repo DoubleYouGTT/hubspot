@@ -2,14 +2,10 @@ Package: hubspot
 Title: Work with Hubspot data
 Version: 0.0.1
 Authors@R: 
-    c(person(given = "Steph",
-           family = "Locke",
-           role = c("aut", "cre"),
+    c(person(given = "Steph", family = "Locke", role = c("aut", "cre"),
            email = "steph@itsalocke.com"),
-           person(given = "Jessie",
-           family = "Geahlen",
-           role = c("aut"),
-           email = "jgeahlen@gmail.com")
+           person(given = "Jessie", family = "Geahlen", role = c("ctb"),
+           email = "jgeahlen@gmail.com"))
 Description: Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
     for more information), retrieve customer relationship data for reporting and analysis.
 License: MIT + file LICENSE
