@@ -16,5 +16,5 @@ data.frame of owners
 Extract a table of CRM owners
 }
 \examples{
-crm_owners<-owners()
+crm_owners <- owners()
 }

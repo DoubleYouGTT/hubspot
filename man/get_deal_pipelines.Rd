@@ -24,6 +24,8 @@ pipelines <- get_deal_pipelines()
 \seealso{
 Other getters: \code{\link{get_companies}},
   \code{\link{get_company_properties}},
+  \code{\link{get_contact_properties}},
+  \code{\link{get_contacts}},
   \code{\link{get_deal_properties}},
   \code{\link{get_deals}}, \code{\link{get_owners}}
 }
