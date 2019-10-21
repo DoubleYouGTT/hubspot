@@ -17,7 +17,8 @@ Slack](https://img.shields.io/badge/Slack-discuss-blue.svg?logo=slack&longCache=
 <!-- badges: end -->
 
 The goal of `hubspot` is to enable access to [Hubspot
-CRM](//hubspot.com) data.
+CRM](//hubspot.com) data. It uses the [Hubspot
+API](developers.hubspot.com/docs/overview).
 
 ## Installation
 

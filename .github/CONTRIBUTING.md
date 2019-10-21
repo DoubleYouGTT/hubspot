@@ -16,6 +16,8 @@ Please [raise it in the issue tracker](issues) with some succinct information on
 ### Package development
 We really want people to contribute to the package. A great way to start doing this is to look at the help wanted issues and/or contribute an example.
 
+The package interacts with the Hubspot API so you might need to refer to [its docs](developers.hubspot.com/docs/overview).
+
 #### Naming conventions
 - `get_*()` returns a raw response from an API endpoint
 - `entity_aspects()` returns a cleaned up table of the entity and some specific set of information from the raw response
