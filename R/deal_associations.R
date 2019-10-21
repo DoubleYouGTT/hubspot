@@ -18,12 +18,13 @@ deal_associations <- function(deals = get_deals(
   deals %>%
     map("associations") %>%
     tibble(Ids = .) %>%
-    unnest(.id = "dealId") %>%
+    mutate(dealId = names(.[["Ids"]])) %>%
+    unnest(cols = c(Ids)) %>%
     mutate(dealId = as.integer(dealId)) %>%
     mutate(type = rep(
       c("contacts", "companies", "deals", "tickets"), n() / 4
     )) %>%
-    unnest(Ids) %>%
-    unnest(Ids) %>%
+    unnest(cols = c(Ids)) %>%
+    unnest(cols = c(Ids)) %>%
     epoch_converter()
 }
