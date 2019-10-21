@@ -16,7 +16,7 @@ deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
     select(pipelineId, stages) %>%
     mutate(stages = map(stages, compact)) %>%
     mutate(stages = map(stages, as_tibble)) %>%
-    tidyr::unnest() %>%
+    tidyr::unnest(cols = c(stages)) %>%
     filter(row_number() %% 2 == 0) %>%
     mutate(probability = ifelse(is.na(as.numeric(metadata)),
       as.logical(metadata),
