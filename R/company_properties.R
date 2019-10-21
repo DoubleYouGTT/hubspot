@@ -12,7 +12,8 @@ company_properties <- function(companies = get_companies(max_iter = 1)) {
     map("properties") %>%
     modify_depth(2, ~ .$value) %>%
     map_df(as_tibble, .id = "companyId") %>%
-    mutate_if(~ sum(is.na(.)) == suppressWarnings(sum(is.na(as.numeric(.)))), as.numeric) %>%
+    mutate_if(~ sum(is.na(.)) == suppressWarnings(sum(is.na(as.numeric(.)))), # nolint
+              as.numeric) %>%
     epoch_converter() ->
   result
 

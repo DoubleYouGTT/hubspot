@@ -13,11 +13,14 @@ get_companies(apikey = "demo",
 
 \item{properties}{Character vector of properties to request}
 
-\item{property_history}{Whether version history for properties should be returned}
+\item{property_history}{Whether version history for properties should be
+returned}
 
-\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to limit how many pages of data will get returned}
+\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to
+limit how many pages of data will get returned}
 
-\item{max_properties}{Avoid URLs that are too long, limit the number of properties returned, if required.}
+\item{max_properties}{Avoid URLs that are too long, limit the number of
+properties returned, if required.}
 }
 \value{
 List with company data
@@ -26,7 +29,8 @@ List with company data
 Get a list of all companies, including a set of properties
 }
 \examples{
-companies <- get_companies(property_history = "false", max_iter = 1, max_properties = 10)
+companies <- get_companies(property_history = "false", max_iter = 1,
+                           max_properties = 10)
 }
 \seealso{
 Other getters: \code{\link{get_company_properties}},

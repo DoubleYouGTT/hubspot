@@ -12,5 +12,11 @@ Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
 \author{
 \strong{Maintainer}: Steph Locke \email{steph@itsalocke.com}
 
+Other contributors:
+\itemize{
+  \item Jessie Geahlen \email{jgeahlen@gmail.com} [contributor]
+  \item Locke Data (https://itsalocke.com) [funder]
+}
+
 }
 \keyword{internal}

@@ -13,13 +13,16 @@ get_deals(apikey = "demo", properties = get_deal_properties(apikey),
 
 \item{properties}{Character vector of properties to request}
 
-\item{property_history}{Whether version history for properties should be returned}
+\item{property_history}{Whether version history for properties should be
+returned}
 
 \item{associations}{Retrieve links to other entities}
 
-\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to limit how many pages of data will get returned}
+\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to
+limit how many pages of data will get returned}
 
-\item{max_properties}{Avoid URLs that are too long, limit the number of properties returned, if required.}
+\item{max_properties}{Avoid URLs that are too long, limit the number of
+properties returned, if required.}
 }
 \value{
 List with deals data
@@ -28,7 +31,8 @@ List with deals data
 Get a list of all deals, including a set of properties
 }
 \examples{
-deals <- get_deals(property_history = "false", max_iter = 1, max_properties = 10)
+deals <- get_deals(property_history = "false", max_iter = 1,
+                   max_properties = 10)
 }
 \seealso{
 Other getters: \code{\link{get_companies}},
