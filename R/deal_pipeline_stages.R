@@ -8,21 +8,21 @@
 #' @examples
 #' deal_pipe_stages <- deal_pipeline_stages()
 deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
-  pipelineId <- stages <- metadata <- NULL
+
   pipelines %>%
     flatten() %>%
     map(compact) %>%
     map_df(as_tibble) %>%
-    select(pipelineId, stages) %>%
-    mutate(stages = map(stages, compact)) %>%
-    mutate(stages = map(stages, as_tibble)) %>%
-    tidyr::unnest(cols = c(stages)) %>%
+    select(.data$pipelineId, .data$stages) %>%
+    mutate(stages = map(.data$stages, compact)) %>%
+    mutate(stages = map(.data$stages, as_tibble)) %>%
+    tidyr::unnest(cols = c(.data$stages)) %>%
     filter(row_number() %% 2 == 0) %>%
-    mutate(probability = ifelse(is.na(as.numeric(metadata)),
-      as.logical(metadata),
-      as.numeric(metadata)
+    mutate(probability = ifelse(is.na(as.numeric(.data$metadata)),
+      as.logical(.data$metadata),
+      as.numeric(.data$metadata)
     )) %>%
-    select(-metadata) %>%
+    select(-.data$metadata) %>%
     epoch_converter() ->
   pipeline_stages
 
@@ -32,7 +32,7 @@ deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
     flatten() %>%
     map_chr(c("metadata", "isClosed")) %>%
     as.logical() ->
-  pipeline_stages$isClosed
+  pipeline_stages$isClosed # nolint
 
   return(pipeline_stages)
 }

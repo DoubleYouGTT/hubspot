@@ -14,15 +14,19 @@ get_contacts(apikey = "demo",
 
 \item{properties}{Character vector of properties to request}
 
-\item{property_history}{Whether version history for properties should be returned}
+\item{property_history}{Whether version history for properties should be
+returned}
 
 \item{form_submission_mode}{Which form submissions should be fetched}
 
-\item{list_memberships}{Indicate whether current list memberships should be fetched}
+\item{list_memberships}{Indicate whether current list memberships should
+be fetched}
 
-\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to limit how many pages of data will get returned}
+\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to
+limit how many pages of data will get returned}
 
-\item{max_properties}{Avoid URLs that are too long, limit the number of properties returned, if required.}
+\item{max_properties}{Avoid URLs that are too long, limit the number of
+properties returned, if required.}
 }
 \value{
 List with contact data
@@ -31,7 +35,8 @@ List with contact data
 Get a list of all contacts, including a set of properties
 }
 \examples{
-contacts <- get_contacts(property_history = "false", max_iter = 1, max_properties = 10)
+contacts <- get_contacts(property_history = "false", max_iter = 1,
+                         max_properties = 10)
 }
 \seealso{
 Other getters: \code{\link{get_companies}},

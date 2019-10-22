@@ -7,7 +7,8 @@
 #' @export
 #' @family getters
 #' @examples
-#' deals <- get_deals(property_history = "false", max_iter = 1, max_properties = 10)
+#' deals <- get_deals(property_history = "false", max_iter = 1,
+#'                    max_properties = 10)
 get_deals <- function(apikey = "demo",
                       properties = get_deal_properties(apikey),
                       property_history = "true",

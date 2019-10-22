@@ -2,17 +2,22 @@
 #'
 #' @param apikey API key to work with Hubspot
 #' @param properties Character vector of properties to request
-#' @param property_history Whether version history for properties should be returned
+#' @param property_history Whether version history for properties should be
+#'  returned
 #' @param form_submission_mode Which form submissions should be fetched
-#' @param list_memberships Indicate whether current list memberships should be fetched
-#' @param max_iter The API is limited to 250 responses, use `max_iter` to limit how many pages of data will get returned
-#' @param max_properties Avoid URLs that are too long, limit the number of properties returned, if required.
+#' @param list_memberships Indicate whether current list memberships should
+#'  be fetched
+#' @param max_iter The API is limited to 250 responses, use `max_iter` to
+#' limit how many pages of data will get returned
+#' @param max_properties Avoid URLs that are too long, limit the number of
+#' properties returned, if required.
 #'
 #' @return List with contact data
 #' @export
 #' @family getters
 #' @examples
-#' contacts <- get_contacts(property_history = "false", max_iter = 1, max_properties = 10)
+#' contacts <- get_contacts(property_history = "false", max_iter = 1,
+#'                          max_properties = 10)
 get_contacts <- function(apikey = "demo",
                           properties = get_contact_properties(apikey),
                           property_history = "true",
@@ -23,7 +28,8 @@ get_contacts <- function(apikey = "demo",
   form_submission_mode <- match.arg(form_submission_mode,
                                     c("all", "none", "newest", "oldest"))
   base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url, path = "/contacts/v1/lists/all/contacts/all")
+  properties_url <- httr::modify_url(base_url,
+                                     path = "/contacts/v1/lists/all/contacts/all") # nolint
   properties <- head(properties, max_properties)
   contacts <- list()
   n <- 0
@@ -37,7 +43,8 @@ get_contacts <- function(apikey = "demo",
           vidOffset = offset,
           hapikey = apikey,
           count = 100,
-          propertyMode = ifelse(property_history == "true", "value_and_history", "value_only"),
+          propertyMode = ifelse(property_history == "true",
+                                "value_and_history", "value_only"),
           formSubmissionMode = form_submission_mode,
           showListMemberships = list_memberships
         ),

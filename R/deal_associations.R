@@ -12,19 +12,17 @@ deal_associations <- function(deals = get_deals(
                                 max_properties = 1,
                                 associations = "true"
                               )) {
-  # Variable fudge for check()
-  dealId <- Ids <- `.` <- NULL
 
   deals %>%
     map("associations") %>%
     tibble(Ids = .) %>%
-    mutate(dealId = names(.[["Ids"]])) %>%
-    unnest(cols = c(Ids)) %>%
-    mutate(dealId = as.integer(dealId)) %>%
+    mutate(dealId = names(.data[["Ids"]])) %>%
+    unnest(cols = c(.data$Ids)) %>%
+    mutate(dealId = as.integer(.data$dealId)) %>%
     mutate(type = rep(
       c("contacts", "companies", "deals", "tickets"), n() / 4
     )) %>%
-    unnest(cols = c(Ids)) %>%
-    unnest(cols = c(Ids)) %>%
+    unnest(cols = c(.data$Ids)) %>%
+    unnest(cols = c(.data$Ids)) %>%
     epoch_converter()
 }

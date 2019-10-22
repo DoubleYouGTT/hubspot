@@ -12,6 +12,7 @@ owners <- function(owners = get_owners()) {
     map(compact) %>%
     map_df(as_tibble) %>%
     select(-starts_with("remoteList")) %>%
-    mutate_if(~ sum(is.na(.)) == suppressWarnings(sum(is.na(as.numeric(.)))), as.numeric) %>%
+    mutate_if(~ sum(is.na(.)) == suppressWarnings(sum(is.na(as.numeric(.)))), # nolint
+              as.numeric) %>%
     epoch_converter()
 }
