@@ -55,4 +55,6 @@ get_companies <- function(apikey = "demo",
 
   companies <- flatten(companies)
   companies <- set_names(companies, map_dbl(companies, "companyId"))
+
+  return(companies)
 }
