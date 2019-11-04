@@ -12,7 +12,12 @@ Authors@R:
              email = "jgeahlen@gmail.com"),
       person(given = "Locke Data",
              role = "fnd",
-             comment = "https://itsalocke.com"))
+             comment = "https://itsalocke.com"),
+      person(given = "Maëlle",
+             family = "Salmon",
+             role = "aut",
+             email = "maelle.salmon@yahoo.se",
+             comment = c(ORCID = "0000-0002-2815-0399")))
 Description: Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
     for more information), retrieve customer relationship data for reporting and analysis.
 License: MIT + file LICENSE
