@@ -20,42 +20,28 @@ get_companies <- function(apikey = "demo",
                           property_history = "true",
                           max_iter = 10,
                           max_properties = 100) {
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
-                                     path = "/companies/v2/companies/paged") # nolint
+
   properties <- head(properties, max_properties)
-  companies <- list()
-  n <- 0
-  do <- TRUE
-  offset <- 0
 
-  while (do & n < max_iter) {
-    query <- c(
-      list(
-        offset = offset,
-        limit = 250,
-        propertiesWithHistory = property_history
-      ),
-      set_names(
-        lapply(properties, function(x) {
-          x
-        }),
-        rep("properties", length(properties))
-      )
+  query <- c(
+    list(
+      limit = 250,
+      propertiesWithHistory = property_history
+    ),
+    set_names(
+      lapply(properties, function(x) {
+        x
+      }),
+      rep("properties", length(properties))
     )
+  )
 
-    res <- get_results(path = "/companies/v2/companies/paged",
-                       apikey = apikey,
-                       query = query)
-    n <- n + 1
-    res_content <- httr::content(res)
-    companies[n] <- list(res_content$companies)
-    do <- res_content$`has-more`
-    offset <- res_content$offset
-  }
+  companies <- get_results_paged(path = "/companies/v2/companies/paged",
+                                 max_iter = max_iter, query = query,
+                                 apikey = apikey, element = "companies")
 
-  companies <- flatten(companies)
-  companies <- set_names(companies, map_dbl(companies, "companyId"))
+  companies <- purrr::set_names(companies,
+                                purrr::map_dbl(companies, "companyId"))
 
   return(companies)
 }
