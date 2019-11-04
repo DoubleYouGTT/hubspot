@@ -18,7 +18,8 @@ get_results <- function(path, apikey, query = NULL) {
 }
 
 get_results_paged <- function(path, apikey, query = NULL,
-                              max_iter = max_iter, element) {
+                              max_iter = max_iter, element,
+                              hasmore_name) {
   results <- list()
   n <- 0
   do <- TRUE
@@ -33,7 +34,7 @@ get_results_paged <- function(path, apikey, query = NULL,
     res_content <- httr::content(res)
 
     results[n] <- list(res_content[[element]])
-    do <- res_content$`has-more`
+    do <- res_content[[hasmore_name]]
     offset <- res_content$offset
   }
 

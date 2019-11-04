@@ -38,7 +38,8 @@ get_companies <- function(apikey = "demo",
 
   companies <- get_results_paged(path = "/companies/v2/companies/paged",
                                  max_iter = max_iter, query = query,
-                                 apikey = apikey, element = "companies")
+                                 apikey = apikey, element = "companies",
+                                 hasmore_name = "has-more")
 
   companies <- purrr::set_names(companies,
                                 purrr::map_dbl(companies, "companyId"))

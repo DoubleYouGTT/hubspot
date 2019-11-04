@@ -15,20 +15,9 @@ get_deals <- function(apikey = "demo",
                       associations = "true",
                       max_iter = 10,
                       max_properties = 100) {
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url, path = "/deals/v1/deal/paged")
-  properties <- head(properties, max_properties)
-  deals <- list()
-  n <- 0
-  do <- TRUE
-  offset <- 0
 
-  while (do & n < max_iter) {
-    res <- httr::GET(properties_url,
-      query = c(
+  query = c(
         list(
-          offset = offset,
-          hapikey = apikey,
           limit = 250,
           includeAssociations = associations,
           propertiesWithHistory = property_history
@@ -40,14 +29,12 @@ get_deals <- function(apikey = "demo",
           rep("properties", length(properties))
         )
       )
-    )
-    n <- n + 1
-    res_content <- httr::content(res)
-    deals[n] <- list(res_content$deals)
-    do <- res_content$hasMore
-    offset <- res_content$offset
-  }
 
-  deals <- flatten(deals)
-  deals <- set_names(deals, map_dbl(deals, "dealId"))
+  deals <- get_results_paged(path = "/deals/v1/deal/paged",
+                             max_iter = max_iter, query = query,
+                              apikey = apikey, element = "deals",
+                             hasmore_name = "hasMore")
+
+  deals <- purrr::set_names(deals,
+                            purrr::map_dbl(deals, "dealId"))
 }
