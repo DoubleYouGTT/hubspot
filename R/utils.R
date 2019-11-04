@@ -28,7 +28,7 @@ get_results_paged <- function(path, apikey, query = NULL,
   while (do & n < max_iter) {
     query$offset <- offset
 
-    res <-get_results(path = path,
+    res <- get_results(path = path,
                       apikey = apikey, query = query)
     n <- n + 1
     res_content <- httr::content(res)
