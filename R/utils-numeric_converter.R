@@ -3,7 +3,8 @@
 #' @param dt A tbl
 #' @return A tbl
 #'
-numeric_converter <- function(dt){
+numeric_converter <- function(dt) {
   mutate_if(dt,
-            ~ sum(is.na(.)) == sum(is.na(suppressWarnings(as.numeric(.)))), as.numeric)
+            ~ sum(is.na(.)) == sum(is.na(suppressWarnings(as.numeric(.)))),
+            as.numeric)
 }
