@@ -16,7 +16,7 @@ get_deals <- function(apikey = "demo",
                       max_iter = 10,
                       max_properties = 100) {
 
-  query = c(
+  query <- c(
         list(
           limit = 250,
           includeAssociations = associations,
