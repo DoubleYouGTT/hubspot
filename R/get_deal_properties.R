@@ -1,6 +1,6 @@
 #' Retrieve available properties for deals
 #'
-#' @inheritParams get_company_properties
+#' @param apikey API key
 #'
 #' @return Character vector of properties
 #' @export
@@ -8,12 +8,10 @@
 #' @examples
 #' properties <- get_deal_properties()
 get_deal_properties <- function(apikey = "demo") {
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
-    path = "/properties/v1/deals/properties/"
-  )
-  res <- httr::GET(properties_url, query = list(hapikey = apikey))
-  properties <- map_chr(httr::content(res), "name")
+  res <- get_results(path = "/properties/v1/deals/properties/",
+                     apikey = apikey)
+
+  properties <- purrr::map_chr(httr::content(res), "name")
 
   return(properties)
 }

@@ -8,12 +8,10 @@
 #' @examples
 #' properties <- get_company_properties()
 get_company_properties <- function(apikey = "demo") {
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
-    path = "/properties/v1/companies/properties/"
-  )
-  res <- httr::GET(properties_url, query = list(hapikey = apikey))
-  properties <- map_chr(httr::content(res), "name")
+  res <- get_results(path = "/properties/v1/companies/properties/",
+                     apikey = apikey)
+
+  properties <- purrr::map_chr(httr::content(res), "name")
 
   return(properties)
 }

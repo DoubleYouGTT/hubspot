@@ -30,22 +30,23 @@ get_companies <- function(apikey = "demo",
   offset <- 0
 
   while (do & n < max_iter) {
-    res <- httr::GET(properties_url,
-      query = c(
-        list(
-          offset = offset,
-          hapikey = apikey,
-          limit = 250,
-          propertiesWithHistory = property_history
-        ),
-        set_names(
-          lapply(properties, function(x) {
-            x
-          }),
-          rep("properties", length(properties))
-        )
+    query <- c(
+      list(
+        offset = offset,
+        limit = 250,
+        propertiesWithHistory = property_history
+      ),
+      set_names(
+        lapply(properties, function(x) {
+          x
+        }),
+        rep("properties", length(properties))
       )
     )
+
+    res <- get_results(path = "/companies/v2/companies/paged",
+                       apikey = apikey,
+                       query = query)
     n <- n + 1
     res_content <- httr::content(res)
     companies[n] <- list(res_content$companies)
