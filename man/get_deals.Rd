@@ -4,9 +4,9 @@
 \alias{get_deals}
 \title{Get a list of all deals, including a set of properties}
 \usage{
-get_deals(apikey = "demo", properties = get_deal_properties(apikey),
-  property_history = "true", associations = "true", max_iter = 10,
-  max_properties = 100)
+get_deals(apikey = hubspot_key_get(),
+  properties = get_deal_properties(apikey), property_history = "true",
+  associations = "true", max_iter = 10, max_properties = 100)
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}

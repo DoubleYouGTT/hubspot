@@ -8,7 +8,7 @@
 #' @family getters
 #' @examples
 #' pipelines <- get_deal_pipelines()
-get_deal_pipelines <- function(apikey = "demo",
+get_deal_pipelines <- function(apikey = hubspot_key_get(),
                                include_inactive = "EXCLUDE_DELETED") {
   include_inactive <- match.arg(
     include_inactive,

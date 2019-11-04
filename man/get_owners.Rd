@@ -4,7 +4,7 @@
 \alias{get_owners}
 \title{Retrieve owners}
 \usage{
-get_owners(apikey = "demo")
+get_owners(apikey = hubspot_key_get())
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}

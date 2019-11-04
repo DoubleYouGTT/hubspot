@@ -29,6 +29,7 @@ Imports:
     httr,
     magrittr,
     tidyr,
-    rlang
+    rlang,
+    keyring
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1

@@ -7,7 +7,7 @@
 #' @family getters
 #' @examples
 #' properties <- get_contact_properties()
-get_contact_properties <- function(apikey = "demo") {
+get_contact_properties <- function(apikey = hubspot_key_get()) {
   base_url <- "https://api.hubapi.com"
   properties_url <- httr::modify_url(base_url,
     path = "/properties/v1/contacts/properties"

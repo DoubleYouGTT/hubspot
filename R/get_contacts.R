@@ -18,7 +18,7 @@
 #' @examples
 #' contacts <- get_contacts(property_history = "false", max_iter = 1,
 #'                          max_properties = 10)
-get_contacts <- function(apikey = "demo",
+get_contacts <- function(apikey = hubspot_key_get(),
                           properties = get_contact_properties(apikey),
                           property_history = "true",
                           form_submission_mode = "newest",

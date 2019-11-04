@@ -4,7 +4,7 @@
 \alias{get_companies}
 \title{Get a list of all companies, including a set of properties}
 \usage{
-get_companies(apikey = "demo",
+get_companies(apikey = hubspot_key_get(),
   properties = get_company_properties(apikey),
   property_history = "true", max_iter = 10, max_properties = 100)
 }

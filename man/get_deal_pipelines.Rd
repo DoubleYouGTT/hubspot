@@ -4,7 +4,7 @@
 \alias{get_deal_pipelines}
 \title{Retrieve available pipelines for deals}
 \usage{
-get_deal_pipelines(apikey = "demo",
+get_deal_pipelines(apikey = hubspot_key_get(),
   include_inactive = "EXCLUDE_DELETED")
 }
 \arguments{

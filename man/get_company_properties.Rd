@@ -4,7 +4,7 @@
 \alias{get_company_properties}
 \title{Retrieve available properties for companies}
 \usage{
-get_company_properties(apikey = "demo")
+get_company_properties(apikey = hubspot_key_get())
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}

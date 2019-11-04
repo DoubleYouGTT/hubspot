@@ -7,7 +7,7 @@
 #' @family getters
 #' @examples
 #' properties <- get_deal_properties()
-get_deal_properties <- function(apikey = "demo") {
+get_deal_properties <- function(apikey = hubspot_key_get()) {
   res <- get_results(path = "/properties/v1/deals/properties/",
                      apikey = apikey)
 

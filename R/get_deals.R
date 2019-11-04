@@ -9,7 +9,7 @@
 #' @examples
 #' deals <- get_deals(property_history = "false", max_iter = 1,
 #'                    max_properties = 10)
-get_deals <- function(apikey = "demo",
+get_deals <- function(apikey = hubspot_key_get(),
                       properties = get_deal_properties(apikey),
                       property_history = "true",
                       associations = "true",

@@ -15,7 +15,7 @@
 #' @examples
 #' companies <- get_companies(property_history = "false", max_iter = 1,
 #'                            max_properties = 10)
-get_companies <- function(apikey = "demo",
+get_companies <- function(apikey = hubspot_key_get(),
                           properties = get_company_properties(apikey),
                           property_history = "true",
                           max_iter = 10,
