@@ -21,7 +21,8 @@ LazyData: true
 Suggests: 
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    vcr
 VignetteBuilder: knitr
 Imports: 
     purrr,
