@@ -7,7 +7,7 @@
 #' @details If no key was stored via [`hubspot_key_set()`] then "demo" is
 #' returned, along with a message.
 #' @family auth
-hubspot_key_get <- function(){
+hubspot_key_get <- function() {
   key <- try(keyring::key_get("hubspot"), silent = TRUE)
 
   if (is(key, "try-error")) {
@@ -33,7 +33,7 @@ Please run hubspot_key_set() to set your API key.")
 #' hubspot_key_set("yourapikey")
 #' }
 #' @family auth
-hubspot_key_set <- function(key = NULL){
+hubspot_key_set <- function(key = NULL) {
 
   if (is.null(key)) {
     keyring::key_set("hubspot")
