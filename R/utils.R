@@ -1,14 +1,14 @@
-base_url <- function(){
+base_url <- function() {
   "https://api.hubapi.com"
 }
 
-get_path_url <- function(path){
+get_path_url <- function(path) {
   httr::modify_url(base_url(),
                    path = path
   )
 }
 
-get_results <- function(path, apikey, query = NULL){
+get_results <- function(path, apikey, query = NULL) {
 
   query$hapikey <- apikey
 
@@ -16,4 +16,3 @@ get_results <- function(path, apikey, query = NULL){
             query = query,
             httr::user_agent("hubspot R package by Locke Data"))
 }
-
