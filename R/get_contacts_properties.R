@@ -8,12 +8,7 @@
 #' @examples
 #' properties <- get_contact_properties()
 get_contact_properties <- function(apikey = hubspot_key_get()) {
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
-    path = "/properties/v1/contacts/properties"
-  )
-  res <- httr::GET(properties_url, query = list(hapikey = apikey))
-  properties <- map_chr(httr::content(res), "name")
-
-  return(properties)
+  get_results(path = "/properties/v1/contacts/properties",
+              apikey = apikey) %>%
+    purrr::map_chr("name")
 }
