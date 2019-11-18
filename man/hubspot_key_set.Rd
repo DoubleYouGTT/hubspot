@@ -11,7 +11,7 @@ hubspot_key_set(key = NULL)
 to be provided interactively.}
 }
 \description{
-Set the Hubspot secret API key
+Set the Hubspot secret API key using the \code{keyring} package.
 }
 \examples{
 \dontrun{

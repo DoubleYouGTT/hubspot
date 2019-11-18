@@ -9,12 +9,9 @@
 #' companies <- company_properties()
 company_properties <- function(companies = get_companies(max_iter = 1)) {
   companies %>%
-    map("properties") %>%
-    modify_depth(2, ~ .$value) %>%
-    map_df(as_tibble, .id = "companyId") %>%
+    purrr::map("properties") %>%
+    purrr::modify_depth(2, ~ .$value) %>%
+    purrr::map_df(as_tibble, .id = "companyId") %>%
     numeric_converter() %>%
-    epoch_converter() ->
-  result
-
-  return(result)
+    epoch_converter()
 }

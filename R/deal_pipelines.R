@@ -10,10 +10,10 @@
 deal_pipelines <- function(pipelines = get_deal_pipelines()) {
   stages <- NULL
   pipelines %>%
-    flatten() %>%
-    map(compact) %>%
-    map_df(as_tibble) %>%
-    select(-stages) %>%
-    distinct() %>%
+    purrr::flatten() %>%
+    purrr::map(compact) %>%
+    purrr::map_df(as_tibble) %>%
+    dplyr::select(-stages) %>%
+    dplyr::distinct() %>%
     epoch_converter()
 }

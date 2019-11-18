@@ -20,12 +20,6 @@ The goal of `hubspot` is to enable access to [Hubspot
 CRM](//hubspot.com) data. It uses the [Hubspot
 API](developers.hubspot.com/docs/overview).
 
-## Installation
-
-``` r
-remotes::install_github("lockedata/hubspot")
-```
-
 ## Example
 
 ``` r
@@ -117,6 +111,42 @@ deals
 #> 
 #> 
 #> $`931633510`$properties
+#> $`931633510`$properties$hs_closed_amount_in_home_currency
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$value
+#> [1] "0"
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$sourceId
+#> NULL
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$name
+#> [1] "hs_closed_amount_in_home_currency"
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$value
+#> [1] "0"
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$sourceVid
+#> list()
+#> 
+#> $`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$sourceMetadata
+#> [1] ""
+#> 
+#> 
+#> 
+#> 
 #> $`931633510`$properties$dealname
 #> $`931633510`$properties$dealname$value
 #> [1] "Example deal"
@@ -366,6 +396,42 @@ deals
 #> 
 #> 
 #> 
+#> $`931633510`$properties$hs_is_closed
+#> $`931633510`$properties$hs_is_closed$value
+#> [1] "false"
+#> 
+#> $`931633510`$properties$hs_is_closed$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_is_closed$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_is_closed$sourceId
+#> NULL
+#> 
+#> $`931633510`$properties$hs_is_closed$versions
+#> $`931633510`$properties$hs_is_closed$versions[[1]]
+#> $`931633510`$properties$hs_is_closed$versions[[1]]$name
+#> [1] "hs_is_closed"
+#> 
+#> $`931633510`$properties$hs_is_closed$versions[[1]]$value
+#> [1] "false"
+#> 
+#> $`931633510`$properties$hs_is_closed$versions[[1]]$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_is_closed$versions[[1]]$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_is_closed$versions[[1]]$sourceVid
+#> list()
+#> 
+#> $`931633510`$properties$hs_is_closed$versions[[1]]$sourceMetadata
+#> [1] ""
+#> 
+#> 
+#> 
+#> 
 #> $`931633510`$properties$amount_in_home_currency
 #> $`931633510`$properties$amount_in_home_currency$value
 #> [1] "100"
@@ -397,6 +463,42 @@ deals
 #> list()
 #> 
 #> $`931633510`$properties$amount_in_home_currency$versions[[1]]$sourceMetadata
+#> [1] ""
+#> 
+#> 
+#> 
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability
+#> $`931633510`$properties$hs_deal_stage_probability$value
+#> [1] "0.59999999999999997779553950749686919152736663818359375"
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$sourceId
+#> NULL
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$versions
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]$name
+#> [1] "hs_deal_stage_probability"
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]$value
+#> [1] "0.59999999999999997779553950749686919152736663818359375"
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]$sourceVid
+#> list()
+#> 
+#> $`931633510`$properties$hs_deal_stage_probability$versions[[1]]$sourceMetadata
 #> [1] ""
 #> 
 #> 
@@ -542,6 +644,42 @@ deals
 #> 
 #> $`931633510`$properties$hubspot_owner_id$versions[[1]]$sourceVid
 #> list()
+#> 
+#> 
+#> 
+#> 
+#> $`931633510`$properties$hs_closed_amount
+#> $`931633510`$properties$hs_closed_amount$value
+#> [1] "0"
+#> 
+#> $`931633510`$properties$hs_closed_amount$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_closed_amount$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_closed_amount$sourceId
+#> NULL
+#> 
+#> $`931633510`$properties$hs_closed_amount$versions
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]$name
+#> [1] "hs_closed_amount"
+#> 
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]$value
+#> [1] "0"
+#> 
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]$sourceVid
+#> list()
+#> 
+#> $`931633510`$properties$hs_closed_amount$versions[[1]]$sourceMetadata
+#> [1] ""
 #> 
 #> 
 #> 
@@ -720,6 +858,42 @@ deals
 #> 
 #> 
 #> 
+#> $`931633510`$properties$hs_projected_amount
+#> $`931633510`$properties$hs_projected_amount$value
+#> [1] "59.99999999999999777955395074968691915273666381835937500"
+#> 
+#> $`931633510`$properties$hs_projected_amount$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_projected_amount$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_projected_amount$sourceId
+#> NULL
+#> 
+#> $`931633510`$properties$hs_projected_amount$versions
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]$name
+#> [1] "hs_projected_amount"
+#> 
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]$value
+#> [1] "59.99999999999999777955395074968691915273666381835937500"
+#> 
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]$sourceVid
+#> list()
+#> 
+#> $`931633510`$properties$hs_projected_amount$versions[[1]]$sourceMetadata
+#> [1] ""
+#> 
+#> 
+#> 
+#> 
 #> $`931633510`$properties$hs_all_owner_ids
 #> $`931633510`$properties$hs_all_owner_ids$value
 #> [1] "71"
@@ -756,6 +930,42 @@ deals
 #> 
 #> 
 #> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$value
+#> [1] "59.99999999999999777955395074968691915273666381835937500"
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$sourceId
+#> NULL
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$name
+#> [1] "hs_projected_amount_in_home_currency"
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$value
+#> [1] "59.99999999999999777955395074968691915273666381835937500"
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$timestamp
+#> [1] 1.571769e+12
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$source
+#> [1] "CALCULATED"
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$sourceVid
+#> list()
+#> 
+#> $`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$sourceMetadata
+#> [1] ""
+#> 
+#> 
+#> 
+#> 
 #> 
 #> $`931633510`$imports
 #> list()
@@ -763,6 +973,32 @@ deals
 #> $`931633510`$stateChanges
 #> list()
 ```
+
+## Installation
+
+``` r
+remotes::install_github("lockedata/hubspot")
+```
+
+## Authentication
+
+### API key
+
+The API key should be set using the `hubspot_key_set()` function, that
+relies on the `keyring` package that stores the key in the system
+default credential store (see `keyring` docs).
+
+``` r
+# Either input the key as parameter
+hubspot_key_set("yourapikey")
+
+# Or just call the function,
+# the key will be asked interactively
+hubspot_key_set()
+```
+
+If no API key is set, the “demo” key is used and a message is printed to
+the screen.
 
 ## Contributions welcome\!
 

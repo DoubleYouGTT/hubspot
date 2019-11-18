@@ -24,6 +24,8 @@ Please run hubspot_key_set() to set your API key.")
 
 #' Set the Hubspot secret API key
 #'
+#' @description Set the Hubspot secret API key using the `keyring` package.
+#'
 #' @param key API key. If not provided via this argument, the key will have
 #'  to be provided interactively.
 #'

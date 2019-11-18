@@ -14,15 +14,15 @@ deal_associations <- function(deals = get_deals(
                               )) {
 
   deals %>%
-    map("associations") %>%
-    tibble(Ids = .) %>%
-    mutate(dealId = names(.data[["Ids"]])) %>%
-    unnest(cols = c(.data$Ids)) %>%
-    mutate(dealId = as.integer(.data$dealId)) %>%
-    mutate(type = rep(
+    purrr::map("associations") %>%
+    tibble::tibble(Ids = .) %>%
+    dplyr::mutate(dealId = names(.data[["Ids"]])) %>%
+    tidyr::unnest(cols = c(.data$Ids)) %>%
+    dplyr::mutate(dealId = as.integer(.data$dealId)) %>%
+    dplyr::mutate(type = rep(
       c("contacts", "companies", "deals", "tickets"), n() / 4
     )) %>%
-    unnest(cols = c(.data$Ids)) %>%
-    unnest(cols = c(.data$Ids)) %>%
+    tidyr::unnest(cols = c(.data$Ids)) %>%
+    tidyr::unnest(cols = c(.data$Ids)) %>%
     epoch_converter()
 }

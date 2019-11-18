@@ -13,9 +13,9 @@ deal_stages_history <- function(deals = get_deals(
                                   associations = "false"
                                 )) {
   deals %>%
-    map(c("properties", "dealstage", "versions")) %>%
-    flatten() %>%
-    map(head, 4) %>%
-    map_df(as_tibble, .id = "dealId") %>%
+    purrr::map(c("properties", "dealstage", "versions")) %>%
+    purrr::flatten() %>%
+    purrr::map(head, 4) %>%
+    purrr::map_df(as_tibble, .id = "dealId") %>%
     epoch_converter()
 }
