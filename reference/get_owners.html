@@ -91,10 +91,10 @@
     </div>
 
     <div class="ref-description">
-    <p>Retrieve owners</p>
+    <p>Retrieve owners <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>from the owners API endpoint</a>. # nolint</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_owners</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot_key_get.html'>hubspot_key_get</a></span>())</pre>
+    <pre class="usage"><span class='fu'>get_owners</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot_key_get.html'>hubspot_key_get</a></span>(), <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>email</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -102,6 +102,16 @@
     <tr>
       <th>apikey</th>
       <td><p>API key to work with Hubspot</p></td>
+    </tr>
+    <tr>
+      <th>include_inactive</th>
+      <td><p>Boolean indicating whether to include inactive
+owners (defined as owners without any active remotes.)</p></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><p>Search for owners matching the specified email address
+(exact match).</p></td>
     </tr>
     </table>
 
@@ -120,8 +130,11 @@
 <code><a href='get_deals.html'>get_deals</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>owners</span> <span class='kw'>&lt;-</span> <span class='fu'>get_owners</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
-#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>owners</span> <span class='kw'>&lt;-</span> <span class='fu'>get_owners</span>()
+<span class='no'>active_owners</span> <span class='kw'>&lt;-</span> <span class='fu'>get_owners</span>(<span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>get_owners</span>(<span class='kw'>email</span> <span class='kw'>=</span> <span class='st'>"demo@hubspot.com"</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
