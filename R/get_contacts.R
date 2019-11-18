@@ -27,8 +27,8 @@ get_contacts <- function(apikey = hubspot_key_get(),
                           max_properties = 100) {
   form_submission_mode <- match.arg(form_submission_mode,
                                     c("all", "none", "newest", "oldest"))
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
+
+  properties_url <- httr::modify_url(base_url(),
                                      path = "/contacts/v1/lists/all/contacts/all") # nolint
   properties <- head(properties, max_properties)
   contacts <- list()
