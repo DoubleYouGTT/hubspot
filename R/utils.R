@@ -24,6 +24,9 @@ get_results <- function(path, apikey,
 
   query$hapikey <- apikey
 
+  # remove NULL elements from the query
+  query <- purrr::discard(query, is.null)
+
   httr::GET(get_path_url(path),
             query = query,
             httr::user_agent("hubspot R package by Locke Data")) %>%

@@ -4,19 +4,29 @@
 \alias{get_owners}
 \title{Retrieve owners}
 \usage{
-get_owners(apikey = hubspot_key_get())
+get_owners(apikey = hubspot_key_get(), include_inactive = TRUE, email = NULL)
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}
+
+\item{include_inactive}{Boolean indicating whether to include inactive
+owners (defined as owners without any active remotes.)}
+
+\item{email}{Search for owners matching the specified email address
+(exact match).}
 }
 \value{
 List of owners
 }
 \description{
-Retrieve owners
+Retrieve owners \href{https://developers.hubspot.com/docs/methods/owners/get_owners}{from the owners API endpoint}. # nolint
 }
 \examples{
+\dontrun{
 owners <- get_owners()
+active_owners <- get_owners(include_inactive = FALSE)
+get_owners(email = "demo@hubspot.com")
+}
 }
 \seealso{
 Other getters: 
