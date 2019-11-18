@@ -26,7 +26,7 @@ matrix:
         - Rscript -e 'install.packages("pkgdown")'
       deploy:
         provider: script
-        script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
+        script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, run_dont_run = TRUE)'
         skip_cleanup: true
     - os: linux
       r: devel
