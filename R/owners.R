@@ -9,9 +9,9 @@
 #' crm_owners <- owners()
 owners <- function(owners = get_owners()) {
   owners %>%
-    map(compact) %>%
-    map_df(as_tibble) %>%
-    select(-starts_with("remoteList")) %>%
+    purrr::map(purrr::compact) %>%
+    purrr::map_df(tibble::as_tibble) %>%
+    dplyr::select(-dplyr::starts_with("remoteList")) %>%
     numeric_converter() %>%
     epoch_converter()
 }

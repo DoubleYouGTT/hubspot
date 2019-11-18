@@ -5,7 +5,7 @@
 #' @noRd
 #'
 epoch_converter <- function(dt) {
-  as_tibble(
+  tibble::as_tibble(
     lapply(dt, function(x) {
       if (is.factor(x) | is.character(x) | is.list(x)) {
         x

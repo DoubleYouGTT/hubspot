@@ -37,18 +37,22 @@ get_results <- function(path, apikey,
 #' @param element Element to retrieve from API raw results (character)
 #' @param hasmore_name Name of the has-more parameter for the API
 #'                     endpoint (character)
+#' @param offset_name_in Name of the offset parameter to send to the API
+#' @param offset_name_out Name of the offset parameter returned
 #' @return A list
 #' @noRd
 get_results_paged <- function(path, apikey, query = NULL,
                               max_iter = max_iter, element,
-                              hasmore_name) {
+                              hasmore_name,
+                              offset_name_in = "offset",
+                              offset_name_out = "offset") {
   results <- list()
   n <- 0
   do <- TRUE
   offset <- 0
 
   while (do & n < max_iter) {
-    query$offset <- offset
+    query[[offset_name_in]] <- offset
 
     res_content <- get_results(path = path,
                       apikey = apikey, query = query)
@@ -56,7 +60,7 @@ get_results_paged <- function(path, apikey, query = NULL,
 
     results[n] <- list(res_content[[element]])
     do <- res_content[[hasmore_name]]
-    offset <- res_content$offset
+    offset <- res_content[[offset_name_out]]
   }
 
   results <- purrr::flatten(results)

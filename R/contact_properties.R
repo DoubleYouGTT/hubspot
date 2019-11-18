@@ -11,7 +11,7 @@ contact_properties <- function(contacts = get_contacts(max_iter = 1)) {
   contacts %>%
     purrr::map("properties") %>%
     purrr::modify_depth(2, ~ .$value) %>%
-    purrr::map_df(as_tibble, .id = "vid") %>%
+    purrr::map_df(tibble::as_tibble, .id = "vid") %>%
     numeric_converter() %>%
     epoch_converter()
 }

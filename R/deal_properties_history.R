@@ -14,10 +14,10 @@ deal_properties_history <- function(deals = get_deals(
                                     )) {
   deals %>%
     purrr::map("properties") %>%
-    purrr::map(flatten) %>%
+    purrr::map(purrr::flatten) %>%
     purrr::map("versions") %>%
     purrr::flatten() %>%
     purrr::modify_depth(2, ~ ifelse(length(.) == 0, NA_integer_, .)) %>%
-    purrr::map_df(as_tibble, .id = "dealId") %>%
+    purrr::map_df(tibble::as_tibble, .id = "dealId") %>%
     epoch_converter()
 }

@@ -28,7 +28,7 @@ get_companies <- function(apikey = hubspot_key_get(),
       limit = 250,
       propertiesWithHistory = property_history
     ),
-    set_names(
+    purrr::set_names(
       lapply(properties, function(x) {
         x
       }),

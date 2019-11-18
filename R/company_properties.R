@@ -11,7 +11,7 @@ company_properties <- function(companies = get_companies(max_iter = 1)) {
   companies %>%
     purrr::map("properties") %>%
     purrr::modify_depth(2, ~ .$value) %>%
-    purrr::map_df(as_tibble, .id = "companyId") %>%
+    purrr::map_df(tibble::as_tibble, .id = "companyId") %>%
     numeric_converter() %>%
     epoch_converter()
 }

@@ -20,7 +20,7 @@ deal_associations <- function(deals = get_deals(
     tidyr::unnest(cols = c(.data$Ids)) %>%
     dplyr::mutate(dealId = as.integer(.data$dealId)) %>%
     dplyr::mutate(type = rep(
-      c("contacts", "companies", "deals", "tickets"), n() / 4
+      c("contacts", "companies", "deals", "tickets"), dplyr::n() / 4
     )) %>%
     tidyr::unnest(cols = c(.data$Ids)) %>%
     tidyr::unnest(cols = c(.data$Ids)) %>%

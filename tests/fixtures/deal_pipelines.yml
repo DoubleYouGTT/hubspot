@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.hubapi.com/crm-pipelines/v1/pipelines/deals/?hapikey=demo&includeInactive=EXCLUDE_DELETED
+    uri: https://api.hubapi.com/crm-pipelines/v1/pipelines/deals/?includeInactive=EXCLUDE_DELETED&hapikey=demo
     body:
       encoding: ''
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Mon, 04 Nov 2019 13:18:31 GMT
+      date: Mon, 18 Nov 2019 09:21:02 GMT
       content-type: application/json;charset=utf-8
       content-length: '572'
       vary: Accept-Encoding
@@ -25,7 +25,7 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 5306dfd5ef44b763-CDG
+      cf-ray: 5378df380a88690c-CDG
     body:
       encoding: UTF-8
       string: '{"results":[{"pipelineId":"c99e583d-bb66-4176-b1c0-82fad9cd5f85","createdAt":1528967404134,"updatedAt":null,"objectType":"DEAL","objectTypeId":"0-3","label":"The
@@ -38,5 +38,5 @@ http_interactions:
         Sent","displayOrder":4,"metadata":{"isClosed":"false","probability":"0.9"},"active":true},{"stageId":"appointmentscheduled","createdAt":0,"updatedAt":null,"label":"Appointment
         Scheduled","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.2"},"active":true},{"stageId":"qualifiedtobuy","createdAt":0,"updatedAt":null,"label":"Qualified
         To Buy","displayOrder":1,"metadata":{"isClosed":"false","probability":"0.4"},"active":true}],"default":true}]}'
-  recorded_at: 2019-11-04 13:18:31 GMT
+  recorded_at: 2019-11-18 09:21:02 GMT
   recorded_with: vcr/0.3.0, webmockr/0.4.0

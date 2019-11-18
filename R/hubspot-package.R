@@ -1,7 +1,4 @@
 #' @importFrom utils head
-#' @import purrr
-#' @import dplyr
-#' @import tidyr
 #' @importFrom rlang .data
 #' @keywords internal
 "_PACKAGE"

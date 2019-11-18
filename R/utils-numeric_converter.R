@@ -5,7 +5,7 @@
 #' @noRd
 #'
 numeric_converter <- function(dt) {
-  mutate_if(dt,
+  dplyr::mutate_if(dt,
             ~ sum(is.na(.)) == sum(is.na(suppressWarnings(as.numeric(.)))),
             as.numeric)
 }

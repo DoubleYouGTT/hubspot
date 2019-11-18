@@ -22,7 +22,7 @@ get_deals <- function(apikey = hubspot_key_get(),
           includeAssociations = associations,
           propertiesWithHistory = property_history
         ),
-        set_names(
+        purrr::set_names(
           lapply(properties, function(x) {
             x
           }),
