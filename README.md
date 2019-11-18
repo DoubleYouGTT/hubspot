@@ -1000,6 +1000,20 @@ hubspot_key_set()
 If no API key is set, the “demo” key is used and a message is printed to
 the screen.
 
+You can check the daily usage related to the API key via
+`hubspot_api_usage()`. Calls in the package are rate limited (100
+requests every 10 seconds) but there’s also a daily limit on calls.
+
+``` r
+hubspot_api_usage()
+#> Could not find Hubspot API key, will use the 'demo' key.
+#> Please run hubspot_key_set() to set your API key.
+#> # A tibble: 1 x 5
+#>   usageLimit currentUsage collectedAt         fetchStatus resetsAt           
+#>        <int>        <int> <dttm>              <chr>       <dttm>             
+#> 1    1000000         8928 2019-11-18 07:59:00 SUCCESS     2019-11-19 00:00:00
+```
+
 ## Contributions welcome\!
 
 Wanna report a bug or suggest a feature? Great stuff\! For more
