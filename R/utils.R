@@ -19,18 +19,33 @@ get_path_url <- function(path) {
 #' @param query Query parameters (named list)
 #' @return A list
 #' @noRd
-.get_results <- function(path, apikey,
+.get_results <- function(path, auth,
                         query = NULL) {
 
-  query$hapikey <- apikey
 
   # remove NULL elements from the query
   query <- purrr::discard(query, is.null)
 
-  httr::GET(get_path_url(path),
-            query = query,
-            httr::user_agent("hubspot R package by Locke Data")) %>%
-    httr::content()
+  # auth
+  if (auth$auth == "key"){
+    query$hapikey <- auth$value
+    httr::GET(get_path_url(path),
+              query = query,
+              httr::user_agent("hubspot R package by Locke Data")) %>%
+      httr::content()
+  } else {
+    token <- httr::oauth2.0_token(cache = auth$value,
+                                  endpoint = oauth_endpoint(),
+                                  app = oauth_app())
+
+    httr::GET(get_path_url(path),
+              query = query,
+              httr::config(httr::user_agent("hubspot R package by Locke Data"),
+              token = token)) %>%
+      httr::content()
+  }
+
+
 }
 
 get_results <- ratelimitr::limit_rate(.get_results,
