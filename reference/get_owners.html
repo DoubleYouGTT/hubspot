@@ -94,7 +94,7 @@
     <p>Retrieve owners</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_owners</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='st'>"demo"</span>)</pre>
+    <pre class="usage"><span class='fu'>get_owners</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot_key_get.html'>hubspot_key_get</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -110,16 +110,18 @@
     <p>List of owners</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other getters: <code><a href='get_companies.html'>get_companies</a></code>,
-  <code><a href='get_company_properties.html'>get_company_properties</a></code>,
-  <code><a href='get_contact_properties.html'>get_contact_properties</a></code>,
-  <code><a href='get_contacts.html'>get_contacts</a></code>,
-  <code><a href='get_deal_pipelines.html'>get_deal_pipelines</a></code>,
-  <code><a href='get_deal_properties.html'>get_deal_properties</a></code>,
-  <code><a href='get_deals.html'>get_deals</a></code></p></div>
+    <div class='dont-index'><p>Other getters: 
+<code><a href='get_companies.html'>get_companies</a>()</code>,
+<code><a href='get_company_properties.html'>get_company_properties</a>()</code>,
+<code><a href='get_contact_properties.html'>get_contact_properties</a>()</code>,
+<code><a href='get_contacts.html'>get_contacts</a>()</code>,
+<code><a href='get_deal_pipelines.html'>get_deal_pipelines</a>()</code>,
+<code><a href='get_deal_properties.html'>get_deal_properties</a>()</code>,
+<code><a href='get_deals.html'>get_deals</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>owners</span> <span class='kw'>&lt;-</span> <span class='fu'>get_owners</span>()</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>owners</span> <span class='kw'>&lt;-</span> <span class='fu'>get_owners</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -136,7 +138,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Steph Locke, Locke Data. </p>
+  <p>Developed by Steph Locke, Locke Data, Maëlle Salmon. </p>
 </div>
 
 <div class="pkgdown">

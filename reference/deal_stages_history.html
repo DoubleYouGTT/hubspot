@@ -94,8 +94,10 @@
     <p>Retrieve the version history of deal stages</p>
     </div>
 
-    <pre class="usage"><span class='fu'>deal_stages_history</span>(<span class='kw'>deals</span> <span class='kw'>=</span> <span class='fu'><a href='get_deals.html'>get_deals</a></span>(<span class='kw'>properties</span> <span class='kw'>=</span> <span class='st'>"dealstage"</span>,
-  <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>, <span class='kw'>associations</span> <span class='kw'>=</span> <span class='st'>"false"</span>))</pre>
+    <pre class="usage"><span class='fu'>deal_stages_history</span>(
+  <span class='kw'>deals</span> <span class='kw'>=</span> <span class='fu'><a href='get_deals.html'>get_deals</a></span>(<span class='kw'>properties</span> <span class='kw'>=</span> <span class='st'>"dealstage"</span>, <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>, <span class='kw'>associations</span> <span class='kw'>=</span>
+    <span class='st'>"false"</span>)
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -111,7 +113,8 @@
     <p>A tbl containing all stages a deal has gone through</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>hist</span> <span class='kw'>&lt;-</span> <span class='fu'>deal_stages_history</span>()</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>hist</span> <span class='kw'>&lt;-</span> <span class='fu'>deal_stages_history</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -127,7 +130,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Steph Locke, Locke Data. </p>
+  <p>Developed by Steph Locke, Locke Data, Maëlle Salmon. </p>
 </div>
 
 <div class="pkgdown">

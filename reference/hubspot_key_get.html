@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract a table of CRM owners — owners • hubspot</title>
+<title>Get the Hubspot secret API key — hubspot_key_get • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Extract a table of CRM owners</a>
+      <a class="navbar-brand" href="../index.html">Get the Hubspot secret API key</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -85,39 +85,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract a table of CRM owners</h1>
+    <h1>Get the Hubspot secret API key</h1>
     
-    <div class="hidden name"><code>owners.Rd</code></div>
+    <div class="hidden name"><code>hubspot_key_get.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract a table of CRM owners</p>
+    <p>Get the Hubspot secret API key</p>
     </div>
 
-    <pre class="usage"><span class='fu'>owners</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'><a href='get_owners.html'>get_owners</a></span>())</pre>
+    <pre class="usage"><span class='fu'>hubspot_key_get</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>owners</th>
-      <td><p>Raw data from <code><a href='get_owners.html'>get_owners()</a></code></p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame of owners</p>
+    <p>The key (a string)</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If no key was stored via <code><a href='hubspot_key_set.html'>hubspot_key_set()</a></code> then "demo" is
+returned, along with a message.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other auth: 
+<code><a href='hubspot_key_set.html'>hubspot_key_set</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>crm_owners</span> <span class='kw'>&lt;-</span> <span class='fu'>owners</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
-#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>hubspot_key_get</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='output co'>#&gt; [1] "demo"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
