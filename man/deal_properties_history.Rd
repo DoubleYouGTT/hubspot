@@ -4,8 +4,9 @@
 \alias{deal_properties_history}
 \title{Retrieve the changes of all properties for a given set of deals}
 \usage{
-deal_properties_history(deals = get_deals(property_history = "true",
-  associations = "false", max_iter = 1))
+deal_properties_history(
+  deals = get_deals(property_history = "true", associations = "false", max_iter = 1)
+)
 }
 \arguments{
 \item{deals}{A deals list object, typically produced by running \code{get_deals}}

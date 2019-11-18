@@ -4,8 +4,9 @@
 \alias{deal_associations}
 \title{Extract a table of associations from a deals list}
 \usage{
-deal_associations(deals = get_deals(max_iter = 10, max_properties = 1,
-  associations = "true"))
+deal_associations(
+  deals = get_deals(max_iter = 10, max_properties = 1, associations = "true")
+)
 }
 \arguments{
 \item{deals}{A deals list object, typically produced by running \code{get_deals}}

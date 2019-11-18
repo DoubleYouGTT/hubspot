@@ -4,10 +4,15 @@
 \alias{get_contacts}
 \title{Get a list of all contacts, including a set of properties}
 \usage{
-get_contacts(apikey = hubspot_key_get(),
+get_contacts(
+  apikey = hubspot_key_get(),
   properties = get_contact_properties(apikey),
-  property_history = "true", form_submission_mode = "newest",
-  list_memberships = "false", max_iter = 10, max_properties = 100)
+  property_history = "true",
+  form_submission_mode = "newest",
+  list_memberships = "false",
+  max_iter = 10,
+  max_properties = 100
+)
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}
@@ -39,11 +44,13 @@ contacts <- get_contacts(property_history = "false", max_iter = 1,
                          max_properties = 10)
 }
 \seealso{
-Other getters: \code{\link{get_companies}},
-  \code{\link{get_company_properties}},
-  \code{\link{get_contact_properties}},
-  \code{\link{get_deal_pipelines}},
-  \code{\link{get_deal_properties}},
-  \code{\link{get_deals}}, \code{\link{get_owners}}
+Other getters: 
+\code{\link{get_companies}()},
+\code{\link{get_company_properties}()},
+\code{\link{get_contact_properties}()},
+\code{\link{get_deal_pipelines}()},
+\code{\link{get_deal_properties}()},
+\code{\link{get_deals}()},
+\code{\link{get_owners}()}
 }
 \concept{getters}

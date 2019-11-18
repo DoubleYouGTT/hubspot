@@ -2,6 +2,7 @@
 #'
 #' @param dt A tbl
 #' @return A tbl
+#' @noRd
 #'
 epoch_converter <- function(dt) {
   as_tibble(

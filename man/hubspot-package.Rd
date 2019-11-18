@@ -12,6 +12,11 @@ Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
 \author{
 \strong{Maintainer}: Steph Locke \email{steph@itsalocke.com}
 
+Authors:
+\itemize{
+  \item Maëlle Salmon \email{maelle.salmon@yahoo.se} (\href{https://orcid.org/0000-0002-2815-0399}{ORCID})
+}
+
 Other contributors:
 \itemize{
   \item Jessie Geahlen \email{jgeahlen@gmail.com} [contributor]

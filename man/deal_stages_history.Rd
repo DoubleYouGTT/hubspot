@@ -4,8 +4,10 @@
 \alias{deal_stages_history}
 \title{Retrieve the version history of deal stages}
 \usage{
-deal_stages_history(deals = get_deals(properties = "dealstage",
-  property_history = "true", associations = "false"))
+deal_stages_history(
+  deals = get_deals(properties = "dealstage", property_history = "true", associations =
+    "false")
+)
 }
 \arguments{
 \item{deals}{A deals list object, typically produced by running \code{get_deals}}

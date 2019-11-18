@@ -19,6 +19,7 @@ hubspot_key_set("yourapikey")
 }
 }
 \seealso{
-Other auth: \code{\link{hubspot_key_get}}
+Other auth: 
+\code{\link{hubspot_key_get}()}
 }
 \concept{auth}

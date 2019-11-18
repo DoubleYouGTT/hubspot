@@ -20,6 +20,7 @@ returned, along with a message.
 hubspot_key_get()
 }
 \seealso{
-Other auth: \code{\link{hubspot_key_set}}
+Other auth: 
+\code{\link{hubspot_key_set}()}
 }
 \concept{auth}

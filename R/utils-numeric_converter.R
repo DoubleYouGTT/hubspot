@@ -2,6 +2,7 @@
 #'
 #' @param dt A tbl
 #' @return A tbl
+#' @noRd
 #'
 numeric_converter <- function(dt) {
   mutate_if(dt,
