@@ -25,14 +25,7 @@ knitr::opts_chunk$set(
 
 The goal of `hubspot` is to enable access to [Hubspot CRM](//hubspot.com) data. It uses the [Hubspot API](developers.hubspot.com/docs/overview).
 
-## Installation
-
-```{r eval=FALSE}
-remotes::install_github("lockedata/hubspot")
-```
-
 ## Example
-
 
 ```{r example}
 library(hubspot)
@@ -43,6 +36,30 @@ deal_props
 deals <- get_deals("demo", properties = deal_props, max_iter = 1)
 deals
 ```
+
+
+## Installation
+
+```{r eval=FALSE}
+remotes::install_github("lockedata/hubspot")
+```
+
+## Authentication
+
+### API key
+
+The API key should be set using the `hubspot_key_set()` function, that relies on the `keyring` package that stores the key in the system default credential store (see `keyring` docs).
+
+```r
+# Either input the key as parameter
+hubspot_key_set("yourapikey")
+
+# Or just call the function,
+# the key will be asked interactively
+hubspot_key_set()
+```
+
+If no API key is set, the "demo" key is used and a message is printed to the screen.
 
 ## Contributions welcome!
 

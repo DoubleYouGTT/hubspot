@@ -9,13 +9,9 @@
 #' deals <- deal_properties()
 deal_properties <- function(deals = get_deals(max_iter = 1)) {
   deals %>%
-    map("properties") %>%
-    modify_depth(2, ~ .$value) %>%
-    map_df(as_tibble, .id = "dealId") %>%
-    mutate_if(~ sum(is.na(.)) == sum(is.na(suppressWarnings(as.numeric(.)))), # nolint
-              as.numeric) %>%
-    epoch_converter() ->
-  result
-
-  return(result)
+    purrr::map("properties") %>%
+    purrr::modify_depth(2, ~ .$value) %>%
+    purrr::map_df(tibble::as_tibble, .id = "dealId") %>%
+    numeric_converter() %>%
+    epoch_converter()
 }

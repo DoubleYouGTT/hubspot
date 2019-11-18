@@ -2,6 +2,15 @@ language: r
 warnings_are_errors: true
 cache: packages
 
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:chris-lea/libsodium'
+    packages:
+      - libsecret-1-dev
+      - libsodium-dev
+
+
 env:
   global:
     - R_CHECK_ARGS="--no-manual --as-cran"

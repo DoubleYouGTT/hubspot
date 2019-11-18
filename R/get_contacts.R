@@ -18,7 +18,7 @@
 #' @examples
 #' contacts <- get_contacts(property_history = "false", max_iter = 1,
 #'                          max_properties = 10)
-get_contacts <- function(apikey = "demo",
+get_contacts <- function(apikey = hubspot_key_get(),
                           properties = get_contact_properties(apikey),
                           property_history = "true",
                           form_submission_mode = "newest",
@@ -27,42 +27,32 @@ get_contacts <- function(apikey = "demo",
                           max_properties = 100) {
   form_submission_mode <- match.arg(form_submission_mode,
                                     c("all", "none", "newest", "oldest"))
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
-                                     path = "/contacts/v1/lists/all/contacts/all") # nolint
-  properties <- head(properties, max_properties)
-  contacts <- list()
-  n <- 0
-  do <- TRUE
-  offset <- 0
 
-  while (do & n < max_iter) {
-    res <- httr::GET(properties_url,
-      query = c(
-        list(
-          vidOffset = offset,
-          hapikey = apikey,
-          count = 100,
-          propertyMode = ifelse(property_history == "true",
-                                "value_and_history", "value_only"),
-          formSubmissionMode = form_submission_mode,
-          showListMemberships = list_memberships
-        ),
-        set_names(
-          lapply(properties, function(x) {
-            x
-          }),
-          rep("properties", length(properties))
-        )
+  properties <- head(properties, max_properties)
+
+  query <- c(
+      list(
+        count = 100,
+        propertyMode = ifelse(property_history == "true",
+                              "value_and_history", "value_only"),
+        formSubmissionMode = form_submission_mode,
+        showListMemberships = list_memberships
+      ),
+      purrr::set_names(
+        lapply(properties, function(x) {
+          x
+        }),
+        rep("properties", length(properties))
       )
     )
-    n <- n + 1
-    res_content <- httr::content(res)
-    contacts[n] <- list(res_content$contacts)
-    do <- res_content$`has-more`
-    offset <- res_content$`vid-offset`
-  }
 
-  contacts <- flatten(contacts)
-  contacts <- set_names(contacts, map_dbl(contacts, "vid"))
+  contacts <- get_results_paged(path = "/contacts/v1/lists/all/contacts/all",
+                                max_iter = max_iter, query = query,
+                                apikey = apikey, element = "contacts",
+                                hasmore_name = "has-more",
+                                offset_name_in = "vidOffset",
+                                offset_name_out = "vid-offset")
+
+  purrr::set_names(contacts,
+                   purrr::map_dbl(contacts, "vid"))
 }

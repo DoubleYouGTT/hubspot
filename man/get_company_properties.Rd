@@ -4,7 +4,7 @@
 \alias{get_company_properties}
 \title{Retrieve available properties for companies}
 \usage{
-get_company_properties(apikey = "demo")
+get_company_properties(apikey = hubspot_key_get())
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}
@@ -19,11 +19,13 @@ Retrieve available properties for companies
 properties <- get_company_properties()
 }
 \seealso{
-Other getters: \code{\link{get_companies}},
-  \code{\link{get_contact_properties}},
-  \code{\link{get_contacts}},
-  \code{\link{get_deal_pipelines}},
-  \code{\link{get_deal_properties}},
-  \code{\link{get_deals}}, \code{\link{get_owners}}
+Other getters: 
+\code{\link{get_companies}()},
+\code{\link{get_contact_properties}()},
+\code{\link{get_contacts}()},
+\code{\link{get_deal_pipelines}()},
+\code{\link{get_deal_properties}()},
+\code{\link{get_deals}()},
+\code{\link{get_owners}()}
 }
 \concept{getters}

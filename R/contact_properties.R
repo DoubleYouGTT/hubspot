@@ -9,13 +9,9 @@
 #' contacts <- contact_properties()
 contact_properties <- function(contacts = get_contacts(max_iter = 1)) {
   contacts %>%
-    map("properties") %>%
-    modify_depth(2, ~ .$value) %>%
-    map_df(as_tibble, .id = "vid") %>%
-    mutate_if(~ sum(is.na(.)) == suppressWarnings(sum(is.na(as.numeric(.)))), # nolint
-              as.numeric) %>%
-    epoch_converter() ->
-  result
-
-  return(result)
+    purrr::map("properties") %>%
+    purrr::modify_depth(2, ~ .$value) %>%
+    purrr::map_df(tibble::as_tibble, .id = "vid") %>%
+    numeric_converter() %>%
+    epoch_converter()
 }

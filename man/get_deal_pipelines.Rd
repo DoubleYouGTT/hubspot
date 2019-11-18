@@ -4,8 +4,10 @@
 \alias{get_deal_pipelines}
 \title{Retrieve available pipelines for deals}
 \usage{
-get_deal_pipelines(apikey = "demo",
-  include_inactive = "EXCLUDE_DELETED")
+get_deal_pipelines(
+  apikey = hubspot_key_get(),
+  include_inactive = "EXCLUDE_DELETED"
+)
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}
@@ -22,11 +24,13 @@ Retrieve available pipelines for deals
 pipelines <- get_deal_pipelines()
 }
 \seealso{
-Other getters: \code{\link{get_companies}},
-  \code{\link{get_company_properties}},
-  \code{\link{get_contact_properties}},
-  \code{\link{get_contacts}},
-  \code{\link{get_deal_properties}},
-  \code{\link{get_deals}}, \code{\link{get_owners}}
+Other getters: 
+\code{\link{get_companies}()},
+\code{\link{get_company_properties}()},
+\code{\link{get_contact_properties}()},
+\code{\link{get_contacts}()},
+\code{\link{get_deal_properties}()},
+\code{\link{get_deals}()},
+\code{\link{get_owners}()}
 }
 \concept{getters}

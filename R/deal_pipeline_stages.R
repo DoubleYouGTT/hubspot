@@ -10,27 +10,28 @@
 deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
 
   pipelines %>%
-    flatten() %>%
-    map(compact) %>%
-    map_df(as_tibble) %>%
-    select(.data$pipelineId, .data$stages) %>%
-    mutate(stages = map(.data$stages, compact)) %>%
-    mutate(stages = map(.data$stages, as_tibble)) %>%
+    purrr::flatten() %>%
+    purrr::map(purrr::compact) %>%
+    purrr::map_df(tibble::as_tibble) %>%
+    dplyr::select(.data$pipelineId, .data$stages) %>%
+    dplyr::mutate(stages = purrr::map(.data$stages, purrr::compact)) %>%
+    dplyr::mutate(stages = purrr::map(.data$stages,
+                                      tibble::as_tibble)) %>%
     tidyr::unnest(cols = c(.data$stages)) %>%
-    filter(row_number() %% 2 == 0) %>%
-    mutate(probability = ifelse(is.na(as.numeric(.data$metadata)),
+    dplyr::filter(dplyr::row_number() %% 2 == 0) %>%
+    dplyr::mutate(probability = ifelse(is.na(as.numeric(.data$metadata)),
       as.logical(.data$metadata),
       as.numeric(.data$metadata)
     )) %>%
-    select(-.data$metadata) %>%
+    dplyr::select(-.data$metadata) %>%
     epoch_converter() ->
   pipeline_stages
 
   pipelines %>%
-    flatten() %>%
-    map("stages") %>%
-    flatten() %>%
-    map_chr(c("metadata", "isClosed")) %>%
+    purrr::flatten() %>%
+    purrr::map("stages") %>%
+    purrr::flatten() %>%
+    purrr::map_chr(c("metadata", "isClosed")) %>%
     as.logical() ->
   pipeline_stages$isClosed # nolint
 

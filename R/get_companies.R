@@ -15,46 +15,34 @@
 #' @examples
 #' companies <- get_companies(property_history = "false", max_iter = 1,
 #'                            max_properties = 10)
-get_companies <- function(apikey = "demo",
+get_companies <- function(apikey = hubspot_key_get(),
                           properties = get_company_properties(apikey),
                           property_history = "true",
                           max_iter = 10,
                           max_properties = 100) {
-  base_url <- "https://api.hubapi.com"
-  properties_url <- httr::modify_url(base_url,
-                                     path = "/companies/v2/companies/paged") # nolint
+
   properties <- head(properties, max_properties)
-  companies <- list()
-  n <- 0
-  do <- TRUE
-  offset <- 0
 
-  while (do & n < max_iter) {
-    res <- httr::GET(properties_url,
-      query = c(
-        list(
-          offset = offset,
-          hapikey = apikey,
-          limit = 250,
-          propertiesWithHistory = property_history
-        ),
-        set_names(
-          lapply(properties, function(x) {
-            x
-          }),
-          rep("properties", length(properties))
-        )
-      )
+  query <- c(
+    list(
+      limit = 250,
+      propertiesWithHistory = property_history
+    ),
+    purrr::set_names(
+      lapply(properties, function(x) {
+        x
+      }),
+      rep("properties", length(properties))
     )
-    n <- n + 1
-    res_content <- httr::content(res)
-    companies[n] <- list(res_content$companies)
-    do <- res_content$`has-more`
-    offset <- res_content$offset
-  }
+  )
 
-  companies <- flatten(companies)
-  companies <- set_names(companies, map_dbl(companies, "companyId"))
+  companies <- get_results_paged(path = "/companies/v2/companies/paged",
+                                 max_iter = max_iter, query = query,
+                                 apikey = apikey, element = "companies",
+                                 hasmore_name = "has-more")
+
+  companies <- purrr::set_names(companies,
+                                purrr::map_dbl(companies, "companyId"))
 
   return(companies)
 }

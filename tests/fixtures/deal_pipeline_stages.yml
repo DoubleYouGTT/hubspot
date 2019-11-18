@@ -1,0 +1,42 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/crm-pipelines/v1/pipelines/deals/?includeInactive=EXCLUDE_DELETED&hapikey=demo
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Mon, 18 Nov 2019 09:21:02 GMT
+      content-type: application/json;charset=utf-8
+      content-length: '572'
+      vary: Accept-Encoding
+      content-encoding: gzip
+      access-control-allow-credentials: 'false'
+      accept-ranges: bytes
+      cf-cache-status: DYNAMIC
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 5378df34f82d690c-CDG
+    body:
+      encoding: UTF-8
+      string: '{"results":[{"pipelineId":"c99e583d-bb66-4176-b1c0-82fad9cd5f85","createdAt":1528967404134,"updatedAt":null,"objectType":"DEAL","objectTypeId":"0-3","label":"The
+        Pipe","displayOrder":0,"active":true,"stages":[{"stageId":"88fefcbd-257b-4b09-998c-b10e0e61ca2a","createdAt":1528967404134,"updatedAt":null,"label":"win","displayOrder":1,"metadata":{"isClosed":"true","probability":"1.0"},"active":true},{"stageId":"dfc03f64-4183-4ccc-bfb5-a205af0709cb","createdAt":1528967404134,"updatedAt":null,"label":"start","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.1"},"active":true},{"stageId":"bdcd24d2-d3d7-45f2-abc5-e5c07236804f","createdAt":1528967404134,"updatedAt":null,"label":"lost","displayOrder":2,"metadata":{"isClosed":"true","probability":"0.0"},"active":true}],"default":false},{"pipelineId":"default","createdAt":0,"updatedAt":null,"objectType":"DEAL","objectTypeId":"0-3","label":"Sales
+        Pipeline","displayOrder":0,"active":true,"stages":[{"stageId":"decisionmakerboughtin","createdAt":0,"updatedAt":null,"label":"Decision
+        Maker Bought-In","displayOrder":3,"metadata":{"isClosed":"false","probability":"0.8"},"active":true},{"stageId":"closedwon","createdAt":0,"updatedAt":null,"label":"Closed
+        Won","displayOrder":5,"metadata":{"isClosed":"true","probability":"1.0"},"active":true},{"stageId":"presentationscheduled","createdAt":0,"updatedAt":null,"label":"Presentation
+        Scheduled","displayOrder":2,"metadata":{"isClosed":"false","probability":"0.6"},"active":true},{"stageId":"closedlost","createdAt":0,"updatedAt":null,"label":"Closed
+        Lost","displayOrder":6,"metadata":{"isClosed":"true","probability":"0.0"},"active":true},{"stageId":"contractsent","createdAt":0,"updatedAt":null,"label":"Contract
+        Sent","displayOrder":4,"metadata":{"isClosed":"false","probability":"0.9"},"active":true},{"stageId":"appointmentscheduled","createdAt":0,"updatedAt":null,"label":"Appointment
+        Scheduled","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.2"},"active":true},{"stageId":"qualifiedtobuy","createdAt":0,"updatedAt":null,"label":"Qualified
+        To Buy","displayOrder":1,"metadata":{"isClosed":"false","probability":"0.4"},"active":true}],"default":true}]}'
+  recorded_at: 2019-11-18 09:21:02 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0

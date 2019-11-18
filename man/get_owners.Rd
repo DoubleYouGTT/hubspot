@@ -4,7 +4,7 @@
 \alias{get_owners}
 \title{Retrieve owners}
 \usage{
-get_owners(apikey = "demo")
+get_owners(apikey = hubspot_key_get())
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}
@@ -19,12 +19,13 @@ Retrieve owners
 owners <- get_owners()
 }
 \seealso{
-Other getters: \code{\link{get_companies}},
-  \code{\link{get_company_properties}},
-  \code{\link{get_contact_properties}},
-  \code{\link{get_contacts}},
-  \code{\link{get_deal_pipelines}},
-  \code{\link{get_deal_properties}},
-  \code{\link{get_deals}}
+Other getters: 
+\code{\link{get_companies}()},
+\code{\link{get_company_properties}()},
+\code{\link{get_contact_properties}()},
+\code{\link{get_contacts}()},
+\code{\link{get_deal_pipelines}()},
+\code{\link{get_deal_properties}()},
+\code{\link{get_deals}()}
 }
 \concept{getters}

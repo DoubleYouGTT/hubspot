@@ -4,9 +4,14 @@
 \alias{get_deals}
 \title{Get a list of all deals, including a set of properties}
 \usage{
-get_deals(apikey = "demo", properties = get_deal_properties(apikey),
-  property_history = "true", associations = "true", max_iter = 10,
-  max_properties = 100)
+get_deals(
+  apikey = hubspot_key_get(),
+  properties = get_deal_properties(apikey),
+  property_history = "true",
+  associations = "true",
+  max_iter = 10,
+  max_properties = 100
+)
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}
@@ -35,12 +40,13 @@ deals <- get_deals(property_history = "false", max_iter = 1,
                    max_properties = 10)
 }
 \seealso{
-Other getters: \code{\link{get_companies}},
-  \code{\link{get_company_properties}},
-  \code{\link{get_contact_properties}},
-  \code{\link{get_contacts}},
-  \code{\link{get_deal_pipelines}},
-  \code{\link{get_deal_properties}},
-  \code{\link{get_owners}}
+Other getters: 
+\code{\link{get_companies}()},
+\code{\link{get_company_properties}()},
+\code{\link{get_contact_properties}()},
+\code{\link{get_contacts}()},
+\code{\link{get_deal_pipelines}()},
+\code{\link{get_deal_properties}()},
+\code{\link{get_owners}()}
 }
 \concept{getters}
