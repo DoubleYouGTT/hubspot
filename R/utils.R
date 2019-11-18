@@ -26,7 +26,8 @@ get_results <- function(path, apikey,
 
   httr::GET(get_path_url(path),
             query = query,
-            httr::user_agent("hubspot R package by Locke Data"))
+            httr::user_agent("hubspot R package by Locke Data")) %>%
+    httr::content()
 }
 
 #' @param path API endpoint path (character)
@@ -48,10 +49,9 @@ get_results_paged <- function(path, apikey, query = NULL,
   while (do & n < max_iter) {
     query$offset <- offset
 
-    res <- get_results(path = path,
+    res_content <- get_results(path = path,
                       apikey = apikey, query = query)
     n <- n + 1
-    res_content <- httr::content(res)
 
     results[n] <- list(res_content[[element]])
     do <- res_content[[hasmore_name]]

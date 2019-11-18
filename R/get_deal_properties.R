@@ -8,10 +8,7 @@
 #' @examples
 #' properties <- get_deal_properties()
 get_deal_properties <- function(apikey = hubspot_key_get()) {
-  res <- get_results(path = "/properties/v1/deals/properties/",
-                     apikey = apikey)
-
-  properties <- purrr::map_chr(httr::content(res), "name")
-
-  return(properties)
+  get_results(path = "/properties/v1/deals/properties/",
+              apikey = apikey) %>%
+    purrr::map_chr("name")
 }

@@ -11,6 +11,5 @@ get_company_properties <- function(apikey = hubspot_key_get()) {
 
   get_results(path = "/properties/v1/companies/properties/",
               apikey = apikey) %>%
-    httr::content() %>%
     purrr::map_chr("name")
 }
