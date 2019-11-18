@@ -11,9 +11,8 @@
 get_company_properties <- function(token_path = NULL,
                                    apikey = NULL) {
 
-  auth <- hubspot_auth(token_path, apikey)
-
   get_results(path = "/properties/v1/companies/properties/",
-              auth = auth) %>%
+              apikey = apikey,
+              token_path = token_path) %>%
     purrr::map_chr("name")
 }

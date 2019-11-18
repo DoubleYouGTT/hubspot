@@ -15,7 +15,8 @@ hubspot_api_usage <- function(apikey = hubspot_key_get()) {
   tz <- hubspot_tz(apikey = apikey)
 
   get_results("/integrations/v1/limit/daily",
-              apikey = apikey) %>%
+              apikey = apikey,
+              token_path = NULL) %>%
     .[[1]] %>%
     tibble::as_tibble() %>%
     dplyr::select(-name) %>%

@@ -16,12 +16,13 @@ get_path_url <- function(path) {
 
 #' @param path API endpoint path (character)
 #' @param apikey API key (character)
+#' @param token_path Path to cached token (character)
 #' @param query Query parameters (named list)
 #' @return A list
 #' @noRd
-.get_results <- function(path, auth,
+.get_results <- function(path, apikey, token_path,
                         query = NULL) {
-
+  auth <- hubspot_auth(token_path, apikey)
 
   # remove NULL elements from the query
   query <- purrr::discard(query, is.null)
@@ -35,8 +36,8 @@ get_path_url <- function(path) {
       httr::content()
   } else {
     token <- httr::oauth2.0_token(cache = auth$value,
-                                  endpoint = oauth_endpoint(),
-                                  app = oauth_app())
+                                  endpoint = hubspot_oauth_endpoint(),
+                                  app = hubspot_oauth_app())
 
     httr::GET(get_path_url(path),
               query = query,
