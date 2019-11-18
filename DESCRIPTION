@@ -27,7 +27,8 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    vcr
+    vcr,
+    covr
 VignetteBuilder: knitr
 Imports: 
     purrr,
