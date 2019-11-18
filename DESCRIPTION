@@ -38,6 +38,7 @@ Imports:
     rlang,
     keyring,
     methods,
-    tibble
+    tibble,
+    anytime
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0

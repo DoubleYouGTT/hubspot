@@ -1,6 +1,6 @@
 #' Retrieve owners
 #'
-#' @description Retrieve owners [from the owners API endpoint](https://developers.hubspot.com/docs/methods/owners/get_owners). # nolint
+#' @description Retrieve owners [from the owners API endpoint](https://developers.hubspot.com/docs/methods/owners/get_owners).
 #'
 #' @inheritParams get_company_properties
 #' @param include_inactive Boolean indicating whether to include inactive
