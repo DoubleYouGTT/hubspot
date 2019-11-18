@@ -91,7 +91,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Retrieve owners <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>from the owners API endpoint</a>. # nolint</p>
+    <p>Retrieve owners <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>from the owners API endpoint</a>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_owners</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot_key_get.html'>hubspot_key_get</a></span>(), <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>email</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -184,17 +184,17 @@ owners (defined as owners without any active remotes.)</p></td>
 #&gt; [[1]]$hasContactsAccess
 #&gt; [1] FALSE
 #&gt; 
-#&gt; [[1]]$activeUserId
+#&gt; [[1]]$userIdIncludingInactive
 #&gt; [1] 238058
 #&gt; 
 #&gt; [[1]]$activeSalesforceId
 #&gt; NULL
 #&gt; 
-#&gt; [[1]]$userIdIncludingInactive
-#&gt; [1] 238058
-#&gt; 
 #&gt; [[1]]$isActive
 #&gt; [1] TRUE
+#&gt; 
+#&gt; [[1]]$activeUserId
+#&gt; [1] 238058
 #&gt; 
 #&gt; </div><div class='input'># }
 </div></pre>
