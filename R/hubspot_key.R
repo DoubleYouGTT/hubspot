@@ -10,7 +10,7 @@
 hubspot_key_get <- function() {
   key <- try(keyring::key_get("hubspot"), silent = TRUE)
 
-  if (is(key, "try-error")) {
+  if (methods::is(key, "try-error")) {
     message("Could not find Hubspot API key, will use the 'demo' key.
 Please run hubspot_key_set() to set your API key.")
     key <- "demo"
