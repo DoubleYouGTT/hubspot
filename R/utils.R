@@ -35,7 +35,8 @@ get_results <- function(path, apikey,
 #' @param query Query parameters (named list)
 #' @param max_iter Maximal number of iterations (integer)
 #' @param element Element to retrieve from API raw results (character)
-#' @param hasmore_name Name of the has-more parameter for the API endpoint (character)
+#' @param hasmore_name Name of the has-more parameter for the API
+#'                     endpoint (character)
 #' @return A list
 #' @noRd
 get_results_paged <- function(path, apikey, query = NULL,
