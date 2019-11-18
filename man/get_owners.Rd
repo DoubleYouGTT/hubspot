@@ -19,7 +19,7 @@ owners (defined as owners without any active remotes.)}
 List of owners
 }
 \description{
-Retrieve owners \href{https://developers.hubspot.com/docs/methods/owners/get_owners}{from the owners API endpoint}. # nolint
+Retrieve owners \href{https://developers.hubspot.com/docs/methods/owners/get_owners}{from the owners API endpoint}.
 }
 \examples{
 \dontrun{

@@ -62,6 +62,12 @@ hubspot_key_set()
 
 If no API key is set, the "demo" key is used and a message is printed to the screen.
 
+You can check the daily usage related to the API key via `hubspot_api_usage()`. Calls in the package are rate limited (100 requests every 10 seconds) but there's also a daily limit on calls.
+
+```{r usage}
+hubspot_api_usage()
+```
+
 ## Contributions welcome!
 
 Wanna report a bug or suggest a feature? Great stuff! For more information on how to contribute check out [our contributing guide](.github/CONTRIBUTING.md).

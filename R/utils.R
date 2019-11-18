@@ -19,7 +19,7 @@ get_path_url <- function(path) {
 #' @param query Query parameters (named list)
 #' @return A list
 #' @noRd
-get_results <- function(path, apikey,
+.get_results <- function(path, apikey,
                         query = NULL) {
 
   query$hapikey <- apikey
@@ -32,6 +32,9 @@ get_results <- function(path, apikey,
             httr::user_agent("hubspot R package by Locke Data")) %>%
     httr::content()
 }
+
+get_results <- ratelimitr::limit_rate(.get_results,
+                                      ratelimitr::rate(100, 10))
 
 #' @param path API endpoint path (character)
 #' @param apikey API key (character)
