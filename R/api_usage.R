@@ -19,8 +19,8 @@ hubspot_api_usage <- function(apikey = hubspot_key_get()) {
     .[[1]] %>%
     tibble::as_tibble() %>%
     dplyr::select(-name) %>%
-    dplyr::mutate(collectedAt = anytime::anytime(collectedAt/1000,
+    dplyr::mutate(collectedAt = anytime::anytime(collectedAt / 1000,
                                                  tz = tz),
-                  resetsAt = anytime::anytime(resetsAt/1000,
+                  resetsAt = anytime::anytime(resetsAt / 1000,
                                               tz = tz))
 }
