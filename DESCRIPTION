@@ -36,6 +36,7 @@ Imports:
     magrittr,
     tidyr,
     rlang,
-    keyring
+    keyring,
+    methods
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0
