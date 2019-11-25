@@ -101,7 +101,7 @@ hubspot_token_create <- function(app_info = default_ld_hubspot_app(),
     cache = FALSE
   )
 
-  # from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L219
+# from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L219 # nolint
   if (set_renv) {
     if (is.null(token_path)) {
       token_path <- uq_filename(file.path(home(), ".hubspot_token.rds"))

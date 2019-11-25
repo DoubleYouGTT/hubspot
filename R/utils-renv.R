@@ -1,6 +1,6 @@
-# from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/renv.R#L1
+# from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/renv.R#L1 # nolint
 # --------------------------------------------
-.Renviron <- function() {
+.renviron <- function() {
   if (file.exists(".Renviron")) {
     ".Renviron"
   } else {
@@ -58,17 +58,17 @@ is_incomplete <- function(x) {
 }
 
 clean_renv <- function(var) {
-  x <- readlines(.Renviron())
+  x <- readlines(.renviron())
   x <- grep(sprintf("^%s=", var), x, invert = TRUE, value = TRUE)
-  writeLines(x, .Renviron())
+  writeLines(x, .renviron())
 }
 
 check_renv <- function(var = NULL) {
-  if (!file.exists(.Renviron())) {
+  if (!file.exists(.renviron())) {
     return(invisible())
   }
-  if (is_incomplete(.Renviron())) {
-    append_lines("", file = .Renviron())
+  if (is_incomplete(.renviron())) {
+    append_lines("", file = .renviron())
   }
   if (!is.null(var)) {
     clean_renv(var)
@@ -85,8 +85,8 @@ set_renv <- function(...) {
   for (var in vars) {
     check_renv(var)
   }
-  append_lines(x, file = .Renviron())
-  readRenviron(.Renviron())
+  append_lines(x, file = .renviron())
+  readRenviron(.renviron())
 }
 
 has_name_ <- function(x, name) {

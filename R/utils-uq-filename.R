@@ -1,4 +1,4 @@
-# from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L256
+# from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L256 # nolint
 # ------------------------------------------------
 has_ext <- function(x) {
   stopifnot(length(x) == 1L)

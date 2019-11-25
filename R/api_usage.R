@@ -2,7 +2,9 @@
 #'
 #' @title Check daily API usage
 #'
+# nolint start
 #' @description Check daily API usage [via the dedicated API endpoint](https://developers.hubspot.com/docs/methods/check-daily-api-usage).
+# nolint end
 #'
 #' @inheritParams get_company_properties
 #' @return A data.frame with API usage info
