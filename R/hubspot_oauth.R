@@ -60,17 +60,42 @@ hubspot_oauth_app <- function(app_info) {
 #'
 #' @param app_info A named list with client_secret, client_id, app_id and
 #' scopes.
-#'
+#' @param set_renv Logical indicating whether to save the created token
+#'   as the default environment hubspot token variable. Defaults to TRUE,
+#'   meaning the token is saved to user's home directory as either the user
+#'   provided path, or
+#'   ".hubspot_token.rds" (or, if that already exists, then
+#'   .hubspot_token1.rds or .hubspot_token2.rds, etc.) and the path to the
+#'   token to said token is then set in the user's .Renviron file and re-
+#'   read to start being used in current active session.
+#' @param token_path Path where to save the token. If `set_renv` is `FALSE`,
+#'  this is ignored.
+#
 #' @return
 #' @family auth
 #' @export
 #'
 #' @examples
-hubspot_token_get <- function(app_info = ld_hubspot_app()) {
+hubspot_token_get <- function(app_info = ld_hubspot_app(),
+                              set_renv = TRUE,
+                              token_path = NULL) {
 
   token <- httr::oauth2.0_token(endpoint =
                                   hubspot_oauth_endpoint(app_info),
                                 app =
-                                  hubspot_oauth_app(app_info))
+                                  hubspot_oauth_app(app_info),
+                                cache = FALSE)
+
+  # from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L219
+  if (set_renv) {
+    if(is.null(token_path)) {
+      token_path <- uq_filename(file.path(home(), ".hubspot_token.rds"))
+    }
+
+    saveRDS(token, file = token_path, compress = FALSE)
+    set_renv("HUBSPOT_PAT" = token_path)
+  }
+
+  return(token)
 
 }
