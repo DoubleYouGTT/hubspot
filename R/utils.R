@@ -61,7 +61,7 @@ get_results <- ratelimitr::limit_rate(.get_results,
 #' @param offset_name_out Name of the offset parameter returned
 #' @return A list
 #' @noRd
-get_results_paged <- function(path, apikey, query = NULL,
+get_results_paged <- function(path, token_path, apikey, query = NULL,
                               max_iter = max_iter, element,
                               hasmore_name,
                               offset_name_in = "offset",
