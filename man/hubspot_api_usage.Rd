@@ -8,7 +8,7 @@ hubspot_api_usage(apikey = hubspot_key_get())
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot (only used if \code{token_path}
-is \code{NULL})}
+is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 }
 \value{
 A data.frame with API usage info

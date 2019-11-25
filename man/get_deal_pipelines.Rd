@@ -11,10 +11,11 @@ get_deal_pipelines(
 )
 }
 \arguments{
-\item{token_path}{Path to OAuth 2.0 token}
+\item{token_path}{Path to OAuth 2.0 token.
+See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 
 \item{apikey}{API key to work with Hubspot (only used if \code{token_path}
-is \code{NULL})}
+is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
 \item{include_inactive}{Should deleted pipelines be returned}
 }
