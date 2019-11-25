@@ -20,12 +20,16 @@
 #'                          max_properties = 10)
 get_contacts <- function(token_path = hubspot_token_get(),
                          apikey = hubspot_key_get(),
-                          properties = get_contact_properties(apikey),
+                          properties = get_contact_properties(token_path =
+                                                                token_path,
+                                                              apikey =
+                                                                apikey),
                           property_history = "true",
                           form_submission_mode = "newest",
                           list_memberships = "false",
                           max_iter = 10,
                           max_properties = 100) {
+
   form_submission_mode <- match.arg(form_submission_mode,
                                     c("all", "none", "newest", "oldest"))
 

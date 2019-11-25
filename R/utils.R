@@ -75,6 +75,7 @@ get_results_paged <- function(path, token_path, apikey, query = NULL,
     query[[offset_name_in]] <- offset
 
     res_content <- get_results(path = path,
+                               token_path = token_path,
                       apikey = apikey, query = query)
     n <- n + 1
 
