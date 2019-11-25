@@ -1,8 +1,8 @@
-#' LD Hubspot App info
 #' @return Named list
 #' @keywords internal
+#' @rdname hubspot-oauth
 #' @export
-ld_hubspot_app <- function() {
+default_ld_hubspot_app <- function() {
   list(client_secret = "2c0b347e-1e2a-4db7-a31a-aaa0b2fcad13",
        client_id = "5975ba5c-900c-4fd7-94dd-04df023e4263",
        app_id = "205749",
@@ -53,7 +53,10 @@ hubspot_oauth_app <- function(app_info) {
 }
 
 
-#' Create Hubspot authorization token.
+#' Create/get Hubspot authorization token.
+#'
+#' Functions related to creating or retrieving an OAuth 2.0
+#' token for the Hubspot API.
 #'
 #' @includeRmd vignettes/rmdhunks/oauth.Rmd
 #' @includeRmd vignettes/rmdhunks/auth.Rmd
@@ -75,8 +78,11 @@ hubspot_oauth_app <- function(app_info) {
 #' @family auth
 #' @export
 #'
-#' @examples
-hubspot_token_get <- function(app_info = ld_hubspot_app(),
+#' @examples \dontrun{
+#' hubspot_token_create()
+#' }
+#' @rdname hubspot-oauth
+hubspot_token_create <- function(app_info = default_ld_hubspot_app(),
                               set_renv = TRUE,
                               token_path = NULL) {
 
@@ -97,5 +103,22 @@ hubspot_token_get <- function(app_info = ld_hubspot_app(),
   }
 
   return(token)
+
+}
+
+#' @return Either NULL or the path in which the token is saved.
+#' @export
+#' @rdname hubspot-oauth
+#'
+#' @examples
+#' hubspot_token_get()
+hubspot_token_get <- function(){
+  token_path <- Sys.getenv("HUBSPOT_PAT")
+
+  if (token_path == "") {
+    return(NULL)
+  } else {
+    return(token_path)
+  }
 
 }

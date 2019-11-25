@@ -21,6 +21,7 @@ Other contributors:
 \itemize{
   \item Jessie Geahlen \email{jgeahlen@gmail.com} [contributor]
   \item Locke Data (https://itsalocke.com) [funder]
+  \item Michael W. Kearney \email{kearneymw@missouri.edu} (\href{https://orcid.org/0000-0002-0730-4694}{ORCID}) [contributor]
 }
 
 }

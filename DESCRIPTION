@@ -20,7 +20,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-2815-0399")),
        person("Michael W.", "Kearney", ,
       email = "kearneymw@missouri.edu", role = c("ctb"),
-      comment = c(ORCID = "0000-0002-0730-4694"))
+      comment = c(ORCID = "0000-0002-0730-4694")))
 Description: Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
     for more information), retrieve customer relationship data for reporting and analysis.
 License: MIT + file LICENSE

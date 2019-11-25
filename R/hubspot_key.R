@@ -2,7 +2,7 @@
 #'
 #' @description Get/set the Hubspot secret API key using the `keyring` package.
 #' For a more secure authorization method, without a daily limit on calls,
-#'  see [`hubspot_token_get()`]
+#'  see [`hubspot_token_create()`]
 #'
 #' @return The key (a string)
 #' @export

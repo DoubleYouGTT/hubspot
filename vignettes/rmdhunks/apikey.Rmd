@@ -19,4 +19,4 @@ You can check the daily usage related to the API key via `hubspot_api_usage()`. 
 hubspot_api_usage()
 ```
 
-**For a more secure authorization method, without a daily limit on calls, see [`hubspot_token_get()`].**
+**For a more secure authorization method, without a daily limit on calls, see [`hubspot_token_create()`].**

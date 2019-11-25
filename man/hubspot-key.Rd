@@ -19,7 +19,7 @@ The key (a string)
 \description{
 Get/set the Hubspot secret API key using the \code{keyring} package.
 For a more secure authorization method, without a daily limit on calls,
-see \code{\link[=hubspot_token_get]{hubspot_token_get()}}
+see \code{\link[=hubspot_token_create]{hubspot_token_create()}}
 }
 \details{
 To know how to get your Hubspot API key, refer to \href{https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key}{the corresponding section of Hubspot API docs}.
@@ -45,7 +45,8 @@ requests every 10 seconds) but there’s also a daily limit on calls.\if{html}{\
 }\if{html}{\out{</div>}}
 
 \strong{For a more secure authorization method, without a daily limit on
-calls, see \code{\link[=hubspot_token_get]{hubspot_token_get()}}.}
+calls, see
+\code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 
 \subsection{Authorization for Hubspot API}{
 
@@ -65,13 +66,13 @@ to spend a little time on setup:
 \item For rapid prototyping key, use a Hubspot API key, see
 \code{hubspot_key_set()}.
 \item For more secure use, without a daily limit on API calls, see
-\code{hubspot_token_get()} to create a Hubspot authorization token (OAuth
-2.0).
+\code{hubspot_token_create()} to create a Hubspot authorization token
+(OAuth 2.0).
 }
 
 If you have both saved an API key via \code{hubspot_key_set()} and a token
-via \code{hubspot_token_get()}, priority will be given to using the OAuth 2.0
-token. If you don’t want that, explicitely pass BLABLA
+via \code{hubspot_token_create()}, priority will be given to using the OAuth
+2.0 token. If you don’t want that, explicitely pass BLABLA
 }
 }
 \examples{
@@ -82,6 +83,6 @@ hubspot_key_set("yourapikey")
 }
 \seealso{
 Other auth: 
-\code{\link{hubspot_token_get}()}
+\code{\link{default_ld_hubspot_app}()}
 }
 \concept{auth}
