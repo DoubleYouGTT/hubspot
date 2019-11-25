@@ -113,4 +113,6 @@ check_token <- function(token, file) {
     token$refresh()
     saveRDS(token, file)
   }
+
+  token
 }
