@@ -1,0 +1,22 @@
+To know how to get your Hubspot API key, refer to [the corresponding section of Hubspot API docs](https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key). Hubspot recommends you to re-generate your API key every six months.
+
+The API key should be set using the `hubspot_key_set()` function, that relies on the `keyring` package that stores the key in the system default credential store (see `keyring` docs).
+
+```r
+# Either input the key as parameter
+hubspot_key_set("yourapikey")
+
+# Or just call the function,
+# the key will be asked interactively
+hubspot_key_set()
+```
+
+If no API key is set, the "demo" key is used and a message is printed to the screen. As noted earlier, this won't give you access to your own Hubspot data.
+
+You can check the daily usage related to the API key via `hubspot_api_usage()`. Calls in the package are rate limited (100 requests every 10 seconds) but there's also a daily limit on calls.
+
+```r
+hubspot_api_usage()
+```
+
+**For a more secure authorization method, without a daily limit on calls, see [`hubspot_token_get()`].**

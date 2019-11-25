@@ -1,3 +1,30 @@
 template:
   package: lockedatapkg
   default_assets: false
+
+reference:
+- title: API usage and setup
+  desc: ~
+  contents:
+  - '`has_concept("auth")`'
+  - '`hubspot_api_usage`'
+- title: Data access
+  desc: ~
+  contents:
+  - '`company_properties`'
+  - '`contact_properties`'
+  - '`deal_associations`'
+  - '`deal_pipeline_stages`'
+  - '`deal_pipelines`'
+  - '`deal_properties`'
+  - '`deal_properties_history`'
+  - '`deal_stages_history`'
+  - '`get_companies`'
+  - '`get_company_properties`'
+  - '`get_contact_properties`'
+  - '`get_contacts`'
+  - '`get_deal_pipelines`'
+  - '`get_deal_properties`'
+  - '`get_deals`'
+  - '`get_owners`'
+  - '`owners`'

@@ -1,12 +1,16 @@
-#' Get the Hubspot secret API key
+#' Get/set the Hubspot secret API key
+#'
+#' @description Get/set the Hubspot secret API key using the `keyring` package.
+#' For a more secure authorization method, without a daily limit on calls,
+#'  see [`hubspot_token_get()`]
 #'
 #' @return The key (a string)
 #' @export
 #'
 #' @examples hubspot_key_get()
-#' @details If no key was stored via [`hubspot_key_set()`] then "demo" is
-#' returned, along with a message.
-#' @family auth
+#' @includeRmd vignettes/rmdhunks/apikey.Rmd
+#' @includeRmd vignettes/rmdhunks/auth.Rmd
+#' @rdname hubspot-key
 hubspot_key_get <- function() {
   key <- try(keyring::key_get("hubspot"), silent = TRUE)
 
@@ -22,14 +26,11 @@ Please run hubspot_key_set() to set your API key.")
 
 
 
-#' Set the Hubspot secret API key
-#'
-#' @description Set the Hubspot secret API key using the `keyring` package.
-#'
 #' @param key API key. If not provided via this argument, the key will have
 #'  to be provided interactively.
 #'
 #' @export
+#' @rdname hubspot-key
 #'
 #' @examples \dontrun{
 #' hubspot_key_set("yourapikey")

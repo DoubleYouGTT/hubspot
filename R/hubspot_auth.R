@@ -60,7 +60,16 @@ hubspot_oauth_app <- function() {
 }
 
 
-get_token <- function() {
+#' Create Hubspot authorization token.
+#'
+#' @includeRmd vignettes/rmdhunks/auth.Rmd
+#'
+#' @return
+#' @family auth
+#' @export
+#'
+#' @examples
+hubspot_token_get <- function() {
 
   token <- httr::oauth2.0_token(endpoint = hubspot_oauth_endpoint(),
                                 oauth_app = hubspot_oauth_app())

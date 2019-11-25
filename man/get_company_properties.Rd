@@ -4,9 +4,11 @@
 \alias{get_company_properties}
 \title{Retrieve available properties for companies}
 \usage{
-get_company_properties(apikey = hubspot_key_get())
+get_company_properties(token_path = NULL, apikey = NULL)
 }
 \arguments{
+\item{token_path}{Path to token}
+
 \item{apikey}{API key to work with Hubspot}
 }
 \value{

@@ -1,0 +1,18 @@
+## Authorization for Hubspot API
+
+The Hubspot API accepts authorization via
+
+* an API key,
+
+* OAuth 2.0.
+
+OAuth 2.0 is the [recommended method](https://developers.hubspot.com/docs/methods/auth/oauth-overview?_ga=2.108539650.1064389456.1574673541-1134397846.1571640267). However, this package supports both.
+
+Note that if you do nothing the package will use the "demo" API token but this won't give you access to your own Hubspot data. So you'll need to spend a little time on setup:
+
+* For rapid prototyping key, use a Hubspot API key, see `hubspot_key_set()`.
+
+* For more secure use, without a daily limit on API calls, see `hubspot_token_get()` to create a Hubspot authorization token
+(OAuth 2.0).
+
+If you have both saved an API key via `hubspot_key_set()` and a token via `hubspot_token_get()`, priority will be given to using the OAuth 2.0 token. If you don't want that, explicitely pass BLABLA
