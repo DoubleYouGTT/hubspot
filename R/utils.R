@@ -41,6 +41,8 @@ get_path_url <- function(path) {
   } else {
     token <- readRDS(auth$value)
 
+    token <- check_token(token, file = auth$value)
+
     httr::GET(get_path_url(path),
       query = query,
       httr::config(httr::user_agent("hubspot R package by Locke Data"),
@@ -96,4 +98,19 @@ get_results_paged <- function(path, token_path, apikey, query = NULL,
   results <- purrr::flatten(results)
 
   return(results)
+}
+
+
+check_token <- function(token, file) {
+  exp <- httr::GET(get_path_url(
+    glue::glue("/oauth/v1/access-tokens/{
+               token$credentials$access_token}"))) %>%
+    httr::content() %>%
+    .$expires_in
+
+  # if less than 60 seconds, refresh
+  if (exp < 60) {
+    token$refresh()
+    saveRDS(token, file)
+  }
 }
