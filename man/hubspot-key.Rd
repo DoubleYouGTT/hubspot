@@ -48,7 +48,7 @@ requests every 10 seconds) but there’s also a daily limit on calls.\if{html}{\
 calls, see
 \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 
-\subsection{Authorization for Hubspot API}{
+\subsection{Authorization for Hubspot APIs}{
 
 The Hubspot API accepts authorization via
 \itemize{
@@ -72,7 +72,8 @@ to spend a little time on setup:
 
 If you have both saved an API key via \code{hubspot_key_set()} and a token
 via \code{hubspot_token_create()}, priority will be given to using the OAuth
-2.0 token. If you don’t want that, explicitely pass BLABLA
+2.0 token. If you don’t want that, explicitely pass \code{NULL} as value for
+the \code{token_path} argument of all functions.
 }
 }
 \examples{

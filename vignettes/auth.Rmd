@@ -1,0 +1,33 @@
+---
+title: "Authorization for Hubspot APIs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{auth}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hubspot)
+```
+
+
+```{r child='vignettes/rmdhunks/auth.Rmd'} 
+```
+
+### OAuth 2.0 details
+
+```{r child='./rmdhunks/oauth.Rmd'} 
+```
+
+### API key details
+
+```{r child='./rmdhunks/apikey.Rmd'} 
+```

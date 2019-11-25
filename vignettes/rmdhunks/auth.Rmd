@@ -1,4 +1,4 @@
-## Authorization for Hubspot API
+## Authorization for Hubspot APIs
 
 The Hubspot API accepts authorization via
 
@@ -15,4 +15,4 @@ Note that if you do nothing the package will use the "demo" API token but this w
 * For more secure use, without a daily limit on API calls, see `hubspot_token_create()` to create a Hubspot authorization token
 (OAuth 2.0).
 
-If you have both saved an API key via `hubspot_key_set()` and a token via `hubspot_token_create()`, priority will be given to using the OAuth 2.0 token. If you don't want that, explicitely pass BLABLA
+If you have both saved an API key via `hubspot_key_set()` and a token via `hubspot_token_create()`, priority will be given to using the OAuth 2.0 token. If you don't want that, explicitely pass `NULL` as value for the `token_path` argument of all functions. 

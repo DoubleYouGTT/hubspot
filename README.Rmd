@@ -29,12 +29,12 @@ The goal of `hubspot` is to enable access to [Hubspot CRM](//hubspot.com) data. 
 ## Example
 
 ```{r example}
-library(hubspot)
+library("hubspot")
 
-deal_props <- get_deal_properties("demo")
+deal_props <- get_deal_properties()
 deal_props
 
-deals <- get_deals("demo", properties = deal_props, max_iter = 1)
+deals <- get_deals(properties = deal_props, max_iter = 1)
 deals
 ```
 
@@ -49,15 +49,7 @@ remotes::install_github("lockedata/hubspot")
 ```{r child='vignettes/rmdhunks/auth.Rmd'} 
 ```
 
-### OAuth 2.0 details
-
-```{r child='vignettes/rmdhunks/oauth.Rmd'} 
-```
-
-### API key details
-
-```{r child='vignettes/rmdhunks/apikey.Rmd'} 
-```
+Find more details on each method [in the vignette about authorization](https://itsalocke.com/hubspot/articles/auth).
 
 ## Contributions welcome!
 

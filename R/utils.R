@@ -22,6 +22,7 @@ get_path_url <- function(path) {
 #' @noRd
 .get_results <- function(path, apikey, token_path,
                         query = NULL) {
+
   auth <- hubspot_auth(token_path = token_path,
                        apikey = apikey)
 

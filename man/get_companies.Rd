@@ -7,7 +7,7 @@
 get_companies(
   token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
-  properties = get_company_properties(apikey),
+  properties = get_company_properties(token_path, apikey),
   property_history = "true",
   max_iter = 10,
   max_properties = 100
