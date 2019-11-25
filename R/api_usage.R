@@ -1,5 +1,6 @@
 #' @importFrom rlang .data
-#' Check daily API usage
+#'
+#' @title Check daily API usage
 #'
 #' @description Check daily API usage [via the dedicated API endpoint](https://developers.hubspot.com/docs/methods/check-daily-api-usage).
 #'
