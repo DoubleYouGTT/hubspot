@@ -19,7 +19,7 @@ library(hubspot)
 ```
 
 
-```{r child='vignettes/rmdhunks/auth.Rmd'} 
+```{r child='./rmdhunks/auth.Rmd'} 
 ```
 
 ### OAuth 2.0 details
