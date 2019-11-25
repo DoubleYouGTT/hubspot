@@ -1,3 +1,4 @@
+#' @importFrom rlang .data
 #' Check daily API usage
 #'
 #' @description Check daily API usage [via the dedicated API endpoint](https://developers.hubspot.com/docs/methods/check-daily-api-usage).
@@ -20,9 +21,9 @@ hubspot_api_usage <- function(apikey = hubspot_key_get()) {
               token_path = NULL) %>%
     .[[1]] %>%
     tibble::as_tibble() %>%
-    dplyr::select(-name) %>%
-    dplyr::mutate(collectedAt = anytime::anytime(collectedAt / 1000,
+    dplyr::select(-.data$name) %>%
+    dplyr::mutate(collectedAt = anytime::anytime(.data$collectedAt / 1000,
                                                  tz = tz),
-                  resetsAt = anytime::anytime(resetsAt / 1000,
+                  resetsAt = anytime::anytime(.data$resetsAt / 1000,
                                               tz = tz))
 }
