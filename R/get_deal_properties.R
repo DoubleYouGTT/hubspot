@@ -1,6 +1,6 @@
 #' Retrieve available properties for deals
 #'
-#' @param apikey API key
+#' @inheritParams get_company_properties
 #'
 #' @return Character vector of properties
 #' @export

@@ -1,6 +1,6 @@
 #' Retrieve available properties for contacts
 #'
-#' @param apikey API key to work with Hubspot
+#' @inheritParams get_company_properties
 #'
 #' @return Character vector of properties
 #' @export

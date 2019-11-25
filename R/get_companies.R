@@ -1,6 +1,6 @@
 #' Get a list of all companies, including a set of properties
 #'
-#' @param apikey API key to work with Hubspot
+#' @inheritParams get_company_properties
 #' @param properties Character vector of properties to request
 #' @param property_history Whether version history for properties should be
 #' returned
