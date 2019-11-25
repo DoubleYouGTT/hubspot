@@ -40,4 +40,7 @@ get_deals <- function(token_path = hubspot_token_get(),
 
   deals <- purrr::set_names(deals,
                             purrr::map_dbl(deals, "dealId"))
+
+ return(deals)
+
 }
