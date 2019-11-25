@@ -11,7 +11,8 @@
 #'                    max_properties = 10)
 get_deals <- function(token_path = hubspot_token_get(),
                       apikey = hubspot_key_get(),
-                      properties = get_deal_properties(apikey),
+                      properties = get_deal_properties(token_path,
+                                                       apikey),
                       property_history = "true",
                       associations = "true",
                       max_iter = 10,

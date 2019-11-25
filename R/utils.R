@@ -22,7 +22,8 @@ get_path_url <- function(path) {
 #' @noRd
 .get_results <- function(path, apikey, token_path,
                         query = NULL) {
-  auth <- hubspot_auth(token_path, apikey)
+  auth <- hubspot_auth(token_path = token_path,
+                       apikey = apikey)
 
   # remove NULL elements from the query
   query <- purrr::discard(query, is.null)
@@ -76,7 +77,8 @@ get_results_paged <- function(path, token_path, apikey, query = NULL,
 
     res_content <- get_results(path = path,
                                token_path = token_path,
-                      apikey = apikey, query = query)
+                                apikey = apikey,
+                               query = query)
     n <- n + 1
 
     results[n] <- list(res_content[[element]])
