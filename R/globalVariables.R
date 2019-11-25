@@ -1,1 +1,1 @@
-globalVariables(c(".", "scope_part"))
+globalVariables(c("."))

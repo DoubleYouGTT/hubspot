@@ -18,8 +18,7 @@ default_ld_hubspot_app <- function() {
 #' Make a string about scope for the authorize URL
 #' @noRd
 make_scopes_string <- function(scope) {
-  scope_part <- glue::glue_collapse(scope, sep = "%20")
-  glue::glue("&scope={scope_part}")
+  glue::glue("&scope={glue::glue_collapse(scope, sep = '%20')}")
   "&scope=contacts%20content%20forms%20tickets%20e-commerce"
 }
 
