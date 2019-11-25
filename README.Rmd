@@ -49,7 +49,12 @@ remotes::install_github("lockedata/hubspot")
 ```{r child='vignettes/rmdhunks/auth.Rmd'} 
 ```
 
-### API key
+### OAuth 2.0 details
+
+```{r child='vignettes/rmdhunks/oauth.Rmd'} 
+```
+
+### API key details
 
 ```{r child='vignettes/rmdhunks/apikey.Rmd'} 
 ```
