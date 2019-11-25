@@ -1,7 +1,7 @@
 vcr::use_cassette("get_owners", {
-    test_that("get_owners works", {
-      res <- get_owners()
-      expect_is(res, "list")
+  test_that("get_owners works", {
+    res <- get_owners()
+    expect_is(res, "list")
   })
 })
 
@@ -19,6 +19,5 @@ vcr::use_cassette("get_owners_email", {
     res <- get_owners(email = "demo@hubspot.com")
     expect_is(res, "list")
     expect_true(length(res) < length(res1))
-    })
+  })
 })
-

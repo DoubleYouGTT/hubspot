@@ -7,7 +7,8 @@
 #' @return The key (a string)
 #' @export
 #'
-#' @examples hubspot_key_get()
+#' @examples
+#' hubspot_key_get()
 #' @includeRmd vignettes/rmdhunks/apikey.Rmd
 #' @includeRmd vignettes/rmdhunks/auth.Rmd
 #' @rdname hubspot-key
@@ -32,17 +33,19 @@ Please run hubspot_key_set() to set your API key.")
 #' @export
 #' @rdname hubspot-key
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' hubspot_key_set("yourapikey")
 #' }
 #' @family auth
 hubspot_key_set <- function(key = NULL) {
-
   if (is.null(key)) {
     keyring::key_set("hubspot")
   } else {
-    keyring::key_set_with_value(password = key,
-                                service = "hubspot")
+    keyring::key_set_with_value(
+      password = key,
+      service = "hubspot"
+    )
   }
 
   message("Key saved for the service 'hubspot'")

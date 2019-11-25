@@ -16,9 +16,10 @@ get_deal_pipelines <- function(token_path = hubspot_token_get(),
     c("EXCLUDE_DELETED", "INCLUDE_DELETED")
   )
 
-  get_results(path = "/crm-pipelines/v1/pipelines/deals/",
-              apikey = apikey,
-              token_path = token_path,
-              query = list(includeInactive = include_inactive))
-
+  get_results(
+    path = "/crm-pipelines/v1/pipelines/deals/",
+    apikey = apikey,
+    token_path = token_path,
+    query = list(includeInactive = include_inactive)
+  )
 }

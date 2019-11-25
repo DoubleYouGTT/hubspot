@@ -12,9 +12,10 @@
 #' properties <- get_company_properties()
 get_company_properties <- function(token_path = hubspot_token_get(),
                                    apikey = hubspot_key_get()) {
-
-  get_results(path = "/properties/v1/companies/properties/",
-              apikey = apikey,
-              token_path = token_path) %>%
+  get_results(
+    path = "/properties/v1/companies/properties/",
+    apikey = apikey,
+    token_path = token_path
+  ) %>%
     purrr::map_chr("name")
 }

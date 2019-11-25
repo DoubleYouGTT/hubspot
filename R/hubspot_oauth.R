@@ -3,17 +3,21 @@
 #' @rdname hubspot-oauth
 #' @export
 default_ld_hubspot_app <- function() {
-  list(client_secret = "2c0b347e-1e2a-4db7-a31a-aaa0b2fcad13",
-       client_id = "5975ba5c-900c-4fd7-94dd-04df023e4263",
-       app_id = "205749",
-       scope = c("contacts", "content", "forms", "tickets",
-                  "e-commerce"))
+  list(
+    client_secret = "2c0b347e-1e2a-4db7-a31a-aaa0b2fcad13",
+    client_id = "5975ba5c-900c-4fd7-94dd-04df023e4263",
+    app_id = "205749",
+    scope = c(
+      "contacts", "content", "forms", "tickets",
+      "e-commerce"
+    )
+  )
 }
 
 
 #' Make a string about scope for the authorize URL
 #' @noRd
-make_scopes_string <- function(scope){
+make_scopes_string <- function(scope) {
   scope_part <- glue::glue_collapse(scope, sep = "%20")
   glue::glue("&scope={scope_part}")
   "&scope=contacts%20content%20forms%20tickets%20e-commerce"
@@ -23,10 +27,11 @@ make_scopes_string <- function(scope){
 #' @return Authorize URL (character)
 #' @noRd
 authorize_url <- function(app_info) {
-  paste0("https://app.hubspot.com/oauth/authorize?client_id=",
-         app_info$client_id,
-         make_scopes_string(app_info$scope)
-         )
+  paste0(
+    "https://app.hubspot.com/oauth/authorize?client_id=",
+    app_info$client_id,
+    make_scopes_string(app_info$scope)
+  )
 }
 
 #' Access URL for OAuth
@@ -39,17 +44,19 @@ access_url <- function() {
 #' Endpoint for OAuth
 #' @return OAuth endpoint (httr special class)
 #' @noRd
-hubspot_oauth_endpoint <- function(app_info){
-  endpoint <- httr::oauth_endpoint(authorize = authorize_url(app_info),
-                                   access = access_url())
-
+hubspot_oauth_endpoint <- function(app_info) {
+  endpoint <- httr::oauth_endpoint(
+    authorize = authorize_url(app_info),
+    access = access_url()
+  )
 }
 
 hubspot_oauth_app <- function(app_info) {
-
-  oauth_app <- httr::oauth_app(appname = "MyHubSpotApp",
-                               key = app_info$client_id,
-                               secret = app_info$client_secret)
+  oauth_app <- httr::oauth_app(
+    appname = "MyHubSpotApp",
+    key = app_info$client_id,
+    secret = app_info$client_secret
+  )
 }
 
 
@@ -78,23 +85,25 @@ hubspot_oauth_app <- function(app_info) {
 #' @family auth
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' hubspot_token_create()
 #' }
 #' @rdname hubspot-oauth
 hubspot_token_create <- function(app_info = default_ld_hubspot_app(),
-                              set_renv = TRUE,
-                              token_path = NULL) {
-
-  token <- httr::oauth2.0_token(endpoint =
-                                  hubspot_oauth_endpoint(app_info),
-                                app =
-                                  hubspot_oauth_app(app_info),
-                                cache = FALSE)
+                                 set_renv = TRUE,
+                                 token_path = NULL) {
+  token <- httr::oauth2.0_token(
+    endpoint =
+      hubspot_oauth_endpoint(app_info),
+    app =
+      hubspot_oauth_app(app_info),
+    cache = FALSE
+  )
 
   # from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L219
   if (set_renv) {
-    if(is.null(token_path)) {
+    if (is.null(token_path)) {
       token_path <- uq_filename(file.path(home(), ".hubspot_token.rds"))
     }
 
@@ -103,7 +112,6 @@ hubspot_token_create <- function(app_info = default_ld_hubspot_app(),
   }
 
   return(token)
-
 }
 
 #' @return Either NULL or the path in which the token is saved.
@@ -112,7 +120,7 @@ hubspot_token_create <- function(app_info = default_ld_hubspot_app(),
 #'
 #' @examples
 #' hubspot_token_get()
-hubspot_token_get <- function(){
+hubspot_token_get <- function() {
   token_path <- Sys.getenv("HUBSPOT_PAT")
 
   if (token_path == "") {
@@ -120,5 +128,4 @@ hubspot_token_get <- function(){
   } else {
     return(token_path)
   }
-
 }

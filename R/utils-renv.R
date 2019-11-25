@@ -50,7 +50,9 @@ append_lines <- function(x, ...) {
 
 is_incomplete <- function(x) {
   con <- file(x)
-  x <- tryCatch(readLines(con), warning = function(w) return(TRUE))
+  x <- tryCatch(readLines(con), warning = function(w) {
+    return(TRUE)
+  })
   close(con)
   ifelse(isTRUE(x), TRUE, FALSE)
 }
@@ -62,7 +64,9 @@ clean_renv <- function(var) {
 }
 
 check_renv <- function(var = NULL) {
-  if (!file.exists(.Renviron())) return(invisible())
+  if (!file.exists(.Renviron())) {
+    return(invisible())
+  }
   if (is_incomplete(.Renviron())) {
     append_lines("", file = .Renviron())
   }

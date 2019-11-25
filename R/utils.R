@@ -10,7 +10,7 @@ base_url <- function() {
 #' @noRd
 get_path_url <- function(path) {
   httr::modify_url(base_url(),
-                   path = path
+    path = path
   )
 }
 
@@ -21,36 +21,40 @@ get_path_url <- function(path) {
 #' @return A list
 #' @noRd
 .get_results <- function(path, apikey, token_path,
-                        query = NULL) {
-
-  auth <- hubspot_auth(token_path = token_path,
-                       apikey = apikey)
+                         query = NULL) {
+  auth <- hubspot_auth(
+    token_path = token_path,
+    apikey = apikey
+  )
 
   # remove NULL elements from the query
   query <- purrr::discard(query, is.null)
 
   # auth
-  if (auth$auth == "key"){
+  if (auth$auth == "key") {
     query$hapikey <- auth$value
     httr::GET(get_path_url(path),
-              query = query,
-              httr::user_agent("hubspot R package by Locke Data")) %>%
+      query = query,
+      httr::user_agent("hubspot R package by Locke Data")
+    ) %>%
       httr::content()
   } else {
     token <- readRDS(auth$value)
 
     httr::GET(get_path_url(path),
-              query = query,
-              httr::config(httr::user_agent("hubspot R package by Locke Data"),
-              token = token)) %>%
+      query = query,
+      httr::config(httr::user_agent("hubspot R package by Locke Data"),
+        token = token
+      )
+    ) %>%
       httr::content()
   }
-
-
 }
 
-get_results <- ratelimitr::limit_rate(.get_results,
-                                      ratelimitr::rate(100, 10))
+get_results <- ratelimitr::limit_rate(
+  .get_results,
+  ratelimitr::rate(100, 10)
+)
 
 #' @param path API endpoint path (character)
 #' @param apikey API key (character)
@@ -76,10 +80,12 @@ get_results_paged <- function(path, token_path, apikey, query = NULL,
   while (do & n < max_iter) {
     query[[offset_name_in]] <- offset
 
-    res_content <- get_results(path = path,
-                               token_path = token_path,
-                                apikey = apikey,
-                               query = query)
+    res_content <- get_results(
+      path = path,
+      token_path = token_path,
+      apikey = apikey,
+      query = query
+    )
     n <- n + 1
 
     results[n] <- list(res_content[[element]])

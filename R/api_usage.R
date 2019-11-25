@@ -13,18 +13,24 @@
 #' hubspot_api_usage()
 #' }
 hubspot_api_usage <- function(apikey = hubspot_key_get()) {
-
-  tz <- hubspot_tz(apikey = apikey,
-                   token_path = NULL)
+  tz <- hubspot_tz(
+    apikey = apikey,
+    token_path = NULL
+  )
 
   get_results("/integrations/v1/limit/daily",
-              apikey = apikey,
-              token_path = NULL) %>%
+    apikey = apikey,
+    token_path = NULL
+  ) %>%
     .[[1]] %>%
     tibble::as_tibble() %>%
     dplyr::select(-.data$name) %>%
-    dplyr::mutate(collectedAt = anytime::anytime(.data$collectedAt / 1000,
-                                                 tz = tz),
-                  resetsAt = anytime::anytime(.data$resetsAt / 1000,
-                                              tz = tz))
+    dplyr::mutate(
+      collectedAt = anytime::anytime(.data$collectedAt / 1000,
+        tz = tz
+      ),
+      resetsAt = anytime::anytime(.data$resetsAt / 1000,
+        tz = tz
+      )
+    )
 }
