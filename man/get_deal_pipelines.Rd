@@ -5,12 +5,16 @@
 \title{Retrieve available pipelines for deals}
 \usage{
 get_deal_pipelines(
+  token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
   include_inactive = "EXCLUDE_DELETED"
 )
 }
 \arguments{
-\item{apikey}{API key to work with Hubspot}
+\item{token_path}{Path to OAuth 2.0 token}
+
+\item{apikey}{API key to work with Hubspot (only used if \code{token_path}
+is \code{NULL})}
 
 \item{include_inactive}{Should deleted pipelines be returned}
 }

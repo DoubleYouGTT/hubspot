@@ -35,9 +35,7 @@ get_path_url <- function(path) {
               httr::user_agent("hubspot R package by Locke Data")) %>%
       httr::content()
   } else {
-    token <- httr::oauth2.0_token(cache = auth$value,
-                                  endpoint = hubspot_oauth_endpoint(),
-                                  app = hubspot_oauth_app())
+    token <- readRDS(auth$value)
 
     httr::GET(get_path_url(path),
               query = query,

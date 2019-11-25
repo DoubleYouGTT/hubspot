@@ -5,6 +5,7 @@
 \title{Get a list of all deals, including a set of properties}
 \usage{
 get_deals(
+  token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
   properties = get_deal_properties(apikey),
   property_history = "true",

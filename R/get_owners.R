@@ -17,7 +17,8 @@
 #' active_owners <- get_owners(include_inactive = FALSE)
 #' get_owners(email = "demo@hubspot.com")
 #' }
-get_owners <- function(apikey = hubspot_key_get(),
+get_owners <- function(token_path = hubspot_token_get(),
+                       apikey = hubspot_key_get(),
                        include_inactive = TRUE,
                        email = NULL) {
 
@@ -25,6 +26,7 @@ get_owners <- function(apikey = hubspot_key_get(),
                 email = email)
 
   get_results(path = "/owners/v2/owners",
+              token_path = token_path,
               apikey = apikey,
               query = query)
 }

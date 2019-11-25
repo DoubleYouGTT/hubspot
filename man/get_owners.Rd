@@ -4,10 +4,18 @@
 \alias{get_owners}
 \title{Retrieve owners}
 \usage{
-get_owners(apikey = hubspot_key_get(), include_inactive = TRUE, email = NULL)
+get_owners(
+  token_path = hubspot_token_get(),
+  apikey = hubspot_key_get(),
+  include_inactive = TRUE,
+  email = NULL
+)
 }
 \arguments{
-\item{apikey}{API key to work with Hubspot}
+\item{token_path}{Path to OAuth 2.0 token}
+
+\item{apikey}{API key to work with Hubspot (only used if \code{token_path}
+is \code{NULL})}
 
 \item{include_inactive}{Boolean indicating whether to include inactive
 owners (defined as owners without any active remotes.)}

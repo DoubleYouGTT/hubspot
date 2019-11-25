@@ -15,7 +15,8 @@
 #' @examples
 #' companies <- get_companies(property_history = "false", max_iter = 1,
 #'                            max_properties = 10)
-get_companies <- function(apikey = hubspot_key_get(),
+get_companies <- function(token_path = hubspot_token_get(),
+                          apikey = hubspot_key_get(),
                           properties = get_company_properties(apikey),
                           property_history = "true",
                           max_iter = 10,
@@ -38,6 +39,7 @@ get_companies <- function(apikey = hubspot_key_get(),
 
   companies <- get_results_paged(path = "/companies/v2/companies/paged",
                                  max_iter = max_iter, query = query,
+                                 token_path = token_path,
                                  apikey = apikey, element = "companies",
                                  hasmore_name = "has-more")
 

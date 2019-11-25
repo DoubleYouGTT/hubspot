@@ -4,7 +4,10 @@
 \alias{get_contact_properties}
 \title{Retrieve available properties for contacts}
 \usage{
-get_contact_properties(apikey = hubspot_key_get())
+get_contact_properties(
+  token_path = hubspot_token_get(),
+  apikey = hubspot_key_get()
+)
 }
 \arguments{
 \item{apikey}{API key to work with Hubspot}

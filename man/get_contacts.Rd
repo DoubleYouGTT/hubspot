@@ -5,6 +5,7 @@
 \title{Get a list of all contacts, including a set of properties}
 \usage{
 get_contacts(
+  token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
   properties = get_contact_properties(apikey),
   property_history = "true",

@@ -4,7 +4,10 @@
 \alias{get_deal_properties}
 \title{Retrieve available properties for deals}
 \usage{
-get_deal_properties(apikey = hubspot_key_get())
+get_deal_properties(
+  token_path = hubspot_token_get(),
+  apikey = hubspot_key_get()
+)
 }
 \arguments{
 \item{apikey}{API key}

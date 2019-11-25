@@ -4,12 +4,16 @@
 \alias{get_company_properties}
 \title{Retrieve available properties for companies}
 \usage{
-get_company_properties(token_path = NULL, apikey = hubspot_key_get())
+get_company_properties(
+  token_path = hubspot_token_get(),
+  apikey = hubspot_key_get()
+)
 }
 \arguments{
-\item{token_path}{Path to token}
+\item{token_path}{Path to OAuth 2.0 token}
 
-\item{apikey}{API key to work with Hubspot}
+\item{apikey}{API key to work with Hubspot (only used if \code{token_path}
+is \code{NULL})}
 }
 \value{
 Character vector of properties

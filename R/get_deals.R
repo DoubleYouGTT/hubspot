@@ -9,7 +9,8 @@
 #' @examples
 #' deals <- get_deals(property_history = "false", max_iter = 1,
 #'                    max_properties = 10)
-get_deals <- function(apikey = hubspot_key_get(),
+get_deals <- function(token_path = hubspot_token_get(),
+                      apikey = hubspot_key_get(),
                       properties = get_deal_properties(apikey),
                       property_history = "true",
                       associations = "true",
@@ -32,7 +33,8 @@ get_deals <- function(apikey = hubspot_key_get(),
 
   deals <- get_results_paged(path = "/deals/v1/deal/paged",
                              max_iter = max_iter, query = query,
-                              apikey = apikey, element = "deals",
+                             token_path = token_path,
+                             apikey = apikey, element = "deals",
                              hasmore_name = "hasMore")
 
   deals <- purrr::set_names(deals,

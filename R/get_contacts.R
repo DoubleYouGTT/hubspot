@@ -18,7 +18,8 @@
 #' @examples
 #' contacts <- get_contacts(property_history = "false", max_iter = 1,
 #'                          max_properties = 10)
-get_contacts <- function(apikey = hubspot_key_get(),
+get_contacts <- function(token_path = hubspot_token_get(),
+                         apikey = hubspot_key_get(),
                           properties = get_contact_properties(apikey),
                           property_history = "true",
                           form_submission_mode = "newest",
@@ -48,6 +49,7 @@ get_contacts <- function(apikey = hubspot_key_get(),
 
   contacts <- get_results_paged(path = "/contacts/v1/lists/all/contacts/all",
                                 max_iter = max_iter, query = query,
+                                token_path = token_path,
                                 apikey = apikey, element = "contacts",
                                 hasmore_name = "has-more",
                                 offset_name_in = "vidOffset",
