@@ -8,15 +8,16 @@
 #' @examples
 #' deal_pipe_stages <- deal_pipeline_stages()
 deal_pipeline_stages <- function(pipelines = get_deal_pipelines()) {
-
   pipelines %>%
     purrr::flatten() %>%
     purrr::map(purrr::compact) %>%
     purrr::map_df(tibble::as_tibble) %>%
     dplyr::select(.data$pipelineId, .data$stages) %>%
     dplyr::mutate(stages = purrr::map(.data$stages, purrr::compact)) %>%
-    dplyr::mutate(stages = purrr::map(.data$stages,
-                                      tibble::as_tibble)) %>%
+    dplyr::mutate(stages = purrr::map(
+      .data$stages,
+      tibble::as_tibble
+    )) %>%
     tidyr::unnest(cols = c(.data$stages)) %>%
     dplyr::filter(dplyr::row_number() %% 2 == 0) %>%
     dplyr::mutate(probability = ifelse(is.na(as.numeric(.data$metadata)),

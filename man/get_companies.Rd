@@ -5,15 +5,20 @@
 \title{Get a list of all companies, including a set of properties}
 \usage{
 get_companies(
+  token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
-  properties = get_company_properties(apikey),
+  properties = get_company_properties(token_path, apikey),
   property_history = "true",
   max_iter = 10,
   max_properties = 100
 )
 }
 \arguments{
-\item{apikey}{API key to work with Hubspot}
+\item{token_path}{Path to OAuth 2.0 token.
+See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
+
+\item{apikey}{API key to work with Hubspot (only used if \code{token_path}
+is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
 \item{properties}{Character vector of properties to request}
 

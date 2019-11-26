@@ -29,12 +29,12 @@ The goal of `hubspot` is to enable access to [Hubspot CRM](//hubspot.com) data. 
 ## Example
 
 ```{r example}
-library(hubspot)
+library("hubspot")
 
-deal_props <- get_deal_properties("demo")
+deal_props <- get_deal_properties()
 deal_props
 
-deals <- get_deals("demo", properties = deal_props, max_iter = 1)
+deals <- get_deals(properties = deal_props, max_iter = 1)
 deals
 ```
 
@@ -45,28 +45,11 @@ deals
 remotes::install_github("lockedata/hubspot")
 ```
 
-## Authentication
 
-### API key
-
-The API key should be set using the `hubspot_key_set()` function, that relies on the `keyring` package that stores the key in the system default credential store (see `keyring` docs).
-
-```r
-# Either input the key as parameter
-hubspot_key_set("yourapikey")
-
-# Or just call the function,
-# the key will be asked interactively
-hubspot_key_set()
+```{r child='vignettes/rmdhunks/auth.Rmd'} 
 ```
 
-If no API key is set, the "demo" key is used and a message is printed to the screen.
-
-You can check the daily usage related to the API key via `hubspot_api_usage()`. Calls in the package are rate limited (100 requests every 10 seconds) but there's also a daily limit on calls.
-
-```{r usage}
-hubspot_api_usage()
-```
+Find more details on each method [in the vignette about authorization](https://itsalocke.com/hubspot/articles/auth).
 
 ## Contributions welcome!
 

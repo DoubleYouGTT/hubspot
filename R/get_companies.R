@@ -1,6 +1,6 @@
 #' Get a list of all companies, including a set of properties
 #'
-#' @param apikey API key to work with Hubspot
+#' @inheritParams get_company_properties
 #' @param properties Character vector of properties to request
 #' @param property_history Whether version history for properties should be
 #' returned
@@ -13,14 +13,19 @@
 #' @export
 #' @family getters
 #' @examples
-#' companies <- get_companies(property_history = "false", max_iter = 1,
-#'                            max_properties = 10)
-get_companies <- function(apikey = hubspot_key_get(),
-                          properties = get_company_properties(apikey),
+#' companies <- get_companies(
+#'   property_history = "false", max_iter = 1,
+#'   max_properties = 10
+#' )
+get_companies <- function(token_path = hubspot_token_get(),
+                          apikey = hubspot_key_get(),
+                          properties = get_company_properties(
+                            token_path,
+                            apikey
+                          ),
                           property_history = "true",
                           max_iter = 10,
                           max_properties = 100) {
-
   properties <- head(properties, max_properties)
 
   query <- c(
@@ -36,13 +41,18 @@ get_companies <- function(apikey = hubspot_key_get(),
     )
   )
 
-  companies <- get_results_paged(path = "/companies/v2/companies/paged",
-                                 max_iter = max_iter, query = query,
-                                 apikey = apikey, element = "companies",
-                                 hasmore_name = "has-more")
+  companies <- get_results_paged(
+    path = "/companies/v2/companies/paged",
+    max_iter = max_iter, query = query,
+    token_path = token_path,
+    apikey = apikey, element = "companies",
+    hasmore_name = "has-more"
+  )
 
-  companies <- purrr::set_names(companies,
-                                purrr::map_dbl(companies, "companyId"))
+  companies <- purrr::set_names(
+    companies,
+    purrr::map_dbl(companies, "companyId")
+  )
 
   return(companies)
 }

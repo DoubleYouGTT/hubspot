@@ -12,7 +12,6 @@ deal_associations <- function(deals = get_deals(
                                 max_properties = 1,
                                 associations = "true"
                               )) {
-
   deals %>%
     purrr::map("associations") %>%
     tibble::tibble(Ids = .) %>%

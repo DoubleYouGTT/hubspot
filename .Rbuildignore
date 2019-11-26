@@ -8,3 +8,4 @@
 ^\.github$
 ^\.httr-oauth$
 ^codecov\.yml$
+^docs$

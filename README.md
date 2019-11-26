@@ -25,9 +25,9 @@ API](developers.hubspot.com/docs/overview).
 ## Example
 
 ``` r
-library(hubspot)
+library("hubspot")
 
-deal_props <- get_deal_properties("demo")
+deal_props <- get_deal_properties()
 deal_props
 #>  [1] "amount_in_home_currency"                 
 #>  [2] "days_to_close"                           
@@ -86,7 +86,7 @@ deal_props
 #> [55] "closed_won_reason"                       
 #> [56] "application_uuid2"
 
-deals <- get_deals("demo", properties = deal_props, max_iter = 1)
+deals <- get_deals(properties = deal_props, max_iter = 1)
 deals
 #> $`931633510`
 #> $`931633510`$portalId
@@ -982,39 +982,36 @@ deals
 remotes::install_github("lockedata/hubspot")
 ```
 
-## Authentication
+## Authorization for Hubspot APIs
 
-### API key
+The Hubspot API accepts authorization via
 
-The API key should be set using the `hubspot_key_set()` function, that
-relies on the `keyring` package that stores the key in the system
-default credential store (see `keyring` docs).
+  - an API key,
 
-``` r
-# Either input the key as parameter
-hubspot_key_set("yourapikey")
+  - OAuth 2.0.
 
-# Or just call the function,
-# the key will be asked interactively
-hubspot_key_set()
-```
+OAuth 2.0 is the [recommended
+method](https://developers.hubspot.com/docs/methods/auth/oauth-overview?_ga=2.108539650.1064389456.1574673541-1134397846.1571640267).
+However, this package supports both.
 
-If no API key is set, the “demo” key is used and a message is printed to
-the screen.
+Note that if you do nothing the package will use the “demo” API token
+but this won’t give you access to your own Hubspot data. So you’ll need
+to spend a little time on setup:
 
-You can check the daily usage related to the API key via
-`hubspot_api_usage()`. Calls in the package are rate limited (100
-requests every 10 seconds) but there’s also a daily limit on calls.
+  - For rapid prototyping key, use a Hubspot API key, see
+    `hubspot_key_set()`.
 
-``` r
-hubspot_api_usage()
-#> Could not find Hubspot API key, will use the 'demo' key.
-#> Please run hubspot_key_set() to set your API key.
-#> # A tibble: 1 x 5
-#>   usageLimit currentUsage collectedAt         fetchStatus resetsAt           
-#>        <int>        <int> <dttm>              <chr>       <dttm>             
-#> 1    1000000         8928 2019-11-18 07:59:00 SUCCESS     2019-11-19 00:00:00
-```
+  - For more secure use, without a daily limit on API calls, see
+    `hubspot_token_create()` to create a Hubspot authorization token
+    (OAuth 2.0).
+
+If you have both saved an API key via `hubspot_key_set()` and a token
+via `hubspot_token_create()`, priority will be given to using the OAuth
+2.0 token. If you don’t want that, explicitely pass `NULL` as value for
+the `token_path` argument of all functions.
+
+Find more details on each method [in the vignette about
+authorization](https://itsalocke.com/hubspot/articles/auth).
 
 ## Contributions welcome\!
 

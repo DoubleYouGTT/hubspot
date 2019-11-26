@@ -1,0 +1,23 @@
+We expect you to not _need_ to bring your own app (BYOA), but the `app_info` parameter of `hubspot_token_create()` ensures you can do that if you want (for instance to define an app with only the scope needed for the endpoints you use as opposed to all the endpoints the `hubspot` package supports).
+
+To BYOA,
+
+* [Read and execute Hubspot's docs about how to create an app](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot).
+
+* Define the `app_info` list.
+
+```r
+my_very_own_app <- list(client_secret = <CLIENTSECRET>,
+       client_id = <CLIENTID>,
+       app_id = <APPID>,
+       scope = c(<"scope1", "scope2", etc>))
+
+```
+
+* Pass the app info to `hubspot_token_create()`
+
+```r
+hubspot_token_create(app_info = my_very_own_app)
+```
+
+To distribute your app across your projects or across team members, you could make it a function in an internal package, or use environment variables.

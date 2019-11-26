@@ -17,7 +17,10 @@ Authors@R:
              family = "Salmon",
              role = "aut",
              email = "maelle.salmon@yahoo.se",
-             comment = c(ORCID = "0000-0002-2815-0399")))
+             comment = c(ORCID = "0000-0002-2815-0399")),
+       person("Michael W.", "Kearney", ,
+      email = "kearneymw@missouri.edu", role = c("ctb"),
+      comment = c(ORCID = "0000-0002-0730-4694")))
 Description: Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
     for more information), retrieve customer relationship data for reporting and analysis.
 License: MIT + file LICENSE
@@ -42,6 +45,7 @@ Imports:
     tibble,
     anytime,
     memoise,
-    ratelimitr
+    ratelimitr,
+    glue
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0
