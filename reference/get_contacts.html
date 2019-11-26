@@ -67,6 +67,27 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/auth.html">Authorization for Hubspot APIs</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/apikey.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/auth.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/oauth.html">UNKNOWN TITLE</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -95,8 +116,9 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_contacts</span>(
-  <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot_key_get.html'>hubspot_key_get</a></span>(),
-  <span class='kw'>properties</span> <span class='kw'>=</span> <span class='fu'><a href='get_contact_properties.html'>get_contact_properties</a></span>(<span class='no'>apikey</span>),
+  <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
+  <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
+  <span class='kw'>properties</span> <span class='kw'>=</span> <span class='fu'><a href='get_contact_properties.html'>get_contact_properties</a></span>(<span class='kw'>token_path</span> <span class='kw'>=</span> <span class='no'>token_path</span>, <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='no'>apikey</span>),
   <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>,
   <span class='kw'>form_submission_mode</span> <span class='kw'>=</span> <span class='st'>"newest"</span>,
   <span class='kw'>list_memberships</span> <span class='kw'>=</span> <span class='st'>"false"</span>,
@@ -108,8 +130,14 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>token_path</th>
+      <td><p>Path to OAuth 2.0 token.
+See <code><a href='hubspot-oauth.html'>hubspot_token_create()</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>apikey</th>
-      <td><p>API key to work with Hubspot</p></td>
+      <td><p>API key to work with Hubspot (only used if <code>token_path</code>
+is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a></code>.</p></td>
     </tr>
     <tr>
       <th>properties</th>

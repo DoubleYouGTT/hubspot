@@ -67,6 +67,27 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/auth.html">Authorization for Hubspot APIs</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/apikey.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/auth.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/oauth.html">UNKNOWN TITLE</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -94,14 +115,15 @@
     <p>Check daily API usage <a href='https://developers.hubspot.com/docs/methods/check-daily-api-usage'>via the dedicated API endpoint</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hubspot_api_usage</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot_key_get.html'>hubspot_key_get</a></span>())</pre>
+    <pre class="usage"><span class='fu'>hubspot_api_usage</span>(<span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>apikey</th>
-      <td><p>API key to work with Hubspot</p></td>
+      <td><p>API key to work with Hubspot (only used if <code>token_path</code>
+is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a></code>.</p></td>
     </tr>
     </table>
 
@@ -111,11 +133,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
-<span class='fu'>hubspot_api_usage</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
-#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='output co'>#&gt; # A tibble: 1 x 5
-#&gt;   usageLimit currentUsage collectedAt         fetchStatus resetsAt           
-#&gt;        &lt;int&gt;        &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;       &lt;dttm&gt;             
-#&gt; 1    1000000        10595 2019-11-18 08:49:44 SUCCESS     2019-11-19 00:00:00</div><div class='input'># }
+<span class='fu'>hubspot_api_usage</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='error'>Error: Column `name` not found in `.data`</span></div><div class='input'># }
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

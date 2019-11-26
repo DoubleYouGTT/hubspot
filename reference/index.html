@@ -67,6 +67,27 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/auth.html">Authorization for Hubspot APIs</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/apikey.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/auth.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="../articles/rmdhunks/oauth.html">UNKNOWN TITLE</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -99,7 +120,7 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <h2 id="section-api-usage-and-setup" class="hasAnchor"><a href="#section-api-usage-and-setup" class="anchor"></a>API usage and setup</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
@@ -202,21 +223,125 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="hubspot-key.html">hubspot_key_get()</a></code> <code><a href="hubspot-key.html">hubspot_key_set()</a></code> </p>
+        </td>
+        <td><p>Get/set the Hubspot secret API key</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="hubspot_api_usage.html">hubspot_api_usage()</a></code> </p>
         </td>
         <td><p>Check daily API usage</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="hubspot_key_get.html">hubspot_key_get()</a></code> </p>
+          <p><code><a href="owners.html">owners()</a></code> </p>
         </td>
-        <td><p>Get the Hubspot secret API key</p></td>
+        <td><p>Extract a table of CRM owners</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-data-access" class="hasAnchor"><a href="#section-data-access" class="anchor"></a>Data access</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="company_properties.html">company_properties()</a></code> </p>
+        </td>
+        <td><p>Extract a table of company IDs and simple property values</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="hubspot_key_set.html">hubspot_key_set()</a></code> </p>
+          <p><code><a href="contact_properties.html">contact_properties()</a></code> </p>
         </td>
-        <td><p>Set the Hubspot secret API key</p></td>
+        <td><p>Extract a table of contact IDs and simple property values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="deal_associations.html">deal_associations()</a></code> </p>
+        </td>
+        <td><p>Extract a table of associations from a deals list</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="deal_pipeline_stages.html">deal_pipeline_stages()</a></code> </p>
+        </td>
+        <td><p>Extract a table of pipeline IDs and stages</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="deal_pipelines.html">deal_pipelines()</a></code> </p>
+        </td>
+        <td><p>Extract a table of pipeline IDs and property values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="deal_properties.html">deal_properties()</a></code> </p>
+        </td>
+        <td><p>Extract a table of deal IDs and simple property values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="deal_properties_history.html">deal_properties_history()</a></code> </p>
+        </td>
+        <td><p>Retrieve the changes of all properties for a given set of deals</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="deal_stages_history.html">deal_stages_history()</a></code> </p>
+        </td>
+        <td><p>Retrieve the version history of deal stages</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_companies.html">get_companies()</a></code> </p>
+        </td>
+        <td><p>Get a list of all companies, including a set of properties</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_company_properties.html">get_company_properties()</a></code> </p>
+        </td>
+        <td><p>Retrieve available properties for companies</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_contact_properties.html">get_contact_properties()</a></code> </p>
+        </td>
+        <td><p>Retrieve available properties for contacts</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_contacts.html">get_contacts()</a></code> </p>
+        </td>
+        <td><p>Get a list of all contacts, including a set of properties</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_deal_pipelines.html">get_deal_pipelines()</a></code> </p>
+        </td>
+        <td><p>Retrieve available pipelines for deals</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_deal_properties.html">get_deal_properties()</a></code> </p>
+        </td>
+        <td><p>Retrieve available properties for deals</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_deals.html">get_deals()</a></code> </p>
+        </td>
+        <td><p>Get a list of all deals, including a set of properties</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_owners.html">get_owners()</a></code> </p>
+        </td>
+        <td><p>Retrieve owners</p></td>
       </tr><tr>
         
         <td>
@@ -231,7 +356,8 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-api-usage-and-setup">API usage and setup</a></li>
+      <li><a href="#section-data-access">Data access</a></li>
     </ul>
   </div>
 </div>

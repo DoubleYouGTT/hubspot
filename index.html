@@ -40,6 +40,27 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/auth.html">Authorization for Hubspot APIs</a>
+    </li>
+    <li>
+      <a href="articles/rmdhunks/apikey.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="articles/rmdhunks/auth.html">UNKNOWN TITLE</a>
+    </li>
+    <li>
+      <a href="articles/rmdhunks/oauth.html">UNKNOWN TITLE</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
@@ -68,9 +89,9 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(hubspot)</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"hubspot"</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">deal_props &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_deal_properties.html">get_deal_properties</a></span>(<span class="st">"demo"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">deal_props &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_deal_properties.html">get_deal_properties</a></span>()</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">deal_props</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt;  [1] "amount_in_home_currency"                 </span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;  [2] "days_to_close"                           </span></a>
@@ -129,7 +150,7 @@
 <a class="sourceLine" id="cb1-59" data-line-number="59"><span class="co">#&gt; [55] "closed_won_reason"                       </span></a>
 <a class="sourceLine" id="cb1-60" data-line-number="60"><span class="co">#&gt; [56] "application_uuid2"</span></a>
 <a class="sourceLine" id="cb1-61" data-line-number="61"></a>
-<a class="sourceLine" id="cb1-62" data-line-number="62">deals &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_deals.html">get_deals</a></span>(<span class="st">"demo"</span>, <span class="dt">properties =</span> deal_props, <span class="dt">max_iter =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-62" data-line-number="62">deals &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_deals.html">get_deals</a></span>(<span class="dt">properties =</span> deal_props, <span class="dt">max_iter =</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb1-63" data-line-number="63">deals</a>
 <a class="sourceLine" id="cb1-64" data-line-number="64"><span class="co">#&gt; $`931633510`</span></a>
 <a class="sourceLine" id="cb1-65" data-line-number="65"><span class="co">#&gt; $`931633510`$portalId</span></a>
@@ -1023,29 +1044,22 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"lockedata/hubspot"</span>)</a></code></pre></div>
 </div>
-<div id="authentication" class="section level2">
+<div id="authorization-for-hubspot-apis" class="section level2">
 <h2 class="hasAnchor">
-<a href="#authentication" class="anchor"></a>Authentication</h2>
-<div id="api-key" class="section level3">
-<h3 class="hasAnchor">
-<a href="#api-key" class="anchor"></a>API key</h3>
-<p>The API key should be set using the <code><a href="reference/hubspot_key_set.html">hubspot_key_set()</a></code> function, that relies on the <code>keyring</code> package that stores the key in the system default credential store (see <code>keyring</code> docs).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Either input the key as parameter</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/hubspot_key_set.html">hubspot_key_set</a></span>(<span class="st">"yourapikey"</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Or just call the function,</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># the key will be asked interactively</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw"><a href="reference/hubspot_key_set.html">hubspot_key_set</a></span>()</a></code></pre></div>
-<p>If no API key is set, the “demo” key is used and a message is printed to the screen.</p>
-<p>You can check the daily usage related to the API key via <code><a href="reference/hubspot_api_usage.html">hubspot_api_usage()</a></code>. Calls in the package are rate limited (100 requests every 10 seconds) but there’s also a daily limit on calls.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/hubspot_api_usage.html">hubspot_api_usage</a></span>()</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Could not find Hubspot API key, will use the 'demo' key.</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; Please run hubspot_key_set() to set your API key.</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; # A tibble: 1 x 5</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   usageLimit currentUsage collectedAt         fetchStatus resetsAt           </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;        &lt;int&gt;        &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;       &lt;dttm&gt;             </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 1    1000000         8928 2019-11-18 07:59:00 SUCCESS     2019-11-19 00:00:00</span></a></code></pre></div>
-</div>
+<a href="#authorization-for-hubspot-apis" class="anchor"></a>Authorization for Hubspot APIs</h2>
+<p>The Hubspot API accepts authorization via</p>
+<ul>
+<li><p>an API key,</p></li>
+<li><p>OAuth 2.0.</p></li>
+</ul>
+<p>OAuth 2.0 is the <a href="https://developers.hubspot.com/docs/methods/auth/oauth-overview?_ga=2.108539650.1064389456.1574673541-1134397846.1571640267">recommended method</a>. However, this package supports both.</p>
+<p>Note that if you do nothing the package will use the “demo” API token but this won’t give you access to your own Hubspot data. So you’ll need to spend a little time on setup:</p>
+<ul>
+<li><p>For rapid prototyping key, use a Hubspot API key, see <code><a href="reference/hubspot-key.html">hubspot_key_set()</a></code>.</p></li>
+<li><p>For more secure use, without a daily limit on API calls, see <code><a href="reference/hubspot-oauth.html">hubspot_token_create()</a></code> to create a Hubspot authorization token (OAuth 2.0).</p></li>
+</ul>
+<p>If you have both saved an API key via <code><a href="reference/hubspot-key.html">hubspot_key_set()</a></code> and a token via <code><a href="reference/hubspot-oauth.html">hubspot_token_create()</a></code>, priority will be given to using the OAuth 2.0 token. If you don’t want that, explicitely pass <code>NULL</code> as value for the <code>token_path</code> argument of all functions.</p>
+<p>Find more details on each method <a href="https://itsalocke.com/hubspot/articles/auth">in the vignette about authorization</a>.</p>
 </div>
 <div id="contributions-welcome" class="section level2">
 <h2 class="hasAnchor">
