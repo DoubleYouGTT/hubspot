@@ -102,17 +102,26 @@ get_results_paged <- function(path, token_path, apikey, query = NULL,
 
 
 check_token <- function(token, file) {
-  exp <- httr::GET(get_path_url(
+
+  info <- httr::GET(get_path_url(
     glue::glue("/oauth/v1/access-tokens/{
                token$credentials$access_token}"))) %>%
-    httr::content() %>%
-    .$expires_in
+    httr::content()
 
-  # if less than 60 seconds, refresh
-  if (exp < 60) {
-    token$refresh()
-    saveRDS(token, file)
+  if ("message" %in% names(info)) {
+    if (grepl("expired", info$message)) {
+      token$refresh()
+      saveRDS(token, file)
+    }
   }
+
+  if ("expires_in" %in% names(info)) {
+    if (info$expires_in < 60) {
+      token$refresh()
+      saveRDS(token, file)
+    }
+  }
+
 
   token
 }
