@@ -22,12 +22,12 @@ library(hubspot)
 ```{r child='../man/rmdhunks/auth.Rmd'} 
 ```
 
-### OAuth 2.0 details
+## OAuth 2.0 details
 
 ```{r child='../man/rmdhunks/oauth.Rmd'} 
 ```
 
-### API key details
+## API key details
 
 ```{r child='../man/rmdhunks/apikey.Rmd'} 
 ```
