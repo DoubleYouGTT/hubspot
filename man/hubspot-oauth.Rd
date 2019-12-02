@@ -4,7 +4,7 @@
 \alias{default_ld_hubspot_app}
 \alias{hubspot_token_create}
 \alias{hubspot_token_get}
-\title{Create/get Hubspot authorization token.}
+\title{Create/retrieve Hubspot authorization token.}
 \usage{
 default_ld_hubspot_app()
 
