@@ -136,7 +136,7 @@ hs_deals_tidy <- function(deals = hs_deals_raw(
     epoch_converter()
 }
 
-.deal_associations <- function(deals) {
+.deals_associations <- function(deals) {
   deals %>%
     purrr::map("associations") %>%
     tibble::tibble(Ids = .) %>%

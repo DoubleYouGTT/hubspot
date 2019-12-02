@@ -16,7 +16,7 @@ deal_properties_history <- function(deals = hs_deals_raw(
 
   .Deprecated("hs_deals_tidy")
 
-  .deal_properties_history(deals = deals)
+  .deals_properties_history(deals = deals)
 
 }
 
@@ -31,11 +31,11 @@ deal_properties_history <- function(deals = hs_deals_raw(
 #'
 #' @examples
 #' deals <- deal_properties()
-deal_properties <- function(deals = get_deals(max_iter = 1)) {
+deal_properties <- function(deals = hs_deals_raw(max_iter = 1)) {
 
   .Deprecated("hs_deals_tidy")
 
-  .deal_properties(deals)
+  .deals_properties(deals)
 }
 
 #' Retrieve the version history of deal stages
@@ -49,7 +49,7 @@ deal_properties <- function(deals = get_deals(max_iter = 1)) {
 #'
 #' @examples
 #' hist <- deal_stages_history()
-deal_stages_history <- function(deals = get_deals(
+deal_stages_history <- function(deals = hs_deals_raw(
   properties = "dealstage",
   property_history = "true",
   associations = "false"
@@ -71,7 +71,7 @@ deal_stages_history <- function(deals = get_deals(
 #'
 #' @examples
 #' assoc <- deal_associations()
-deal_associations <- function(deals = get_deals(
+deal_associations <- function(deals = hs_deals_raw(
   max_iter = 10,
   max_properties = 1,
   associations = "true"
