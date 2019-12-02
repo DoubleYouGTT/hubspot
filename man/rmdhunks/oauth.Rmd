@@ -1,4 +1,4 @@
-We expect you to not _need_ to bring your own app (BYOA), but the `app_info` parameter of `hubspot_token_create()` ensures you can do that if you want (for instance to define an app with only the scope needed for the endpoints you use as opposed to all the endpoints the `hubspot` package supports).
+We expect you to not _need_ to bring your own app (BYOA), but the `app_info` parameter of `hubspot_token_create()` ensures you can do that if you want (for instance to define an app with only the scope needed for the endpoints you use as opposed to all the endpoints the `hubspot` package supports; or to be sure your requests do not end up [in the logs of our default app](https://developers.hubspot.com/docs/faq/api-request-monitoring) but instead in an app your organization controls).
 
 To BYOA,
 

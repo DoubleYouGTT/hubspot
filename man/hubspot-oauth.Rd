@@ -48,7 +48,8 @@ We expect you to not \emph{need} to bring your own app (BYOA), but the
 \code{app_info} parameter of \code{hubspot_token_create()} ensures you can do that
 if you want (for instance to define an app with only the scope needed
 for the endpoints you use as opposed to all the endpoints the \code{hubspot}
-package supports).
+package supports; or to be sure your requests do not end up \href{https://developers.hubspot.com/docs/faq/api-request-monitoring}{in the logs of our default app} but
+instead in an app your organization controls).
 
 To BYOA,
 \itemize{
