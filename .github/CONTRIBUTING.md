@@ -33,3 +33,23 @@ The package interacts with the Hubspot API so you might need to refer to [its do
 - There is a lintr commit hooks that tidy up R function code, make sure any amendments are committed too
 - When making a Pull Request, reference any issue you're code fixes with #IssueNo in the body of the PR
 
+### Auth details for development
+
+#### Default app
+
+A default app was created under the Locke Data dev account. It's called "hubspot-pkg-locke-data", ID 205749. 
+
+Another app was created only for the purpose of testing bringing your own app. It's called "hubspot-byoa-test-pkg", ID 207639.
+
+#### Testing
+
+In tests/testthat/setup.R, the token path is set to "" and the API key to "demo"
+which ensures tests are run with the demo key.
+
+For testing access with OAuth, two tokens were created and saved in tests/testthat, see inst/create_test_tokens.R. They were gitignored and Rbuildignored, and encrypted using the workflow https://cran.r-project.org/web/packages/googlesheets/vignettes/managing-auth-tokens.html#encrypting-tokens-for-hosted-continuous-integration except that they were also Rbuildignored. Therefore, R CMD check can't access them. The tests in tests/testthat/test-oauth.R using the OAuth tokens are skipped when they don't exist. On Travis CI, the tests are run on their own after R CMD check, so if they fail the build will fail. 
+
+To run the tests in locally, if you're a regular contributor to the package or your contribution touches OAuth, create tokens by running inst/create_test_tokens.R interactively. 
+
+#### Vignettes and example
+
+At the moment of writing, no rendered code uses something else than the demo API key.

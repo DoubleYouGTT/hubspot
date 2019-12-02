@@ -13,3 +13,4 @@
 ^\.hubspot_token\.rds\.enc$
 ^tests/testthat/\.hubspot_otherapp\.rds$
 ^tests/testthat/\.hubspot_otherapp\.rds\.enc$
+^inst/create_test_tokens\.R$
