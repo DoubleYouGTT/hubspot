@@ -45,14 +45,7 @@ give you access to your own Hubspot data.
 
 You can check the daily usage related to the API key via
 \code{hubspot_api_usage()}. Calls in the package are rate limited (100
-requests every 10 seconds) but there’s also a daily limit on calls.\if{html}{\out{<div class="r">}}\preformatted{hubspot_api_usage()
-}\if{html}{\out{</div>}}\preformatted{## # A tibble: 1 x 5
-##   usageLimit currentUsage collectedAt        
-##        <int>        <int> <dttm>             
-## 1    1000000         2784 2019-12-02 04:17:16
-## # … with 2 more variables: fetchStatus <chr>,
-## #   resetsAt <dttm>
-}
+requests every 10 seconds) but there’s also a daily limit on calls.
 
 \strong{For a more secure authorization method, without a daily limit on
 calls, see
