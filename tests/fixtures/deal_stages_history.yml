@@ -1,0 +1,41 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/deals/v1/deal/paged?limit=250&includeAssociations=false&propertiesWithHistory=true&properties=dealstage&offset=0&hapikey=demo
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Mon, 02 Dec 2019 15:02:52 GMT
+      content-type: application/json;charset=utf-8
+      content-length: '254'
+      x-trace: 2B400E6DEA695AC7FDADE5D5A3F81728391D6D1316000000000000000000
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '990962'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '117'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '11'
+      vary: Accept-Encoding
+      content-encoding: gzip
+      access-control-allow-credentials: 'false'
+      accept-ranges: bytes
+      cf-cache-status: DYNAMIC
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 53ee2f312c2acde3-CDG
+    body:
+      encoding: UTF-8
+      string: '{"deals":[{"portalId":62515,"dealId":931633510,"isDeleted":false,"associations":null,"properties":{"dealstage":{"value":"presentationscheduled","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"dealstage","value":"presentationscheduled","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]}},"imports":[],"stateChanges":[]}],"hasMore":false,"offset":931633511}'
+  recorded_at: 2019-12-02 15:02:52 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
