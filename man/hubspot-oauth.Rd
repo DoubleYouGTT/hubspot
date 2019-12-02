@@ -73,6 +73,11 @@ To BYOA,
 To distribute your app across your projects or across team members, you
 could make it a function in an internal package, or use environment
 variables.
+\subsection{Token refreshing}{
+
+If the token expires in less than 60 seconds, it’ll be refreshed and
+cached thanks to the refresh token.
+}
 
 \subsection{Authorization for Hubspot APIs}{
 
@@ -100,12 +105,6 @@ If you have both saved an API key via \code{hubspot_key_set()} and a token
 via \code{hubspot_token_create()}, priority will be given to using the OAuth
 2.0 token. If you don’t want that, explicitely pass \code{NULL} as value for
 the \code{token_path} argument of all functions.
-\subsection{Token refreshing}{
-
-If the token expires in less than 60 seconds, it’ll be refreshed and
-cached thanks to the refresh token.
-}
-
 }
 }
 \examples{

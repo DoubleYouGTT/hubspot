@@ -21,3 +21,7 @@ hubspot_token_create(app_info = my_very_own_app)
 ```
 
 To distribute your app across your projects or across team members, you could make it a function in an internal package, or use environment variables.
+
+### Token refreshing
+
+If the token expires in less than 60 seconds, it'll be refreshed and cached thanks to the refresh token.
