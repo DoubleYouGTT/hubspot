@@ -36,7 +36,7 @@ r_packages:
 script:
 - R CMD build .
 - R CMD check *tar.gz
-- Rscript -e 'testthat::test_file("tests/testthat/test-oauth.R", reporter = testthat::FailReporter)'
+- Rscript -e 'rep=testthat::MultiReporter;testthat::test_file("tests/testthat/test-oauth.R", reporter = rep$new(reporters = list(testthat::SummaryReporter$new(), testthat::FailReporter$new())))'
 after_script:
 - R CMD INSTALL $PKG_TARBALL
 - Rscript -e 'lintr::lint_package()'
