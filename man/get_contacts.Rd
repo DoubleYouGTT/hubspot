@@ -45,8 +45,10 @@ List with contact data
 Get a list of all contacts, including a set of properties
 }
 \examples{
-contacts <- get_contacts(property_history = "false", max_iter = 1,
-                         max_properties = 10)
+contacts <- get_contacts(
+  property_history = "false", max_iter = 1,
+  max_properties = 10
+)
 }
 \seealso{
 Other getters: 

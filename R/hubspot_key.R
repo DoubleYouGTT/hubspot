@@ -9,8 +9,8 @@
 #'
 #' @examples
 #' hubspot_key_get()
-#' @includeRmd vignettes/rmdhunks/apikey.Rmd
-#' @includeRmd vignettes/rmdhunks/auth.Rmd
+#' @includeRmd man/rmdhunks/apikey.Rmd
+#' @includeRmd man/rmdhunks/auth.Rmd
 #' @rdname hubspot-key
 hubspot_key_get <- function() {
   key <- try(keyring::key_get("hubspot"), silent = TRUE)

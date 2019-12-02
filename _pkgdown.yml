@@ -28,3 +28,6 @@ reference:
   - '`get_deals`'
   - '`get_owners`'
   - '`owners`'
+
+toc:
+  depth: 2

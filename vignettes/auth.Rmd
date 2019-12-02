@@ -19,15 +19,15 @@ library(hubspot)
 ```
 
 
-```{r child='./rmdhunks/auth.Rmd'} 
+```{r child='../man/rmdhunks/auth.Rmd'} 
 ```
 
 ### OAuth 2.0 details
 
-```{r child='./rmdhunks/oauth.Rmd'} 
+```{r child='../man/rmdhunks/oauth.Rmd'} 
 ```
 
 ### API key details
 
-```{r child='./rmdhunks/apikey.Rmd'} 
+```{r child='../man/rmdhunks/apikey.Rmd'} 
 ```

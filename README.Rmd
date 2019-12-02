@@ -46,7 +46,7 @@ remotes::install_github("lockedata/hubspot")
 ```
 
 
-```{r child='vignettes/rmdhunks/auth.Rmd'} 
+```{r child='man/rmdhunks/auth.Rmd'} 
 ```
 
 Find more details on each method [in the vignette about authorization](https://itsalocke.com/hubspot/articles/auth).

@@ -64,8 +64,8 @@ hubspot_oauth_app <- function(app_info) {
 #' Functions related to creating or retrieving an OAuth 2.0
 #' token for the Hubspot API.
 #'
-#' @includeRmd vignettes/rmdhunks/oauth.Rmd
-#' @includeRmd vignettes/rmdhunks/auth.Rmd
+#' @includeRmd man/rmdhunks/oauth.Rmd
+#' @includeRmd man/rmdhunks/auth.Rmd
 #'
 #' @param app_info A named list with client_secret, client_id, app_id and
 #' scopes.
