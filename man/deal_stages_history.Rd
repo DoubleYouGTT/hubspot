@@ -18,6 +18,3 @@ A tbl containing all stages a deal has gone through
 \description{
 Soon deprecated! Use \code{hs_deals_tidy(deals, view = "properties")}
 }
-\examples{
-hist <- deal_stages_history()
-}

@@ -32,7 +32,6 @@ Other getters:
 \code{\link{get_contact_properties}()},
 \code{\link{get_contacts}()},
 \code{\link{get_deal_pipelines}()},
-\code{\link{get_owners}()},
-\code{\link{hs_deals_raw}()}
+\code{\link{get_owners}()}
 }
 \concept{getters}

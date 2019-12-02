@@ -59,9 +59,6 @@ deal_properties_history <- function(deals = hs_deals_raw(
 #'
 #' @return A tibble with associated entities
 #' @export
-#'
-#' @examples
-#' deals <- deal_properties()
 deal_properties <- function(deals = hs_deals_raw(max_iter = 1)) {
 
   .Deprecated("hs_deals_tidy")
@@ -77,9 +74,6 @@ deal_properties <- function(deals = hs_deals_raw(max_iter = 1)) {
 #'
 #' @return A tbl containing all stages a deal has gone through
 #' @export
-#'
-#' @examples
-#' hist <- deal_stages_history()
 deal_stages_history <- function(deals = hs_deals_raw(
   properties = "dealstage",
   property_history = "true",
@@ -99,9 +93,6 @@ deal_stages_history <- function(deals = hs_deals_raw(
 #'
 #' @return A tibble with associated entities
 #' @export
-#'
-#' @examples
-#' assoc <- deal_associations()
 deal_associations <- function(deals = hs_deals_raw(
   max_iter = 10,
   max_properties = 1,

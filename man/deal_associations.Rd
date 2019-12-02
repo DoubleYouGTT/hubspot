@@ -17,6 +17,3 @@ A tibble with associated entities
 \description{
 Soon deprecated! Use \code{hs_deals_tidy(deals, view = "associations")}
 }
-\examples{
-assoc <- deal_associations()
-}
