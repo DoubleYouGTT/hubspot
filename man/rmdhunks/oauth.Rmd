@@ -2,7 +2,7 @@ We expect you to not _need_ to bring your own app (BYOA), but the `app_info` par
 
 To BYOA,
 
-* [Read and execute Hubspot's docs about how to create an app](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot).
+* [Read and execute Hubspot's docs about how to create an app](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). You'll need to create a Hubspot developer account.
 
 * Define the `app_info` list.
 

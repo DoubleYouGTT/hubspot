@@ -53,6 +53,7 @@ package supports).
 To BYOA,
 \itemize{
 \item \href{https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot}{Read and execute Hubspot’s docs about how to create an app}.
+You’ll need to create a Hubspot developer account.
 \item Define the \code{app_info} list.
 }\if{html}{\out{
 <!-- end list -->
