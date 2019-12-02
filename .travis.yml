@@ -33,10 +33,13 @@ matrix:
 r_packages:
 - covr
 - lintr
+script:
+- R CMD build .
+- R CMD check *tar.gz
+- Rscript -e 'testthat::test_file("tests/testthat/test-oauth.R", reporter = testthat::FailReporter)'
 after_script:
 - R CMD INSTALL $PKG_TARBALL
 - Rscript -e 'lintr::lint_package()'
-- Rscript -e 'testthat::test_file("tests/testthat/test-oauth.R", reporter = testthat::FailReporter)'
 after_success:
 - Rscript -e 'covr::codecov()'
 stages:
