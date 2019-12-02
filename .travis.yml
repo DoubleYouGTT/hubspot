@@ -40,6 +40,7 @@ script:
 - Rscript -e 'rep=testthat::MultiReporter;testthat::test_file("tests/testthat/test-oauth.R",
   reporter = rep$new(reporters = list(testthat::SummaryReporter$new(), testthat::FailReporter$new())))'
 after_script:
+- R CMD INSTALL $PKG_TARBALL
 - Rscript -e 'lintr::lint_package()'
 after_success:
 - Rscript -e 'covr::codecov()'
