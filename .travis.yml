@@ -56,7 +56,5 @@ notifications:
     on_cancel: never
     on_error: never
 before_install:
-- openssl aes-256-cbc -K $encrypted_3c89e125833d_key -iv $encrypted_3c89e125833d_iv
-  -in .hubspot_token.rds.enc -out tests/testthat/.hubspot_token.rds -d
-- openssl aes-256-cbc -K $encrypted_3c89e125833d_key -iv $encrypted_3c89e125833d_iv
-  -in .hubspot_otherapp.rds.enc -out tests/testthat/.hubspot_otherapp.rds -d
+- openssl aes-256-cbc -K $encrypted_3c89e125833d_key -iv $encrypted_3c89e125833d_iv -in secrets.tar.enc -out tests/testthat/secrets.tar -d
+- tar xvf tests/testthat/secrets.tar -C tests/testthat/

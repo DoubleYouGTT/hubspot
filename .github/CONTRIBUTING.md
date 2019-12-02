@@ -46,7 +46,23 @@ Another app was created only for the purpose of testing bringing your own app. I
 In tests/testthat/setup.R, the token path is set to "" and the API key to "demo"
 which ensures tests are run with the demo key.
 
-For testing access with OAuth, two tokens were created and saved in tests/testthat, see inst/create_test_tokens.R. They were gitignored and Rbuildignored, and encrypted using the workflow https://cran.r-project.org/web/packages/googlesheets/vignettes/managing-auth-tokens.html#encrypting-tokens-for-hosted-continuous-integration except that they were also Rbuildignored. Therefore, R CMD check can't access them. The tests in tests/testthat/test-oauth.R using the OAuth tokens are skipped when they don't exist. On Travis CI, the tests are run on their own after R CMD check, so if they fail the build will fail. 
+For testing access with OAuth, two tokens were created and saved in tests/testthat, see inst/create_test_tokens.R. They were gitignored and Rbuildignored, and encrypted using the workflow https://cran.r-project.org/web/packages/googlesheets/vignettes/managing-auth-tokens.html#encrypting-tokens-for-hosted-continuous-integration except that they were also Rbuildignored.
+
+```
+tar cvf tests/testthat/secrets.tar tests/testthat/.hubspot_token.rds tests/testthat/.hubspot_otherapp.rds
+travis encrypt-file tests/testthat/secrets.tar
+
+```
+
+```r
+use_git_ignore(c("tests/testthat/secrets.tar", "tests/testthat/.hubspot_token.rds", "tests/testthat/.hubspot_otherapp.rds"))
+use_build_ignore(c("tests/testthat/secrets.tar",
+"tests/testthat/secrets.tar.enc",
+"tests/testthat/.hubspot_token.rds", "tests/testthat/.hubspot_otherapp.rds"))
+```
+
+
+Therefore, R CMD check can't access them. The tests in tests/testthat/test-oauth.R using the OAuth tokens are skipped when they don't exist. On Travis CI, the tests are run on their own after R CMD check, so if they fail the build will fail. 
 
 To run the tests in locally, if you're a regular contributor to the package or your contribution touches OAuth, create tokens by running inst/create_test_tokens.R interactively. 
 

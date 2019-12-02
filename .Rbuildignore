@@ -9,8 +9,8 @@
 ^\.httr-oauth$
 ^codecov\.yml$
 ^docs$
-^tests/testthat/\.hubspot_token\.rds$
-^\.hubspot_token\.rds\.enc$
-^tests/testthat/\.hubspot_otherapp\.rds$
-^tests/testthat/\.hubspot_otherapp\.rds\.enc$
 ^inst/create_test_tokens\.R$
+^tests/testthat/secrets\.tar$
+^secrets\.tar\.enc$
+^tests/testthat/\.hubspot_token\.rds$
+^tests/testthat/\.hubspot_otherapp\.rds$
