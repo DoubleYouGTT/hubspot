@@ -77,15 +77,6 @@
     <li>
       <a href="../articles/auth.html">Authorization for Hubspot APIs</a>
     </li>
-    <li>
-      <a href="../articles/rmdhunks/apikey.html">UNKNOWN TITLE</a>
-    </li>
-    <li>
-      <a href="../articles/rmdhunks/auth.html">UNKNOWN TITLE</a>
-    </li>
-    <li>
-      <a href="../articles/rmdhunks/oauth.html">UNKNOWN TITLE</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -180,7 +171,13 @@ to spend a little time on setup:</p><ul>
 <p>If you have both saved an API key via <code>hubspot_key_set()</code> and a token
 via <code><a href='hubspot-oauth.html'>hubspot_token_create()</a></code>, priority will be given to using the OAuth
 2.0 token. If you don’t want that, explicitely pass <code>NULL</code> as value for
-the <code>token_path</code> argument of all functions.</p>
+the <code>token_path</code> argument of all functions.</p><h3>Token refreshing</h3>
+
+
+<p>If the token expires in less than 60 seconds, it’ll be refreshed and
+cached thanks to the refresh token.</p>
+
+
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

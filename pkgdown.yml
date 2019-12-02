@@ -4,7 +4,4 @@ pkgdown_sha: ~
 articles:
   auth: auth.html
   hubspot: hubspot.html
-  apikey: rmdhunks/apikey.html
-  auth: rmdhunks/auth.html
-  oauth: rmdhunks/oauth.html
 
