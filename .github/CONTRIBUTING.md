@@ -48,6 +48,8 @@ which ensures tests are run with the demo key.
 
 For testing access with OAuth, two tokens were created and saved in tests/testthat, see inst/create_test_tokens.R. They were gitignored and Rbuildignored, and encrypted using the workflow https://cran.r-project.org/web/packages/googlesheets/vignettes/managing-auth-tokens.html#encrypting-tokens-for-hosted-continuous-integration except that they were also Rbuildignored.
 
+Cf https://docs.travis-ci.com/user/encrypting-files/#encrypting-multiple-files
+
 ```
 tar cvf tests/testthat/secrets.tar tests/testthat/.hubspot_token.rds tests/testthat/.hubspot_otherapp.rds
 travis encrypt-file tests/testthat/secrets.tar
