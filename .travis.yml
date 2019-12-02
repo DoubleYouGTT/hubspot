@@ -1,58 +1,56 @@
 language: r
 warnings_are_errors: true
 cache: packages
-
 addons:
   apt:
     sources:
-      - sourceline: 'ppa:chris-lea/libsodium'
+    - sourceline: ppa:chris-lea/libsodium
     packages:
-      - libsecret-1-dev
-      - libsodium-dev
-
-
+    - libsecret-1-dev
+    - libsodium-dev
 env:
   global:
-    - R_CHECK_ARGS="--no-manual --as-cran"
-
+  - R_CHECK_ARGS="--no-manual --as-cran"
 matrix:
   include:
-    - os: linux
-      r: oldrel
-    - os: linux
-      r: release
-      before_deploy:
-        - Rscript -e 'remotes::install_github("lockedatapublished/lockedatapkg")'
-        - Rscript -e 'install.packages("pkgdown")'
-      deploy:
-        provider: script
-        script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, run_dont_run = TRUE)'
-        skip_cleanup: true
-    - os: linux
-      r: devel
-    - os: osx
-      r: release
-      fortran: false
-
+  - os: linux
+    r: oldrel
+  - os: linux
+    r: release
+    before_deploy:
+    - Rscript -e 'remotes::install_github("lockedatapublished/lockedatapkg")'
+    - Rscript -e 'install.packages("pkgdown")'
+    deploy:
+      provider: script
+      script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, run_dont_run
+        = TRUE)'
+      skip_cleanup: true
+  - os: linux
+    r: devel
+  - os: osx
+    r: release
+    fortran: false
 r_packages:
-  - covr
-  - lintr
+- covr
+- lintr
 after_script:
-  - R CMD INSTALL $PKG_TARBALL
-  - Rscript -e 'lintr::lint_package()'
+- R CMD INSTALL $PKG_TARBALL
+- Rscript -e 'lintr::lint_package()'
+- Rscript -e 'testthat::test_file("tests/testthat/test-oauth.R")'
 after_success:
-  - Rscript -e 'covr::codecov()'
-
+- Rscript -e 'covr::codecov()'
 stages:
-  - name: deploy
-    # require the branch name to be master (note for PRs this is the base branch name)
-    if: branch = master
+- name: deploy
+  if: branch = master
 notifications:
   webhooks:
     urls:
-      - https://api.netlify.com/build_hooks/5c485865fa3a0d0176c6be7a
+    - https://api.netlify.com/build_hooks/5c485865fa3a0d0176c6be7a
     on_success: always
     on_failure: never
     on_start: never
     on_cancel: never
     on_error: never
+before_install:
+- openssl aes-256-cbc -K $encrypted_3c89e125833d_key -iv $encrypted_3c89e125833d_iv
+  -in .hubspot_token.rds.enc -out tests/testthat/.hubspot_token.rds -d

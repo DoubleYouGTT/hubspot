@@ -9,3 +9,4 @@
 ^\.httr-oauth$
 ^codecov\.yml$
 ^docs$
+^tests/testthat/\.hubspot_token\.rds$
