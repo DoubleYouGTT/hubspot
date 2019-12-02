@@ -1,6 +1,8 @@
 #' @return Named list
 #' @keywords internal
 #' @rdname hubspot-oauth
+#' @examples
+#' default_ld_hubspot_app()
 #' @export
 default_ld_hubspot_app <- function() {
   list(
@@ -8,9 +10,12 @@ default_ld_hubspot_app <- function() {
     client_id = "5975ba5c-900c-4fd7-94dd-04df023e4263",
     app_id = "205749",
     scope = c(
-      "contacts", "content", "forms", "tickets",
+      "contacts", "forms"
+    ),
+    optional_scope = c(
+      "content", "tickets",
       "e-commerce"
-    )
+      )
   )
 }
 
@@ -18,8 +23,7 @@ default_ld_hubspot_app <- function() {
 #' Make a string about scope for the authorize URL
 #' @noRd
 make_scopes_string <- function(scope) {
-  glue::glue("&scope={glue::glue_collapse(scope, sep = '%20')}")
-  "&scope=contacts%20content%20forms%20tickets%20e-commerce"
+  glue::glue("{glue::glue_collapse(scope, sep = '%20')}")
 }
 
 #' Authorize URL for OAuth
@@ -29,7 +33,10 @@ authorize_url <- function(app_info) {
   paste0(
     "https://app.hubspot.com/oauth/authorize?client_id=",
     app_info$client_id,
-    make_scopes_string(app_info$scope)
+    "&scope=",
+    make_scopes_string(app_info$scope),
+    "&optional_scope=",
+    make_scopes_string(app_info$optional_scope)
   )
 }
 
@@ -59,7 +66,7 @@ hubspot_oauth_app <- function(app_info) {
 }
 
 
-#' Create/get Hubspot authorization token.
+#' Create/retrieve Hubspot authorization token.
 #'
 #' Functions related to creating or retrieving an OAuth 2.0
 #' token for the Hubspot API.
@@ -67,8 +74,8 @@ hubspot_oauth_app <- function(app_info) {
 #' @includeRmd man/rmdhunks/oauth.Rmd
 #' @includeRmd man/rmdhunks/auth.Rmd
 #'
-#' @param app_info A named list with client_secret, client_id, app_id and
-#' scopes.
+#' @param app_info A named list with client_secret, client_id, app_id,
+#' required scope, optional scope.
 #' @param set_renv Logical indicating whether to save the created token
 #'   as the default environment hubspot token variable. Defaults to TRUE,
 #'   meaning the token is saved to user's home directory as either the user

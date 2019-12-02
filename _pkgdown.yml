@@ -6,8 +6,9 @@ reference:
 - title: API usage and setup
   desc: ~
   contents:
-  - '`has_concept("auth")`'
-  - '`hubspot_api_usage`'
+  - hubspot_token_create
+  - hubspot_key_set
+  - hubspot_api_usage
 - title: Data access
   desc: ~
   contents:

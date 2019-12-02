@@ -1,4 +1,4 @@
-#' Get/set the Hubspot secret API key
+#' Set/retrieve the Hubspot secret API key
 #'
 #' @description Get/set the Hubspot secret API key using the `keyring` package.
 #' For a more secure authorization method, without a daily limit on calls,

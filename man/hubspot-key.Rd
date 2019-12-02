@@ -3,7 +3,7 @@
 \name{hubspot_key_get}
 \alias{hubspot_key_get}
 \alias{hubspot_key_set}
-\title{Get/set the Hubspot secret API key}
+\title{Set/retrieve the Hubspot secret API key}
 \usage{
 hubspot_key_get()
 
