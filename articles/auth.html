@@ -123,15 +123,15 @@
 <div id="api-key-details" class="section level3">
 <h3 class="hasAnchor">
 <a href="#api-key-details" class="anchor"></a>API key details</h3>
-<p>To know how to get your Hubspot API key, refer to <a href="https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key">the corresponding section of Hubspot API docs</a>. Hubspot recommends you to re-generate your API key every six months.</p>
-<p>The API key should be set using the <code><a href="../reference/hubspot-key.html">hubspot_key_set()</a></code> function, that relies on the <code>keyring</code> package that stores the key in the system default credential store (see <code>keyring</code> docs).</p>
+<p>To know how to create your Hubspot API key, refer to <a href="https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key">the corresponding section of Hubspot API docs</a>. Hubspot recommends you to re-generate your API key every six months. Only accounts with Super Admin Access can create an API key (at the moment of writing).</p>
+<p>Save the API key on your machine using the <code><a href="../reference/hubspot-key.html">hubspot_key_set()</a></code> function, that relies on the <code>keyring</code> package that stores the key in the system default credential store (see <code>keyring</code> docs). If you don’t do that, you’ll have to provide the API key as argument to <code>hubspot</code> functions calling Hubspot APIs.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Either input the key as parameter</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="../reference/hubspot-key.html">hubspot_key_set</a></span>(<span class="st">"yourapikey"</span>)</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Or just call the function,</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># the key will be asked interactively</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw"><a href="../reference/hubspot-key.html">hubspot_key_set</a></span>()</a></code></pre></div>
-<p>If no API key is set, the “demo” key is used and a message is printed to the screen. As noted earlier, this won’t give you access to your own Hubspot data.</p>
+<p>If no API key is set nor provided as an argument, the “demo” key is used and a message is printed to the screen. As noted earlier, this won’t give you access to your own Hubspot data.</p>
 <p>You can check the daily usage related to the API key via <code><a href="../reference/hubspot_api_usage.html">hubspot_api_usage()</a></code>. Calls in the package are rate limited (100 requests every 10 seconds) but there’s also a daily limit on calls.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/hubspot_api_usage.html">hubspot_api_usage</a></span>()</a></code></pre></div>
 <p><strong>For a more secure authorization method, without a daily limit on calls, see [<code><a href="../reference/hubspot-oauth.html">hubspot_token_create()</a></code>].</strong></p>
