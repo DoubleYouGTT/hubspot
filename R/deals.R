@@ -1,4 +1,4 @@
-#' Get a list of all deals, including a set of properties
+#' Deals endpoint (raw and tidy)
 #'
 #' @inheritParams get_companies
 #' @param associations Retrieve links to other entities
@@ -75,8 +75,6 @@ get_deals <- function(token_path = hubspot_token_get(),
 }
 
 # tidiers ---------------------------------------------------------
-#' Title
-#'
 #' @param deals A list as returned by `hs_deals_raw()`
 #' @param view A view
 #' @details
@@ -85,11 +83,13 @@ get_deals <- function(token_path = hubspot_token_get(),
 #' * "properties": A tibble containing all properties of deals
 #' * "stages history": A tibble containing all stages a deal has gone through
 #'
-#' @rdname deals
 #' @return A tibble
 #' @export
 #'
-#' @examples
+#' @rdname deals
+#' @examples \dontrun{
+#' hs_deals_tidy(view = "properties")
+#' }
 hs_deals_tidy <- function(deals = hs_deals_raw(
   property_history = "true",
   associations = "false",
@@ -104,7 +104,7 @@ hs_deals_tidy <- function(deals = hs_deals_raw(
          "associations" = .deals_associations(deals),
          "properties history" = .deals_properties_history(deals),
          "properties" = .deals_properties(deals),
-         "stages history" = .deals_history(deals))
+         "stages history" = .deals_stages_history(deals))
 
 }
 

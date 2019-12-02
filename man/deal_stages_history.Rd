@@ -5,8 +5,8 @@
 \title{Retrieve the version history of deal stages}
 \usage{
 deal_stages_history(
-  deals = get_deals(properties = "dealstage", property_history = "true", associations =
-    "false")
+  deals = hs_deals_raw(properties = "dealstage", property_history = "true", associations
+    = "false")
 )
 }
 \arguments{

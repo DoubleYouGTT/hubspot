@@ -10,5 +10,8 @@ These functions still work but will be removed (defunct) in the next version.
 \itemize{
 \item \code{get_deals}
 \item \code{deal_properties_history}
+\item \code{deal_properties}
+\item \code{deal_stage_history}
+\item \code{deal_associations}
 }
 }

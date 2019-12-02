@@ -3,7 +3,7 @@
 \name{hs_deals_raw}
 \alias{hs_deals_raw}
 \alias{hs_deals_tidy}
-\title{Get a list of all deals, including a set of properties}
+\title{Deals endpoint (raw and tidy)}
 \usage{
 hs_deals_raw(
   token_path = hubspot_token_get(),
@@ -47,16 +47,17 @@ properties returned, if required.}
 \value{
 List with deals data
 
-A tbl
+A tibble
 }
 \description{
-Get a list of all deals, including a set of properties
-
-Title
+Deals endpoint (raw and tidy)
 }
 \details{
 \itemize{
-\item "properties history": A tbl of all field changes over time
+\item "associations": A tibble with associated entities
+\item "properties history": A tibble of all field changes over time
+\item "properties": A tibble containing all properties of deals
+\item "stages history": A tibble containing all stages a deal has gone through
 }
 }
 \examples{
@@ -65,5 +66,8 @@ deals <- hs_deals_raw(
   property_history = "false", max_iter = 1,
   max_properties = 10
 )
+}
+\dontrun{
+hs_deals_tidy(view = "properties")
 }
 }

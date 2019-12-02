@@ -5,7 +5,7 @@
 \title{Extract a table of associations from a deals list}
 \usage{
 deal_associations(
-  deals = get_deals(max_iter = 10, max_properties = 1, associations = "true")
+  deals = hs_deals_raw(max_iter = 10, max_properties = 1, associations = "true")
 )
 }
 \arguments{

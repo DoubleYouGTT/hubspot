@@ -4,7 +4,7 @@
 \alias{deal_properties}
 \title{Extract a table of deal IDs and simple property values}
 \usage{
-deal_properties(deals = get_deals(max_iter = 1))
+deal_properties(deals = hs_deals_raw(max_iter = 1))
 }
 \arguments{
 \item{deals}{A deals list object, typically produced by running \code{hs_deals_raw}}
