@@ -1,5 +1,36 @@
 #' Retrieve the changes of all properties for a given set of deals
 #'
+#' Soon deprecated! Use `hs_deals_raw()`
+#'
+#' @inheritParams get_companies
+#' @param associations Retrieve links to other entities
+#'
+#' @return List with deals data
+#' @export
+get_deals <- function(token_path = hubspot_token_get(),
+                      apikey = hubspot_key_get(),
+                      properties = get_deal_properties(
+                        token_path,
+                        apikey
+                      ),
+                      property_history = "true",
+                      associations = "true",
+                      max_iter = 10,
+                      max_properties = 100) {
+
+  .Deprecated("hs_deals_raw")
+
+  hs_deals_raw(token_path = token_path,
+               apikey = apikey,
+               properties = properties,
+               property_history = property_history,
+               associations = associations,
+               max_iter = max_iter,
+               max_properties = max_properties)
+}
+
+#' Retrieve the changes of all properties for a given set of deals
+#'
 #' Soon deprecated! Use `hs_deals_tidy(deals, view = "properties history")`
 #'
 #' @inheritParams deal_associations
