@@ -152,12 +152,7 @@
 <li><p>For more secure use, without a daily limit on API calls, see <code><a href="reference/hubspot-oauth.html">hubspot_token_create()</a></code> to create a Hubspot authorization token (OAuth 2.0).</p></li>
 </ul>
 <p>If you have both saved an API key via <code><a href="reference/hubspot-key.html">hubspot_key_set()</a></code> and a token via <code><a href="reference/hubspot-oauth.html">hubspot_token_create()</a></code>, priority will be given to using the OAuth 2.0 token. If you don’t want that, explicitely pass <code>NULL</code> as value for the <code>token_path</code> argument of all functions.</p>
-<div id="token-refreshing" class="section level3">
-<h3 class="hasAnchor">
-<a href="#token-refreshing" class="anchor"></a>Token refreshing</h3>
-<p>If the token expires in less than 60 seconds, it’ll be refreshed and cached thanks to the refresh token.</p>
 <p>Find more details on each method <a href="https://itsalocke.com/hubspot/articles/auth">in the vignette about authorization</a>.</p>
-</div>
 </div>
 <div id="contributions-welcome" class="section level2">
 <h2 class="hasAnchor">

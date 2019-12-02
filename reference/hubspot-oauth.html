@@ -157,7 +157,8 @@ if you want (for instance to define an app with only the scope needed
 for the endpoints you use as opposed to all the endpoints the <code>hubspot</code>
 package supports).</p>
 <p>To BYOA,</p><ul>
-<li><p><a href='https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot'>Read and execute Hubspot’s docs about how to create an app</a>.</p></li>
+<li><p><a href='https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot'>Read and execute Hubspot’s docs about how to create an app</a>.
+You’ll need to create a Hubspot developer account.</p></li>
 <li><p>Define the <code>app_info</code> list.</p></li>
 </ul><p><!-- end list -->
 
@@ -173,7 +174,12 @@ package supports).</p>
 </pre><p></div></p>
 <p>To distribute your app across your projects or across team members, you
 could make it a function in an internal package, or use environment
-variables.</p>
+variables.</p><h3>Token refreshing</h3>
+
+
+<p>If the token expires in less than 60 seconds, it’ll be refreshed and
+cached thanks to the refresh token.</p>
+
 <h3>Authorization for Hubspot APIs</h3>
 
 
@@ -197,13 +203,7 @@ to spend a little time on setup:</p><ul>
 <p>If you have both saved an API key via <code><a href='hubspot-key.html'>hubspot_key_set()</a></code> and a token
 via <code>hubspot_token_create()</code>, priority will be given to using the OAuth
 2.0 token. If you don’t want that, explicitely pass <code>NULL</code> as value for
-the <code>token_path</code> argument of all functions.</p><h3>Token refreshing</h3>
-
-
-<p>If the token expires in less than 60 seconds, it’ll be refreshed and
-cached thanks to the refresh token.</p>
-
-
+the <code>token_path</code> argument of all functions.</p>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
