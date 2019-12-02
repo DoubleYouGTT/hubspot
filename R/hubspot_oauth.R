@@ -30,14 +30,25 @@ make_scopes_string <- function(scope) {
 #' @return Authorize URL (character)
 #' @noRd
 authorize_url <- function(app_info) {
-  paste0(
-    "https://app.hubspot.com/oauth/authorize?client_id=",
-    app_info$client_id,
-    "&scope=",
-    make_scopes_string(app_info$scope),
-    "&optional_scope=",
-    make_scopes_string(app_info$optional_scope)
-  )
+  if(is.null(app_info$optional_scope)) {
+    paste0(
+      "https://app.hubspot.com/oauth/authorize?client_id=",
+      app_info$client_id,
+      "&scope=",
+      make_scopes_string(app_info$scope)
+    )
+  } else {
+    paste0(
+      "https://app.hubspot.com/oauth/authorize?client_id=",
+      app_info$client_id,
+      "&scope=",
+      make_scopes_string(app_info$scope),
+      "&optional_scope=",
+      make_scopes_string(app_info$optional_scope)
+    )
+  }
+
+
 }
 
 #' Access URL for OAuth
@@ -75,7 +86,7 @@ hubspot_oauth_app <- function(app_info) {
 #' @includeRmd man/rmdhunks/auth.Rmd
 #'
 #' @param app_info A named list with client_secret, client_id, app_id,
-#' required scope, optional scope.
+#' required scope, optional scope (NULL if no additional scope).
 #' @param set_renv Logical indicating whether to save the created token
 #'   as the default environment hubspot token variable. Defaults to TRUE,
 #'   meaning the token is saved to user's home directory as either the user

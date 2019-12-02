@@ -5,3 +5,4 @@ inst/doc
 .httr-oauth
 docs
 tests/testthat/.hubspot_token.rds
+tests/testthat/.hubspot_otherapp.rds
