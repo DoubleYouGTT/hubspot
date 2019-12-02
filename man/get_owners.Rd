@@ -45,6 +45,6 @@ Other getters:
 \code{\link{get_contacts}()},
 \code{\link{get_deal_pipelines}()},
 \code{\link{get_deal_properties}()},
-\code{\link{get_deals}()}
+\code{\link{hs_deals_raw}()}
 }
 \concept{getters}

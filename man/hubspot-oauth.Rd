@@ -18,7 +18,7 @@ hubspot_token_get()
 }
 \arguments{
 \item{app_info}{A named list with client_secret, client_id, app_id,
-required scope, optional scope.}
+required scope, optional scope (NULL if no additional scope).}
 
 \item{set_renv}{Logical indicating whether to save the created token
 as the default environment hubspot token variable. Defaults to TRUE,

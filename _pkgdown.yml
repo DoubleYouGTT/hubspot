@@ -29,6 +29,9 @@ reference:
   - '`get_deals`'
   - '`get_owners`'
   - '`owners`'
+- title: Deprecated
+  contents:
+  - hubspot-deprecated
 
 toc:
   depth: 2
