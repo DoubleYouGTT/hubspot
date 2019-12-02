@@ -10,3 +10,4 @@
 ^codecov\.yml$
 ^docs$
 ^tests/testthat/\.hubspot_token\.rds$
+^\.hubspot_token\.rds\.enc$
