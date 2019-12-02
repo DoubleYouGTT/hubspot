@@ -22,12 +22,16 @@ For a more secure authorization method, without a daily limit on calls,
 see \code{\link[=hubspot_token_create]{hubspot_token_create()}}
 }
 \details{
-To know how to get your Hubspot API key, refer to \href{https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key}{the corresponding section of Hubspot API docs}.
+To know how to create your Hubspot API key, refer to \href{https://knowledge.hubspot.com/integrations/how-do-i-get-my-hubspot-api-key}{the corresponding section of Hubspot API docs}.
 Hubspot recommends you to re-generate your API key every six months.
+Only accounts with Super Admin Access can create an API key (at the
+moment of writing).
 
-The API key should be set using the \code{hubspot_key_set()} function, that
-relies on the \code{keyring} package that stores the key in the system
-default credential store (see \code{keyring} docs).\if{html}{\out{<div class="r">}}\preformatted{# Either input the key as parameter
+Save the API key on your machine using the \code{hubspot_key_set()} function,
+that relies on the \code{keyring} package that stores the key in the system
+default credential store (see \code{keyring} docs). If you don’t do that,
+you’ll have to provide the API key as argument to \code{hubspot} functions
+calling Hubspot APIs.\if{html}{\out{<div class="r">}}\preformatted{# Either input the key as parameter
 hubspot_key_set("yourapikey")
 
 # Or just call the function,
@@ -35,9 +39,9 @@ hubspot_key_set("yourapikey")
 hubspot_key_set()
 }\if{html}{\out{</div>}}
 
-If no API key is set, the “demo” key is used and a message is printed to
-the screen. As noted earlier, this won’t give you access to your own
-Hubspot data.
+If no API key is set nor provided as an argument, the “demo” key is used
+and a message is printed to the screen. As noted earlier, this won’t
+give you access to your own Hubspot data.
 
 You can check the daily usage related to the API key via
 \code{hubspot_api_usage()}. Calls in the package are rate limited (100
