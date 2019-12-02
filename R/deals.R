@@ -80,10 +80,13 @@ get_deals <- function(token_path = hubspot_token_get(),
 #' @param deals A list as returned by `hs_deals_raw()`
 #' @param view A view
 #' @details
-#' * "properties history": A tbl of all field changes over time
+#' * "associations": A tibble with associated entities
+#' * "properties history": A tibble of all field changes over time
+#' * "properties": A tibble containing all properties of deals
+#' * "stages history": A tibble containing all stages a deal has gone through
 #'
 #' @rdname deals
-#' @return A tbl
+#' @return A tibble
 #' @export
 #'
 #' @examples
