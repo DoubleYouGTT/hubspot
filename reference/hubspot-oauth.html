@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create/get Hubspot authorization token. — default_ld_hubspot_app • hubspot</title>
+<title>Create/retrieve Hubspot authorization token. — default_ld_hubspot_app • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Create/get Hubspot authorization token.</a>
+      <a class="navbar-brand" href="../index.html">Create/retrieve Hubspot authorization token.</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -97,7 +97,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create/get Hubspot authorization token.</h1>
+    <h1>Create/retrieve Hubspot authorization token.</h1>
     
     <div class="hidden name"><code>hubspot-oauth.Rd</code></div>
     </div>
@@ -122,8 +122,8 @@ token for the Hubspot API.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>app_info</th>
-      <td><p>A named list with client_secret, client_id, app_id and
-scopes.</p></td>
+      <td><p>A named list with client_secret, client_id, app_id,
+required scope, optional scope.</p></td>
     </tr>
     <tr>
       <th>set_renv</th>
@@ -211,7 +211,21 @@ the <code>token_path</code> argument of all functions.</p>
 <code><a href='hubspot-key.html'>hubspot_key_get</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
+    <pre class="examples"><div class='input'><span class='fu'>default_ld_hubspot_app</span>()</div><div class='output co'>#&gt; $client_secret
+#&gt; [1] "2c0b347e-1e2a-4db7-a31a-aaa0b2fcad13"
+#&gt; 
+#&gt; $client_id
+#&gt; [1] "5975ba5c-900c-4fd7-94dd-04df023e4263"
+#&gt; 
+#&gt; $app_id
+#&gt; [1] "205749"
+#&gt; 
+#&gt; $scope
+#&gt; [1] "contacts" "forms"   
+#&gt; 
+#&gt; $optional_scope
+#&gt; [1] "content"    "tickets"    "e-commerce"
+#&gt; </div><div class='input'><span class='co'># \dontrun{</span>
 <span class='fu'>hubspot_token_create</span>()</div><div class='output co'>#&gt; <span class='message'>httpuv not installed, defaulting to out-of-band authentication</span></div><div class='output co'>#&gt; <span class='error'>Error: Can only use oob authentication in an interactive session</span></div><div class='input'><span class='co'># }</span>
 <span class='fu'>hubspot_token_get</span>()</div><div class='output co'>#&gt; NULL</div></pre>
   </div>
