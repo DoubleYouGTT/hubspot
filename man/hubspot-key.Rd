@@ -49,7 +49,7 @@ requests every 10 seconds) but there’s also a daily limit on calls.\if{html}{\
 }\if{html}{\out{</div>}}\preformatted{## # A tibble: 1 x 5
 ##   usageLimit currentUsage collectedAt        
 ##        <int>        <int> <dttm>             
-## 1    1000000         2028 2019-12-02 03:50:12
+## 1    1000000         2784 2019-12-02 04:17:16
 ## # … with 2 more variables: fetchStatus <chr>,
 ## #   resetsAt <dttm>
 }

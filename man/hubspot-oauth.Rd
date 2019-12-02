@@ -17,8 +17,8 @@ hubspot_token_create(
 hubspot_token_get()
 }
 \arguments{
-\item{app_info}{A named list with client_secret, client_id, app_id and
-scopes.}
+\item{app_info}{A named list with client_secret, client_id, app_id,
+required scope, optional scope.}
 
 \item{set_renv}{Logical indicating whether to save the created token
 as the default environment hubspot token variable. Defaults to TRUE,
@@ -109,6 +109,7 @@ the \code{token_path} argument of all functions.
 }
 }
 \examples{
+default_ld_hubspot_app()
 \dontrun{
 hubspot_token_create()
 }
