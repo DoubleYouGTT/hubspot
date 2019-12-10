@@ -102,10 +102,10 @@ get_results_paged <- function(path, token_path, apikey, query = NULL,
 
 
 check_token <- function(token, file) {
-
   info <- httr::GET(get_path_url(
     glue::glue("/oauth/v1/access-tokens/{
-               token$credentials$access_token}"))) %>%
+               token$credentials$access_token}")
+  )) %>%
     httr::content()
 
   if ("message" %in% names(info)) {
