@@ -53,7 +53,7 @@ get_contacts <- function(token_path = hubspot_token_get(),
       lapply(properties, function(x) {
         x
       }),
-      rep("properties", length(properties))
+      rep("property", length(properties))
     )
   )
 
