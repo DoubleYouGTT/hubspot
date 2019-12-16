@@ -15,7 +15,7 @@ default_ld_hubspot_app <- function() {
     optional_scope = c(
       "content", "tickets",
       "e-commerce"
-      )
+    )
   )
 }
 
@@ -30,7 +30,7 @@ make_scopes_string <- function(scope) {
 #' @return Authorize URL (character)
 #' @noRd
 authorize_url <- function(app_info) {
-  if(is.null(app_info$optional_scope)) {
+  if (is.null(app_info$optional_scope)) {
     paste0(
       "https://app.hubspot.com/oauth/authorize?client_id=",
       app_info$client_id,
@@ -47,8 +47,6 @@ authorize_url <- function(app_info) {
       make_scopes_string(app_info$optional_scope)
     )
   }
-
-
 }
 
 #' Access URL for OAuth
@@ -118,7 +116,7 @@ hubspot_token_create <- function(app_info = default_ld_hubspot_app(),
     cache = FALSE
   )
 
-# from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L219 # nolint
+  # from https://github.com/ropensci/rtweet/blob/1bd1e16d14df8b31a13a8c2f0e0ff0e87ea066d1/R/tokens.R#L219 # nolint
   if (set_renv) {
     if (is.null(token_path)) {
       token_path <- uq_filename(file.path(home(), ".hubspot_token.rds"))
