@@ -49,3 +49,5 @@ Imports:
     glue
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.1
+Remotes:
+    ropensci/vcr
