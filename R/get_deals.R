@@ -31,7 +31,12 @@ get_deals <- function(token_path = hubspot_token_get(),
       lapply(properties, function(x) {
         x
       }),
-      rep("properties", length(properties))
+      if(property_history) {
+        rep("propertiesWithHistory", length(properties))
+      } else {
+        rep("properties", length(properties))
+      }
+
     )
   )
 
