@@ -41,7 +41,6 @@ get_companies <- function(token_path = hubspot_token_get(),
       } else {
         rep("properties", length(properties))
       }
-
     )
   )
 
