@@ -8,7 +8,7 @@
 #' @family getters
 #' @examples
 #' deals <- get_deals(
-#'   property_history = FALSE, max_iter = 1,
+#'   property_history = "false", max_iter = 1,
 #'   max_properties = 10
 #' )
 get_deals <- function(token_path = hubspot_token_get(),
@@ -17,7 +17,7 @@ get_deals <- function(token_path = hubspot_token_get(),
                         token_path,
                         apikey
                       ),
-                      property_history = TRUE,
+                      property_history = "true",
                       associations = "true",
                       max_iter = 10,
                       max_properties = 100) {
@@ -30,7 +30,7 @@ get_deals <- function(token_path = hubspot_token_get(),
       lapply(properties, function(x) {
         x
       }),
-      if(property_history) {
+      if(property_history == "true") {
         rep("propertiesWithHistory", length(properties))
       } else {
         rep("properties", length(properties))

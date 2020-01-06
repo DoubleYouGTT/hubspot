@@ -5,7 +5,7 @@
 \title{Retrieve the version history of deal stages}
 \usage{
 deal_stages_history(
-  deals = get_deals(properties = "dealstage", property_history = TRUE, associations =
+  deals = get_deals(properties = "dealstage", property_history = "true", associations =
     "false")
 )
 }

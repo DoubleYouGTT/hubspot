@@ -8,7 +8,7 @@ get_deals(
   token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
   properties = get_deal_properties(token_path, apikey),
-  property_history = TRUE,
+  property_history = "true",
   associations = "true",
   max_iter = 10,
   max_properties = 100
@@ -42,7 +42,7 @@ Get a list of all deals, including a set of properties
 }
 \examples{
 deals <- get_deals(
-  property_history = FALSE, max_iter = 1,
+  property_history = "false", max_iter = 1,
   max_properties = 10
 )
 }

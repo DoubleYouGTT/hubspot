@@ -8,7 +8,7 @@
 #' @examples
 #' hist <- deal_properties_history()
 deal_properties_history <- function(deals = get_deals(
-                                      property_history = TRUE,
+                                      property_history = "true",
                                       associations = "false",
                                       max_iter = 1
                                     )) {
