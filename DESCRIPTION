@@ -48,4 +48,4 @@ Imports:
     ratelimitr,
     glue
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.1
+RoxygenNote: 7.0.2

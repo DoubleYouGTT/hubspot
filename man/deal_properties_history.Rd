@@ -5,7 +5,7 @@
 \title{Retrieve the changes of all properties for a given set of deals}
 \usage{
 deal_properties_history(
-  deals = get_deals(property_history = "true", associations = "false", max_iter = 1)
+  deals = get_deals(property_history = TRUE, associations = "false", max_iter = 1)
 )
 }
 \arguments{
