@@ -8,7 +8,7 @@
 #' @family getters
 #' @examples
 #' deals <- get_deals(
-#'   property_history = "false", max_iter = 1,
+#'   property_history = FALSE, max_iter = 1,
 #'   max_properties = 10
 #' )
 get_deals <- function(token_path = hubspot_token_get(),
@@ -17,15 +17,14 @@ get_deals <- function(token_path = hubspot_token_get(),
                         token_path,
                         apikey
                       ),
-                      property_history = "true",
+                      property_history = TRUE,
                       associations = "true",
                       max_iter = 10,
                       max_properties = 100) {
   query <- c(
     list(
       limit = 250,
-      includeAssociations = associations,
-      propertiesWithHistory = property_history
+      includeAssociations = associations
     ),
     purrr::set_names(
       lapply(properties, function(x) {
