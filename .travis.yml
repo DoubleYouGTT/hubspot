@@ -20,6 +20,7 @@ matrix:
     before_deploy:
     - Rscript -e 'remotes::install_github("lockedatapublished/lockedatapkg")'
     - Rscript -e 'remotes::install_github("r-lib/pkgdown")'
+    - Rscript -e 'install.packages("desc")'
     deploy:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, run_dont_run= TRUE)'
@@ -58,3 +59,5 @@ notifications:
 before_install:
 - openssl aes-256-cbc -K $encrypted_3c89e125833d_key -iv $encrypted_3c89e125833d_iv -in secrets.tar.enc -out tests/testthat/secrets.tar -d
 - tar xvf tests/testthat/secrets.tar
+before_script:
+- - export PKG_TARBALL=$(Rscript -e 'cat(paste0(hubspot,"_", as.character(desc::desc_get_version()),".tar.gz"))')
