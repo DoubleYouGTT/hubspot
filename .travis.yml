@@ -30,6 +30,7 @@ matrix:
   - os: osx
     r: release
     fortran: false
+    env: VCR_TURN_OFF=true
 r_packages:
 - covr
 - lintr
