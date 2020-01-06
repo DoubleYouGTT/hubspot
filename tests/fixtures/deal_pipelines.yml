@@ -4,7 +4,7 @@ http_interactions:
     uri: https://api.hubapi.com/crm-pipelines/v1/pipelines/deals/?includeInactive=EXCLUDE_DELETED&hapikey=demo
     body:
       encoding: ''
-      string: ''
+      string: no
     headers:
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -14,9 +14,17 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Mon, 18 Nov 2019 11:25:54 GMT
+      date: Mon, 06 Jan 2020 13:25:48 GMT
       content-type: application/json;charset=utf-8
       content-length: '572'
+      connection: keep-alive
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '994067'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '104'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '10'
       vary: Accept-Encoding
       content-encoding: gzip
       access-control-allow-credentials: 'false'
@@ -25,9 +33,10 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 5379961fceadcdd3-CDG
+      cf-ray: 550e05223bc4a85b-CDG
     body:
       encoding: UTF-8
+      file: no
       string: '{"results":[{"pipelineId":"c99e583d-bb66-4176-b1c0-82fad9cd5f85","createdAt":1528967404134,"updatedAt":null,"objectType":"DEAL","objectTypeId":"0-3","label":"The
         Pipe","displayOrder":0,"active":true,"stages":[{"stageId":"88fefcbd-257b-4b09-998c-b10e0e61ca2a","createdAt":1528967404134,"updatedAt":null,"label":"win","displayOrder":1,"metadata":{"isClosed":"true","probability":"1.0"},"active":true},{"stageId":"dfc03f64-4183-4ccc-bfb5-a205af0709cb","createdAt":1528967404134,"updatedAt":null,"label":"start","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.1"},"active":true},{"stageId":"bdcd24d2-d3d7-45f2-abc5-e5c07236804f","createdAt":1528967404134,"updatedAt":null,"label":"lost","displayOrder":2,"metadata":{"isClosed":"true","probability":"0.0"},"active":true}],"default":false},{"pipelineId":"default","createdAt":0,"updatedAt":null,"objectType":"DEAL","objectTypeId":"0-3","label":"Sales
         Pipeline","displayOrder":0,"active":true,"stages":[{"stageId":"decisionmakerboughtin","createdAt":0,"updatedAt":null,"label":"Decision
@@ -38,5 +47,5 @@ http_interactions:
         Sent","displayOrder":4,"metadata":{"isClosed":"false","probability":"0.9"},"active":true},{"stageId":"appointmentscheduled","createdAt":0,"updatedAt":null,"label":"Appointment
         Scheduled","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.2"},"active":true},{"stageId":"qualifiedtobuy","createdAt":0,"updatedAt":null,"label":"Qualified
         To Buy","displayOrder":1,"metadata":{"isClosed":"false","probability":"0.4"},"active":true}],"default":true}]}'
-  recorded_at: 2019-11-18 11:25:54 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-01-06 13:25:48 GMT
+  recorded_with: vcr/0.4.1.92, webmockr/0.5.0

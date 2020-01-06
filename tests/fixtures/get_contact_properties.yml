@@ -14,18 +14,18 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Mon, 06 Jan 2020 11:15:39 GMT
+      date: Mon, 06 Jan 2020 13:26:10 GMT
       content-type: application/json;charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
-      x-trace: 2B48EC083816C13149A8EC3801E9CA8311C301AB9F000000000000000000
+      x-trace: 2B855454F16571A50854E32784348C8A95F6CEB988000000000000000000
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '996459'
+      x-hubspot-ratelimit-daily-remaining: '994024'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '98'
+      x-hubspot-ratelimit-remaining: '102'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
-      x-hubspot-ratelimit-secondly-remaining: '9'
+      x-hubspot-ratelimit-secondly-remaining: '10'
       vary: Accept-Encoding
       content-encoding: gzip
       access-control-allow-credentials: 'false'
@@ -33,7 +33,7 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 550d46788b9aedef-CDG
+      cf-ray: 550e05ac9d2da85b-CDG
     body:
       encoding: UTF-8
       file: no
@@ -600,5 +600,5 @@ http_interactions:
         Stars","hidden":false,"displayOrder":3,"value":"bucket_4"}],"createdAt":null,"deleted":null,"formField":false,"displayOrder":999,"readOnlyValue":true,"readOnlyDefinition":true,"mutableDefinitionNotDeletable":false,"favorited":false,"favoritedOrder":-1,"calculated":false,"externalOptions":false,"displayMode":"current_value","showCurrencySymbol":null,"hubspotDefined":true,"updatedAt":null,"referencedObjectType":null,"hasUniqueValue":false,"createdUserId":null,"searchableInGlobalSearch":false,"numberDisplayHint":null},{"name":"hs_predictivecontactscore","label":"Predictive
         Lead Score","description":"A score calculated by HubSpot that represents a
         contact''s likelihood to become a customer","groupName":"contactinformation","type":"number","fieldType":"number","currencyPropertyName":null,"textDisplayHint":null,"optionsAreMutable":null,"isCustomizedDefault":false,"searchTextAnalysisMode":null,"optionSortStrategy":null,"updatedUserId":null,"hidden":false,"options":[],"createdAt":null,"deleted":null,"formField":false,"displayOrder":1000,"readOnlyValue":true,"readOnlyDefinition":true,"mutableDefinitionNotDeletable":false,"favorited":false,"favoritedOrder":-1,"calculated":false,"externalOptions":false,"displayMode":"current_value","showCurrencySymbol":null,"hubspotDefined":true,"updatedAt":null,"referencedObjectType":null,"hasUniqueValue":false,"createdUserId":null,"searchableInGlobalSearch":false,"numberDisplayHint":null}]'
-  recorded_at: 2020-01-06 11:15:39 GMT
+  recorded_at: 2020-01-06 13:26:11 GMT
   recorded_with: vcr/0.4.1.92, webmockr/0.5.0

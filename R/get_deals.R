@@ -24,14 +24,18 @@ get_deals <- function(token_path = hubspot_token_get(),
   query <- c(
     list(
       limit = 250,
-      includeAssociations = associations,
-      propertiesWithHistory = property_history
+      includeAssociations = associations
     ),
     purrr::set_names(
       lapply(properties, function(x) {
         x
       }),
-      rep("properties", length(properties))
+      if(property_history == "true") {
+        rep("propertiesWithHistory", length(properties))
+      } else {
+        rep("properties", length(properties))
+      }
+
     )
   )
 
