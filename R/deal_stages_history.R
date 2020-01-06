@@ -19,5 +19,3 @@ deal_stages_history <- function(deals = get_deals(
     purrr::map_df(tibble::as_tibble, .id = "dealId") %>%
     epoch_converter()
 }
-
-thishorribleline<-"horrible"
