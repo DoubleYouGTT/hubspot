@@ -1,0 +1,43 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/deals/v1/deal/paged?limit=250&includeAssociations=false&propertiesWithHistory=dealstage&offset=0&hapikey=demo
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Mon, 06 Jan 2020 14:57:12 GMT
+      content-type: application/json;charset=utf-8
+      content-length: '254'
+      connection: keep-alive
+      x-trace: 2B96FCB56C3E5AD81C23F9EF5F3F0543ECCA7E7300000000000000000000
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '989866'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '96'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '9'
+      vary: Accept-Encoding
+      content-encoding: gzip
+      access-control-allow-credentials: 'false'
+      accept-ranges: bytes
+      cf-cache-status: DYNAMIC
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 550e8b042a3eb7cf-CDG
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"deals":[{"portalId":62515,"dealId":931633510,"isDeleted":false,"associations":null,"properties":{"dealstage":{"value":"presentationscheduled","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"dealstage","value":"presentationscheduled","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]}},"imports":[],"stateChanges":[]}],"hasMore":false,"offset":931633511}'
+  recorded_at: 2020-01-06 14:57:12 GMT
+  recorded_with: vcr/0.4.1.92, webmockr/0.5.0

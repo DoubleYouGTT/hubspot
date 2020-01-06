@@ -14,13 +14,13 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Mon, 06 Jan 2020 13:25:37 GMT
+      date: Mon, 06 Jan 2020 14:56:49 GMT
       content-type: application/json;charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
-      x-trace: 2B07EF03E859C46322F7A5A1200595B570494F5F85000000000000000000
+      x-trace: 2B9E125B34505213D54F3E9BAAAE6D227CED4652EB000000000000000000
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '994087'
+      x-hubspot-ratelimit-daily-remaining: '989898'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
       x-hubspot-ratelimit-remaining: '118'
       x-hubspot-ratelimit-max: '120'
@@ -32,13 +32,13 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 550e04dbcbfba85b-CDG
+      cf-ray: 550e8a7648b3b7cf-CDG
       content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
       string: '{"portalId":62515,"timeZone":"America/Indianapolis","currency":"USD","utcOffsetMilliseconds":-18000000,"utcOffset":"-05:00"}'
-  recorded_at: 2020-01-06 13:25:38 GMT
+  recorded_at: 2020-01-06 14:56:50 GMT
   recorded_with: vcr/0.4.1.92, webmockr/0.5.0
 - request:
     method: get
@@ -55,13 +55,13 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Mon, 06 Jan 2020 13:25:37 GMT
+      date: Mon, 06 Jan 2020 14:56:50 GMT
       content-type: application/json;charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
-      x-trace: 2BDC275913DFBCC40F5EE36DF1F52C9F793F348D47000000000000000000
+      x-trace: 2BF71686A44B3146D9063C89970ABE1C2465159B70000000000000000000
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '994085'
+      x-hubspot-ratelimit-daily-remaining: '989896'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
       x-hubspot-ratelimit-remaining: '116'
       x-hubspot-ratelimit-max: '120'
@@ -73,11 +73,11 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 550e04df7f83a85b-CDG
+      cf-ray: 550e8a79bc9ab7cf-CDG
       content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
-      string: '[{"name":"api-calls-daily","usageLimit":1000000,"currentUsage":5911,"collectedAt":1578317137682,"fetchStatus":"CACHED","resetsAt":1578373200000}]'
-  recorded_at: 2020-01-06 13:25:38 GMT
+      string: '[{"name":"api-calls-daily","usageLimit":1000000,"currentUsage":9974,"collectedAt":1578322526244,"fetchStatus":"CACHED","resetsAt":1578373200000}]'
+  recorded_at: 2020-01-06 14:56:50 GMT
   recorded_with: vcr/0.4.1.92, webmockr/0.5.0

@@ -57,7 +57,6 @@ Other getters:
 \code{\link{get_contact_properties}()},
 \code{\link{get_deal_pipelines}()},
 \code{\link{get_deal_properties}()},
-\code{\link{get_deals}()},
 \code{\link{get_owners}()}
 }
 \concept{getters}
