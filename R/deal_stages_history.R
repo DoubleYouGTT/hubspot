@@ -9,7 +9,7 @@
 #' hist <- deal_stages_history()
 deal_stages_history <- function(deals = get_deals(
                                   properties = "dealstage",
-                                  property_history = "true",
+                                  property_history = TRUE,
                                   associations = "false"
                                 )) {
   deals %>%
