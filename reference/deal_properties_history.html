@@ -103,11 +103,11 @@
     </div>
 
     <div class="ref-description">
-    <p>Retrieve the changes of all properties for a given set of deals</p>
+    <p>Soon deprecated! Use <code><a href='deals.html'>hs_deals_tidy(deals, view = "properties history")</a></code></p>
     </div>
 
     <pre class="usage"><span class='fu'>deal_properties_history</span>(
-  <span class='kw'>deals</span> <span class='kw'>=</span> <span class='fu'><a href='get_deals.html'>get_deals</a></span>(<span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>, <span class='kw'>associations</span> <span class='kw'>=</span> <span class='st'>"false"</span>, <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+  <span class='kw'>deals</span> <span class='kw'>=</span> <span class='fu'><a href='deals.html'>hs_deals_raw</a></span>(<span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>, <span class='kw'>associations</span> <span class='kw'>=</span> <span class='st'>"false"</span>, <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -115,7 +115,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>deals</th>
-      <td><p>A deals list object, typically produced by running <code>get_deals</code></p></td>
+      <td><p>A deals list object, typically produced by running <code>hs_deals_raw</code></p></td>
     </tr>
     </table>
 
@@ -123,16 +123,12 @@
 
     <p>A tbl of all field changes over time</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>hist</span> <span class='kw'>&lt;-</span> <span class='fu'>deal_properties_history</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
-#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

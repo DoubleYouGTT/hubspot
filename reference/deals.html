@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get a list of all companies, including a set of properties — get_companies • hubspot</title>
+<title>Deals endpoint (raw and tidy) — hs_deals_raw • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Get a list of all companies, including a set of properties</a>
+      <a class="navbar-brand" href="../index.html">Deals endpoint (raw and tidy)</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -97,22 +97,28 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get a list of all companies, including a set of properties</h1>
+    <h1>Deals endpoint (raw and tidy)</h1>
     
-    <div class="hidden name"><code>get_companies.Rd</code></div>
+    <div class="hidden name"><code>deals.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get a list of all companies, including a set of properties</p>
+    <p>Deals endpoint (raw and tidy)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_companies</span>(
+    <pre class="usage"><span class='fu'>hs_deals_raw</span>(
   <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
   <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
-  <span class='kw'>properties</span> <span class='kw'>=</span> <span class='fu'><a href='get_company_properties.html'>get_company_properties</a></span>(<span class='no'>token_path</span>, <span class='no'>apikey</span>),
+  <span class='kw'>properties</span> <span class='kw'>=</span> <span class='fu'><a href='get_deal_properties.html'>get_deal_properties</a></span>(<span class='no'>token_path</span>, <span class='no'>apikey</span>),
   <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>,
+  <span class='kw'>associations</span> <span class='kw'>=</span> <span class='st'>"true"</span>,
   <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>10</span>,
   <span class='kw'>max_properties</span> <span class='kw'>=</span> <span class='fl'>100</span>
+)
+
+<span class='fu'>hs_deals_tidy</span>(
+  <span class='kw'>deals</span> <span class='kw'>=</span> <span class='fu'>hs_deals_raw</span>(<span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>, <span class='kw'>associations</span> <span class='kw'>=</span> <span class='st'>"false"</span>, <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>1</span>),
+  <span class='kw'>view</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"associations"</span>, <span class='st'>"properties history"</span>, <span class='st'>"properties"</span>, <span class='st'>"stages history"</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -138,6 +144,10 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
 returned</p></td>
     </tr>
     <tr>
+      <th>associations</th>
+      <td><p>Retrieve links to other entities</p></td>
+    </tr>
+    <tr>
       <th>max_iter</th>
       <td><p>The API is limited to 250 responses, use <code>max_iter</code> to
 limit how many pages of data will get returned</p></td>
@@ -147,34 +157,60 @@ limit how many pages of data will get returned</p></td>
       <td><p>Avoid URLs that are too long, limit the number of
 properties returned, if required.</p></td>
     </tr>
+    <tr>
+      <th>deals</th>
+      <td><p>A list as returned by <code>hs_deals_raw()</code></p></td>
+    </tr>
+    <tr>
+      <th>view</th>
+      <td><p>A view</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>List with company data</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <p>List with deals data</p>
+<p>A tibble</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <div class='dont-index'><p>Other getters: 
-<code><a href='get_company_properties.html'>get_company_properties</a>()</code>,
-<code><a href='get_contact_properties.html'>get_contact_properties</a>()</code>,
-<code><a href='get_contacts.html'>get_contacts</a>()</code>,
-<code><a href='get_deal_pipelines.html'>get_deal_pipelines</a>()</code>,
-<code><a href='get_deal_properties.html'>get_deal_properties</a>()</code>,
-<code><a href='get_owners.html'>get_owners</a>()</code></p></div>
+    
+<ul>
+<li><p>"associations": A tibble with associated entities</p></li>
+<li><p>"properties history": A tibble of all field changes over time</p></li>
+<li><p>"properties": A tibble containing all properties of deals</p></li>
+<li><p>"stages history": A tibble containing all stages a deal has gone through</p></li>
+</ul>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>companies</span> <span class='kw'>&lt;-</span> <span class='fu'>get_companies</span>(
+    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
+<span class='no'>deals</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_deals_raw</span>(
   <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"false"</span>, <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>max_properties</span> <span class='kw'>=</span> <span class='fl'>10</span>
 )</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
-#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='input'><span class='co'># }</span>
+<span class='co'># \dontrun{</span>
+<span class='fu'>hs_deals_tidy</span>(<span class='kw'>view</span> <span class='kw'>=</span> <span class='st'>"properties"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='output co'>#&gt; # A tibble: 1 x 25
+#&gt;   dealId hs_closed_amoun… dealname hs_all_accessib… amount closedate          
+#&gt;    &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dttm&gt;             
+#&gt; 1 9.32e8                0 Example… ""                  100 2019-08-02 21:58:38
+#&gt; # … with 19 more variables: num_associated_contacts &lt;dbl&gt;,
+#&gt; #   hs_all_team_ids &lt;chr&gt;, createdate &lt;dttm&gt;, hs_is_closed &lt;chr&gt;,
+#&gt; #   amount_in_home_currency &lt;dbl&gt;, hs_deal_stage_probability &lt;dbl&gt;,
+#&gt; #   days_to_close &lt;dbl&gt;, pipeline &lt;chr&gt;, hubspot_team_id &lt;chr&gt;,
+#&gt; #   hubspot_owner_id &lt;dbl&gt;, hs_closed_amount &lt;dbl&gt;, hs_lastmodifieddate &lt;dttm&gt;,
+#&gt; #   hubspot_owner_assigneddate &lt;dttm&gt;, dealstage &lt;chr&gt;, hs_createdate &lt;dttm&gt;,
+#&gt; #   hs_object_id &lt;dbl&gt;, hs_projected_amount &lt;dbl&gt;, hs_all_owner_ids &lt;dbl&gt;,
+#&gt; #   hs_projected_amount_in_home_currency &lt;dbl&gt;</div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
