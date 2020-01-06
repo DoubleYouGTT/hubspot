@@ -17,8 +17,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- pkgdown -->
 <link href="pkgdown.css" rel="stylesheet">
@@ -150,6 +150,37 @@
 <li>There is a lintr commit hooks that tidy up R function code, make sure any amendments are committed too</li>
 <li>When making a Pull Request, reference any issue you’re code fixes with #IssueNo in the body of the PR</li>
 </ul>
+</div>
+</div>
+<div id="auth-details-for-development" class="section level3">
+<h3 class="hasAnchor">
+<a href="#auth-details-for-development" class="anchor"></a>Auth details for development</h3>
+<div id="default-app" class="section level4">
+<h4 class="hasAnchor">
+<a href="#default-app" class="anchor"></a>Default app</h4>
+<p>A default app was created under the Locke Data dev account. It’s called “hubspot-pkg-locke-data”, ID 205749.</p>
+<p>Another app was created only for the purpose of testing bringing your own app. It’s called “hubspot-byoa-test-pkg”, ID 207639.</p>
+</div>
+<div id="testing" class="section level4">
+<h4 class="hasAnchor">
+<a href="#testing" class="anchor"></a>Testing</h4>
+<p>In tests/testthat/setup.R, the token path is set to "" and the API key to “demo” which ensures tests are run with the demo key.</p>
+<p>For testing access with OAuth, two tokens were created and saved in tests/testthat, see inst/create_test_tokens.R. They were gitignored and Rbuildignored, and encrypted using the workflow <a href="https://cran.r-project.org/web/packages/googlesheets/vignettes/managing-auth-tokens.html#encrypting-tokens-for-hosted-continuous-integration" class="uri">https://cran.r-project.org/web/packages/googlesheets/vignettes/managing-auth-tokens.html#encrypting-tokens-for-hosted-continuous-integration</a> except that they were also Rbuildignored.</p>
+<p>Cf <a href="https://docs.travis-ci.com/user/encrypting-files/#encrypting-multiple-files" class="uri">https://docs.travis-ci.com/user/encrypting-files/#encrypting-multiple-files</a></p>
+<pre><code>tar cvf tests/testthat/secrets.tar tests/testthat/.hubspot_token.rds tests/testthat/.hubspot_otherapp.rds
+travis encrypt-file tests/testthat/secrets.tar
+</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">use_git_ignore</span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"tests/testthat/secrets.tar"</span>, <span class="st">"tests/testthat/.hubspot_token.rds"</span>, <span class="st">"tests/testthat/.hubspot_otherapp.rds"</span>))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">use_build_ignore</span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"tests/testthat/secrets.tar"</span>,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">"tests/testthat/secrets.tar.enc"</span>,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">"tests/testthat/.hubspot_token.rds"</span>, <span class="st">"tests/testthat/.hubspot_otherapp.rds"</span>))</a></code></pre></div>
+<p>Therefore, R CMD check can’t access them. The tests in tests/testthat/test-oauth.R using the OAuth tokens are skipped when they don’t exist. On Travis CI, the tests are run on their own after R CMD check, so if they fail the build will fail.</p>
+<p>To run the tests in locally, if you’re a regular contributor to the package or your contribution touches OAuth, create tokens by running inst/create_test_tokens.R interactively.</p>
+</div>
+<div id="vignettes-and-example" class="section level4">
+<h4 class="hasAnchor">
+<a href="#vignettes-and-example" class="anchor"></a>Vignettes and example</h4>
+<p>At the moment of writing, no rendered code uses something else than the demo API key.</p>
 </div>
 </div>
 </div>

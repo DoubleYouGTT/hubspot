@@ -17,8 +17,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -155,7 +155,8 @@ this is ignored.</p></td>
 <code>app_info</code> parameter of <code>hubspot_token_create()</code> ensures you can do that
 if you want (for instance to define an app with only the scope needed
 for the endpoints you use as opposed to all the endpoints the <code>hubspot</code>
-package supports).</p>
+package supports; or to be sure your requests do not end up <a href='https://developers.hubspot.com/docs/faq/api-request-monitoring'>in the logs of our default app</a> but
+instead in an app your organization controls).</p>
 <p>To BYOA,</p><ul>
 <li><p><a href='https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot'>Read and execute Hubspot’s docs about how to create an app</a>.
 You’ll need to create a Hubspot developer account.</p></li>
@@ -229,7 +230,7 @@ the <code>token_path</code> argument of all functions.</p>
 <span class='fu'>hubspot_token_create</span>()</div><div class='output co'>#&gt; <span class='message'>httpuv not installed, defaulting to out-of-band authentication</span></div><div class='output co'>#&gt; <span class='error'>Error: Can only use oob authentication in an interactive session</span></div><div class='input'><span class='co'># }</span>
 <span class='fu'>hubspot_token_get</span>()</div><div class='output co'>#&gt; NULL</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
