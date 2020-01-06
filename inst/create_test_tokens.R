@@ -10,4 +10,4 @@ myapp <- list(client_secret = "6e0e17e9-a8e4-4fe4-8ac8-c23ba57b9ab2",
               optional_scope = NULL)
 hubspot::hubspot_token_create(app_info = myapp,
                               set_renv = FALSE,
-                              token_path = "tests/testthat/.hubspot_otherapp.rds")
+                              token_path = "tests/testthat/.hubspot_otherapp.rds") # nolint
