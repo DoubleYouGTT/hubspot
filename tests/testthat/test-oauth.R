@@ -13,4 +13,3 @@ test_that("access with oauth and another app works", {
   expect_is(contacts, "list")
   expect_equal(length(contacts), 2)
 })
-

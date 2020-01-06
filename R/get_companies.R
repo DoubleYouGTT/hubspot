@@ -30,14 +30,17 @@ get_companies <- function(token_path = hubspot_token_get(),
 
   query <- c(
     list(
-      limit = 250,
-      propertiesWithHistory = property_history
+      limit = 250
     ),
     purrr::set_names(
       lapply(properties, function(x) {
         x
       }),
-      rep("properties", length(properties))
+      if (property_history == "true") {
+        rep("propertiesWithHistory", length(properties))
+      } else {
+        rep("properties", length(properties))
+      }
     )
   )
 

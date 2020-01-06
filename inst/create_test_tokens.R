@@ -1,5 +1,6 @@
 # token with default app
-hubspot::hubspot_token_create(token_path = "tests/testthat/.hubspot_token.rds")
+hubspot::hubspot_token_create(token_path = "tests/testthat/.hubspot_token.rds",
+                              set_renv = FALSE)
 
 # token with another app
 myapp <- list(client_secret = "6e0e17e9-a8e4-4fe4-8ac8-c23ba57b9ab2",
@@ -8,4 +9,5 @@ myapp <- list(client_secret = "6e0e17e9-a8e4-4fe4-8ac8-c23ba57b9ab2",
               scope = c("actions", "contacts"),
               optional_scope = NULL)
 hubspot::hubspot_token_create(app_info = myapp,
-                              token_path = "tests/testthat/.hubspot_otherapp.rds")
+                              set_renv = FALSE,
+                              token_path = "tests/testthat/.hubspot_otherapp.rds") # nolint

@@ -3,7 +3,29 @@ vcr::use_cassette("hs_deals_raw", {
     res <- hs_deals_raw(max_iter = 1, max_properties = 1)
     expect_is(res, "list")
   })
+
+
+  test_that("hs_deals_raw works with history", {
+    res <- hs_deals_raw(
+      max_iter = 1, max_properties = 2,
+      property_history = "false"
+    )
+    res2 <- hs_deals_raw(
+      max_iter = 1, max_properties = 2,
+      property_history = "true"
+    )
+    expect_is(res2, "list")
+    expect_equal(
+      length(res$`931633510`$properties$hs_lastmodifieddate$versions), # nolint
+      1
+    )
+    expect_equal(
+      length(res2$`931633510`$properties$hs_lastmodifieddate$versions), # nolint
+      3
+    )
+  })
 })
+
 
 vcr::use_cassette("hs_deals_tidy_properties", {
   test_that("hs_deals_tidy properties works", {
