@@ -30,7 +30,7 @@ The package interacts with the Hubspot API so you might need to refer to [its do
 - Write tests to verify your work. We're glad to help with that if you're new to testing!
 - If you add functionality, do substantial refactoring, extend documentation, or improve the test base, add your info to the `DESCRIPTION` file
 - Add a succinct description of the change to the `NEWS.md` file
-- There is a lintr commit hooks that tidy up R function code, make sure any amendments are committed too
+- There is a `styler` pre-commit hook that tidies up R function code
 - When making a Pull Request, reference any issue you're code fixes with #IssueNo in the body of the PR
 
 ### Auth details for development
