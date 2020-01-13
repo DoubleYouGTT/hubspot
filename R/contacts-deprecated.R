@@ -12,7 +12,7 @@
 #' @template max_properties
 #'
 #' @return List with contact data
-#' @exports
+#' @export
 #' @examples
 #' contacts <- get_contacts(
 #'   property_history = "false", max_iter = 1,
