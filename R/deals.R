@@ -1,5 +1,7 @@
 #' Deals endpoint (raw and tidy)
 #'
+#' @description Get raw and tidy results from the [deals endpoint](https://developers.hubspot.com/docs/methods/deals/get-all-deals).
+#'
 #' @template token_path
 #' @template apikey
 #' @template properties

@@ -50,7 +50,7 @@ List with deals data
 A tibble
 }
 \description{
-Deals endpoint (raw and tidy)
+Get raw and tidy results from the \href{https://developers.hubspot.com/docs/methods/deals/get-all-deals}{deals endpoint}.
 }
 \details{
 \itemize{

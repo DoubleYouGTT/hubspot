@@ -44,7 +44,7 @@ List with company data
 A tibble with associated entities
 }
 \description{
-Companies endpoint (raw and tidy)
+Get raw and tidy results from \href{https://developers.hubspot.com/docs/methods/companies/get-all-companies}{the companies endpoint}.
 }
 \details{
 \itemize{

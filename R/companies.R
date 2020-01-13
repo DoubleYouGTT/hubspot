@@ -1,5 +1,7 @@
 #' Companies endpoint (raw and tidy)
 #'
+#' @description Get raw and tidy results from [the companies endpoint](https://developers.hubspot.com/docs/methods/companies/get-all-companies).
+#'
 #' @template token_path
 #' @template apikey
 #' @param properties Character vector of properties to request
