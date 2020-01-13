@@ -1,6 +1,6 @@
-#' Retrieve available properties for companies
+#' Company properties endpoint
 #'
-#' Retrieve available properties for companies from [the company properties endpoint](https://developers.hubspot.com/docs/methods/companies/).
+#' Retrieve available properties for companies from [the company properties endpoint](https://developers.hubspot.com/docs/methods/companies/get_company_properties).
 #'
 #' @template token_path
 #' @template apikey

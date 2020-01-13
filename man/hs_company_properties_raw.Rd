@@ -2,7 +2,7 @@
 % Please edit documentation in R/company_properties.R
 \name{hs_company_properties_raw}
 \alias{hs_company_properties_raw}
-\title{Retrieve available properties for companies}
+\title{Company properties endpoint}
 \usage{
 hs_company_properties_raw(
   token_path = hubspot_token_get(),
@@ -20,7 +20,7 @@ is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 Character vector of properties
 }
 \description{
-Retrieve available properties for companies from \href{https://developers.hubspot.com/docs/methods/companies/}{the company properties endpoint}.
+Retrieve available properties for companies from \href{https://developers.hubspot.com/docs/methods/companies/get_company_properties}{the company properties endpoint}.
 }
 \examples{
 properties <- hs_company_properties_raw()
