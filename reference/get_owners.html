@@ -128,8 +128,7 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
     </tr>
     <tr>
       <th>include_inactive</th>
-      <td><p>Boolean indicating whether to include inactive
-owners (defined as owners without any active remotes.)</p></td>
+      <td><p>Should inactive entities be returned</p></td>
     </tr>
     <tr>
       <th>email</th>
@@ -141,6 +140,9 @@ owners (defined as owners without any active remotes.)</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>List of owners</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Inactive owners are defined as owners without any active remotes.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other getters: 
@@ -206,6 +208,9 @@ owners (defined as owners without any active remotes.)</p></td>
 #&gt; [[1]]$hasContactsAccess
 #&gt; [1] FALSE
 #&gt; 
+#&gt; [[1]]$activeUserId
+#&gt; [1] 238058
+#&gt; 
 #&gt; [[1]]$isActive
 #&gt; [1] TRUE
 #&gt; 
@@ -213,9 +218,6 @@ owners (defined as owners without any active remotes.)</p></td>
 #&gt; NULL
 #&gt; 
 #&gt; [[1]]$userIdIncludingInactive
-#&gt; [1] 238058
-#&gt; 
-#&gt; [[1]]$activeUserId
 #&gt; [1] 238058
 #&gt; 
 #&gt; </div><div class='input'># }
@@ -226,6 +228,7 @@ owners (defined as owners without any active remotes.)</p></td>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
