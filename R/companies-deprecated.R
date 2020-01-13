@@ -1,4 +1,4 @@
-#' Companies endpoint (raw and tidy)
+#' Get companies
 #'
 #' @description Soon to be deprecated! Use `hs_companies_raw()`.
 #'

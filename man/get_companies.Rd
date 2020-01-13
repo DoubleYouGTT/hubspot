@@ -2,7 +2,7 @@
 % Please edit documentation in R/companies-deprecated.R
 \name{get_companies}
 \alias{get_companies}
-\title{Companies endpoint (raw and tidy)}
+\title{Get companies}
 \usage{
 get_companies(
   token_path = hubspot_token_get(),

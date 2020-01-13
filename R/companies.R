@@ -86,7 +86,7 @@ hs_companies_tidy <- function(companies = hs_companies_raw(),
   view <- match.arg(view, c("properties"))
 
   switch(view,
-         "properties" = company_properties(companies))
+         "properties" = .company_properties(companies))
 
 }
 
