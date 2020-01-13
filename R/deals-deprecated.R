@@ -1,6 +1,6 @@
-#' Retrieve the changes of all properties for a given set of deals
+#' Retrieve deals
 #'
-#' Soon deprecated! Use `hs_deals_raw()`
+#' Soon to be deprecated! Use `hs_deals_raw()`.
 #'
 #' @template token_path
 #' @template apikey

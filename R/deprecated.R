@@ -7,6 +7,8 @@
 #' * `deal_properties`
 #' * `deal_stage_history`
 #' * `deal_associations`
+#' * `get_companies`
+#' * `company_properties`
 #'
 #' @name hubspot-deprecated
 NULL

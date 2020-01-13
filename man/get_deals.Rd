@@ -2,7 +2,7 @@
 % Please edit documentation in R/deals-deprecated.R
 \name{get_deals}
 \alias{get_deals}
-\title{Retrieve the changes of all properties for a given set of deals}
+\title{Retrieve deals}
 \usage{
 get_deals(
   token_path = hubspot_token_get(),
@@ -38,5 +38,5 @@ properties returned, if required.}
 List with deals data
 }
 \description{
-Soon deprecated! Use \code{hs_deals_raw()}
+Soon to be deprecated! Use \code{hs_deals_raw()}.
 }
