@@ -41,8 +41,6 @@ properties returned, if required.}
 \value{
 List with company data
 
-A tibble
-
 A tibble with associated entities
 }
 \description{
@@ -58,16 +56,5 @@ companies <- hs_companies_raw(
   property_history = "false", max_iter = 1,
   max_properties = 10
 )
-companies <- company_properties()
+properties <- hs_companies_tidy(view = "properties")
 }
-\seealso{
-Other getters: 
-\code{\link{get_companies}()},
-\code{\link{get_company_properties}()},
-\code{\link{get_contact_properties}()},
-\code{\link{get_contacts}()},
-\code{\link{get_deal_pipelines}()},
-\code{\link{get_deal_properties}()},
-\code{\link{get_owners}()}
-}
-\concept{getters}

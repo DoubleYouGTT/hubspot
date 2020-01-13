@@ -13,7 +13,6 @@
 #' @return List with company data
 #' @rdname companies
 #' @export
-#' @family getters
 #' @examples
 #' companies <- hs_companies_raw(
 #'   property_history = "false", max_iter = 1,
@@ -69,7 +68,6 @@ hs_companies_raw <- function(token_path = hubspot_token_get(),
 #' @details
 #' * "properties": A tibble containing all properties of companies
 #'
-#' @return A tibble
 #' @export
 #'
 #' @rdname companies
@@ -78,7 +76,7 @@ hs_companies_raw <- function(token_path = hubspot_token_get(),
 #' @export
 #'
 #' @examples
-#' companies <- company_properties()
+#' properties <- hs_companies_tidy(view = "properties")
 
 hs_companies_tidy <- function(companies = hs_companies_raw(),
                               view = c("properties")) {
