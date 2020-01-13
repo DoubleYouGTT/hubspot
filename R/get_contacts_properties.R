@@ -1,6 +1,7 @@
 #' Retrieve available properties for contacts
 #'
-#' @inheritParams get_company_properties
+#' @template token_path
+#' @template apikey
 #'
 #' @return Character vector of properties
 #' @export

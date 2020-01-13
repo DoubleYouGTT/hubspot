@@ -7,8 +7,8 @@
 hubspot_api_usage(apikey = hubspot_key_get())
 }
 \arguments{
-\item{apikey}{API key to work with Hubspot (only used if \code{token_path}
-is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
+\item{token_path}{Path to OAuth 2.0 token.
+See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 }
 \value{
 A data.frame with API usage info

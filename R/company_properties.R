@@ -1,6 +1,6 @@
 #' Extract a table of company IDs and simple property values
 #'
-#' @param companies A companies return from `get_companies()`
+#' @template companies
 #'
 #' @return A tibble with associated entities
 #' @export

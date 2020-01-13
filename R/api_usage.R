@@ -6,7 +6,7 @@
 #' @description Check daily API usage [via the dedicated API endpoint](https://developers.hubspot.com/docs/methods/check-daily-api-usage).
 # nolint end
 #'
-#' @inheritParams get_company_properties
+#' @template token_path
 #' @return A data.frame with API usage info
 #' @export
 #'

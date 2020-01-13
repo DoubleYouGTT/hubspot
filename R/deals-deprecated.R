@@ -2,8 +2,13 @@
 #'
 #' Soon deprecated! Use `hs_deals_raw()`
 #'
-#' @inheritParams get_companies
-#' @param associations Retrieve links to other entities
+#' @template token_path
+#' @template apikey
+#' @template properties
+#' @template property_history
+#' @template associations
+#' @template max_iter
+#' @template max_properties
 #'
 #' @return List with deals data
 #' @export
@@ -89,7 +94,7 @@ deal_stages_history <- function(deals = hs_deals_raw(
 #'
 #' Soon deprecated! Use `hs_deals_tidy(deals, view = "associations")`
 #'
-#' @param deals A deals list object, typically produced by running `hs_deals_raw`
+#' @template deals
 #'
 #' @return A tibble with associated entities
 #' @export

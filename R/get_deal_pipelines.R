@@ -1,9 +1,11 @@
 #' Retrieve available pipelines for deals
 #'
-#' @inheritParams get_company_properties
-#' @param include_inactive Should deleted pipelines be returned
+#' @template token_path
+#' @template apikey
+#' @template include_inactive
 #'
 #' @return  List with deal pipeline data
+#' @details Inactive pipelines are defined as deleted pipelines.
 #' @export
 #' @family getters
 #' @examples

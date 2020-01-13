@@ -1,7 +1,12 @@
 #' Deals endpoint (raw and tidy)
 #'
-#' @inheritParams get_companies
-#' @param associations Retrieve links to other entities
+#' @template token_path
+#' @template apikey
+#' @template properties
+#' @template property_history
+#' @template associations
+#' @template max_iter
+#' @template max_properties
 #'
 #' @return List with deals data
 #' @export
@@ -57,8 +62,8 @@ hs_deals_raw <- function(token_path = hubspot_token_get(),
 
 
 # tidiers ---------------------------------------------------------
-#' @param deals A list as returned by `hs_deals_raw()`
-#' @param view A view
+#' @template deals
+#' @template view
 #' @details
 #' * "associations": A tibble with associated entities
 #' * "properties history": A tibble of all field changes over time

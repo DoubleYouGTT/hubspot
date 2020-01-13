@@ -7,7 +7,7 @@
 company_properties(companies = get_companies(max_iter = 1))
 }
 \arguments{
-\item{companies}{A companies return from \code{get_companies()}}
+\item{companies}{A companies return from \code{hs_companies_raw()}}
 }
 \value{
 A tibble with associated entities

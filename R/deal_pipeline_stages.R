@@ -1,6 +1,6 @@
 #' Extract a table of pipeline IDs and stages
 #'
-#' @param pipelines A list of pipelines from `get_deal_pipelines`
+#' @template pipelines
 #'
 #' @return A tibble of deal pipeline stages
 #' @export

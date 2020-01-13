@@ -40,9 +40,9 @@ limit how many pages of data will get returned}
 \item{max_properties}{Avoid URLs that are too long, limit the number of
 properties returned, if required.}
 
-\item{deals}{A list as returned by \code{hs_deals_raw()}}
+\item{deals}{A deals list object, typically produced by running \code{hs_deals_raw}}
 
-\item{view}{A view}
+\item{view}{A view (see Details)}
 }
 \value{
 List with deals data
