@@ -14,3 +14,4 @@
 ^secrets\.tar\.enc$
 ^tests/testthat/\.hubspot_token\.rds$
 ^tests/testthat/\.hubspot_otherapp\.rds$
+^man-roxygen$
