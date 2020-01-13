@@ -1,5 +1,7 @@
 #' Get a list of all contacts, including a set of properties
 #'
+#' @description Soon to be deprecated! Use `hs_contacts_raw()`.
+#'
 #' @template token_path
 #' @template apikey
 #' @template properties
@@ -10,8 +12,7 @@
 #' @template max_properties
 #'
 #' @return List with contact data
-#' @export
-#' @family getters
+#' @exports
 #' @examples
 #' contacts <- get_contacts(
 #'   property_history = "false", max_iter = 1,
@@ -30,42 +31,35 @@ get_contacts <- function(token_path = hubspot_token_get(),
                          list_memberships = "false",
                          max_iter = 10,
                          max_properties = 100) {
-  form_submission_mode <- match.arg(
-    form_submission_mode,
-    c("all", "none", "newest", "oldest")
-  )
 
-  properties <- head(properties, max_properties)
+  .Deprecated("hs_contacts_raw")
 
-  query <- c(
-    list(
-      count = 100,
-      propertyMode = ifelse(property_history == "true",
-        "value_and_history", "value_only"
-      ),
-      formSubmissionMode = form_submission_mode,
-      showListMemberships = list_memberships
-    ),
-    purrr::set_names(
-      lapply(properties, function(x) {
-        x
-      }),
-      rep("property", length(properties))
-    )
-  )
-
-  contacts <- get_results_paged(
-    path = "/contacts/v1/lists/all/contacts/all",
-    max_iter = max_iter, query = query,
-    token_path = token_path,
-    apikey = apikey, element = "contacts",
-    hasmore_name = "has-more",
-    offset_name_in = "vidOffset",
-    offset_name_out = "vid-offset"
-  )
-
-  purrr::set_names(
-    contacts,
-    purrr::map_dbl(contacts, "vid")
-  )
+  hs_contacts_raw(token_path = token_path,
+                  apikey = apikey,
+                  properties = properties,
+                  property_history = property_history,
+                  form_submission_mode = form_submission_mode,
+                  list_memberships = list_memberships,
+                  max_iter = max_iter,
+                  max_properties = max_properties)
 }
+
+#' Extract a table of contact IDs and simple property values
+#'
+#' @description Soon to be deprecated! Use `hs_contacts_tidy(contacts, view = "properties")`.
+#'
+#' @template contacts
+#'
+#' @return A tibble with associated entities
+#' @export
+#'
+#' @examples
+#' contacts <- contact_properties()
+contact_properties <- function(contacts = hs_contacts_raw()) {
+
+  .Deprecated("hs_contacts_tidy")
+
+  .contact_properties(contacts = contacts)
+
+}
+

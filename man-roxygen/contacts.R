@@ -1,1 +1,1 @@
-#' @param contacts A contacts return from `get_contacts()`
+#' @param contacts A contacts return from `hs_contacts_raw()`
