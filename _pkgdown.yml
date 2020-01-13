@@ -13,12 +13,10 @@ reference:
   desc: ~
   contents:
   - hs_deals_raw
-  - '`company_properties`'
   - '`contact_properties`'
-  - '`deal_associations`'
   - '`deal_pipeline_stages`'
   - '`deal_pipelines`'
-  - '`get_companies`'
+  - hs_companies_raw
   - '`get_company_properties`'
   - '`get_contact_properties`'
   - '`get_contacts`'

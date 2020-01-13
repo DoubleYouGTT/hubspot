@@ -77,11 +77,8 @@ hs_deals_raw <- function(token_path = hubspot_token_get(),
 #' @examples \dontrun{
 #' hs_deals_tidy(view = "properties")
 #' }
-hs_deals_tidy <- function(deals = hs_deals_raw(
-  property_history = "true",
-  associations = "false",
-  max_iter = 1
-), view = c("associations", "properties history",
+hs_deals_tidy <- function(deals = hs_deals_raw(),
+                          view = c("associations", "properties history",
             "properties", "stages history")) {
 
   view <- match.arg(view, c("associations", "properties history",

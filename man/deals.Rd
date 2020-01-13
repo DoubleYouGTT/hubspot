@@ -16,7 +16,7 @@ hs_deals_raw(
 )
 
 hs_deals_tidy(
-  deals = hs_deals_raw(property_history = "true", associations = "false", max_iter = 1),
+  deals = hs_deals_raw(),
   view = c("associations", "properties history", "properties", "stages history")
 )
 }
