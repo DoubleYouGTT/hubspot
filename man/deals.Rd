@@ -64,7 +64,8 @@ Different \code{view} values and associated output.
 \examples{
 \donttest{
 deals <- hs_deals_raw(
-  property_history = "false", max_iter = 1,
+  property_history = "false",
+  max_iter = 1,
   max_properties = 10
 )
 

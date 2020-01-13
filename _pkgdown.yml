@@ -17,7 +17,7 @@ reference:
   - '`deal_pipeline_stages`'
   - '`deal_pipelines`'
   - hs_companies_raw
-  - '`get_company_properties`'
+  - hs_company_properties_raw
   - '`get_contact_properties`'
   - '`get_contacts`'
   - '`get_deal_pipelines`'

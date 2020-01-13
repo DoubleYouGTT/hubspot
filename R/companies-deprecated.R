@@ -22,7 +22,7 @@
 #' )
 get_companies <- function(token_path = hubspot_token_get(),
                              apikey = hubspot_key_get(),
-                             properties = get_company_properties(
+                             properties = hs_company_properties_raw(
                                token_path,
                                apikey
                              ),

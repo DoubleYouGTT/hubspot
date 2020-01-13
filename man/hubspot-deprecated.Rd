@@ -15,5 +15,6 @@ These functions still work but will be removed (defunct) in the next version.
 \item \code{deal_associations}
 \item \code{get_companies}
 \item \code{company_properties}
+\item \code{get_company_properties}
 }
 }
