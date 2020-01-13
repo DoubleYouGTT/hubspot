@@ -1,9 +1,7 @@
 #' Retrieve available properties for companies
 #'
-#' @param token_path Path to OAuth 2.0 token.
-#' See [`hubspot_token_create()`].
-#' @param apikey API key to work with Hubspot (only used if `token_path`
-#' is `NULL`). See [`hubspot_key_set()`].
+#' @template token_path
+#' @template apikey
 #'
 #' @return Character vector of properties
 #' @export

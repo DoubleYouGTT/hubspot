@@ -1,6 +1,7 @@
 #' Get a list of all companies, including a set of properties
 #'
-#' @inheritParams get_company_properties
+#' @template token_path
+#' @template apikey
 #' @param properties Character vector of properties to request
 #' @param property_history Whether version history for properties should be
 #' returned

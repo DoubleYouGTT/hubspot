@@ -4,11 +4,11 @@
 #' @description Retrieve owners [from the owners API endpoint](https://developers.hubspot.com/docs/methods/owners/get_owners).
 # nolint end
 #'
-#' @inheritParams get_company_properties
-#' @param include_inactive Boolean indicating whether to include inactive
-#'  owners (defined as owners without any active remotes.)
-#' @param email Search for owners matching the specified email address
-#'  (exact match).
+#' @details Inactive owners are defined as owners without any active remotes.
+#' @template token_path
+#' @template apikey
+#' @template include_inactive
+#' @template email
 #'
 #' @return List of owners
 #' @export

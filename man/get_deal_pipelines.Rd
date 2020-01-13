@@ -17,13 +17,16 @@ See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 \item{apikey}{API key to work with Hubspot (only used if \code{token_path}
 is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
-\item{include_inactive}{Should deleted pipelines be returned}
+\item{include_inactive}{Should inactive entities be returned}
 }
 \value{
 List with deal pipeline data
 }
 \description{
 Retrieve available pipelines for deals
+}
+\details{
+Inactive pipelines are defined as deleted pipelines.
 }
 \examples{
 pipelines <- get_deal_pipelines()

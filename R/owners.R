@@ -1,6 +1,6 @@
 #' Extract a table of CRM owners
 #'
-#' @param owners Raw data from `get_owners()`
+#' @template owners
 #'
 #' @return data.frame of owners
 #' @export

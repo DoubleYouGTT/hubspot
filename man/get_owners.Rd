@@ -18,8 +18,7 @@ See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 \item{apikey}{API key to work with Hubspot (only used if \code{token_path}
 is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
-\item{include_inactive}{Boolean indicating whether to include inactive
-owners (defined as owners without any active remotes.)}
+\item{include_inactive}{Should inactive entities be returned}
 
 \item{email}{Search for owners matching the specified email address
 (exact match).}
@@ -29,6 +28,9 @@ List of owners
 }
 \description{
 Retrieve owners \href{https://developers.hubspot.com/docs/methods/owners/get_owners}{from the owners API endpoint}.
+}
+\details{
+Inactive owners are defined as owners without any active remotes.
 }
 \examples{
 \dontrun{
