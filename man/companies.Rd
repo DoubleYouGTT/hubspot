@@ -39,22 +39,28 @@ properties returned, if required.}
 \item{view}{A view (see Details)}
 }
 \value{
-List with company data
+List with company data (\code{hs_companies_raw()})
 
-A tibble with associated entities
+A tibble with associated entities (\code{hs_companies_tidy()})
 }
 \description{
 Get raw and tidy results from \href{https://developers.hubspot.com/docs/methods/companies/get-all-companies}{the companies endpoint}.
 }
 \details{
+Different \code{view} values and associated output.
 \itemize{
 \item "properties": A tibble containing all properties of companies
 }
 }
 \examples{
+\donttest{
 companies <- hs_companies_raw(
   property_history = "false", max_iter = 1,
   max_properties = 10
 )
-properties <- hs_companies_tidy(view = "properties")
+companies_properties <- hs_companies_tidy(
+  companies,
+  view = "properties"
+)
+}
 }

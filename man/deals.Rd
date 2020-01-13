@@ -45,14 +45,15 @@ properties returned, if required.}
 \item{view}{A view (see Details)}
 }
 \value{
-List with deals data
+List with deals data (\code{hs_deals_raw()})
 
-A tibble
+A tibble (\code{hs_deals_tidy()})
 }
 \description{
 Get raw and tidy results from the \href{https://developers.hubspot.com/docs/methods/deals/get-all-deals}{deals endpoint}.
 }
 \details{
+Different \code{view} values and associated output.
 \itemize{
 \item "associations": A tibble with associated entities
 \item "properties history": A tibble of all field changes over time
@@ -61,13 +62,15 @@ Get raw and tidy results from the \href{https://developers.hubspot.com/docs/meth
 }
 }
 \examples{
-\dontrun{
+\donttest{
 deals <- hs_deals_raw(
   property_history = "false", max_iter = 1,
   max_properties = 10
 )
-}
-\dontrun{
-hs_deals_tidy(view = "properties")
+
+deals_properties <- hs_deals_tidy(
+  deals,
+  view = "properties"
+  )
 }
 }

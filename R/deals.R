@@ -10,14 +10,20 @@
 #' @template max_iter
 #' @template max_properties
 #'
-#' @return List with deals data
+#' @return List with deals data (`hs_deals_raw()`)
 #' @export
 #' @rdname deals
-#' @examples \dontrun{
+#' @examples \donttest{
 #' deals <- hs_deals_raw(
-#'   property_history = "false", max_iter = 1,
+#'   property_history = "false",
+#'   max_iter = 1,
 #'   max_properties = 10
 #' )
+#'
+#' deals_properties <- hs_deals_tidy(
+#'   deals,
+#'   view = "properties"
+#'   )
 #' }
 hs_deals_raw <- function(token_path = hubspot_token_get(),
                       apikey = hubspot_key_get(),
@@ -67,18 +73,16 @@ hs_deals_raw <- function(token_path = hubspot_token_get(),
 #' @template deals
 #' @template view
 #' @details
+#' Different `view` values and associated output.
 #' * "associations": A tibble with associated entities
 #' * "properties history": A tibble of all field changes over time
 #' * "properties": A tibble containing all properties of deals
 #' * "stages history": A tibble containing all stages a deal has gone through
 #'
-#' @return A tibble
+#' @return A tibble (`hs_deals_tidy()`)
 #' @export
 #'
 #' @rdname deals
-#' @examples \dontrun{
-#' hs_deals_tidy(view = "properties")
-#' }
 hs_deals_tidy <- function(deals = hs_deals_raw(),
                           view = c("associations", "properties history",
             "properties", "stages history")) {

@@ -12,14 +12,20 @@
 #' @param max_properties Avoid URLs that are too long, limit the number of
 #' properties returned, if required.
 #'
-#' @return List with company data
+#' @return List with company data (`hs_companies_raw()`)
 #' @rdname companies
 #' @export
 #' @examples
+#' \donttest{
 #' companies <- hs_companies_raw(
 #'   property_history = "false", max_iter = 1,
 #'   max_properties = 10
 #' )
+#' companies_properties <- hs_companies_tidy(
+#'   companies,
+#'   view = "properties"
+#' )
+#' }
 hs_companies_raw <- function(token_path = hubspot_token_get(),
                           apikey = hubspot_key_get(),
                           properties = get_company_properties(
@@ -68,17 +74,16 @@ hs_companies_raw <- function(token_path = hubspot_token_get(),
 #' @template companies
 #' @template view
 #' @details
+#' Different `view` values and associated output.
 #' * "properties": A tibble containing all properties of companies
 #'
 #' @export
 #'
 #' @rdname companies
 #'
-#' @return A tibble with associated entities
+#' @return A tibble with associated entities (`hs_companies_tidy()`)
 #' @export
 #'
-#' @examples
-#' properties <- hs_companies_tidy(view = "properties")
 
 hs_companies_tidy <- function(companies = hs_companies_raw(),
                               view = c("properties")) {
