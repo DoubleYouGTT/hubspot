@@ -9,6 +9,7 @@
 #' * `deal_associations`
 #' * `get_companies`
 #' * `company_properties`
+#' * `get_company_properties`
 #'
 #' @name hubspot-deprecated
 NULL

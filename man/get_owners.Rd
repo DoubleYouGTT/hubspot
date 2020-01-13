@@ -42,7 +42,6 @@ get_owners(email = "demo@hubspot.com")
 \seealso{
 Other getters: 
 \code{\link{get_companies}()},
-\code{\link{get_company_properties}()},
 \code{\link{get_contact_properties}()},
 \code{\link{get_contacts}()},
 \code{\link{get_deal_pipelines}()},

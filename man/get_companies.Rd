@@ -7,7 +7,7 @@
 get_companies(
   token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
-  properties = get_company_properties(token_path, apikey),
+  properties = hs_company_properties_raw(token_path, apikey),
   property_history = "true",
   max_iter = 10,
   max_properties = 100
@@ -45,7 +45,6 @@ companies <- hs_companies_raw(
 }
 \seealso{
 Other getters: 
-\code{\link{get_company_properties}()},
 \code{\link{get_contact_properties}()},
 \code{\link{get_contacts}()},
 \code{\link{get_deal_pipelines}()},
