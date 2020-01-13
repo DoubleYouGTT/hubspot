@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get a list of all companies, including a set of properties — get_companies • hubspot</title>
+<title>Get companies — get_companies • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Get a list of all companies, including a set of properties</a>
+      <a class="navbar-brand" href="../index.html">Get companies</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -97,13 +97,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get a list of all companies, including a set of properties</h1>
+    <h1>Get companies</h1>
     
     <div class="hidden name"><code>get_companies.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get a list of all companies, including a set of properties</p>
+    <p>Soon to be deprecated! Use <code><a href='companies.html'>hs_companies_raw()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_companies</span>(
@@ -163,7 +163,7 @@ properties returned, if required.</p></td>
 <code><a href='get_owners.html'>get_owners</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>companies</span> <span class='kw'>&lt;-</span> <span class='fu'>get_companies</span>(
+    <pre class="examples"><div class='input'><span class='no'>companies</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='companies.html'>hs_companies_raw</a></span>(
   <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"false"</span>, <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>max_properties</span> <span class='kw'>=</span> <span class='fl'>10</span>
 )</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
