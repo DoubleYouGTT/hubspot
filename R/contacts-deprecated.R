@@ -13,11 +13,6 @@
 #'
 #' @return List with contact data
 #' @export
-#' @examples
-#' contacts <- hs_contacts_raw(
-#'   property_history = "false", max_iter = 1,
-#'   max_properties = 10
-#' )
 get_contacts <- function(token_path = hubspot_token_get(),
                          apikey = hubspot_key_get(),
                          properties = get_contact_properties(
@@ -53,8 +48,6 @@ get_contacts <- function(token_path = hubspot_token_get(),
 #' @return A tibble with associated entities
 #' @export
 #'
-#' @examples
-#' contacts <- contact_properties()
 contact_properties <- function(contacts = hs_contacts_raw()) {
 
   .Deprecated("hs_contacts_tidy")

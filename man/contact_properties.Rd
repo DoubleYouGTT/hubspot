@@ -15,6 +15,3 @@ A tibble with associated entities
 \description{
 Soon to be deprecated! Use \code{hs_contacts_tidy(contacts, view = "properties")}.
 }
-\examples{
-contacts <- contact_properties()
-}

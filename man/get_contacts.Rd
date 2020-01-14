@@ -44,9 +44,3 @@ List with contact data
 \description{
 Soon to be deprecated! Use \code{hs_contacts_raw()}.
 }
-\examples{
-contacts <- get_contacts(
-  property_history = "false", max_iter = 1,
-  max_properties = 10
-)
-}
