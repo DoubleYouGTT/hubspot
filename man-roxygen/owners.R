@@ -1,1 +1,1 @@
-#' @param owners Raw data from `get_owners()`
+#' @param owners Raw data from `hs_owners_raw()`
