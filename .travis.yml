@@ -36,7 +36,7 @@ r_packages:
 script:
 - R CMD build .
 - R CMD check *tar.gz
-- Rscript -e 'install.packages("remotes"); remotes::install_local()'
+- Rscript -e 'install.packages("callr"); callr::rcmd("INSTALL", Sys.getenv("PKG_TARBALL"), show = verbose, fail_on_status = TRUE)'
 - Rscript -e 'rep=testthat::MultiReporter;testthat::test_file("tests/testthat/test-oauth.R",
   reporter = rep$new(reporters = list(testthat::SummaryReporter$new(), testthat::FailReporter$new())))'
 after_success:

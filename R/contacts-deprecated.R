@@ -14,7 +14,7 @@
 #' @return List with contact data
 #' @export
 #' @examples
-#' contacts <- get_contacts(
+#' contacts <- hs_contacts_raw(
 #'   property_history = "false", max_iter = 1,
 #'   max_properties = 10
 #' )
