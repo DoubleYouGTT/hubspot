@@ -47,5 +47,13 @@ Different \code{view} values and associated output.
 }
 }
 \examples{
-pipelines <- hs_deal_pipelines_raw()
+deal_pipelines <- hs_deal_pipelines_raw()
+properties <- hs_deal_pipelines_tidy(
+  deal_pipelines,
+  view = "properties"
+)
+stages <- hs_deal_pipelines_tidy(
+  deal_pipelines,
+  view = "stages"
+)
 }

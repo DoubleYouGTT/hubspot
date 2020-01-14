@@ -11,7 +11,15 @@
 #' @export
 #' @rdname deal-pipelines
 #' @examples
-#' pipelines <- hs_deal_pipelines_raw()
+#' deal_pipelines <- hs_deal_pipelines_raw()
+#' properties <- hs_deal_pipelines_tidy(
+#'   deal_pipelines,
+#'   view = "properties"
+#' )
+#' stages <- hs_deal_pipelines_tidy(
+#'   deal_pipelines,
+#'   view = "stages"
+#' )
 hs_deal_pipelines_raw <- function(token_path = hubspot_token_get(),
                                apikey = hubspot_key_get(),
                                include_inactive = "EXCLUDE_DELETED") {
