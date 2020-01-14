@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve available properties for contacts — get_contact_properties • hubspot</title>
+<title>Retrieve owners — get_owners • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Retrieve available properties for contacts</a>
+      <a class="navbar-brand" href="../index.html">Retrieve owners</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -97,19 +97,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve available properties for contacts</h1>
+    <h1>Retrieve owners</h1>
     
-    <div class="hidden name"><code>get_contact_properties.Rd</code></div>
+    <div class="hidden name"><code>owners-deprecated.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Soon to be deprecated! Use <code><a href='contact-properties.html'>hs_contact_properties_tidy()</a></code>.</p>
+    <p>Soon to be deprecated! Use <code><a href='owners.html'>hs_owners_raw()</a></code>.</p>
+<p>Soon to be deprecated! Use <code><a href='owners.html'>hs_owners_tidy(owners, view = "owners")</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_contact_properties</span>(
+    <pre class="usage"><span class='fu'>get_owners</span>(
   <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
-  <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>()
-)</pre>
+  <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
+  <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>email</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='fu'>owners</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'><a href='owners.html'>hs_owners_raw</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,11 +129,28 @@ See <code><a href='hubspot-oauth.html'>hubspot_token_create()</a></code>.</p></t
       <td><p>API key to work with Hubspot (only used if <code>token_path</code>
 is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a></code>.</p></td>
     </tr>
+    <tr>
+      <th>include_inactive</th>
+      <td><p>Should inactive entities be returned</p></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><p>Search for owners matching the specified email address
+(exact match).</p></td>
+    </tr>
+    <tr>
+      <th>owners</th>
+      <td><p>Raw data from <code><a href='owners.html'>hs_owners_raw()</a></code></p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Character vector of properties</p>
+    <p>List of owners</p>
+<p>tibble of owners</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Inactive owners are defined as owners without any active remotes.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -136,6 +158,7 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
     </ul>
 
   </div>

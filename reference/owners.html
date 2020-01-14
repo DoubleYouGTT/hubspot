@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract a table of CRM owners — owners • hubspot</title>
+<title>Owners endpoint (raw and tidy) — hs_owners_raw • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Extract a table of CRM owners</a>
+      <a class="navbar-brand" href="../index.html">Owners endpoint (raw and tidy)</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -97,19 +97,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract a table of CRM owners</h1>
+    <h1>Owners endpoint (raw and tidy)</h1>
     
     <div class="hidden name"><code>owners.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Soon to be deprecated! Use <code>hs_owners_tidy(owners, view = "owners")</code>.</p>
-<p>Retrieve raw and tidy results from <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>the owners endpoint</a>.</p>
+    <p>Retrieve raw and tidy results from <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>the owners endpoint</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>owners</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'>hs_owners_raw</span>())
-
-<span class='fu'>hs_owners_raw</span>(
+    <pre class="usage"><span class='fu'>hs_owners_raw</span>(
   <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
   <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
   <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -121,10 +118,6 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>owners</th>
-      <td><p>Raw data from <code>hs_owners_raw()</code></p></td>
-    </tr>
     <tr>
       <th>token_path</th>
       <td><p>Path to OAuth 2.0 token.
@@ -145,6 +138,10 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
 (exact match).</p></td>
     </tr>
     <tr>
+      <th>owners</th>
+      <td><p>Raw data from <code>hs_owners_raw()</code></p></td>
+    </tr>
+    <tr>
       <th>view</th>
       <td><p>A view (see Details)</p></td>
     </tr>
@@ -152,8 +149,7 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>tibble of owners</p>
-<p>List of owners (<code>hs_owners_raw()</code>)</p>
+    <p>List of owners (<code>hs_owners_raw()</code>)</p>
 <p>A tibble of owners (<code>hs_owners_tidy()</code>)</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -172,10 +168,10 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
 #&gt; [1] "This hapikey (yourapikey) doesn't exist."
 #&gt; 
 #&gt; $correlationId
-#&gt; [1] "015f27e1-9247-4677-9b66-64080664dad1"
+#&gt; [1] "9542c118-72c3-43c3-b41e-6bd9b8d61c1b"
 #&gt; 
 #&gt; $requestId
-#&gt; [1] "736d1129-744f-4e6d-bcf9-fe959f5300c0"
+#&gt; [1] "7db90794-1b53-405d-ae3d-1322ddb45abf"
 #&gt; </div><div class='input'># }
 </div></pre>
   </div>
