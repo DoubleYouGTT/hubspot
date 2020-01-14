@@ -9,6 +9,7 @@
 #' @template email
 #'
 #' @return List of owners (`hs_owners_raw()`)
+#' @rdname owners
 #' @export
 #' @examples
 #' \dontrun{
