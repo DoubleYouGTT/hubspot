@@ -24,5 +24,6 @@ These functions still work but will be removed (defunct) in the next version.
 \item \code{get_owners()}
 \item \code{owners()}
 \item \code{get_contact_properties()}
+\item \code{get_deal_properties()}
 }
 }

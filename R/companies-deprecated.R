@@ -14,7 +14,6 @@
 #'
 #' @return List with company data
 #' @export
-#' @family getters
 get_companies <- function(token_path = hubspot_token_get(),
                              apikey = hubspot_key_get(),
                           properties = hs_company_properties_tidy(

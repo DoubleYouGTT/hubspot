@@ -8,7 +8,7 @@
 hs_deals_raw(
   token_path = hubspot_token_get(),
   apikey = hubspot_key_get(),
-  properties = get_deal_properties(token_path, apikey),
+  properties = hs_deal_properties_tidy(hs_deal_pipelines_raw(token_path, apikey)),
   property_history = "true",
   associations = "true",
   max_iter = 10,

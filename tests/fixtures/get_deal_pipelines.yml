@@ -14,25 +14,26 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 14 Jan 2020 07:07:28 GMT
+      date: Tue, 14 Jan 2020 12:19:24 GMT
       content-type: application/json;charset=utf-8
       content-length: '572'
       connection: keep-alive
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '995715'
+      x-hubspot-ratelimit-daily-remaining: '988857'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '115'
+      x-hubspot-ratelimit-remaining: '105'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
-      x-hubspot-ratelimit-secondly-remaining: '11'
+      x-hubspot-ratelimit-secondly-remaining: '10'
       vary: Accept-Encoding
       content-encoding: gzip
       access-control-allow-credentials: 'false'
+      accept-ranges: bytes
       cf-cache-status: DYNAMIC
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 554dc5eddee3cdbf-CDG
+      cf-ray: 554f8eda581aee23-CDG
     body:
       encoding: UTF-8
       file: no
@@ -46,7 +47,7 @@ http_interactions:
         Sent","displayOrder":4,"metadata":{"isClosed":"false","probability":"0.9"},"active":true},{"stageId":"appointmentscheduled","createdAt":0,"updatedAt":null,"label":"Appointment
         Scheduled","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.2"},"active":true},{"stageId":"qualifiedtobuy","createdAt":0,"updatedAt":null,"label":"Qualified
         To Buy","displayOrder":1,"metadata":{"isClosed":"false","probability":"0.4"},"active":true}],"default":true}]}'
-  recorded_at: 2020-01-14 07:07:29 GMT
+  recorded_at: 2020-01-14 12:19:24 GMT
   recorded_with: vcr/0.4.1.93, webmockr/0.5.1.96
 - request:
     method: get
@@ -63,17 +64,17 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 14 Jan 2020 07:07:29 GMT
+      date: Tue, 14 Jan 2020 12:19:24 GMT
       content-type: application/json;charset=utf-8
       content-length: '572'
       connection: keep-alive
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '995714'
+      x-hubspot-ratelimit-daily-remaining: '988856'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '115'
+      x-hubspot-ratelimit-remaining: '106'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
-      x-hubspot-ratelimit-secondly-remaining: '11'
+      x-hubspot-ratelimit-secondly-remaining: '10'
       vary: Accept-Encoding
       content-encoding: gzip
       access-control-allow-credentials: 'false'
@@ -82,7 +83,7 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 554dc5f2bfa4cdbf-CDG
+      cf-ray: 554f8edc1ce0ee23-CDG
     body:
       encoding: UTF-8
       file: no
@@ -96,5 +97,5 @@ http_interactions:
         Sent","displayOrder":4,"metadata":{"isClosed":"false","probability":"0.9"},"active":true},{"stageId":"appointmentscheduled","createdAt":0,"updatedAt":null,"label":"Appointment
         Scheduled","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.2"},"active":true},{"stageId":"qualifiedtobuy","createdAt":0,"updatedAt":null,"label":"Qualified
         To Buy","displayOrder":1,"metadata":{"isClosed":"false","probability":"0.4"},"active":true}],"default":true}]}'
-  recorded_at: 2020-01-14 07:07:29 GMT
+  recorded_at: 2020-01-14 12:19:24 GMT
   recorded_with: vcr/0.4.1.93, webmockr/0.5.1.96

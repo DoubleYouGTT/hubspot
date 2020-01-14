@@ -27,10 +27,11 @@
 #' }
 hs_deals_raw <- function(token_path = hubspot_token_get(),
                       apikey = hubspot_key_get(),
-                      properties = get_deal_properties(
+                      properties = hs_deal_properties_tidy(
+                        hs_deal_properties_raw(
                         token_path,
                         apikey
-                      ),
+                      )),
                       property_history = "true",
                       associations = "true",
                       max_iter = 10,
