@@ -27,7 +27,7 @@ hs_company_properties_raw <- function(token_path = hubspot_token_get(),
 #' Different `view` values and associated output.
 #' * "owners": A tibble with owners and related information.
 #'
-#' @return Something tidy (`hs_owners_tidy()`)
+#' @return Something tidy (`hs_company_properties_tidy()`)
 #' @export
 #'
 #' @rdname company-properties

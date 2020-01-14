@@ -29,7 +29,7 @@ is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 \value{
 List of company properties (\code{hs_company_properties_raw()})
 
-Something tidy (\code{hs_owners_tidy()})
+Something tidy (\code{hs_company_properties_tidy()})
 }
 \description{
 Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/methods/companies/get_company_properties}{the company properties endpoint}.
