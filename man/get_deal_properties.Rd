@@ -29,7 +29,6 @@ properties <- get_deal_properties()
 Other getters: 
 \code{\link{get_companies}()},
 \code{\link{get_contact_properties}()},
-\code{\link{get_deal_pipelines}()},
 \code{\link{get_owners}()}
 }
 \concept{getters}
