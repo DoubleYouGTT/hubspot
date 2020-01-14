@@ -5,13 +5,16 @@
 #' * `get_deals()`
 #' * `deal_properties_history()`
 #' * `deal_properties()`
-#' * `deal_stage_history()`
+#' * `deal_stages_history()`
 #' * `deal_associations()`
 #' * `get_companies()`
 #' * `company_properties()`
 #' * `get_company_properties()`
 #' * `get_contacts()`
 #' * `contact_properties()`
+#' * `get_deal_pipelines()`
+#' * `deal_pipeline_stages()`
+#' * `deal_pipelines()`
 #'
 #' @name hubspot-deprecated
 NULL

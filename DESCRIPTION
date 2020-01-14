@@ -32,7 +32,8 @@ Suggests:
     rmarkdown,
     vcr,
     covr,
-    styler
+    styler,
+    pkgload
 VignetteBuilder: knitr
 Imports: 
     purrr,

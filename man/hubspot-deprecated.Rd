@@ -11,12 +11,15 @@ These functions still work but will be removed (defunct) in the next version.
 \item \code{get_deals()}
 \item \code{deal_properties_history()}
 \item \code{deal_properties()}
-\item \code{deal_stage_history()}
+\item \code{deal_stages_history()}
 \item \code{deal_associations()}
 \item \code{get_companies()}
 \item \code{company_properties()}
 \item \code{get_company_properties()}
 \item \code{get_contacts()}
 \item \code{contact_properties()}
+\item \code{get_deal_pipelines()}
+\item \code{deal_pipeline_stages()}
+\item \code{deal_pipelines()}
 }
 }

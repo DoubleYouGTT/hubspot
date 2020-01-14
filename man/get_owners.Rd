@@ -43,7 +43,6 @@ get_owners(email = "demo@hubspot.com")
 Other getters: 
 \code{\link{get_companies}()},
 \code{\link{get_contact_properties}()},
-\code{\link{get_deal_pipelines}()},
 \code{\link{get_deal_properties}()}
 }
 \concept{getters}
