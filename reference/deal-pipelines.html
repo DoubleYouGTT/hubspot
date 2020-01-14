@@ -158,8 +158,15 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pipelines</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_deal_pipelines_raw</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
-#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>deal_pipelines</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_deal_pipelines_raw</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='input'><span class='no'>properties</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_deal_pipelines_tidy</span>(
+  <span class='no'>deal_pipelines</span>,
+  <span class='kw'>view</span> <span class='kw'>=</span> <span class='st'>"properties"</span>
+)
+<span class='no'>stages</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_deal_pipelines_tidy</span>(
+  <span class='no'>deal_pipelines</span>,
+  <span class='kw'>view</span> <span class='kw'>=</span> <span class='st'>"stages"</span>
+)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
