@@ -64,4 +64,8 @@ contacts <- hs_contacts_raw(
   property_history = "false", max_iter = 1,
   max_properties = 10
 )
+contacts_properties <- hs_contacts_tidy(
+  contacts,
+  view = "properties"
+)
 }

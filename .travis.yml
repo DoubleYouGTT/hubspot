@@ -20,7 +20,7 @@ matrix:
     before_deploy:
     - Rscript -e 'remotes::install_github("lockedatapublished/lockedatapkg")'
     - Rscript -e 'remotes::install_github("r-lib/pkgdown")'
-    - Rscript -e 'install.packages("desc")'
+    - Rscript -e 'install.packages("pkgload")'
     deploy:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, run_dont_run= TRUE, tarball = paste0("hubspot","_", as.character(desc::desc_get_version()),".tar.gz"))'

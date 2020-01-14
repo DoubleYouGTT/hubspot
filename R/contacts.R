@@ -19,6 +19,10 @@
 #'   property_history = "false", max_iter = 1,
 #'   max_properties = 10
 #' )
+#' contacts_properties <- hs_contacts_tidy(
+#'   contacts,
+#'   view = "properties"
+#' )
 hs_contacts_raw <- function(token_path = hubspot_token_get(),
                          apikey = hubspot_key_get(),
                          properties = get_contact_properties(
