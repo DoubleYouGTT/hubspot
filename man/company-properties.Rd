@@ -22,7 +22,7 @@ See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 \item{apikey}{API key to work with Hubspot (only used if \code{token_path}
 is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
-\item{company_properties}{Company properties as returned by \code{\link[=hs_company_properties]{hs_company_properties()}}}
+\item{company_properties}{Company properties as returned by \code{hs_company_properties()}}
 
 \item{view}{A view (see Details)}
 }
