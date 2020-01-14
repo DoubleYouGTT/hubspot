@@ -1,4 +1,4 @@
-#' deal properties endpoint (raw and tidy)
+#' Deal properties endpoint (raw and tidy)
 #'
 #' Retrieve raw and tidy results from [the deal properties endpoint](https://developers.hubspot.com/docs/methods/deals/v2/get_deals_properties).
 #'

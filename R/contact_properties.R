@@ -1,4 +1,4 @@
-#' contact properties endpoint (raw and tidy)
+#' Contact properties endpoint (raw and tidy)
 #'
 #' Retrieve raw and tidy results from [the contact properties endpoint](https://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties).
 #'

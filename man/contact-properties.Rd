@@ -3,7 +3,7 @@
 \name{hs_contact_properties_raw}
 \alias{hs_contact_properties_raw}
 \alias{hs_contact_properties_tidy}
-\title{contact properties endpoint (raw and tidy)}
+\title{Contact properties endpoint (raw and tidy)}
 \usage{
 hs_contact_properties_raw(
   token_path = hubspot_token_get(),

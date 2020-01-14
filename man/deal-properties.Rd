@@ -3,7 +3,7 @@
 \name{hs_deal_properties_raw}
 \alias{hs_deal_properties_raw}
 \alias{hs_deal_properties_tidy}
-\title{deal properties endpoint (raw and tidy)}
+\title{Deal properties endpoint (raw and tidy)}
 \usage{
 hs_deal_properties_raw(
   token_path = hubspot_token_get(),
