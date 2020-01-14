@@ -20,7 +20,7 @@ is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 Character vector of properties
 }
 \description{
-Soon to be deprecated! Use \code{hs_company_properties_raw()}.
+Soon to be deprecated! Use \code{hs_company_properties_tidy()}.
 }
 \examples{
 properties <- hs_company_properties_raw()

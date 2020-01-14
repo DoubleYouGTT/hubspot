@@ -2,29 +2,61 @@
 % Please edit documentation in R/owners-deprecated.R, R/owners.R
 \name{owners}
 \alias{owners}
+\alias{hs_owners_raw}
 \alias{hs_owners_tidy}
 \title{Extract a table of CRM owners}
 \usage{
 owners(owners = hs_owners_raw())
+
+hs_owners_raw(
+  token_path = hubspot_token_get(),
+  apikey = hubspot_key_get(),
+  include_inactive = TRUE,
+  email = NULL
+)
 
 hs_owners_tidy(owners = hs_owners_raw(), view = c("owners"))
 }
 \arguments{
 \item{owners}{Raw data from \code{hs_owners_raw()}}
 
+\item{token_path}{Path to OAuth 2.0 token.
+See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
+
+\item{apikey}{API key to work with Hubspot (only used if \code{token_path}
+is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
+
+\item{include_inactive}{Should inactive entities be returned}
+
+\item{email}{Search for owners matching the specified email address
+(exact match).}
+
 \item{view}{A view (see Details)}
 }
 \value{
 tibble of owners
 
+List of owners (\code{hs_owners_raw()})
+
 A tibble of owners (\code{hs_owners_tidy()})
 }
 \description{
 Soon to be deprecated! Use \code{hs_owners_tidy(owners, view = "owners")}.
+
+Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/methods/owners/get_owners}{the owners endpoint}.
 }
 \details{
+Inactive owners are defined as owners without any active remotes.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "owners": A tibble with owners and related information.
+}
+}
+\examples{
+\dontrun{
+owners <- hs_owners_raw()
+active_owners <- hs_owners_raw(include_inactive = FALSE)
+hs_owners_raw(email = "demo@hubspot.com")
 }
 }

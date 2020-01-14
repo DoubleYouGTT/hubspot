@@ -1,4 +1,4 @@
-#' Contacts endpoint, raw and tidy
+#' Contacts endpoint (raw and tidy)
 #'
 #' Get raw and tidy results from the [contacts endpoint](https://developers.hubspot.com/docs/methods/contacts/get_contacts).
 #'
