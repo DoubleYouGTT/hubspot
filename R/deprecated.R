@@ -15,6 +15,8 @@
 #' * `get_deal_pipelines()`
 #' * `deal_pipeline_stages()`
 #' * `deal_pipelines()`
+#' * `get_owners()`
+#' * `owners()`
 #'
 #' @name hubspot-deprecated
 NULL

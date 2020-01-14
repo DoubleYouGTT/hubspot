@@ -28,7 +28,6 @@ properties <- get_deal_properties()
 \seealso{
 Other getters: 
 \code{\link{get_companies}()},
-\code{\link{get_contact_properties}()},
-\code{\link{get_owners}()}
+\code{\link{get_contact_properties}()}
 }
 \concept{getters}

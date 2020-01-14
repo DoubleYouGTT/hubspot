@@ -19,8 +19,7 @@ reference:
   - '`get_contact_properties`'
   - hs_contacts_raw
   - '`get_deal_properties`'
-  - '`get_owners`'
-  - '`owners`'
+  - hs_owners_raw
 - title: Deprecated
   contents:
   - hubspot-deprecated
