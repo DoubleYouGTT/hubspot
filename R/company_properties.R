@@ -21,11 +21,11 @@ hs_company_properties_raw <- function(token_path = hubspot_token_get(),
 }
 
 # tidiers ---------------------------------------------------------
-#' @template owners
+#' @template company_properties
 #' @template view
 #' @details
 #' Different `view` values and associated output.
-#' * "owners": A tibble with owners and related information.
+#' * "names": A character vector of the names of available company properties.
 #'
 #' @return Something tidy (`hs_company_properties_tidy()`)
 #' @export

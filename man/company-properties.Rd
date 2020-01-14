@@ -22,9 +22,9 @@ See \code{\link[=hubspot_token_create]{hubspot_token_create()}}.}
 \item{apikey}{API key to work with Hubspot (only used if \code{token_path}
 is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
-\item{view}{A view (see Details)}
+\item{company_properties}{Company properties as returned by \code{\link[=hs_company_properties]{hs_company_properties()}}}
 
-\item{owners}{Raw data from \code{hs_owners_raw()}}
+\item{view}{A view (see Details)}
 }
 \value{
 List of company properties (\code{hs_company_properties_raw()})
@@ -37,7 +37,7 @@ Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/met
 \details{
 Different \code{view} values and associated output.
 \itemize{
-\item "owners": A tibble with owners and related information.
+\item "names": A character vector of the names of available company properties.
 }
 }
 \examples{
