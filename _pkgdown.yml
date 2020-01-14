@@ -13,13 +13,16 @@ reference:
   desc: ~
   contents:
   - hs_deals_raw
-  - hs_deal_pipelines
+  - hs_deal_pipelines_raw
   - hs_companies_raw
-  - hs_company_properties_raw
-  - '`get_contact_properties`'
   - hs_contacts_raw
-  - '`get_deal_properties`'
   - hs_owners_raw
+- title: Available object properties
+  desc: ~
+  contents:
+  - hs_company_properties_raw
+  - hs_contact_properties_raw
+  - '`get_deal_properties`'
 - title: Deprecated
   contents:
   - hubspot-deprecated

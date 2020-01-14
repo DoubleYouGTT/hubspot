@@ -7,6 +7,7 @@
 #' @template apikey
 #' @template include_inactive
 #' @template email
+#' @rdname owners-deprecated
 #'
 #' @return List of owners
 #' @export
@@ -30,6 +31,7 @@ get_owners <- function(token_path = hubspot_token_get(),
 #' @template owners
 #'
 #' @return tibble of owners
+#' @rdname owners-deprecated
 #' @export
 #'
 owners <- function(owners = hs_owners_raw()) {

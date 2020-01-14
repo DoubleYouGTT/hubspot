@@ -39,7 +39,6 @@ Soon to be deprecated! Use \code{hs_companies_raw()}.
 }
 \seealso{
 Other getters: 
-\code{\link{get_contact_properties}()},
 \code{\link{get_deal_properties}()}
 }
 \concept{getters}

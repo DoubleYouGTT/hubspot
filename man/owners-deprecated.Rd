@@ -2,6 +2,7 @@
 % Please edit documentation in R/owners-deprecated.R
 \name{get_owners}
 \alias{get_owners}
+\alias{owners}
 \title{Retrieve owners}
 \usage{
 get_owners(
@@ -10,6 +11,8 @@ get_owners(
   include_inactive = TRUE,
   email = NULL
 )
+
+owners(owners = hs_owners_raw())
 }
 \arguments{
 \item{token_path}{Path to OAuth 2.0 token.
@@ -22,12 +25,18 @@ is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 
 \item{email}{Search for owners matching the specified email address
 (exact match).}
+
+\item{owners}{Raw data from \code{hs_owners_raw()}}
 }
 \value{
 List of owners
+
+tibble of owners
 }
 \description{
 Soon to be deprecated! Use \code{\link[=hs_owners_raw]{hs_owners_raw()}}.
+
+Soon to be deprecated! Use \code{hs_owners_tidy(owners, view = "owners")}.
 }
 \details{
 Inactive owners are defined as owners without any active remotes.
