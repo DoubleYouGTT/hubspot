@@ -109,7 +109,7 @@
     <pre class="usage"><span class='fu'>get_deals</span>(
   <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
   <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
-  <span class='kw'>properties</span> <span class='kw'>=</span> <span class='fu'><a href='get_deal_properties.html'>get_deal_properties</a></span>(<span class='no'>token_path</span>, <span class='no'>apikey</span>),
+  <span class='kw'>properties</span> <span class='kw'>=</span> <span class='fu'><a href='deal-properties.html'>hs_deal_properties_tidy</a></span>(<span class='fu'><a href='deal-pipelines.html'>hs_deal_pipelines_raw</a></span>(<span class='no'>token_path</span>, <span class='no'>apikey</span>)),
   <span class='kw'>property_history</span> <span class='kw'>=</span> <span class='st'>"true"</span>,
   <span class='kw'>associations</span> <span class='kw'>=</span> <span class='st'>"true"</span>,
   <span class='kw'>max_iter</span> <span class='kw'>=</span> <span class='fl'>10</span>,
