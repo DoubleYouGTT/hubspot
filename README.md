@@ -22,60 +22,402 @@ The goal of `hubspot` is to enable access to [Hubspot
 CRM](//hubspot.com) data. It uses the [Hubspot
 API](developers.hubspot.com/docs/overview).
 
+All functions are named following a
+`hs_<endpointname>_raw()`/`hs_<endpointname>_tidy()`, with
+`hs_<endpointname>_tidy()` offering at least one view: e.g. get a nested
+list of deals data with `hs_deals_raw()` and transform it to a tibble of
+associations, properties history, properties or stages history using
+`hs_deals_tidy()`.
+
+Refer to the [online reference](https://itsalocke.com/hubspot/reference)
+to see what endpoints are supported at the moment. Feel free to suggest
+new “getters” (`hs_<endpointname>_raw()`) and tidier options (`view` of
+`hs_<endpointname>_tidy()`) in the [issue
+tracker](https://github.com/lockedata/hubspot/issues).
+
 ## Example
 
 ``` r
 library("hubspot")
 
-deal_props <- get_deal_properties()
-deal_props
-#>  [1] "amount_in_home_currency"                 
-#>  [2] "days_to_close"                           
-#>  [3] "hs_analytics_source"                     
-#>  [4] "hs_analytics_source_data_1"              
-#>  [5] "hs_analytics_source_data_2"              
-#>  [6] "hs_campaign"                             
-#>  [7] "hs_closed_amount"                        
-#>  [8] "hs_closed_amount_in_home_currency"       
-#>  [9] "hs_deal_amount_calculation_preference"   
-#> [10] "hs_deal_stage_probability"               
-#> [11] "hs_is_closed"                            
-#> [12] "hs_lastmodifieddate"                     
-#> [13] "hs_object_id"                            
-#> [14] "hs_projected_amount"                     
-#> [15] "hs_projected_amount_in_home_currency"    
-#> [16] "hubspot_owner_assigneddate"              
-#> [17] "dealname"                                
-#> [18] "amount"                                  
-#> [19] "dealstage"                               
-#> [20] "pipeline"                                
-#> [21] "closedate"                               
-#> [22] "createdate"                              
-#> [23] "engagements_last_meeting_booked"         
-#> [24] "engagements_last_meeting_booked_campaign"
-#> [25] "engagements_last_meeting_booked_medium"  
-#> [26] "engagements_last_meeting_booked_source"  
-#> [27] "hs_sales_email_last_replied"             
-#> [28] "hubspot_owner_id"                        
-#> [29] "notes_last_contacted"                    
-#> [30] "notes_last_updated"                      
-#> [31] "notes_next_activity_date"                
-#> [32] "num_contacted_notes"                     
-#> [33] "num_notes"                               
-#> [34] "hs_createdate"                           
-#> [35] "hubspot_team_id"                         
-#> [36] "dealtype"                                
-#> [37] "hs_all_owner_ids"                        
-#> [38] "description"                             
-#> [39] "hs_all_team_ids"                         
-#> [40] "hs_all_accessible_team_ids"              
-#> [41] "num_associated_contacts"                 
-#> [42] "closed_lost_reason"                      
-#> [43] "closed_won_reason"
+deal_props <- hs_deal_properties_tidy()
+head(deal_props)
+#> [1] "amount_in_home_currency"    "days_to_close"             
+#> [3] "hs_analytics_source"        "hs_analytics_source_data_1"
+#> [5] "hs_analytics_source_data_2" "hs_campaign"
 
-deals <- get_deals(properties = deal_props, max_iter = 1)
-deals
-#> named list()
+deals <- hs_deals_raw(properties = deal_props, max_iter = 1)
+str(deals)
+#> List of 1
+#>  $ 931633510:List of 7
+#>   ..$ portalId    : int 62515
+#>   ..$ dealId      : int 931633510
+#>   ..$ isDeleted   : logi FALSE
+#>   ..$ associations:List of 4
+#>   .. ..$ associatedVids      : list()
+#>   .. ..$ associatedCompanyIds: list()
+#>   .. ..$ associatedDealIds   : list()
+#>   .. ..$ associatedTicketIds : list()
+#>   ..$ properties  :List of 24
+#>   .. ..$ hs_closed_amount_in_home_currency   :List of 5
+#>   .. .. ..$ value    : chr "0"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "hs_closed_amount_in_home_currency"
+#>   .. .. .. .. ..$ value         : chr "0"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ dealname                            :List of 5
+#>   .. .. ..$ value    : chr "Example deal"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "dealname"
+#>   .. .. .. .. ..$ value    : chr "Example deal"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_all_accessible_team_ids          :List of 5
+#>   .. .. ..$ value    : chr ""
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. ..$ versions :List of 2
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hs_all_accessible_team_ids"
+#>   .. .. .. .. ..$ value    : chr ""
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hs_all_accessible_team_ids"
+#>   .. .. .. .. ..$ value    : chr "112117"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ amount                              :List of 5
+#>   .. .. ..$ value    : chr "100"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "amount"
+#>   .. .. .. .. ..$ value    : chr "100"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ closedate                           :List of 5
+#>   .. .. ..$ value    : chr "1564783118291"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "closedate"
+#>   .. .. .. .. ..$ value    : chr "1564783118291"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ num_associated_contacts             :List of 5
+#>   .. .. ..$ value    : chr "0"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 5
+#>   .. .. .. .. ..$ name     : chr "num_associated_contacts"
+#>   .. .. .. .. ..$ value    : chr "0"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_all_team_ids                     :List of 5
+#>   .. .. ..$ value    : chr ""
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. ..$ versions :List of 2
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hs_all_team_ids"
+#>   .. .. .. .. ..$ value    : chr ""
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hs_all_team_ids"
+#>   .. .. .. .. ..$ value    : chr "112117"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ createdate                          :List of 5
+#>   .. .. ..$ value    : chr "1565733501511"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "createdate"
+#>   .. .. .. .. ..$ value    : chr "1565733501511"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_is_closed                        :List of 5
+#>   .. .. ..$ value    : chr "false"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "hs_is_closed"
+#>   .. .. .. .. ..$ value         : chr "false"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ amount_in_home_currency             :List of 5
+#>   .. .. ..$ value    : chr "100"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "amount_in_home_currency"
+#>   .. .. .. .. ..$ value         : chr "100"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ hs_deal_stage_probability           :List of 5
+#>   .. .. ..$ value    : chr "0.59999999999999997779553950749686919152736663818359375"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "hs_deal_stage_probability"
+#>   .. .. .. .. ..$ value         : chr "0.59999999999999997779553950749686919152736663818359375"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ days_to_close                       :List of 5
+#>   .. .. ..$ value    : chr "0"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "days_to_close"
+#>   .. .. .. .. ..$ value         : chr "0"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ pipeline                            :List of 5
+#>   .. .. ..$ value    : chr "default"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "pipeline"
+#>   .. .. .. .. ..$ value    : chr "default"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hubspot_team_id                     :List of 5
+#>   .. .. ..$ value    : chr ""
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. ..$ versions :List of 2
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hubspot_team_id"
+#>   .. .. .. .. ..$ value    : chr ""
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hubspot_team_id"
+#>   .. .. .. .. ..$ value    : chr "112117"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hubspot_owner_id                    :List of 5
+#>   .. .. ..$ value    : chr "71"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hubspot_owner_id"
+#>   .. .. .. .. ..$ value    : chr "71"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_closed_amount                    :List of 5
+#>   .. .. ..$ value    : chr "0"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "hs_closed_amount"
+#>   .. .. .. .. ..$ value         : chr "0"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ hs_lastmodifieddate                 :List of 5
+#>   .. .. ..$ value    : chr "1565735453314"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 3
+#>   .. .. .. ..$ :List of 5
+#>   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"
+#>   .. .. .. .. ..$ value    : chr "1565735453314"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. .. .. ..$ :List of 5
+#>   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"
+#>   .. .. .. .. ..$ value    : chr "1565733538147"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. .. .. ..$ :List of 5
+#>   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"
+#>   .. .. .. .. ..$ value    : chr "1565733537449"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hubspot_owner_assigneddate          :List of 5
+#>   .. .. ..$ value    : chr "1565733537449"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hubspot_owner_assigneddate"
+#>   .. .. .. .. ..$ value    : chr "1565733537449"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ dealstage                           :List of 5
+#>   .. .. ..$ value    : chr "presentationscheduled"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "dealstage"
+#>   .. .. .. .. ..$ value    : chr "presentationscheduled"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_createdate                       :List of 5
+#>   .. .. ..$ value    : chr "1565733537449"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CONTACTS"
+#>   .. .. ..$ sourceId : chr "CRM_UI"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hs_createdate"
+#>   .. .. .. .. ..$ value    : chr "1565733537449"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "CRM_UI"
+#>   .. .. .. .. ..$ source   : chr "CONTACTS"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_object_id                        :List of 5
+#>   .. .. ..$ value    : chr "931633510"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 5
+#>   .. .. .. .. ..$ name     : chr "hs_object_id"
+#>   .. .. .. .. ..$ value    : chr "931633510"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_projected_amount                 :List of 5
+#>   .. .. ..$ value    : chr "59.99999999999999777955395074968691915273666381835937500"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "hs_projected_amount"
+#>   .. .. .. .. ..$ value         : chr "59.99999999999999777955395074968691915273666381835937500"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   .. ..$ hs_all_owner_ids                    :List of 5
+#>   .. .. ..$ value    : chr "71"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name     : chr "hs_all_owner_ids"
+#>   .. .. .. .. ..$ value    : chr "71"
+#>   .. .. .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
+#>   .. .. .. .. ..$ source   : chr "CRM_UI"
+#>   .. .. .. .. ..$ sourceVid: list()
+#>   .. ..$ hs_projected_amount_in_home_currency:List of 5
+#>   .. .. ..$ value    : chr "59.99999999999999777955395074968691915273666381835937500"
+#>   .. .. ..$ timestamp: num 1.57e+12
+#>   .. .. ..$ source   : chr "CALCULATED"
+#>   .. .. ..$ sourceId : NULL
+#>   .. .. ..$ versions :List of 1
+#>   .. .. .. ..$ :List of 6
+#>   .. .. .. .. ..$ name          : chr "hs_projected_amount_in_home_currency"
+#>   .. .. .. .. ..$ value         : chr "59.99999999999999777955395074968691915273666381835937500"
+#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
+#>   .. .. .. .. ..$ source        : chr "CALCULATED"
+#>   .. .. .. .. ..$ sourceVid     : list()
+#>   .. .. .. .. ..$ sourceMetadata: chr ""
+#>   ..$ imports     : list()
+#>   ..$ stateChanges: list()
+
+deal_stages <- hs_deals_tidy(deals, view = "properties")
+deal_stages
+#> # A tibble: 1 x 25
+#>   dealId hs_closed_amoun… dealname hs_all_accessib… amount closedate          
+#>    <dbl>            <dbl> <chr>    <chr>             <dbl> <dttm>             
+#> 1 9.32e8                0 Example… ""                  100 2019-08-02 23:58:38
+#> # … with 19 more variables: num_associated_contacts <dbl>,
+#> #   hs_all_team_ids <chr>, createdate <dttm>, hs_is_closed <chr>,
+#> #   amount_in_home_currency <dbl>, hs_deal_stage_probability <dbl>,
+#> #   days_to_close <dbl>, pipeline <chr>, hubspot_team_id <chr>,
+#> #   hubspot_owner_id <dbl>, hs_closed_amount <dbl>, hs_lastmodifieddate <dttm>,
+#> #   hubspot_owner_assigneddate <dttm>, dealstage <chr>, hs_createdate <dttm>,
+#> #   hs_object_id <dbl>, hs_projected_amount <dbl>, hs_all_owner_ids <dbl>,
+#> #   hs_projected_amount_in_home_currency <dbl>
 ```
 
 ## Installation
