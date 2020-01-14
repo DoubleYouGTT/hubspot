@@ -23,5 +23,6 @@ These functions still work but will be removed (defunct) in the next version.
 \item \code{deal_pipelines()}
 \item \code{get_owners()}
 \item \code{owners()}
+\item \code{get_contact_properties()}
 }
 }

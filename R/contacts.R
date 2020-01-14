@@ -25,12 +25,13 @@
 #' )
 hs_contacts_raw <- function(token_path = hubspot_token_get(),
                          apikey = hubspot_key_get(),
-                         properties = get_contact_properties(
+                         properties = hs_contact_properties_tidy(
+                           hs_contact_properties_raw(
                            token_path =
                              token_path,
                            apikey =
                              apikey
-                         ),
+                         )),
                          property_history = "true",
                          form_submission_mode = "newest",
                          list_memberships = "false",

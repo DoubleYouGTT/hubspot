@@ -1,19 +1,19 @@
 #' Retrieve available properties for contacts
 #'
+#' @description Soon to be deprecated! Use [`hs_contact_properties_tidy()`].
+#'
 #' @template token_path
 #' @template apikey
 #'
 #' @return Character vector of properties
 #' @export
-#' @family getters
-#' @examples
-#' properties <- get_contact_properties()
 get_contact_properties <- function(token_path = hubspot_token_get(),
                                    apikey = hubspot_key_get()) {
-  get_results(
-    path = "/properties/v1/contacts/properties",
+
+  .Deprecated("hs_contact_properties_tidy")
+
+  hs_contact_properties_tidy(hs_contact_properties_raw(
     token_path = token_path,
     apikey = apikey
-  ) %>%
-    purrr::map_chr("name")
+  ))
 }
