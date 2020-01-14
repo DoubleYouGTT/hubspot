@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve owners — get_owners • hubspot</title>
+<title>Owners endpoint (raw and tidy) — hs_owners_raw • hubspot</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Retrieve owners</a>
+      <a class="navbar-brand" href="../index.html">Owners endpoint (raw and tidy)</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -97,16 +97,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve owners</h1>
+    <h1>Owners endpoint (raw and tidy)</h1>
     
-    <div class="hidden name"><code>get_owners.Rd</code></div>
+    <div class="hidden name"><code>hs_owners_raw.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Soon to be deprecated! Use <code><a href='hs_owners_raw.html'>hs_owners_raw()</a></code>.</p>
+    <p>Retrieve raw and tidy results from <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>the owners endpoint</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_owners</span>(
+    <pre class="usage"><span class='fu'>hs_owners_raw</span>(
   <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
   <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
   <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -139,11 +139,80 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>List of owners</p>
+    <p>List of owners (<code>hs_owners_raw()</code>)</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Inactive owners are defined as owners without any active remotes.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
+<span class='no'>owners</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_owners_raw</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='input'><span class='no'>active_owners</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_owners_raw</span>(<span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='input'><span class='fu'>hs_owners_raw</span>(<span class='kw'>email</span> <span class='kw'>=</span> <span class='st'>"demo@hubspot.com"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; <span class='message'>Could not find Hubspot API key, will use the 'demo' key.</span>
+#&gt; <span class='message'>Please run hubspot_key_set() to set your API key.</span></div><div class='output co'>#&gt; [[1]]
+#&gt; [[1]]$portalId
+#&gt; [1] 62515
+#&gt; 
+#&gt; [[1]]$ownerId
+#&gt; [1] 71
+#&gt; 
+#&gt; [[1]]$type
+#&gt; [1] "PERSON"
+#&gt; 
+#&gt; [[1]]$firstName
+#&gt; [1] "demo"
+#&gt; 
+#&gt; [[1]]$lastName
+#&gt; [1] "demo"
+#&gt; 
+#&gt; [[1]]$email
+#&gt; [1] "demo@hubspot.com"
+#&gt; 
+#&gt; [[1]]$createdAt
+#&gt; [1] 1.405606e+12
+#&gt; 
+#&gt; [[1]]$updatedAt
+#&gt; [1] 1.502455e+12
+#&gt; 
+#&gt; [[1]]$remoteList
+#&gt; [[1]]$remoteList[[1]]
+#&gt; [[1]]$remoteList[[1]]$id
+#&gt; [1] 29598
+#&gt; 
+#&gt; [[1]]$remoteList[[1]]$portalId
+#&gt; [1] 62515
+#&gt; 
+#&gt; [[1]]$remoteList[[1]]$ownerId
+#&gt; [1] 71
+#&gt; 
+#&gt; [[1]]$remoteList[[1]]$remoteId
+#&gt; [1] "238058"
+#&gt; 
+#&gt; [[1]]$remoteList[[1]]$remoteType
+#&gt; [1] "HUBSPOT"
+#&gt; 
+#&gt; [[1]]$remoteList[[1]]$active
+#&gt; [1] TRUE
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; [[1]]$hasContactsAccess
+#&gt; [1] FALSE
+#&gt; 
+#&gt; [[1]]$activeUserId
+#&gt; [1] 238058
+#&gt; 
+#&gt; [[1]]$isActive
+#&gt; [1] TRUE
+#&gt; 
+#&gt; [[1]]$userIdIncludingInactive
+#&gt; [1] 238058
+#&gt; 
+#&gt; [[1]]$activeSalesforceId
+#&gt; NULL
+#&gt; 
+#&gt; </div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
@@ -151,6 +220,7 @@ is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
