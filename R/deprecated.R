@@ -2,14 +2,16 @@
 #'
 #' These functions still work but will be removed (defunct) in the next version.
 #'
-#' * `get_deals`
-#' * `deal_properties_history`
-#' * `deal_properties`
-#' * `deal_stage_history`
-#' * `deal_associations`
-#' * `get_companies`
-#' * `company_properties`
-#' * `get_company_properties`
+#' * `get_deals()`
+#' * `deal_properties_history()`
+#' * `deal_properties()`
+#' * `deal_stage_history()`
+#' * `deal_associations()`
+#' * `get_companies()`
+#' * `company_properties()`
+#' * `get_company_properties()`
+#' * `get_contacts()`
+#' * `contact_properties()`
 #'
 #' @name hubspot-deprecated
 NULL

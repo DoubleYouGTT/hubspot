@@ -1,4 +1,6 @@
-#' Get a list of all contacts, including a set of properties
+#' Contacts endpoint, raw and tidy
+#'
+#' Get raw and tidy results from the [contacts endpoint](https://developers.hubspot.com/docs/methods/contacts/get_contacts).
 #'
 #' @template token_path
 #' @template apikey
@@ -9,15 +11,19 @@
 #' @template max_iter
 #' @template max_properties
 #'
-#' @return List with contact data
+#' @return List with contact data (`hs_contacts_raw()`)
 #' @export
-#' @family getters
+#' @rdname contacts
 #' @examples
-#' contacts <- get_contacts(
+#' contacts <- hs_contacts_raw(
 #'   property_history = "false", max_iter = 1,
 #'   max_properties = 10
 #' )
-get_contacts <- function(token_path = hubspot_token_get(),
+#' contacts_properties <- hs_contacts_tidy(
+#'   contacts,
+#'   view = "properties"
+#' )
+hs_contacts_raw <- function(token_path = hubspot_token_get(),
                          apikey = hubspot_key_get(),
                          properties = get_contact_properties(
                            token_path =
@@ -41,7 +47,7 @@ get_contacts <- function(token_path = hubspot_token_get(),
     list(
       count = 100,
       propertyMode = ifelse(property_history == "true",
-        "value_and_history", "value_only"
+                            "value_and_history", "value_only"
       ),
       formSubmissionMode = form_submission_mode,
       showListMemberships = list_memberships
@@ -68,4 +74,40 @@ get_contacts <- function(token_path = hubspot_token_get(),
     contacts,
     purrr::map_dbl(contacts, "vid")
   )
+}
+
+# tidiers -----------------------------------------------------------------
+
+#' @template contacts
+#' @template view
+#' @details
+#' Different `view` values and associated output.
+#' * "properties": A tibble containing all properties of contacts
+#'
+#' @export
+#'
+#' @rdname contacts
+#'
+#' @return A tibble with associated entities (`hs_contacts_tidy()`)
+#' @export
+#'
+
+hs_contacts_tidy <- function(contacts = hs_contacts_raw(),
+                              view = c("properties")) {
+
+  view <- match.arg(view, c("properties"))
+
+  switch(view,
+         "properties" = .contact_properties(contacts))
+
+}
+
+
+.contact_properties <- function(contacts) {
+  contacts %>%
+    purrr::map("properties") %>%
+    purrr::modify_depth(2, ~ .$value) %>%
+    purrr::map_df(tibble::as_tibble, .id = "vid") %>%
+    numeric_converter() %>%
+    epoch_converter()
 }

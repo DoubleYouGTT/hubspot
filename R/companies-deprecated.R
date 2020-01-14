@@ -15,11 +15,6 @@
 #' @return List with company data
 #' @export
 #' @family getters
-#' @examples
-#' companies <- hs_companies_raw(
-#'   property_history = "false", max_iter = 1,
-#'   max_properties = 10
-#' )
 get_companies <- function(token_path = hubspot_token_get(),
                              apikey = hubspot_key_get(),
                              properties = hs_company_properties_raw(
@@ -50,8 +45,6 @@ get_companies <- function(token_path = hubspot_token_get(),
 #' @return A tibble with associated entities
 #' @export
 #'
-#' @examples
-#' companies <- company_properties()
 company_properties <- function(companies = get_companies(max_iter = 1)) {
 
   .Deprecated("hs_companies_tidy")

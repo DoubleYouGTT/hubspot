@@ -37,16 +37,9 @@ List with company data
 \description{
 Soon to be deprecated! Use \code{hs_companies_raw()}.
 }
-\examples{
-companies <- hs_companies_raw(
-  property_history = "false", max_iter = 1,
-  max_properties = 10
-)
-}
 \seealso{
 Other getters: 
 \code{\link{get_contact_properties}()},
-\code{\link{get_contacts}()},
 \code{\link{get_deal_pipelines}()},
 \code{\link{get_deal_properties}()},
 \code{\link{get_owners}()}
