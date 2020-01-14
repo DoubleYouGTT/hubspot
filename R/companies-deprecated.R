@@ -4,13 +4,10 @@
 #'
 #' @template token_path
 #' @template apikey
-#' @param properties Character vector of properties to request
-#' @param property_history Whether version history for properties should be
-#' returned
-#' @param max_iter The API is limited to 250 responses, use `max_iter` to
-#' limit how many pages of data will get returned
-#' @param max_properties Avoid URLs that are too long, limit the number of
-#' properties returned, if required.
+#' @template properties
+#' @template property_history
+#' @template max_iter
+#' @template max_properties
 #'
 #' @return List with company data
 #' @export
