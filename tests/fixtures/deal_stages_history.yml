@@ -14,29 +14,30 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 14 Jan 2020 06:23:24 GMT
+      date: Tue, 14 Jan 2020 12:19:37 GMT
       content-type: application/json;charset=utf-8
       content-length: '254'
       connection: keep-alive
-      x-trace: 2BD780FA05B7663E64D4B09F84F8D6FEBE0B0CC456000000000000000000
+      x-trace: 2B0DC73821917D0ABF365ECA856BCF34044CBD6EA9000000000000000000
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '997178'
+      x-hubspot-ratelimit-daily-remaining: '988823'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '98'
+      x-hubspot-ratelimit-remaining: '94'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
       x-hubspot-ratelimit-secondly-remaining: '9'
       vary: Accept-Encoding
       content-encoding: gzip
       access-control-allow-credentials: 'false'
+      accept-ranges: bytes
       cf-cache-status: DYNAMIC
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 554d855faebecd77-CDG
+      cf-ray: 554f8f2b69e2ee23-CDG
     body:
       encoding: UTF-8
       file: no
       string: '{"deals":[{"portalId":62515,"dealId":931633510,"isDeleted":false,"associations":null,"properties":{"dealstage":{"value":"presentationscheduled","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"dealstage","value":"presentationscheduled","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]}},"imports":[],"stateChanges":[]}],"hasMore":false,"offset":931633511}'
-  recorded_at: 2020-01-14 06:23:24 GMT
+  recorded_at: 2020-01-14 12:19:37 GMT
   recorded_with: vcr/0.4.1.93, webmockr/0.5.1.96

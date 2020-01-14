@@ -22,7 +22,7 @@ reference:
   contents:
   - hs_company_properties_raw
   - hs_contact_properties_raw
-  - '`get_deal_properties`'
+  - hs_deal_properties_raw
 - title: Deprecated
   contents:
   - hubspot-deprecated

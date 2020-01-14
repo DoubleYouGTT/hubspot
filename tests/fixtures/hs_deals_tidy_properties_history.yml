@@ -14,15 +14,15 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 14 Jan 2020 06:23:32 GMT
+      date: Tue, 14 Jan 2020 12:19:46 GMT
       content-type: application/json;charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
-      x-trace: 2B5D0A81A973EACB0925343694D2FA14D0DA26BA13000000000000000000
+      x-trace: 2B3FB8A0C6963DBF68B28863ED45F69E0180E59146000000000000000000
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '997157'
+      x-hubspot-ratelimit-daily-remaining: '988802'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '96'
+      x-hubspot-ratelimit-remaining: '99'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
       x-hubspot-ratelimit-secondly-remaining: '9'
@@ -33,7 +33,7 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 554d8592dcbdcd77-CDG
+      cf-ray: 554f8f64c88eee23-CDG
     body:
       encoding: UTF-8
       file: no
@@ -158,7 +158,7 @@ http_interactions:
         This property is set automatically by HubSpot.","groupName":"dealinformation","type":"number","fieldType":"number","createdUserId":null,"referencedObjectType":null,"searchableInGlobalSearch":false,"hasUniqueValue":false,"currencyPropertyName":null,"textDisplayHint":null,"optionsAreMutable":null,"isCustomizedDefault":false,"searchTextAnalysisMode":null,"optionSortStrategy":null,"updatedUserId":null,"hidden":false,"options":[],"deleted":null,"createdAt":null,"formField":false,"displayOrder":10,"readOnlyValue":true,"readOnlyDefinition":true,"mutableDefinitionNotDeletable":false,"favorited":false,"favoritedOrder":-1,"calculated":true,"externalOptions":false,"displayMode":"current_value","showCurrencySymbol":null,"hubspotDefined":true,"updatedAt":null,"numberDisplayHint":null},{"name":"closed_lost_reason","label":"Closed
         Lost Reason","description":"Reason why this deal was lost","groupName":"dealinformation","type":"string","fieldType":"textarea","createdUserId":null,"referencedObjectType":null,"searchableInGlobalSearch":false,"hasUniqueValue":false,"currencyPropertyName":null,"textDisplayHint":null,"optionsAreMutable":null,"isCustomizedDefault":false,"searchTextAnalysisMode":null,"optionSortStrategy":null,"updatedUserId":null,"hidden":false,"options":[],"deleted":null,"createdAt":null,"formField":false,"displayOrder":11,"readOnlyValue":false,"readOnlyDefinition":false,"mutableDefinitionNotDeletable":true,"favorited":false,"favoritedOrder":-1,"calculated":false,"externalOptions":false,"displayMode":"current_value","showCurrencySymbol":null,"hubspotDefined":true,"updatedAt":null,"numberDisplayHint":null},{"name":"closed_won_reason","label":"Closed
         Won Reason","description":"Reason why this deal was won","groupName":"dealinformation","type":"string","fieldType":"textarea","createdUserId":null,"referencedObjectType":null,"searchableInGlobalSearch":false,"hasUniqueValue":false,"currencyPropertyName":null,"textDisplayHint":null,"optionsAreMutable":null,"isCustomizedDefault":false,"searchTextAnalysisMode":null,"optionSortStrategy":null,"updatedUserId":null,"hidden":false,"options":[],"deleted":null,"createdAt":null,"formField":false,"displayOrder":12,"readOnlyValue":false,"readOnlyDefinition":false,"mutableDefinitionNotDeletable":true,"favorited":false,"favoritedOrder":-1,"calculated":false,"externalOptions":false,"displayMode":"current_value","showCurrencySymbol":null,"hubspotDefined":true,"updatedAt":null,"numberDisplayHint":null},{"name":"application_uuid2","label":"","description":"","groupName":"dealinformation","type":"string","fieldType":"text","createdUserId":null,"referencedObjectType":null,"searchableInGlobalSearch":false,"hasUniqueValue":false,"currencyPropertyName":null,"textDisplayHint":null,"optionsAreMutable":null,"isCustomizedDefault":false,"searchTextAnalysisMode":null,"optionSortStrategy":null,"updatedUserId":null,"hidden":false,"options":[],"deleted":false,"createdAt":1528424099617,"formField":false,"displayOrder":175,"readOnlyValue":true,"readOnlyDefinition":true,"mutableDefinitionNotDeletable":false,"favorited":false,"favoritedOrder":-1,"calculated":false,"externalOptions":false,"displayMode":"current_value","showCurrencySymbol":null,"hubspotDefined":null,"updatedAt":1528424099617,"numberDisplayHint":null}]'
-  recorded_at: 2020-01-14 06:23:33 GMT
+  recorded_at: 2020-01-14 12:19:47 GMT
   recorded_with: vcr/0.4.1.93, webmockr/0.5.1.96
 - request:
     method: get
@@ -175,15 +175,15 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 14 Jan 2020 06:23:33 GMT
+      date: Tue, 14 Jan 2020 12:19:47 GMT
       content-type: application/json;charset=utf-8
       content-length: '964'
       connection: keep-alive
-      x-trace: 2BF1ED1F6BB29405537C480508A95103EC09AB4B16000000000000000000
+      x-trace: 2B4ECBD91C1CC22C1C561A864CF7DB429EBC9E0AB6000000000000000000
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '997153'
+      x-hubspot-ratelimit-daily-remaining: '988800'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '94'
+      x-hubspot-ratelimit-remaining: '97'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
       x-hubspot-ratelimit-secondly-remaining: '9'
@@ -195,12 +195,12 @@ http_interactions:
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       server: cloudflare
-      cf-ray: 554d8597ecf2cd77-CDG
+      cf-ray: 554f8f6a2f2dee23-CDG
     body:
       encoding: UTF-8
       file: no
       string: '{"deals":[{"portalId":62515,"dealId":931633510,"isDeleted":false,"associations":{"associatedVids":[],"associatedCompanyIds":[],"associatedDealIds":[],"associatedTicketIds":[]},"properties":{"hs_closed_amount_in_home_currency":{"value":"0","timestamp":1571769370390,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_closed_amount_in_home_currency","value":"0","timestamp":1571769370390,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"dealname":{"value":"Example
         deal","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"dealname","value":"Example
         deal","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"hs_all_accessible_team_ids":{"value":"","timestamp":1565735453096,"source":"CRM_UI","sourceId":"PermissionsUpdater","versions":[{"name":"hs_all_accessible_team_ids","value":"","timestamp":1565735453096,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]},{"name":"hs_all_accessible_team_ids","value":"112117","timestamp":1565733537968,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]}]},"amount":{"value":"100","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"amount","value":"100","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"closedate":{"value":"1564783118291","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"closedate","value":"1564783118291","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"num_associated_contacts":{"value":"0","timestamp":1566463118039,"source":"CALCULATED","sourceId":null,"versions":[{"name":"num_associated_contacts","value":"0","timestamp":1566463118039,"source":"CALCULATED","sourceVid":[]}]},"hs_all_team_ids":{"value":"","timestamp":1565735453096,"source":"CRM_UI","sourceId":"PermissionsUpdater","versions":[{"name":"hs_all_team_ids","value":"","timestamp":1565735453096,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]},{"name":"hs_all_team_ids","value":"112117","timestamp":1565733537968,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]}]},"createdate":{"value":"1565733501511","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"createdate","value":"1565733501511","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"hs_is_closed":{"value":"false","timestamp":1571769370390,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_is_closed","value":"false","timestamp":1571769370390,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"amount_in_home_currency":{"value":"100","timestamp":1565733537449,"source":"CALCULATED","sourceId":null,"versions":[{"name":"amount_in_home_currency","value":"100","timestamp":1565733537449,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"hs_deal_stage_probability":{"value":"0.59999999999999997779553950749686919152736663818359375","timestamp":1571769370390,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_deal_stage_probability","value":"0.59999999999999997779553950749686919152736663818359375","timestamp":1571769370390,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"days_to_close":{"value":"0","timestamp":1565733537449,"source":"CALCULATED","sourceId":null,"versions":[{"name":"days_to_close","value":"0","timestamp":1565733537449,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"pipeline":{"value":"default","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"pipeline","value":"default","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"hubspot_team_id":{"value":"","timestamp":1565735453096,"source":"CRM_UI","sourceId":"PermissionsUpdater","versions":[{"name":"hubspot_team_id","value":"","timestamp":1565735453096,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]},{"name":"hubspot_team_id","value":"112117","timestamp":1565733537968,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]}]},"hubspot_owner_id":{"value":"71","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"hubspot_owner_id","value":"71","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"hs_closed_amount":{"value":"0","timestamp":1571769370390,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_closed_amount","value":"0","timestamp":1571769370390,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"hs_lastmodifieddate":{"value":"1565735453314","timestamp":1565735453314,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1565735453314","timestamp":1565735453314,"source":"CALCULATED","sourceVid":[]},{"name":"hs_lastmodifieddate","value":"1565733538147","timestamp":1565733538147,"source":"CALCULATED","sourceVid":[]},{"name":"hs_lastmodifieddate","value":"1565733537449","timestamp":1565733537449,"source":"CALCULATED","sourceVid":[]}]},"hubspot_owner_assigneddate":{"value":"1565733537449","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"hubspot_owner_assigneddate","value":"1565733537449","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"dealstage":{"value":"presentationscheduled","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"dealstage","value":"presentationscheduled","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]},"hs_createdate":{"value":"1565733537449","timestamp":1565733537449,"source":"CONTACTS","sourceId":"CRM_UI","versions":[{"name":"hs_createdate","value":"1565733537449","timestamp":1565733537449,"sourceId":"CRM_UI","source":"CONTACTS","sourceVid":[]}]},"hs_object_id":{"value":"931633510","timestamp":1565733537449,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_object_id","value":"931633510","timestamp":1565733537449,"source":"CALCULATED","sourceVid":[]}]},"hs_projected_amount":{"value":"59.99999999999999777955395074968691915273666381835937500","timestamp":1571769370390,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_projected_amount","value":"59.99999999999999777955395074968691915273666381835937500","timestamp":1571769370390,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]},"hs_all_owner_ids":{"value":"71","timestamp":1565733537968,"source":"CRM_UI","sourceId":"PermissionsUpdater","versions":[{"name":"hs_all_owner_ids","value":"71","timestamp":1565733537968,"sourceId":"PermissionsUpdater","source":"CRM_UI","sourceVid":[]}]},"hs_projected_amount_in_home_currency":{"value":"59.99999999999999777955395074968691915273666381835937500","timestamp":1571769370390,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_projected_amount_in_home_currency","value":"59.99999999999999777955395074968691915273666381835937500","timestamp":1571769370390,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]}},"imports":[],"stateChanges":[]}],"hasMore":false,"offset":931633511}'
-  recorded_at: 2020-01-14 06:23:33 GMT
+  recorded_at: 2020-01-14 12:19:47 GMT
   recorded_with: vcr/0.4.1.93, webmockr/0.5.1.96

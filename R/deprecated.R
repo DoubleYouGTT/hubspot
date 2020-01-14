@@ -18,6 +18,7 @@
 #' * `get_owners()`
 #' * `owners()`
 #' * `get_contact_properties()`
+#' * `get_deal_properties()`
 #'
 #' @name hubspot-deprecated
 NULL
