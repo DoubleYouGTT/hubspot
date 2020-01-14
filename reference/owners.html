@@ -104,18 +104,45 @@
 
     <div class="ref-description">
     <p>Soon to be deprecated! Use <code>hs_owners_tidy(owners, view = "owners")</code>.</p>
+<p>Retrieve raw and tidy results from <a href='https://developers.hubspot.com/docs/methods/owners/get_owners'>the owners endpoint</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>owners</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'><a href='hs_owners_raw.html'>hs_owners_raw</a></span>())
+    <pre class="usage"><span class='fu'>owners</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'>hs_owners_raw</span>())
 
-<span class='fu'>hs_owners_tidy</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'><a href='hs_owners_raw.html'>hs_owners_raw</a></span>(), <span class='kw'>view</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"owners"</span>))</pre>
+<span class='fu'>hs_owners_raw</span>(
+  <span class='kw'>token_path</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-oauth.html'>hubspot_token_get</a></span>(),
+  <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='hubspot-key.html'>hubspot_key_get</a></span>(),
+  <span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>email</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='fu'>hs_owners_tidy</span>(<span class='kw'>owners</span> <span class='kw'>=</span> <span class='fu'>hs_owners_raw</span>(), <span class='kw'>view</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"owners"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>owners</th>
-      <td><p>Raw data from <code><a href='hs_owners_raw.html'>hs_owners_raw()</a></code></p></td>
+      <td><p>Raw data from <code>hs_owners_raw()</code></p></td>
+    </tr>
+    <tr>
+      <th>token_path</th>
+      <td><p>Path to OAuth 2.0 token.
+See <code><a href='hubspot-oauth.html'>hubspot_token_create()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>apikey</th>
+      <td><p>API key to work with Hubspot (only used if <code>token_path</code>
+is <code>NULL</code>). See <code><a href='hubspot-key.html'>hubspot_key_set()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>include_inactive</th>
+      <td><p>Should inactive entities be returned</p></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><p>Search for owners matching the specified email address
+(exact match).</p></td>
     </tr>
     <tr>
       <th>view</th>
@@ -126,14 +153,31 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>tibble of owners</p>
+<p>List of owners (<code>hs_owners_raw()</code>)</p>
 <p>A tibble of owners (<code>hs_owners_tidy()</code>)</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Different <code>view</code> values and associated output.</p><ul>
+    <p>Inactive owners are defined as owners without any active remotes.</p>
+<p>Different <code>view</code> values and associated output.</p><ul>
 <li><p>"owners": A tibble with owners and related information.</p></li>
 </ul>
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
+<span class='no'>owners</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_owners_raw</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='input'><span class='no'>active_owners</span> <span class='kw'>&lt;-</span> <span class='fu'>hs_owners_raw</span>(<span class='kw'>include_inactive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='input'><span class='fu'>hs_owners_raw</span>(<span class='kw'>email</span> <span class='kw'>=</span> <span class='st'>"demo@hubspot.com"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Selecting ‘env’ backend. Secrets are stored in environment variables</span></div><div class='output co'>#&gt; $status
+#&gt; [1] "error"
+#&gt; 
+#&gt; $message
+#&gt; [1] "This hapikey (yourapikey) doesn't exist."
+#&gt; 
+#&gt; $correlationId
+#&gt; [1] "015f27e1-9247-4677-9b66-64080664dad1"
+#&gt; 
+#&gt; $requestId
+#&gt; [1] "736d1129-744f-4e6d-bcf9-fe959f5300c0"
+#&gt; </div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
@@ -141,6 +185,7 @@
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
