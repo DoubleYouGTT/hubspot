@@ -19,15 +19,17 @@ We really want people to contribute to the package. A great way to start doing t
 The package interacts with the Hubspot API so you might need to refer to [its docs](developers.hubspot.com/docs/overview).
 
 #### Naming conventions
-- `get_*()` returns a raw response from an API endpoint
-- `entity_aspects()` returns a cleaned up table of the entity and some specific set of information from the raw response
+- `hs_<endpointname>_raw()` returns a raw response from an API endpoint
+- `hs_<endpointname>_tidy()` returns a cleaned up table of the entity and some specific set of information from the raw response
 - `utils-*.R` files are used for any toolkit functions
-- [Tidyverse naming conventions](//style.tidyverse.org/functions.html#naming) are generally adhered to
+- [Tidyverse naming conventions](//style.tidyverse.org/functions.html#naming) are generally adhered to.
 
 #### Submission checklist
-- When writing a view function, use a default `get_` that is as minimal as possible to enable a reasonable return
+- When writing a getter function, use a default `hs_<endpointname>_raw()` that is as minimal as possible to enable a reasonable return.
+- Add a link to the endpoint documentation in the `@description` of the manual page. See deals.R
+- To document parameters that are used in several functions, create a file under man-roxygen/<paramname>.R. If a parameter with the same name but slightly different meaning is used, use the `@details` section (see how the `view` parameter is documented). Do not use the same parameter name for vastly different things.
 - Run `devtools::document()` to ensure all documentation is updated
-- Write tests to verify your work. We're glad to help with that if you're new to testing!
+- Write tests to verify your work. We're glad to help with that if you're new to testing! Our tests use vcr cassettes, see e.g. test-deals.R
 - If you add functionality, do substantial refactoring, extend documentation, or improve the test base, add your info to the `DESCRIPTION` file
 - Add a succinct description of the change to the `NEWS.md` file
 - There is a `styler` pre-commit hook that tidies up R function code

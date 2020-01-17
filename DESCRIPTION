@@ -1,6 +1,6 @@
 Package: hubspot
 Title: Work with Hubspot data
-Version: 0.0.1
+Version: 0.0.2.999
 Authors@R: 
     c(person(given = "Steph",
              family = "Locke",

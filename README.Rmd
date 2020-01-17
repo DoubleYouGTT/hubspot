@@ -26,16 +26,23 @@ knitr::opts_chunk$set(
 
 The goal of `hubspot` is to enable access to [Hubspot CRM](//hubspot.com) data. It uses the [Hubspot API](developers.hubspot.com/docs/overview).
 
+All functions are named following a `hs_<endpointname>_raw()`/`hs_<endpointname>_tidy()`, with `hs_<endpointname>_tidy()` offering at least one view: e.g. get a nested list of deals data with `hs_deals_raw()` and transform it to a tibble of associations, properties history, properties or stages history using `hs_deals_tidy()`. 
+
+Refer to the [online reference](https://itsalocke.com/hubspot/reference) to see what endpoints are supported at the moment. Feel free to suggest new "getters" (`hs_<endpointname>_raw()`) and tidier options (`view` of `hs_<endpointname>_tidy()`) in the [issue tracker](https://github.com/lockedata/hubspot/issues).
+
 ## Example
 
 ```{r example}
 library("hubspot")
 
-deal_props <- get_deal_properties()
-deal_props
+deal_props <- hs_deal_properties_tidy()
+head(deal_props)
 
-deals <- get_deals(properties = deal_props, max_iter = 1)
-deals
+deals <- hs_deals_raw(properties = deal_props, max_iter = 1)
+str(deals)
+
+deal_stages <- hs_deals_tidy(deals, view = "properties")
+deal_stages
 ```
 
 
