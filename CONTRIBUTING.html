@@ -129,22 +129,25 @@
 <a href="#naming-conventions" class="anchor"></a>Naming conventions</h4>
 <ul>
 <li>
-<code>get_*()</code> returns a raw response from an API endpoint</li>
+<code>hs_&lt;endpointname&gt;_raw()</code> returns a raw response from an API endpoint</li>
 <li>
-<code>entity_aspects()</code> returns a cleaned up table of the entity and some specific set of information from the raw response</li>
+<code>hs_&lt;endpointname&gt;_tidy()</code> returns a cleaned up table of the entity and some specific set of information from the raw response</li>
 <li>
 <code>utils-*.R</code> files are used for any toolkit functions</li>
 <li>
-<a href="//style.tidyverse.org/functions.html#naming">Tidyverse naming conventions</a> are generally adhered to</li>
+<a href="//style.tidyverse.org/functions.html#naming">Tidyverse naming conventions</a> are generally adhered to.</li>
 </ul>
 </div>
 <div id="submission-checklist" class="section level4">
 <h4 class="hasAnchor">
 <a href="#submission-checklist" class="anchor"></a>Submission checklist</h4>
 <ul>
-<li>When writing a view function, use a default <code>get_</code> that is as minimal as possible to enable a reasonable return</li>
+<li>When writing a getter function, use a default <code>hs_&lt;endpointname&gt;_raw()</code> that is as minimal as possible to enable a reasonable return.</li>
+<li>Add a link to the endpoint documentation in the <code>@description</code> of the manual page. See deals.R</li>
+<li>To document parameters that are used in several functions, create a file under man-roxygen/<paramname>.R. If a parameter with the same name but slightly different meaning is used, use the <code>@details</code> section (see how the <code>view</code> parameter is documented). Do not use the same parameter name for vastly different things.</paramname>
+</li>
 <li>Run <code>devtools::document()</code> to ensure all documentation is updated</li>
-<li>Write tests to verify your work. We’re glad to help with that if you’re new to testing!</li>
+<li>Write tests to verify your work. We’re glad to help with that if you’re new to testing! Our tests use vcr cassettes, see e.g. test-deals.R</li>
 <li>If you add functionality, do substantial refactoring, extend documentation, or improve the test base, add your info to the <code>DESCRIPTION</code> file</li>
 <li>Add a succinct description of the change to the <code>NEWS.md</code> file</li>
 <li>There is a <code>styler</code> pre-commit hook that tidies up R function code</li>

@@ -78,60 +78,391 @@
 <!-- badges: start -->
 
 <p>The goal of <code>hubspot</code> is to enable access to <a href="//hubspot.com">Hubspot CRM</a> data. It uses the <a href="developers.hubspot.com/docs/overview">Hubspot API</a>.</p>
+<p>All functions are named following a <code>hs_&lt;endpointname&gt;_raw()</code>/<code>hs_&lt;endpointname&gt;_tidy()</code>, with <code>hs_&lt;endpointname&gt;_tidy()</code> offering at least one view: e.g. get a nested list of deals data with <code><a href="reference/deals.html">hs_deals_raw()</a></code> and transform it to a tibble of associations, properties history, properties or stages history using <code><a href="reference/deals.html">hs_deals_tidy()</a></code>.</p>
+<p>Refer to the <a href="https://itsalocke.com/hubspot/reference">online reference</a> to see what endpoints are supported at the moment. Feel free to suggest new “getters” (<code>hs_&lt;endpointname&gt;_raw()</code>) and tidier options (<code>view</code> of <code>hs_&lt;endpointname&gt;_tidy()</code>) in the <a href="https://github.com/lockedata/hubspot/issues">issue tracker</a>.</p>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"hubspot"</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">deal_props &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_deal_properties.html">get_deal_properties</a></span>()</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">deal_props</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt;  [1] "amount_in_home_currency"                 </span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;  [2] "days_to_close"                           </span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;  [3] "hs_analytics_source"                     </span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;  [4] "hs_analytics_source_data_1"              </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  [5] "hs_analytics_source_data_2"              </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  [6] "hs_campaign"                             </span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  [7] "hs_closed_amount"                        </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  [8] "hs_closed_amount_in_home_currency"       </span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  [9] "hs_deal_amount_calculation_preference"   </span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt; [10] "hs_deal_stage_probability"               </span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt; [11] "hs_is_closed"                            </span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; [12] "hs_lastmodifieddate"                     </span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt; [13] "hs_object_id"                            </span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; [14] "hs_projected_amount"                     </span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; [15] "hs_projected_amount_in_home_currency"    </span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; [16] "hubspot_owner_assigneddate"              </span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt; [17] "dealname"                                </span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">#&gt; [18] "amount"                                  </span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt; [19] "dealstage"                               </span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt; [20] "pipeline"                                </span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">#&gt; [21] "closedate"                               </span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">#&gt; [22] "createdate"                              </span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co">#&gt; [23] "engagements_last_meeting_booked"         </span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">#&gt; [24] "engagements_last_meeting_booked_campaign"</span></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co">#&gt; [25] "engagements_last_meeting_booked_medium"  </span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co">#&gt; [26] "engagements_last_meeting_booked_source"  </span></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co">#&gt; [27] "hs_sales_email_last_replied"             </span></a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co">#&gt; [28] "hubspot_owner_id"                        </span></a>
-<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co">#&gt; [29] "notes_last_contacted"                    </span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co">#&gt; [30] "notes_last_updated"                      </span></a>
-<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co">#&gt; [31] "notes_next_activity_date"                </span></a>
-<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co">#&gt; [32] "num_contacted_notes"                     </span></a>
-<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co">#&gt; [33] "num_notes"                               </span></a>
-<a class="sourceLine" id="cb1-38" data-line-number="38"><span class="co">#&gt; [34] "hs_createdate"                           </span></a>
-<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="co">#&gt; [35] "hubspot_team_id"                         </span></a>
-<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="co">#&gt; [36] "dealtype"                                </span></a>
-<a class="sourceLine" id="cb1-41" data-line-number="41"><span class="co">#&gt; [37] "hs_all_owner_ids"                        </span></a>
-<a class="sourceLine" id="cb1-42" data-line-number="42"><span class="co">#&gt; [38] "description"                             </span></a>
-<a class="sourceLine" id="cb1-43" data-line-number="43"><span class="co">#&gt; [39] "hs_all_team_ids"                         </span></a>
-<a class="sourceLine" id="cb1-44" data-line-number="44"><span class="co">#&gt; [40] "hs_all_accessible_team_ids"              </span></a>
-<a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co">#&gt; [41] "num_associated_contacts"                 </span></a>
-<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co">#&gt; [42] "closed_lost_reason"                      </span></a>
-<a class="sourceLine" id="cb1-47" data-line-number="47"><span class="co">#&gt; [43] "closed_won_reason"</span></a>
-<a class="sourceLine" id="cb1-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb1-49" data-line-number="49">deals &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_deals.html">get_deals</a></span>(<span class="dt">properties =</span> deal_props, <span class="dt">max_iter =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb1-50" data-line-number="50">deals</a>
-<a class="sourceLine" id="cb1-51" data-line-number="51"><span class="co">#&gt; named list()</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3">deal_props &lt;-<span class="st"> </span><span class="kw"><a href="reference/deal-properties.html">hs_deal_properties_tidy</a></span>()</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(deal_props)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; [1] "amount_in_home_currency"    "days_to_close"             </span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; [3] "hs_analytics_source"        "hs_analytics_source_data_1"</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt; [5] "hs_analytics_source_data_2" "hs_campaign"</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">deals &lt;-<span class="st"> </span><span class="kw"><a href="reference/deals.html">hs_deals_raw</a></span>(<span class="dt">properties =</span> deal_props, <span class="dt">max_iter =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(deals)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; List of 1</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  $ 931633510:List of 7</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;   ..$ portalId    : int 62515</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;   ..$ dealId      : int 931633510</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;   ..$ isDeleted   : logi FALSE</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;   ..$ associations:List of 4</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;   .. ..$ associatedVids      : list()</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;   .. ..$ associatedCompanyIds: list()</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt;   .. ..$ associatedDealIds   : list()</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt;   .. ..$ associatedTicketIds : list()</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt;   ..$ properties  :List of 24</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">#&gt;   .. ..$ hs_closed_amount_in_home_currency   :List of 5</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt;   .. .. ..$ value    : chr "0"</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "hs_closed_amount_in_home_currency"</span></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "0"</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co">#&gt;   .. ..$ dealname                            :List of 5</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co">#&gt;   .. .. ..$ value    : chr "Example deal"</span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-42" data-line-number="42"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "dealname"</span></a>
+<a class="sourceLine" id="cb1-43" data-line-number="43"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "Example deal"</span></a>
+<a class="sourceLine" id="cb1-44" data-line-number="44"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48"><span class="co">#&gt;   .. ..$ hs_all_accessible_team_ids          :List of 5</span></a>
+<a class="sourceLine" id="cb1-49" data-line-number="49"><span class="co">#&gt;   .. .. ..$ value    : chr ""</span></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-51" data-line-number="51"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="co">#&gt;   .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53"><span class="co">#&gt;   .. .. ..$ versions :List of 2</span></a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_all_accessible_team_ids"</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr ""</span></a>
+<a class="sourceLine" id="cb1-57" data-line-number="57"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-58" data-line-number="58"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-59" data-line-number="59"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-60" data-line-number="60"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-61" data-line-number="61"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_all_accessible_team_ids"</span></a>
+<a class="sourceLine" id="cb1-63" data-line-number="63"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "112117"</span></a>
+<a class="sourceLine" id="cb1-64" data-line-number="64"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-65" data-line-number="65"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-66" data-line-number="66"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-67" data-line-number="67"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-68" data-line-number="68"><span class="co">#&gt;   .. ..$ amount                              :List of 5</span></a>
+<a class="sourceLine" id="cb1-69" data-line-number="69"><span class="co">#&gt;   .. .. ..$ value    : chr "100"</span></a>
+<a class="sourceLine" id="cb1-70" data-line-number="70"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-71" data-line-number="71"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-72" data-line-number="72"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-73" data-line-number="73"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-74" data-line-number="74"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-75" data-line-number="75"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "amount"</span></a>
+<a class="sourceLine" id="cb1-76" data-line-number="76"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "100"</span></a>
+<a class="sourceLine" id="cb1-77" data-line-number="77"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-78" data-line-number="78"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-79" data-line-number="79"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-80" data-line-number="80"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-81" data-line-number="81"><span class="co">#&gt;   .. ..$ closedate                           :List of 5</span></a>
+<a class="sourceLine" id="cb1-82" data-line-number="82"><span class="co">#&gt;   .. .. ..$ value    : chr "1564783118291"</span></a>
+<a class="sourceLine" id="cb1-83" data-line-number="83"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-84" data-line-number="84"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-85" data-line-number="85"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-86" data-line-number="86"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-87" data-line-number="87"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-88" data-line-number="88"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "closedate"</span></a>
+<a class="sourceLine" id="cb1-89" data-line-number="89"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1564783118291"</span></a>
+<a class="sourceLine" id="cb1-90" data-line-number="90"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-91" data-line-number="91"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-92" data-line-number="92"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-93" data-line-number="93"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-94" data-line-number="94"><span class="co">#&gt;   .. ..$ num_associated_contacts             :List of 5</span></a>
+<a class="sourceLine" id="cb1-95" data-line-number="95"><span class="co">#&gt;   .. .. ..$ value    : chr "0"</span></a>
+<a class="sourceLine" id="cb1-96" data-line-number="96"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-97" data-line-number="97"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-98" data-line-number="98"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-99" data-line-number="99"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-100" data-line-number="100"><span class="co">#&gt;   .. .. .. ..$ :List of 5</span></a>
+<a class="sourceLine" id="cb1-101" data-line-number="101"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "num_associated_contacts"</span></a>
+<a class="sourceLine" id="cb1-102" data-line-number="102"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "0"</span></a>
+<a class="sourceLine" id="cb1-103" data-line-number="103"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-104" data-line-number="104"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-105" data-line-number="105"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-106" data-line-number="106"><span class="co">#&gt;   .. ..$ hs_all_team_ids                     :List of 5</span></a>
+<a class="sourceLine" id="cb1-107" data-line-number="107"><span class="co">#&gt;   .. .. ..$ value    : chr ""</span></a>
+<a class="sourceLine" id="cb1-108" data-line-number="108"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-109" data-line-number="109"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-110" data-line-number="110"><span class="co">#&gt;   .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-111" data-line-number="111"><span class="co">#&gt;   .. .. ..$ versions :List of 2</span></a>
+<a class="sourceLine" id="cb1-112" data-line-number="112"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-113" data-line-number="113"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_all_team_ids"</span></a>
+<a class="sourceLine" id="cb1-114" data-line-number="114"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr ""</span></a>
+<a class="sourceLine" id="cb1-115" data-line-number="115"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-116" data-line-number="116"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-117" data-line-number="117"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-118" data-line-number="118"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-119" data-line-number="119"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-120" data-line-number="120"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_all_team_ids"</span></a>
+<a class="sourceLine" id="cb1-121" data-line-number="121"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "112117"</span></a>
+<a class="sourceLine" id="cb1-122" data-line-number="122"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-123" data-line-number="123"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-124" data-line-number="124"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-125" data-line-number="125"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-126" data-line-number="126"><span class="co">#&gt;   .. ..$ createdate                          :List of 5</span></a>
+<a class="sourceLine" id="cb1-127" data-line-number="127"><span class="co">#&gt;   .. .. ..$ value    : chr "1565733501511"</span></a>
+<a class="sourceLine" id="cb1-128" data-line-number="128"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-129" data-line-number="129"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-130" data-line-number="130"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-131" data-line-number="131"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-132" data-line-number="132"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-133" data-line-number="133"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "createdate"</span></a>
+<a class="sourceLine" id="cb1-134" data-line-number="134"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1565733501511"</span></a>
+<a class="sourceLine" id="cb1-135" data-line-number="135"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-136" data-line-number="136"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-137" data-line-number="137"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-138" data-line-number="138"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-139" data-line-number="139"><span class="co">#&gt;   .. ..$ hs_is_closed                        :List of 5</span></a>
+<a class="sourceLine" id="cb1-140" data-line-number="140"><span class="co">#&gt;   .. .. ..$ value    : chr "false"</span></a>
+<a class="sourceLine" id="cb1-141" data-line-number="141"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-142" data-line-number="142"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-143" data-line-number="143"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-144" data-line-number="144"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-145" data-line-number="145"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-146" data-line-number="146"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "hs_is_closed"</span></a>
+<a class="sourceLine" id="cb1-147" data-line-number="147"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "false"</span></a>
+<a class="sourceLine" id="cb1-148" data-line-number="148"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-149" data-line-number="149"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-150" data-line-number="150"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-151" data-line-number="151"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-152" data-line-number="152"><span class="co">#&gt;   .. ..$ amount_in_home_currency             :List of 5</span></a>
+<a class="sourceLine" id="cb1-153" data-line-number="153"><span class="co">#&gt;   .. .. ..$ value    : chr "100"</span></a>
+<a class="sourceLine" id="cb1-154" data-line-number="154"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-155" data-line-number="155"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-156" data-line-number="156"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-157" data-line-number="157"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-158" data-line-number="158"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-159" data-line-number="159"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "amount_in_home_currency"</span></a>
+<a class="sourceLine" id="cb1-160" data-line-number="160"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "100"</span></a>
+<a class="sourceLine" id="cb1-161" data-line-number="161"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-162" data-line-number="162"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-163" data-line-number="163"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-164" data-line-number="164"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-165" data-line-number="165"><span class="co">#&gt;   .. ..$ hs_deal_stage_probability           :List of 5</span></a>
+<a class="sourceLine" id="cb1-166" data-line-number="166"><span class="co">#&gt;   .. .. ..$ value    : chr "0.59999999999999997779553950749686919152736663818359375"</span></a>
+<a class="sourceLine" id="cb1-167" data-line-number="167"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-168" data-line-number="168"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-169" data-line-number="169"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-170" data-line-number="170"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-171" data-line-number="171"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-172" data-line-number="172"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "hs_deal_stage_probability"</span></a>
+<a class="sourceLine" id="cb1-173" data-line-number="173"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "0.59999999999999997779553950749686919152736663818359375"</span></a>
+<a class="sourceLine" id="cb1-174" data-line-number="174"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-175" data-line-number="175"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-176" data-line-number="176"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-177" data-line-number="177"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-178" data-line-number="178"><span class="co">#&gt;   .. ..$ days_to_close                       :List of 5</span></a>
+<a class="sourceLine" id="cb1-179" data-line-number="179"><span class="co">#&gt;   .. .. ..$ value    : chr "0"</span></a>
+<a class="sourceLine" id="cb1-180" data-line-number="180"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-181" data-line-number="181"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-182" data-line-number="182"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-183" data-line-number="183"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-184" data-line-number="184"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-185" data-line-number="185"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "days_to_close"</span></a>
+<a class="sourceLine" id="cb1-186" data-line-number="186"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "0"</span></a>
+<a class="sourceLine" id="cb1-187" data-line-number="187"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-188" data-line-number="188"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-189" data-line-number="189"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-190" data-line-number="190"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-191" data-line-number="191"><span class="co">#&gt;   .. ..$ pipeline                            :List of 5</span></a>
+<a class="sourceLine" id="cb1-192" data-line-number="192"><span class="co">#&gt;   .. .. ..$ value    : chr "default"</span></a>
+<a class="sourceLine" id="cb1-193" data-line-number="193"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-194" data-line-number="194"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-195" data-line-number="195"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-196" data-line-number="196"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-197" data-line-number="197"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-198" data-line-number="198"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "pipeline"</span></a>
+<a class="sourceLine" id="cb1-199" data-line-number="199"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "default"</span></a>
+<a class="sourceLine" id="cb1-200" data-line-number="200"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-201" data-line-number="201"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-202" data-line-number="202"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-203" data-line-number="203"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-204" data-line-number="204"><span class="co">#&gt;   .. ..$ hubspot_team_id                     :List of 5</span></a>
+<a class="sourceLine" id="cb1-205" data-line-number="205"><span class="co">#&gt;   .. .. ..$ value    : chr ""</span></a>
+<a class="sourceLine" id="cb1-206" data-line-number="206"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-207" data-line-number="207"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-208" data-line-number="208"><span class="co">#&gt;   .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-209" data-line-number="209"><span class="co">#&gt;   .. .. ..$ versions :List of 2</span></a>
+<a class="sourceLine" id="cb1-210" data-line-number="210"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-211" data-line-number="211"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hubspot_team_id"</span></a>
+<a class="sourceLine" id="cb1-212" data-line-number="212"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr ""</span></a>
+<a class="sourceLine" id="cb1-213" data-line-number="213"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-214" data-line-number="214"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-215" data-line-number="215"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-216" data-line-number="216"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-217" data-line-number="217"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-218" data-line-number="218"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hubspot_team_id"</span></a>
+<a class="sourceLine" id="cb1-219" data-line-number="219"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "112117"</span></a>
+<a class="sourceLine" id="cb1-220" data-line-number="220"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-221" data-line-number="221"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-222" data-line-number="222"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-223" data-line-number="223"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-224" data-line-number="224"><span class="co">#&gt;   .. ..$ hubspot_owner_id                    :List of 5</span></a>
+<a class="sourceLine" id="cb1-225" data-line-number="225"><span class="co">#&gt;   .. .. ..$ value    : chr "71"</span></a>
+<a class="sourceLine" id="cb1-226" data-line-number="226"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-227" data-line-number="227"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-228" data-line-number="228"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-229" data-line-number="229"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-230" data-line-number="230"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-231" data-line-number="231"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hubspot_owner_id"</span></a>
+<a class="sourceLine" id="cb1-232" data-line-number="232"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "71"</span></a>
+<a class="sourceLine" id="cb1-233" data-line-number="233"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-234" data-line-number="234"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-235" data-line-number="235"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-236" data-line-number="236"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-237" data-line-number="237"><span class="co">#&gt;   .. ..$ hs_closed_amount                    :List of 5</span></a>
+<a class="sourceLine" id="cb1-238" data-line-number="238"><span class="co">#&gt;   .. .. ..$ value    : chr "0"</span></a>
+<a class="sourceLine" id="cb1-239" data-line-number="239"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-240" data-line-number="240"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-241" data-line-number="241"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-242" data-line-number="242"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-243" data-line-number="243"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-244" data-line-number="244"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "hs_closed_amount"</span></a>
+<a class="sourceLine" id="cb1-245" data-line-number="245"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "0"</span></a>
+<a class="sourceLine" id="cb1-246" data-line-number="246"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-247" data-line-number="247"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-248" data-line-number="248"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-249" data-line-number="249"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-250" data-line-number="250"><span class="co">#&gt;   .. ..$ hs_lastmodifieddate                 :List of 5</span></a>
+<a class="sourceLine" id="cb1-251" data-line-number="251"><span class="co">#&gt;   .. .. ..$ value    : chr "1565735453314"</span></a>
+<a class="sourceLine" id="cb1-252" data-line-number="252"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-253" data-line-number="253"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-254" data-line-number="254"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-255" data-line-number="255"><span class="co">#&gt;   .. .. ..$ versions :List of 3</span></a>
+<a class="sourceLine" id="cb1-256" data-line-number="256"><span class="co">#&gt;   .. .. .. ..$ :List of 5</span></a>
+<a class="sourceLine" id="cb1-257" data-line-number="257"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"</span></a>
+<a class="sourceLine" id="cb1-258" data-line-number="258"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1565735453314"</span></a>
+<a class="sourceLine" id="cb1-259" data-line-number="259"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-260" data-line-number="260"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-261" data-line-number="261"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-262" data-line-number="262"><span class="co">#&gt;   .. .. .. ..$ :List of 5</span></a>
+<a class="sourceLine" id="cb1-263" data-line-number="263"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"</span></a>
+<a class="sourceLine" id="cb1-264" data-line-number="264"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1565733538147"</span></a>
+<a class="sourceLine" id="cb1-265" data-line-number="265"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-266" data-line-number="266"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-267" data-line-number="267"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-268" data-line-number="268"><span class="co">#&gt;   .. .. .. ..$ :List of 5</span></a>
+<a class="sourceLine" id="cb1-269" data-line-number="269"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"</span></a>
+<a class="sourceLine" id="cb1-270" data-line-number="270"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1565733537449"</span></a>
+<a class="sourceLine" id="cb1-271" data-line-number="271"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-272" data-line-number="272"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-273" data-line-number="273"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-274" data-line-number="274"><span class="co">#&gt;   .. ..$ hubspot_owner_assigneddate          :List of 5</span></a>
+<a class="sourceLine" id="cb1-275" data-line-number="275"><span class="co">#&gt;   .. .. ..$ value    : chr "1565733537449"</span></a>
+<a class="sourceLine" id="cb1-276" data-line-number="276"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-277" data-line-number="277"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-278" data-line-number="278"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-279" data-line-number="279"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-280" data-line-number="280"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-281" data-line-number="281"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hubspot_owner_assigneddate"</span></a>
+<a class="sourceLine" id="cb1-282" data-line-number="282"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1565733537449"</span></a>
+<a class="sourceLine" id="cb1-283" data-line-number="283"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-284" data-line-number="284"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-285" data-line-number="285"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-286" data-line-number="286"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-287" data-line-number="287"><span class="co">#&gt;   .. ..$ dealstage                           :List of 5</span></a>
+<a class="sourceLine" id="cb1-288" data-line-number="288"><span class="co">#&gt;   .. .. ..$ value    : chr "presentationscheduled"</span></a>
+<a class="sourceLine" id="cb1-289" data-line-number="289"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-290" data-line-number="290"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-291" data-line-number="291"><span class="co">#&gt;   .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-292" data-line-number="292"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-293" data-line-number="293"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-294" data-line-number="294"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "dealstage"</span></a>
+<a class="sourceLine" id="cb1-295" data-line-number="295"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "presentationscheduled"</span></a>
+<a class="sourceLine" id="cb1-296" data-line-number="296"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-297" data-line-number="297"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"</span></a>
+<a class="sourceLine" id="cb1-298" data-line-number="298"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-299" data-line-number="299"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-300" data-line-number="300"><span class="co">#&gt;   .. ..$ hs_createdate                       :List of 5</span></a>
+<a class="sourceLine" id="cb1-301" data-line-number="301"><span class="co">#&gt;   .. .. ..$ value    : chr "1565733537449"</span></a>
+<a class="sourceLine" id="cb1-302" data-line-number="302"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-303" data-line-number="303"><span class="co">#&gt;   .. .. ..$ source   : chr "CONTACTS"</span></a>
+<a class="sourceLine" id="cb1-304" data-line-number="304"><span class="co">#&gt;   .. .. ..$ sourceId : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-305" data-line-number="305"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-306" data-line-number="306"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-307" data-line-number="307"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_createdate"</span></a>
+<a class="sourceLine" id="cb1-308" data-line-number="308"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "1565733537449"</span></a>
+<a class="sourceLine" id="cb1-309" data-line-number="309"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-310" data-line-number="310"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-311" data-line-number="311"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CONTACTS"</span></a>
+<a class="sourceLine" id="cb1-312" data-line-number="312"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-313" data-line-number="313"><span class="co">#&gt;   .. ..$ hs_object_id                        :List of 5</span></a>
+<a class="sourceLine" id="cb1-314" data-line-number="314"><span class="co">#&gt;   .. .. ..$ value    : chr "931633510"</span></a>
+<a class="sourceLine" id="cb1-315" data-line-number="315"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-316" data-line-number="316"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-317" data-line-number="317"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-318" data-line-number="318"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-319" data-line-number="319"><span class="co">#&gt;   .. .. .. ..$ :List of 5</span></a>
+<a class="sourceLine" id="cb1-320" data-line-number="320"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_object_id"</span></a>
+<a class="sourceLine" id="cb1-321" data-line-number="321"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "931633510"</span></a>
+<a class="sourceLine" id="cb1-322" data-line-number="322"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-323" data-line-number="323"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-324" data-line-number="324"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-325" data-line-number="325"><span class="co">#&gt;   .. ..$ hs_projected_amount                 :List of 5</span></a>
+<a class="sourceLine" id="cb1-326" data-line-number="326"><span class="co">#&gt;   .. .. ..$ value    : chr "59.99999999999999777955395074968691915273666381835937500"</span></a>
+<a class="sourceLine" id="cb1-327" data-line-number="327"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-328" data-line-number="328"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-329" data-line-number="329"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-330" data-line-number="330"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-331" data-line-number="331"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-332" data-line-number="332"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "hs_projected_amount"</span></a>
+<a class="sourceLine" id="cb1-333" data-line-number="333"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "59.99999999999999777955395074968691915273666381835937500"</span></a>
+<a class="sourceLine" id="cb1-334" data-line-number="334"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-335" data-line-number="335"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-336" data-line-number="336"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-337" data-line-number="337"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-338" data-line-number="338"><span class="co">#&gt;   .. ..$ hs_all_owner_ids                    :List of 5</span></a>
+<a class="sourceLine" id="cb1-339" data-line-number="339"><span class="co">#&gt;   .. .. ..$ value    : chr "71"</span></a>
+<a class="sourceLine" id="cb1-340" data-line-number="340"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-341" data-line-number="341"><span class="co">#&gt;   .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-342" data-line-number="342"><span class="co">#&gt;   .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-343" data-line-number="343"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-344" data-line-number="344"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-345" data-line-number="345"><span class="co">#&gt;   .. .. .. .. ..$ name     : chr "hs_all_owner_ids"</span></a>
+<a class="sourceLine" id="cb1-346" data-line-number="346"><span class="co">#&gt;   .. .. .. .. ..$ value    : chr "71"</span></a>
+<a class="sourceLine" id="cb1-347" data-line-number="347"><span class="co">#&gt;   .. .. .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-348" data-line-number="348"><span class="co">#&gt;   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"</span></a>
+<a class="sourceLine" id="cb1-349" data-line-number="349"><span class="co">#&gt;   .. .. .. .. ..$ source   : chr "CRM_UI"</span></a>
+<a class="sourceLine" id="cb1-350" data-line-number="350"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid: list()</span></a>
+<a class="sourceLine" id="cb1-351" data-line-number="351"><span class="co">#&gt;   .. ..$ hs_projected_amount_in_home_currency:List of 5</span></a>
+<a class="sourceLine" id="cb1-352" data-line-number="352"><span class="co">#&gt;   .. .. ..$ value    : chr "59.99999999999999777955395074968691915273666381835937500"</span></a>
+<a class="sourceLine" id="cb1-353" data-line-number="353"><span class="co">#&gt;   .. .. ..$ timestamp: num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-354" data-line-number="354"><span class="co">#&gt;   .. .. ..$ source   : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-355" data-line-number="355"><span class="co">#&gt;   .. .. ..$ sourceId : NULL</span></a>
+<a class="sourceLine" id="cb1-356" data-line-number="356"><span class="co">#&gt;   .. .. ..$ versions :List of 1</span></a>
+<a class="sourceLine" id="cb1-357" data-line-number="357"><span class="co">#&gt;   .. .. .. ..$ :List of 6</span></a>
+<a class="sourceLine" id="cb1-358" data-line-number="358"><span class="co">#&gt;   .. .. .. .. ..$ name          : chr "hs_projected_amount_in_home_currency"</span></a>
+<a class="sourceLine" id="cb1-359" data-line-number="359"><span class="co">#&gt;   .. .. .. .. ..$ value         : chr "59.99999999999999777955395074968691915273666381835937500"</span></a>
+<a class="sourceLine" id="cb1-360" data-line-number="360"><span class="co">#&gt;   .. .. .. .. ..$ timestamp     : num 1.57e+12</span></a>
+<a class="sourceLine" id="cb1-361" data-line-number="361"><span class="co">#&gt;   .. .. .. .. ..$ source        : chr "CALCULATED"</span></a>
+<a class="sourceLine" id="cb1-362" data-line-number="362"><span class="co">#&gt;   .. .. .. .. ..$ sourceVid     : list()</span></a>
+<a class="sourceLine" id="cb1-363" data-line-number="363"><span class="co">#&gt;   .. .. .. .. ..$ sourceMetadata: chr ""</span></a>
+<a class="sourceLine" id="cb1-364" data-line-number="364"><span class="co">#&gt;   ..$ imports     : list()</span></a>
+<a class="sourceLine" id="cb1-365" data-line-number="365"><span class="co">#&gt;   ..$ stateChanges: list()</span></a>
+<a class="sourceLine" id="cb1-366" data-line-number="366"></a>
+<a class="sourceLine" id="cb1-367" data-line-number="367">deal_stages &lt;-<span class="st"> </span><span class="kw"><a href="reference/deals.html">hs_deals_tidy</a></span>(deals, <span class="dt">view =</span> <span class="st">"properties"</span>)</a>
+<a class="sourceLine" id="cb1-368" data-line-number="368">deal_stages</a>
+<a class="sourceLine" id="cb1-369" data-line-number="369"><span class="co">#&gt; # A tibble: 1 x 25</span></a>
+<a class="sourceLine" id="cb1-370" data-line-number="370"><span class="co">#&gt;   dealId hs_closed_amoun… dealname hs_all_accessib… amount closedate          </span></a>
+<a class="sourceLine" id="cb1-371" data-line-number="371"><span class="co">#&gt;    &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dttm&gt;             </span></a>
+<a class="sourceLine" id="cb1-372" data-line-number="372"><span class="co">#&gt; 1 9.32e8                0 Example… ""                  100 2019-08-02 23:58:38</span></a>
+<a class="sourceLine" id="cb1-373" data-line-number="373"><span class="co">#&gt; # … with 19 more variables: num_associated_contacts &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-374" data-line-number="374"><span class="co">#&gt; #   hs_all_team_ids &lt;chr&gt;, createdate &lt;dttm&gt;, hs_is_closed &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-375" data-line-number="375"><span class="co">#&gt; #   amount_in_home_currency &lt;dbl&gt;, hs_deal_stage_probability &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-376" data-line-number="376"><span class="co">#&gt; #   days_to_close &lt;dbl&gt;, pipeline &lt;chr&gt;, hubspot_team_id &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-377" data-line-number="377"><span class="co">#&gt; #   hubspot_owner_id &lt;dbl&gt;, hs_closed_amount &lt;dbl&gt;, hs_lastmodifieddate &lt;dttm&gt;,</span></a>
+<a class="sourceLine" id="cb1-378" data-line-number="378"><span class="co">#&gt; #   hubspot_owner_assigneddate &lt;dttm&gt;, dealstage &lt;chr&gt;, hs_createdate &lt;dttm&gt;,</span></a>
+<a class="sourceLine" id="cb1-379" data-line-number="379"><span class="co">#&gt; #   hs_object_id &lt;dbl&gt;, hs_projected_amount &lt;dbl&gt;, hs_all_owner_ids &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-380" data-line-number="380"><span class="co">#&gt; #   hs_projected_amount_in_home_currency &lt;dbl&gt;</span></a></code></pre></div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
