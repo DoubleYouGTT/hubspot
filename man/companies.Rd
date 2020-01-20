@@ -28,7 +28,7 @@ is \code{NULL}). See \code{\link[=hubspot_key_set]{hubspot_key_set()}}.}
 \item{property_history}{Whether version history for properties should be
 returned}
 
-\item{max_iter}{The API is limited to 250 responses, use \code{max_iter} to
+\item{max_iter}{The API is limited to a certain number of responses by page, use \code{max_iter} to
 limit how many pages of data will get returned}
 
 \item{max_properties}{Avoid URLs that are too long, limit the number of
