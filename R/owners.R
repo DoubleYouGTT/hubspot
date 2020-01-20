@@ -39,6 +39,8 @@ hs_owners_raw <- function(token_path = hubspot_token_get(),
 #' @template owners
 #' @template view
 #' @details
+#' Required scope(s) of the OAuth token: contacts.
+#'
 #' Different `view` values and associated output.
 #' * "owners": A tibble with owners and related information.
 #'

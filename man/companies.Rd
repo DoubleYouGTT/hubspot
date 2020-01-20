@@ -47,6 +47,8 @@ A tibble with associated entities (\code{hs_companies_tidy()})
 Get raw and tidy results from \href{https://developers.hubspot.com/docs/methods/companies/get-all-companies}{the companies endpoint}.
 }
 \details{
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "properties": A tibble containing all properties of companies

@@ -32,9 +32,11 @@ List of deal properties (\code{hs_deal_properties_raw()})
 Something tidy (\code{hs_deal_properties_tidy()})
 }
 \description{
-Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/methods/deals/v2/get_deals_properties}{the deal properties endpoint}.
+Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/methods/deals/get_deal_properties}{the deal properties endpoint}.
 }
 \details{
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "names": A character vector of the names of available deal properties.

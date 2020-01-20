@@ -55,6 +55,8 @@ A tibble with associated entities (\code{hs_contacts_tidy()})
 Get raw and tidy results from the \href{https://developers.hubspot.com/docs/methods/contacts/get_contacts}{contacts endpoint}.
 }
 \details{
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "properties": A tibble containing all properties of contacts

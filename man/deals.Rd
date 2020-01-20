@@ -53,6 +53,8 @@ A tibble (\code{hs_deals_tidy()})
 Get raw and tidy results from the \href{https://developers.hubspot.com/docs/methods/deals/get-all-deals}{deals endpoint}.
 }
 \details{
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "associations": A tibble with associated entities

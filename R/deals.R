@@ -74,6 +74,8 @@ hs_deals_raw <- function(token_path = hubspot_token_get(),
 #' @template deals
 #' @template view
 #' @details
+#' Required scope(s) of the OAuth token: contacts.
+#'
 #' Different `view` values and associated output.
 #' * "associations": A tibble with associated entities
 #' * "properties history": A tibble of all field changes over time

@@ -24,6 +24,8 @@ hs_contact_properties_raw <- function(token_path = hubspot_token_get(),
 #' @template contact_properties
 #' @template view
 #' @details
+#' Required scope(s) of the OAuth token: contacts.
+#'
 #' Different `view` values and associated output.
 #' * "names": A character vector of the names of available contact properties.
 #'

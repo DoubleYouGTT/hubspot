@@ -41,6 +41,8 @@ Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/met
 \details{
 Inactive owners are defined as owners without any active remotes.
 
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "owners": A tibble with owners and related information.
