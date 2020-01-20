@@ -1,6 +1,6 @@
 #' Deal properties endpoint (raw and tidy)
 #'
-#' Retrieve raw and tidy results from [the deal properties endpoint](https://developers.hubspot.com/docs/methods/deals/v2/get_deals_properties).
+#' Retrieve raw and tidy results from [the deal properties endpoint](https://developers.hubspot.com/docs/methods/deals/get_deal_properties).
 #'
 #' @template token_path
 #' @template apikey
@@ -24,6 +24,8 @@ hs_deal_properties_raw <- function(token_path = hubspot_token_get(),
 #' @template deal_properties
 #' @template view
 #' @details
+#' Required scope(s) of the OAuth token: contacts.
+#'
 #' Different `view` values and associated output.
 #' * "names": A character vector of the names of available deal properties.
 #'

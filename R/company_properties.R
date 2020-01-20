@@ -24,6 +24,8 @@ hs_company_properties_raw <- function(token_path = hubspot_token_get(),
 #' @template company_properties
 #' @template view
 #' @details
+#' Required scope(s) of the OAuth token: contacts.
+#'
 #' Different `view` values and associated output.
 #' * "names": A character vector of the names of available company properties.
 #'

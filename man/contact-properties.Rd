@@ -35,6 +35,8 @@ Something tidy (\code{hs_contact_properties_tidy()})
 Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties}{the contact properties endpoint}.
 }
 \details{
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "names": A character vector of the names of available contact properties.

@@ -35,6 +35,8 @@ Something tidy (\code{hs_company_properties_tidy()})
 Retrieve raw and tidy results from \href{https://developers.hubspot.com/docs/methods/companies/get_company_properties}{the company properties endpoint}.
 }
 \details{
+Required scope(s) of the OAuth token: contacts.
+
 Different \code{view} values and associated output.
 \itemize{
 \item "names": A character vector of the names of available company properties.
