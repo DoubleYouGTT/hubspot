@@ -16,6 +16,7 @@ reference:
   - hs_deal_pipelines_raw
   - hs_companies_raw
   - hs_contacts_raw
+  - hs_contact_lists_raw
   - hs_owners_raw
 - title: Available object properties
   desc: ~
