@@ -39,8 +39,14 @@ deal_props <- hs_deal_properties_tidy()
 head(deal_props)
 
 deals <- hs_deals_raw(properties = deal_props, max_iter = 1)
-str(deals)
 
+```
+
+```{r, echo=FALSE}
+details::details(deals, summary = "Click to see the <code>deals</code> nested list")
+```
+
+```{r}
 deal_stages <- hs_deals_tidy(deals, view = "properties")
 deal_stages
 ```

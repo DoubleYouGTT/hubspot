@@ -47,363 +47,1002 @@ head(deal_props)
 #> [5] "hs_analytics_source_data_2" "hs_campaign"
 
 deals <- hs_deals_raw(properties = deal_props, max_iter = 1)
-str(deals)
-#> List of 1
-#>  $ 931633510:List of 7
-#>   ..$ portalId    : int 62515
-#>   ..$ dealId      : int 931633510
-#>   ..$ isDeleted   : logi FALSE
-#>   ..$ associations:List of 4
-#>   .. ..$ associatedVids      : list()
-#>   .. ..$ associatedCompanyIds: list()
-#>   .. ..$ associatedDealIds   : list()
-#>   .. ..$ associatedTicketIds : list()
-#>   ..$ properties  :List of 24
-#>   .. ..$ hs_closed_amount_in_home_currency   :List of 5
-#>   .. .. ..$ value    : chr "0"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "hs_closed_amount_in_home_currency"
-#>   .. .. .. .. ..$ value         : chr "0"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ dealname                            :List of 5
-#>   .. .. ..$ value    : chr "Example deal"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "dealname"
-#>   .. .. .. .. ..$ value    : chr "Example deal"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_all_accessible_team_ids          :List of 5
-#>   .. .. ..$ value    : chr ""
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. ..$ versions :List of 2
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hs_all_accessible_team_ids"
-#>   .. .. .. .. ..$ value    : chr ""
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hs_all_accessible_team_ids"
-#>   .. .. .. .. ..$ value    : chr "112117"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ amount                              :List of 5
-#>   .. .. ..$ value    : chr "100"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "amount"
-#>   .. .. .. .. ..$ value    : chr "100"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ closedate                           :List of 5
-#>   .. .. ..$ value    : chr "1564783118291"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "closedate"
-#>   .. .. .. .. ..$ value    : chr "1564783118291"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ num_associated_contacts             :List of 5
-#>   .. .. ..$ value    : chr "0"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 5
-#>   .. .. .. .. ..$ name     : chr "num_associated_contacts"
-#>   .. .. .. .. ..$ value    : chr "0"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_all_team_ids                     :List of 5
-#>   .. .. ..$ value    : chr ""
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. ..$ versions :List of 2
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hs_all_team_ids"
-#>   .. .. .. .. ..$ value    : chr ""
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hs_all_team_ids"
-#>   .. .. .. .. ..$ value    : chr "112117"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ createdate                          :List of 5
-#>   .. .. ..$ value    : chr "1565733501511"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "createdate"
-#>   .. .. .. .. ..$ value    : chr "1565733501511"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_is_closed                        :List of 5
-#>   .. .. ..$ value    : chr "false"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "hs_is_closed"
-#>   .. .. .. .. ..$ value         : chr "false"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ amount_in_home_currency             :List of 5
-#>   .. .. ..$ value    : chr "100"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "amount_in_home_currency"
-#>   .. .. .. .. ..$ value         : chr "100"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ hs_deal_stage_probability           :List of 5
-#>   .. .. ..$ value    : chr "0.59999999999999997779553950749686919152736663818359375"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "hs_deal_stage_probability"
-#>   .. .. .. .. ..$ value         : chr "0.59999999999999997779553950749686919152736663818359375"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ days_to_close                       :List of 5
-#>   .. .. ..$ value    : chr "0"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "days_to_close"
-#>   .. .. .. .. ..$ value         : chr "0"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ pipeline                            :List of 5
-#>   .. .. ..$ value    : chr "default"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "pipeline"
-#>   .. .. .. .. ..$ value    : chr "default"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hubspot_team_id                     :List of 5
-#>   .. .. ..$ value    : chr ""
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. ..$ versions :List of 2
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hubspot_team_id"
-#>   .. .. .. .. ..$ value    : chr ""
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hubspot_team_id"
-#>   .. .. .. .. ..$ value    : chr "112117"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hubspot_owner_id                    :List of 5
-#>   .. .. ..$ value    : chr "71"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hubspot_owner_id"
-#>   .. .. .. .. ..$ value    : chr "71"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_closed_amount                    :List of 5
-#>   .. .. ..$ value    : chr "0"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "hs_closed_amount"
-#>   .. .. .. .. ..$ value         : chr "0"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ hs_lastmodifieddate                 :List of 5
-#>   .. .. ..$ value    : chr "1565735453314"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 3
-#>   .. .. .. ..$ :List of 5
-#>   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"
-#>   .. .. .. .. ..$ value    : chr "1565735453314"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. .. .. ..$ :List of 5
-#>   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"
-#>   .. .. .. .. ..$ value    : chr "1565733538147"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. .. .. ..$ :List of 5
-#>   .. .. .. .. ..$ name     : chr "hs_lastmodifieddate"
-#>   .. .. .. .. ..$ value    : chr "1565733537449"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hubspot_owner_assigneddate          :List of 5
-#>   .. .. ..$ value    : chr "1565733537449"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hubspot_owner_assigneddate"
-#>   .. .. .. .. ..$ value    : chr "1565733537449"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ dealstage                           :List of 5
-#>   .. .. ..$ value    : chr "presentationscheduled"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "dealstage"
-#>   .. .. .. .. ..$ value    : chr "presentationscheduled"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "dadams@hubspot.com"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_createdate                       :List of 5
-#>   .. .. ..$ value    : chr "1565733537449"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CONTACTS"
-#>   .. .. ..$ sourceId : chr "CRM_UI"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hs_createdate"
-#>   .. .. .. .. ..$ value    : chr "1565733537449"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "CRM_UI"
-#>   .. .. .. .. ..$ source   : chr "CONTACTS"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_object_id                        :List of 5
-#>   .. .. ..$ value    : chr "931633510"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 5
-#>   .. .. .. .. ..$ name     : chr "hs_object_id"
-#>   .. .. .. .. ..$ value    : chr "931633510"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_projected_amount                 :List of 5
-#>   .. .. ..$ value    : chr "59.99999999999999777955395074968691915273666381835937500"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "hs_projected_amount"
-#>   .. .. .. .. ..$ value         : chr "59.99999999999999777955395074968691915273666381835937500"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   .. ..$ hs_all_owner_ids                    :List of 5
-#>   .. .. ..$ value    : chr "71"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name     : chr "hs_all_owner_ids"
-#>   .. .. .. .. ..$ value    : chr "71"
-#>   .. .. .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. .. .. ..$ sourceId : chr "PermissionsUpdater"
-#>   .. .. .. .. ..$ source   : chr "CRM_UI"
-#>   .. .. .. .. ..$ sourceVid: list()
-#>   .. ..$ hs_projected_amount_in_home_currency:List of 5
-#>   .. .. ..$ value    : chr "59.99999999999999777955395074968691915273666381835937500"
-#>   .. .. ..$ timestamp: num 1.57e+12
-#>   .. .. ..$ source   : chr "CALCULATED"
-#>   .. .. ..$ sourceId : NULL
-#>   .. .. ..$ versions :List of 1
-#>   .. .. .. ..$ :List of 6
-#>   .. .. .. .. ..$ name          : chr "hs_projected_amount_in_home_currency"
-#>   .. .. .. .. ..$ value         : chr "59.99999999999999777955395074968691915273666381835937500"
-#>   .. .. .. .. ..$ timestamp     : num 1.57e+12
-#>   .. .. .. .. ..$ source        : chr "CALCULATED"
-#>   .. .. .. .. ..$ sourceVid     : list()
-#>   .. .. .. .. ..$ sourceMetadata: chr ""
-#>   ..$ imports     : list()
-#>   ..$ stateChanges: list()
+```
 
+<details closed>
+
+<summary> <span title="Click to Expand"> Click to see the
+<code>deals</code> nested list </span> </summary>
+
+``` r
+
+$`931633510`
+$`931633510`$portalId
+[1] 62515
+
+$`931633510`$dealId
+[1] 931633510
+
+$`931633510`$isDeleted
+[1] FALSE
+
+$`931633510`$associations
+$`931633510`$associations$associatedVids
+list()
+
+$`931633510`$associations$associatedCompanyIds
+list()
+
+$`931633510`$associations$associatedDealIds
+list()
+
+$`931633510`$associations$associatedTicketIds
+list()
+
+
+$`931633510`$properties
+$`931633510`$properties$hs_closed_amount_in_home_currency
+$`931633510`$properties$hs_closed_amount_in_home_currency$value
+[1] "0"
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$sourceId
+NULL
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$name
+[1] "hs_closed_amount_in_home_currency"
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$value
+[1] "0"
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$hs_closed_amount_in_home_currency$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$dealname
+$`931633510`$properties$dealname$value
+[1] "Example deal"
+
+$`931633510`$properties$dealname$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$dealname$source
+[1] "CRM_UI"
+
+$`931633510`$properties$dealname$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$dealname$versions
+$`931633510`$properties$dealname$versions[[1]]
+$`931633510`$properties$dealname$versions[[1]]$name
+[1] "dealname"
+
+$`931633510`$properties$dealname$versions[[1]]$value
+[1] "Example deal"
+
+$`931633510`$properties$dealname$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$dealname$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$dealname$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$dealname$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_all_accessible_team_ids
+$`931633510`$properties$hs_all_accessible_team_ids$value
+[1] ""
+
+$`931633510`$properties$hs_all_accessible_team_ids$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hs_all_accessible_team_ids$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_accessible_team_ids$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]$name
+[1] "hs_all_accessible_team_ids"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]$value
+[1] ""
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[1]]$sourceVid
+list()
+
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]$name
+[1] "hs_all_accessible_team_ids"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]$value
+[1] "112117"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_accessible_team_ids$versions[[2]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$amount
+$`931633510`$properties$amount$value
+[1] "100"
+
+$`931633510`$properties$amount$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$amount$source
+[1] "CRM_UI"
+
+$`931633510`$properties$amount$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$amount$versions
+$`931633510`$properties$amount$versions[[1]]
+$`931633510`$properties$amount$versions[[1]]$name
+[1] "amount"
+
+$`931633510`$properties$amount$versions[[1]]$value
+[1] "100"
+
+$`931633510`$properties$amount$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$amount$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$amount$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$amount$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$closedate
+$`931633510`$properties$closedate$value
+[1] "1564783118291"
+
+$`931633510`$properties$closedate$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$closedate$source
+[1] "CRM_UI"
+
+$`931633510`$properties$closedate$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$closedate$versions
+$`931633510`$properties$closedate$versions[[1]]
+$`931633510`$properties$closedate$versions[[1]]$name
+[1] "closedate"
+
+$`931633510`$properties$closedate$versions[[1]]$value
+[1] "1564783118291"
+
+$`931633510`$properties$closedate$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$closedate$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$closedate$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$closedate$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$num_associated_contacts
+$`931633510`$properties$num_associated_contacts$value
+[1] "0"
+
+$`931633510`$properties$num_associated_contacts$timestamp
+[1] 1.566463e+12
+
+$`931633510`$properties$num_associated_contacts$source
+[1] "CALCULATED"
+
+$`931633510`$properties$num_associated_contacts$sourceId
+NULL
+
+$`931633510`$properties$num_associated_contacts$versions
+$`931633510`$properties$num_associated_contacts$versions[[1]]
+$`931633510`$properties$num_associated_contacts$versions[[1]]$name
+[1] "num_associated_contacts"
+
+$`931633510`$properties$num_associated_contacts$versions[[1]]$value
+[1] "0"
+
+$`931633510`$properties$num_associated_contacts$versions[[1]]$timestamp
+[1] 1.566463e+12
+
+$`931633510`$properties$num_associated_contacts$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$num_associated_contacts$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_all_team_ids
+$`931633510`$properties$hs_all_team_ids$value
+[1] ""
+
+$`931633510`$properties$hs_all_team_ids$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hs_all_team_ids$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_team_ids$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_team_ids$versions
+$`931633510`$properties$hs_all_team_ids$versions[[1]]
+$`931633510`$properties$hs_all_team_ids$versions[[1]]$name
+[1] "hs_all_team_ids"
+
+$`931633510`$properties$hs_all_team_ids$versions[[1]]$value
+[1] ""
+
+$`931633510`$properties$hs_all_team_ids$versions[[1]]$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hs_all_team_ids$versions[[1]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_team_ids$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_team_ids$versions[[1]]$sourceVid
+list()
+
+
+$`931633510`$properties$hs_all_team_ids$versions[[2]]
+$`931633510`$properties$hs_all_team_ids$versions[[2]]$name
+[1] "hs_all_team_ids"
+
+$`931633510`$properties$hs_all_team_ids$versions[[2]]$value
+[1] "112117"
+
+$`931633510`$properties$hs_all_team_ids$versions[[2]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_all_team_ids$versions[[2]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_team_ids$versions[[2]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_team_ids$versions[[2]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$createdate
+$`931633510`$properties$createdate$value
+[1] "1565733501511"
+
+$`931633510`$properties$createdate$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$createdate$source
+[1] "CRM_UI"
+
+$`931633510`$properties$createdate$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$createdate$versions
+$`931633510`$properties$createdate$versions[[1]]
+$`931633510`$properties$createdate$versions[[1]]$name
+[1] "createdate"
+
+$`931633510`$properties$createdate$versions[[1]]$value
+[1] "1565733501511"
+
+$`931633510`$properties$createdate$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$createdate$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$createdate$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$createdate$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_is_closed
+$`931633510`$properties$hs_is_closed$value
+[1] "false"
+
+$`931633510`$properties$hs_is_closed$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_is_closed$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_is_closed$sourceId
+NULL
+
+$`931633510`$properties$hs_is_closed$versions
+$`931633510`$properties$hs_is_closed$versions[[1]]
+$`931633510`$properties$hs_is_closed$versions[[1]]$name
+[1] "hs_is_closed"
+
+$`931633510`$properties$hs_is_closed$versions[[1]]$value
+[1] "false"
+
+$`931633510`$properties$hs_is_closed$versions[[1]]$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_is_closed$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_is_closed$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$hs_is_closed$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$amount_in_home_currency
+$`931633510`$properties$amount_in_home_currency$value
+[1] "100"
+
+$`931633510`$properties$amount_in_home_currency$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$amount_in_home_currency$source
+[1] "CALCULATED"
+
+$`931633510`$properties$amount_in_home_currency$sourceId
+NULL
+
+$`931633510`$properties$amount_in_home_currency$versions
+$`931633510`$properties$amount_in_home_currency$versions[[1]]
+$`931633510`$properties$amount_in_home_currency$versions[[1]]$name
+[1] "amount_in_home_currency"
+
+$`931633510`$properties$amount_in_home_currency$versions[[1]]$value
+[1] "100"
+
+$`931633510`$properties$amount_in_home_currency$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$amount_in_home_currency$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$amount_in_home_currency$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$amount_in_home_currency$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$hs_deal_stage_probability
+$`931633510`$properties$hs_deal_stage_probability$value
+[1] "0.59999999999999997779553950749686919152736663818359375"
+
+$`931633510`$properties$hs_deal_stage_probability$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_deal_stage_probability$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_deal_stage_probability$sourceId
+NULL
+
+$`931633510`$properties$hs_deal_stage_probability$versions
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]$name
+[1] "hs_deal_stage_probability"
+
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]$value
+[1] "0.59999999999999997779553950749686919152736663818359375"
+
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$hs_deal_stage_probability$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$days_to_close
+$`931633510`$properties$days_to_close$value
+[1] "0"
+
+$`931633510`$properties$days_to_close$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$days_to_close$source
+[1] "CALCULATED"
+
+$`931633510`$properties$days_to_close$sourceId
+NULL
+
+$`931633510`$properties$days_to_close$versions
+$`931633510`$properties$days_to_close$versions[[1]]
+$`931633510`$properties$days_to_close$versions[[1]]$name
+[1] "days_to_close"
+
+$`931633510`$properties$days_to_close$versions[[1]]$value
+[1] "0"
+
+$`931633510`$properties$days_to_close$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$days_to_close$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$days_to_close$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$days_to_close$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$pipeline
+$`931633510`$properties$pipeline$value
+[1] "default"
+
+$`931633510`$properties$pipeline$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$pipeline$source
+[1] "CRM_UI"
+
+$`931633510`$properties$pipeline$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$pipeline$versions
+$`931633510`$properties$pipeline$versions[[1]]
+$`931633510`$properties$pipeline$versions[[1]]$name
+[1] "pipeline"
+
+$`931633510`$properties$pipeline$versions[[1]]$value
+[1] "default"
+
+$`931633510`$properties$pipeline$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$pipeline$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$pipeline$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$pipeline$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hubspot_team_id
+$`931633510`$properties$hubspot_team_id$value
+[1] ""
+
+$`931633510`$properties$hubspot_team_id$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hubspot_team_id$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_team_id$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hubspot_team_id$versions
+$`931633510`$properties$hubspot_team_id$versions[[1]]
+$`931633510`$properties$hubspot_team_id$versions[[1]]$name
+[1] "hubspot_team_id"
+
+$`931633510`$properties$hubspot_team_id$versions[[1]]$value
+[1] ""
+
+$`931633510`$properties$hubspot_team_id$versions[[1]]$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hubspot_team_id$versions[[1]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hubspot_team_id$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_team_id$versions[[1]]$sourceVid
+list()
+
+
+$`931633510`$properties$hubspot_team_id$versions[[2]]
+$`931633510`$properties$hubspot_team_id$versions[[2]]$name
+[1] "hubspot_team_id"
+
+$`931633510`$properties$hubspot_team_id$versions[[2]]$value
+[1] "112117"
+
+$`931633510`$properties$hubspot_team_id$versions[[2]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hubspot_team_id$versions[[2]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hubspot_team_id$versions[[2]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_team_id$versions[[2]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hubspot_owner_id
+$`931633510`$properties$hubspot_owner_id$value
+[1] "71"
+
+$`931633510`$properties$hubspot_owner_id$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hubspot_owner_id$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_owner_id$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$hubspot_owner_id$versions
+$`931633510`$properties$hubspot_owner_id$versions[[1]]
+$`931633510`$properties$hubspot_owner_id$versions[[1]]$name
+[1] "hubspot_owner_id"
+
+$`931633510`$properties$hubspot_owner_id$versions[[1]]$value
+[1] "71"
+
+$`931633510`$properties$hubspot_owner_id$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hubspot_owner_id$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$hubspot_owner_id$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_owner_id$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_closed_amount
+$`931633510`$properties$hs_closed_amount$value
+[1] "0"
+
+$`931633510`$properties$hs_closed_amount$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_closed_amount$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_closed_amount$sourceId
+NULL
+
+$`931633510`$properties$hs_closed_amount$versions
+$`931633510`$properties$hs_closed_amount$versions[[1]]
+$`931633510`$properties$hs_closed_amount$versions[[1]]$name
+[1] "hs_closed_amount"
+
+$`931633510`$properties$hs_closed_amount$versions[[1]]$value
+[1] "0"
+
+$`931633510`$properties$hs_closed_amount$versions[[1]]$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_closed_amount$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_closed_amount$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$hs_closed_amount$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$hs_lastmodifieddate
+$`931633510`$properties$hs_lastmodifieddate$value
+[1] "1565735453314"
+
+$`931633510`$properties$hs_lastmodifieddate$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hs_lastmodifieddate$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_lastmodifieddate$sourceId
+NULL
+
+$`931633510`$properties$hs_lastmodifieddate$versions
+$`931633510`$properties$hs_lastmodifieddate$versions[[1]]
+$`931633510`$properties$hs_lastmodifieddate$versions[[1]]$name
+[1] "hs_lastmodifieddate"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[1]]$value
+[1] "1565735453314"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[1]]$timestamp
+[1] 1.565735e+12
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[1]]$sourceVid
+list()
+
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[2]]
+$`931633510`$properties$hs_lastmodifieddate$versions[[2]]$name
+[1] "hs_lastmodifieddate"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[2]]$value
+[1] "1565733538147"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[2]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[2]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[2]]$sourceVid
+list()
+
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[3]]
+$`931633510`$properties$hs_lastmodifieddate$versions[[3]]$name
+[1] "hs_lastmodifieddate"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[3]]$value
+[1] "1565733537449"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[3]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[3]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_lastmodifieddate$versions[[3]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hubspot_owner_assigneddate
+$`931633510`$properties$hubspot_owner_assigneddate$value
+[1] "1565733537449"
+
+$`931633510`$properties$hubspot_owner_assigneddate$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hubspot_owner_assigneddate$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_owner_assigneddate$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$hubspot_owner_assigneddate$versions
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]$name
+[1] "hubspot_owner_assigneddate"
+
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]$value
+[1] "1565733537449"
+
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hubspot_owner_assigneddate$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$dealstage
+$`931633510`$properties$dealstage$value
+[1] "presentationscheduled"
+
+$`931633510`$properties$dealstage$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$dealstage$source
+[1] "CRM_UI"
+
+$`931633510`$properties$dealstage$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$dealstage$versions
+$`931633510`$properties$dealstage$versions[[1]]
+$`931633510`$properties$dealstage$versions[[1]]$name
+[1] "dealstage"
+
+$`931633510`$properties$dealstage$versions[[1]]$value
+[1] "presentationscheduled"
+
+$`931633510`$properties$dealstage$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$dealstage$versions[[1]]$sourceId
+[1] "dadams@hubspot.com"
+
+$`931633510`$properties$dealstage$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$dealstage$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_createdate
+$`931633510`$properties$hs_createdate$value
+[1] "1565733537449"
+
+$`931633510`$properties$hs_createdate$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_createdate$source
+[1] "CONTACTS"
+
+$`931633510`$properties$hs_createdate$sourceId
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_createdate$versions
+$`931633510`$properties$hs_createdate$versions[[1]]
+$`931633510`$properties$hs_createdate$versions[[1]]$name
+[1] "hs_createdate"
+
+$`931633510`$properties$hs_createdate$versions[[1]]$value
+[1] "1565733537449"
+
+$`931633510`$properties$hs_createdate$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_createdate$versions[[1]]$sourceId
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_createdate$versions[[1]]$source
+[1] "CONTACTS"
+
+$`931633510`$properties$hs_createdate$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_object_id
+$`931633510`$properties$hs_object_id$value
+[1] "931633510"
+
+$`931633510`$properties$hs_object_id$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_object_id$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_object_id$sourceId
+NULL
+
+$`931633510`$properties$hs_object_id$versions
+$`931633510`$properties$hs_object_id$versions[[1]]
+$`931633510`$properties$hs_object_id$versions[[1]]$name
+[1] "hs_object_id"
+
+$`931633510`$properties$hs_object_id$versions[[1]]$value
+[1] "931633510"
+
+$`931633510`$properties$hs_object_id$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_object_id$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_object_id$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_projected_amount
+$`931633510`$properties$hs_projected_amount$value
+[1] "59.99999999999999777955395074968691915273666381835937500"
+
+$`931633510`$properties$hs_projected_amount$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_projected_amount$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_projected_amount$sourceId
+NULL
+
+$`931633510`$properties$hs_projected_amount$versions
+$`931633510`$properties$hs_projected_amount$versions[[1]]
+$`931633510`$properties$hs_projected_amount$versions[[1]]$name
+[1] "hs_projected_amount"
+
+$`931633510`$properties$hs_projected_amount$versions[[1]]$value
+[1] "59.99999999999999777955395074968691915273666381835937500"
+
+$`931633510`$properties$hs_projected_amount$versions[[1]]$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_projected_amount$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_projected_amount$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$hs_projected_amount$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+$`931633510`$properties$hs_all_owner_ids
+$`931633510`$properties$hs_all_owner_ids$value
+[1] "71"
+
+$`931633510`$properties$hs_all_owner_ids$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_all_owner_ids$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_owner_ids$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_owner_ids$versions
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]$name
+[1] "hs_all_owner_ids"
+
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]$value
+[1] "71"
+
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]$timestamp
+[1] 1.565734e+12
+
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]$sourceId
+[1] "PermissionsUpdater"
+
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]$source
+[1] "CRM_UI"
+
+$`931633510`$properties$hs_all_owner_ids$versions[[1]]$sourceVid
+list()
+
+
+
+
+$`931633510`$properties$hs_projected_amount_in_home_currency
+$`931633510`$properties$hs_projected_amount_in_home_currency$value
+[1] "59.99999999999999777955395074968691915273666381835937500"
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$sourceId
+NULL
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$name
+[1] "hs_projected_amount_in_home_currency"
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$value
+[1] "59.99999999999999777955395074968691915273666381835937500"
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$timestamp
+[1] 1.571769e+12
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$source
+[1] "CALCULATED"
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$sourceVid
+list()
+
+$`931633510`$properties$hs_projected_amount_in_home_currency$versions[[1]]$sourceMetadata
+[1] ""
+
+
+
+
+
+$`931633510`$imports
+list()
+
+$`931633510`$stateChanges
+list()
+```
+
+</details>
+
+<br>
+
+``` r
 deal_stages <- hs_deals_tidy(deals, view = "properties")
 deal_stages
 #> # A tibble: 1 x 25

@@ -33,7 +33,8 @@ Suggests:
     vcr,
     covr,
     styler,
-    pkgload
+    pkgload,
+    details
 VignetteBuilder: knitr
 Imports: 
     purrr,
