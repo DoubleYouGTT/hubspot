@@ -4,7 +4,7 @@ http_interactions:
     uri: https://api.hubapi.com/crm-pipelines/v1/pipelines/deals/?includeInactive=EXCLUDE_DELETED&hapikey=demo
     body:
       encoding: ''
-      string: ''
+      string: no
     headers:
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -14,14 +14,14 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 14 Jan 2020 12:19:27 GMT
+      date: Fri, 31 Jan 2020 17:53:55 GMT
       content-type: application/json;charset=utf-8
       content-length: '572'
       connection: keep-alive
       x-hubspot-ratelimit-daily: '1000000'
-      x-hubspot-ratelimit-daily-remaining: '988846'
+      x-hubspot-ratelimit-daily-remaining: '988651'
       x-hubspot-ratelimit-interval-milliseconds: '10000'
-      x-hubspot-ratelimit-remaining: '99'
+      x-hubspot-ratelimit-remaining: '91'
       x-hubspot-ratelimit-max: '120'
       x-hubspot-ratelimit-secondly: '12'
       x-hubspot-ratelimit-secondly-remaining: '9'
@@ -30,10 +30,10 @@ http_interactions:
       access-control-allow-credentials: 'false'
       accept-ranges: bytes
       cf-cache-status: DYNAMIC
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
       expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
       server: cloudflare
-      cf-ray: 554f8ef22a6fee23-CDG
+      cf-ray: 55dd8c426d46e64c-LHR
     body:
       encoding: UTF-8
       file: no
@@ -47,5 +47,5 @@ http_interactions:
         Sent","displayOrder":4,"metadata":{"isClosed":"false","probability":"0.9"},"active":true},{"stageId":"appointmentscheduled","createdAt":0,"updatedAt":null,"label":"Appointment
         Scheduled","displayOrder":0,"metadata":{"isClosed":"false","probability":"0.2"},"active":true},{"stageId":"qualifiedtobuy","createdAt":0,"updatedAt":null,"label":"Qualified
         To Buy","displayOrder":1,"metadata":{"isClosed":"false","probability":"0.4"},"active":true}],"default":true}]}'
-  recorded_at: 2020-01-14 12:19:28 GMT
-  recorded_with: vcr/0.4.1.93, webmockr/0.5.1.96
+  recorded_at: 2020-01-31 17:53:55 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
