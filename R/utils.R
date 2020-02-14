@@ -33,24 +33,24 @@ get_path_url <- function(path) {
   # auth
   if (auth$auth == "key") {
     query$hapikey <- auth$value
-    httr::GET(get_path_url(path),
+    res <- httr::GET(get_path_url(path),
       query = query,
       httr::user_agent("hubspot R package by Locke Data")
-    ) %>%
-      httr::content()
+    )
   } else {
     token <- readRDS(auth$value)
 
     token <- check_token(token, file = auth$value)
 
-    httr::GET(get_path_url(path),
+    res <- httr::GET(get_path_url(path),
       query = query,
       httr::config(httr::user_agent("hubspot R package by Locke Data"),
         token = token
       )
-    ) %>%
-      httr::content()
+    )
   }
+  httr::warn_for_status(res)
+  res %>% httr::content()
 }
 
 get_results <- ratelimitr::limit_rate(
