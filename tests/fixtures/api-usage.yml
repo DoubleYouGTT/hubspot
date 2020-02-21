@@ -1,0 +1,83 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/integrations/v1/me?hapikey=demo
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Thu, 20 Feb 2020 14:26:49 GMT
+      content-type: application/json;charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-trace: 2B986989185E32ED5FFDB157BB6EB6B59DDF9452F3000000000000000000
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '994957'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '118'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '11'
+      vary: Accept-Encoding
+      access-control-allow-credentials: 'false'
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      server: cloudflare
+      cf-ray: 56812860ca35e628-LHR
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"portalId":62515,"timeZone":"America/Indianapolis","currency":"USD","utcOffsetMilliseconds":-18000000,"utcOffset":"-05:00"}'
+  recorded_at: 2020-02-20 14:26:51 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://api.hubapi.com/integrations/v1/limit/daily?hapikey=demo
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Thu, 20 Feb 2020 14:26:49 GMT
+      content-type: application/json;charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-trace: 2BD42499241B4E41E8060536A7BE940305C634A25A000000000000000000
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '994954'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '115'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '11'
+      vary: Accept-Encoding
+      access-control-allow-credentials: 'false'
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      server: cloudflare
+      cf-ray: 56812864acaae628-LHR
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"name":"api-calls-daily","usageLimit":1000000,"currentUsage":5041,"collectedAt":1582208809445,"fetchStatus":"CACHED","resetsAt":1582261200000}]'
+  recorded_at: 2020-02-20 14:26:51 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

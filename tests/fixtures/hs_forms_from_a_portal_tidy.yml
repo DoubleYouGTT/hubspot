@@ -1,0 +1,53 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/forms/v2/forms?limit=250&hapikey=demo
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Thu, 20 Feb 2020 14:29:42 GMT
+      content-type: application/json;charset=utf-8
+      content-length: '1264'
+      connection: keep-alive
+      x-trace: 2B0ABF35ABEA4FD311AD1668F13E3D18D7075EFA35000000000000000000
+      x-total-count: '2'
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '994740'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '105'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '10'
+      vary: Accept-Encoding
+      content-encoding: gzip
+      access-control-allow-credentials: 'false'
+      access-control-expose-headers: x-last-modified-timestamp, X-HubSpot-NotFound,
+        X-HS-User-Request, Link, X-Total-Count, HS-Total-Forms-Count, HS-Total-Folders-Count
+      accept-ranges: bytes
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      server: cloudflare
+      cf-ray: 56812c9a7aa6e628-LHR
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"portalId":62515,"guid":"038e819c-5262-4c13-8550-8cabe38c4309","name":"Example
+        form with file upload","action":"","method":"POST","cssClass":"hs-form stacked","redirect":"","submitText":"Submit","followUpId":"","notifyRecipients":"100097","leadNurturingCampaignId":"","formFieldGroups":[{"fields":[{"name":"email","label":"Email","type":"string","fieldType":"text","description":"","groupName":"contactinformation","displayOrder":-1,"required":true,"selectedOptions":[],"options":[],"validation":{"name":"","message":"","data":"","useDefaultBlockList":false,"blockedEmailAddresses":[]},"enabled":true,"hidden":false,"defaultValue":"","isSmartField":false,"unselectedLabel":"","placeholder":"","dependentFieldFilters":[],"labelHidden":false,"propertyObjectType":"CONTACT","metaData":[]}],"default":true,"isSmartGroup":false,"richText":{"content":"","type":"TEXT"}},{"fields":[{"name":"upload_a_file","label":"Upload
+        a file","type":"string","fieldType":"file","description":"","groupName":"contactinformation","displayOrder":-1,"required":false,"selectedOptions":[],"options":[],"validation":{"name":"","message":"","data":"","useDefaultBlockList":false,"blockedEmailAddresses":[]},"enabled":true,"hidden":false,"defaultValue":"","isSmartField":false,"unselectedLabel":"","placeholder":"","dependentFieldFilters":[],"labelHidden":false,"propertyObjectType":"CONTACT","metaData":[]}],"default":true,"isSmartGroup":false,"richText":{"content":"","type":"TEXT"}}],"createdAt":1572891297226,"updatedAt":1572897032433,"performableHtml":"","migratedFrom":"","ignoreCurrentValues":false,"metaData":[{"name":"lang","value":"en"}],"deletable":true,"inlineMessage":"Thanks
+        for submitting the form.","tmsId":"","captchaEnabled":false,"campaignGuid":"","cloneable":true,"editable":true,"formType":"HUBSPOT","deletedAt":0,"themeName":"canvas","parentId":0,"style":"{\"fontFamily\":\"helvetica\",\"backgroundWidth\":\"100%\",\"labelTextColor\":\"#33475b\",\"labelTextSize\":\"13px\",\"helpTextColor\":\"#7C98B6\",\"helpTextSize\":\"11px\",\"legalConsentTextColor\":\"#33475b\",\"legalConsentTextSize\":\"14px\",\"submitColor\":\"#ff7a59\",\"submitAlignment\":\"left\",\"submitFontColor\":\"#ffffff\",\"submitSize\":\"12px\"}","isPublished":false,"publishAt":0,"unpublishAt":0,"publishedAt":0,"multivariateTest":{"variants":[],"startAtTimestamp":0,"endAtTimestamp":0,"winningVariantId":"","finished":false,"controlId":""},"kickbackEmailWorkflowId":0,"kickbackEmailsJson":"","customUid":"","createMarketableContact":true},{"portalId":62515,"guid":"233bb53d-071f-4d39-8859-f041855bbbd4","name":"Subscribe
+        to Example blog Notifications 10500366470","action":"","method":"POST","cssClass":"hs-form
+        stacked","redirect":"","submitText":"Subscribe","followUpId":"","notifyRecipients":"","leadNurturingCampaignId":"","formFieldGroups":[{"fields":[{"name":"email","label":"Email","type":"string","fieldType":"text","description":"","groupName":"contactinformation","displayOrder":0,"required":true,"selectedOptions":[],"options":[],"validation":{"name":"","message":"","data":"","useDefaultBlockList":false,"blockedEmailAddresses":[]},"enabled":true,"hidden":false,"defaultValue":"","isSmartField":false,"unselectedLabel":"","placeholder":"","dependentFieldFilters":[],"labelHidden":false,"propertyObjectType":"CONTACT","metaData":[]}],"default":true,"isSmartGroup":false,"richText":{"content":"","type":"TEXT"}},{"fields":[{"name":"blog_example_blog_10500366470_subscription","label":"Notification
+        Frequency","type":"enumeration","fieldType":"radio","description":"","groupName":"contactinformation","displayOrder":1,"required":false,"selectedOptions":[],"options":[],"validation":{"name":"","message":"","data":"","useDefaultBlockList":false,"blockedEmailAddresses":[]},"enabled":true,"hidden":true,"defaultValue":"","isSmartField":false,"unselectedLabel":"","placeholder":"","dependentFieldFilters":[],"labelHidden":false,"propertyObjectType":"CONTACT","metaData":[]}],"default":true,"isSmartGroup":false,"richText":{"content":"","type":"TEXT"}},{"fields":[{"name":"lifecyclestage","label":"Lifecycle
+        Stage","type":"enumeration","fieldType":"radio","description":"","groupName":"contactinformation","displayOrder":2,"required":false,"selectedOptions":["subscriber"],"options":[{"label":"Subscriber","value":"subscriber","displayOrder":0,"doubleData":0.0,"hidden":false,"description":"","readOnly":false}],"validation":{"name":"","message":"","data":"","useDefaultBlockList":false,"blockedEmailAddresses":[]},"enabled":true,"hidden":true,"defaultValue":"","isSmartField":false,"unselectedLabel":"","placeholder":"","dependentFieldFilters":[],"labelHidden":false,"propertyObjectType":"CONTACT","metaData":[]}],"default":true,"isSmartGroup":false,"richText":{"content":"","type":"TEXT"}}],"createdAt":1560548987334,"updatedAt":1560548987334,"performableHtml":"","migratedFrom":"","ignoreCurrentValues":false,"metaData":[],"deletable":false,"inlineMessage":"","tmsId":"","captchaEnabled":false,"campaignGuid":"","cloneable":true,"editable":true,"formType":"HUBSPOT","deletedAt":0,"themeName":"legacy","parentId":0,"style":"","isPublished":false,"publishAt":0,"unpublishAt":0,"publishedAt":0,"multivariateTest":{"variants":[],"startAtTimestamp":0,"endAtTimestamp":0,"winningVariantId":"","finished":false,"controlId":""},"kickbackEmailWorkflowId":0,"kickbackEmailsJson":"","customUid":"","createMarketableContact":true}]'
+  recorded_at: 2020-02-20 14:29:43 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

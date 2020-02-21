@@ -1,0 +1,43 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/deals/v1/deal/paged?limit=250&includeAssociations=false&propertiesWithHistory=dealstage&offset=0&hapikey=demo
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Thu, 20 Feb 2020 14:28:27 GMT
+      content-type: application/json;charset=utf-8
+      content-length: '254'
+      connection: keep-alive
+      x-trace: 2B273823EA5D5BA08A8E71B10354B1FE4D20E4655F000000000000000000
+      x-hubspot-ratelimit-daily: '1000000'
+      x-hubspot-ratelimit-daily-remaining: '994843'
+      x-hubspot-ratelimit-interval-milliseconds: '10000'
+      x-hubspot-ratelimit-remaining: '89'
+      x-hubspot-ratelimit-max: '120'
+      x-hubspot-ratelimit-secondly: '12'
+      x-hubspot-ratelimit-secondly-remaining: '8'
+      vary: Accept-Encoding
+      content-encoding: gzip
+      access-control-allow-credentials: 'false'
+      accept-ranges: bytes
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      server: cloudflare
+      cf-ray: 56812ac6ebbae628-LHR
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"deals":[{"portalId":62515,"dealId":931633510,"isDeleted":false,"associations":null,"properties":{"dealstage":{"value":"presentationscheduled","timestamp":1565733537449,"source":"CRM_UI","sourceId":"dadams@hubspot.com","versions":[{"name":"dealstage","value":"presentationscheduled","timestamp":1565733537449,"sourceId":"dadams@hubspot.com","source":"CRM_UI","sourceVid":[]}]}},"imports":[],"stateChanges":[]}],"hasMore":false,"offset":931633511}'
+  recorded_at: 2020-02-20 14:28:29 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
