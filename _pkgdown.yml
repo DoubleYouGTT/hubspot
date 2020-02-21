@@ -18,6 +18,8 @@ reference:
   - hs_contacts_raw
   - hs_contact_lists_raw
   - hs_owners_raw
+  - hs_engagemets_raw
+  - hs_forms_from_a_portal_raw
 - title: Available object properties
   desc: ~
   contents:
