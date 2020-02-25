@@ -9,3 +9,5 @@
 * Added getter functions for retrieving deals and companies
 
 * Added getter functions for retrieving engagements (#99, @miahatton)
+
+* Added getter functions for retrieving forms from a portal (#93, @miahatton)
