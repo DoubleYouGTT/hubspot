@@ -1,5 +1,5 @@
 Package: hubspot
-Title: Work with Hubspot data
+Title: An Implementation of the 'Hubspot' API Using Tidy Principles
 Version: 0.0.2.999
 Authors@R: 
     c(person(given = "Steph",
@@ -21,8 +21,8 @@ Authors@R:
        person("Michael W.", "Kearney", ,
       email = "kearneymw@missouri.edu", role = c("ctb"),
       comment = c(ORCID = "0000-0002-0730-4694")))
-Description: Utilising the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
-    for more information), retrieve customer relationship data for reporting and analysis.
+Description: Functions connecting to the 'Hubspot CRM' API (see <https://developers.hubspot.com/docs>
+    for more information). Data is returned in lists with functions for returning data structures adhering to tidy principles.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
